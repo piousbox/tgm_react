@@ -11,6 +11,9 @@ import AppActions from '../../actions/AppActions'
 import ItemsStore from '../../stores/ItemsStore'
 import Home from './Home'
 import { ReportsShow } from '../Reports'
+import { GalleriesShow } from '../Galleries'
+import { CitiesShow } from '../Cities'
+import { EventsShow } from '../Events'
 
 function getAppState() {
   return {
@@ -42,9 +45,12 @@ class App extends React.Component {
         <Router history={hashHistory}>
           <Route path='/' component={Home} />
           <Route path='/en' component={Home} />
-          <Route path='/en/reports/view/:report_name' component={ReportsShow} />
-          <Route path='/en/galleries/view/:gallery_name' component={GalleriesShow} />
-          <Route path='/en/cities/travel-to/:city_name/events/:event_name' component={EventsShow} />
+
+          <Route path='/en/reports/view/:reportName' component={ReportsShow} />
+          <Route path='/en/galleries/view/:galleryName' component={GalleriesShow} />
+
+          <Route path='/en/cities/travel-to/:cityName' component={CitiesShow} />
+          <Route path='/en/cities/travel-to/:cityName/events/:eventName' component={EventsShow} />
         </Router>
 
       </div>
