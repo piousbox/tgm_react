@@ -1,0 +1,7 @@
+
+0.0.4 - maybe appearance is right and specs are wrong
+0.0.5 - specs have always passed in this repo I think, and appearance has never been what I expect
+0.0.6 - specs pass, but appearance is incomplete
+        included bootstrap css
+        specs work, functionality works, everything is great.
+0.0.7 - let's do router
