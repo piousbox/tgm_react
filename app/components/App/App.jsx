@@ -12,7 +12,7 @@ import ItemsStore from '../../stores/ItemsStore'
 import Home from './Home'
 import { ReportsShow } from '../Reports'
 import { GalleriesShow } from '../Galleries'
-import { CitiesShow } from '../Cities'
+import { CitiesIndex, CitiesShow } from '../Cities'
 import { EventsShow } from '../Events'
 
 function getAppState() {
@@ -40,20 +40,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <div style={{ backgroundImage: `url(${bg})` }} >
+      <Router history={hashHistory}>
+        <Route path='/' component={Home} />
+        <Route path='/en' component={Home} />
 
-        <Router history={hashHistory}>
-          <Route path='/' component={Home} />
-          <Route path='/en' component={Home} />
+        <Route path='/en/reports/view/:reportName' component={ReportsShow} />
+        <Route path='/en/galleries/view/:galleryName' component={GalleriesShow} />
 
-          <Route path='/en/reports/view/:reportName' component={ReportsShow} />
-          <Route path='/en/galleries/view/:galleryName' component={GalleriesShow} />
-
-          <Route path='/en/cities/travel-to/:cityName' component={CitiesShow} />
-          <Route path='/en/cities/travel-to/:cityName/events/:eventName' component={EventsShow} />
-        </Router>
-
-      </div>
+        <Route path='/en/cities' component={CitiesIndex} />
+        <Route path='/en/cities/travel-to/:cityName' component={CitiesShow} />
+        <Route path='/en/cities/travel-to/:cityName/events/:eventName' component={EventsShow} />
+      </Router>
     );
   }
 }

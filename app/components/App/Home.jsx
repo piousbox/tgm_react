@@ -11,8 +11,11 @@ class Home extends React.Component {
   render () {
     return (
       <div>
-        <h1>welcome home!</h1>
-        <Link to='/en/cities/travel-to/Chicago'>Travel to Chicago</Link>
+        <h1>Welcome Home!</h1>
+        <ul>
+          <li><Link to='/en/cities'>Cities Index</Link></li>
+          <li><Link to='/en/cities/travel-to/Chicago'>Travel to Chicago</Link></li>
+        </ul>
       </div>
     )
   }
