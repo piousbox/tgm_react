@@ -62,7 +62,7 @@ var loaders = [
   {
     test: /\.jsx?$/,
     exclude: /node_modules/,
-    loaders: jsxLoader
+    loaders: jsxLoader,
   },
   {
     test: /\.css$/,
@@ -84,7 +84,7 @@ var loaders = [
   {
     test: /\.scss$/,
     loader: sassLoader
-  }
+  },
 ];
 
 module.exports = loaders;

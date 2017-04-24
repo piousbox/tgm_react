@@ -30,6 +30,15 @@ class CitiesShow extends React.Component {
       nNewsitems = this.state.city.newsitems.length
     }
 
+    let reports = []
+    let nReports = 0
+    if (this.state.city.reports) {
+      this.state.city.reports.forEach((n, idx) => {
+        reports.push(<li key={idx} ><Link to={`/en/reports/${n.slug}`}>{n.title}</Link></li>)
+      })
+      nReports = this.state.city.reports.length
+    }
+
     return (
       <Grid>
         <Row>
@@ -43,9 +52,12 @@ class CitiesShow extends React.Component {
             { newsitems }
           </Col>
           <Col xs={6}>
-            Reports
-            Galleries
-            Events
+            <h2>Reports ({nReports})</h2>
+            <ul>
+              { reports }
+            </ul>
+            <h2>Galleries</h2>
+            <h2>Events</h2>
           </Col>               
         </Row>
       </Grid>

@@ -56,6 +56,11 @@ var config = {
     noInfo: false,
     inline: true,
     stats: { colors: true }
+  },
+  externals: {
+    'react/addons': true,
+    'react/lib/ReactContext': true,
+    'react/lib/ExecutionEnvironment': true,
   }
 };
 

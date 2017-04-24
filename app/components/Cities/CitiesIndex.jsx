@@ -3,49 +3,52 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router'
 
 import config from 'config'
+import Center from '../Center'
 
 class CitiesIndex extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { cities: [] }
+    this.state = { cities: [], filteredCities: [] }
+    this.handleCitiesFilterChange = this.handleCitiesFilterChange.bind(this)
   }
-
-  getInitialState() {
-    return { cities: [] }
-  }
-
+  
   componentDidMount() {
     fetch(config.apiUrl + "/api/cities.json").then(r => r.json()).then(data => {
-      this.setState({ cities: data })
+      this.setState({ cities: data, filteredCities: data })
     })
   }
 
-/*
-  componentWillMount () {
-    console.log('CitiesIndex component will mount')
-    let url = "http://localhost:3005/api/cities.json"
-    let cities
-    fetch(url).then(response => {
-      return response.json()
-    }).then(_data => {
-      window.cities = _data
-      console.log('cities', window.cities)
-      this.cities = _data
+  handleCitiesFilterChange (e) {
+    console.log('+++ +++ HEREHERE, state:', this.state)
+
+    // this.setState({ citiesFilter: e.target.value })
+    let filteredCities = []
+    this.state.cities.forEach( (city, idx) => {
+      if (city.cityname.toLowerCase().indexOf(e.target.value) !== -1) {
+        filteredCities.push( city )
+      }
+    })
+    console.log('+++ +++ not setting state...')
+    this.setState((prev, props) => {
+      console.log('+++ +++ setting state...')
+      return Object.assign(prev, { filteredCities, })
     })
   }
-*/
-
+  
   render() {
     let cities = []
-    this.state.cities.forEach( city => {
-      cities.push(<Col xs={4}><Link to={`/en/cities/travel-to/${city.cityname}`}>{city.name}</Link></Col>)
+    this.state.filteredCities.forEach( (city, idx) => {
+      cities.push(<Col key={idx} xs={4}><Link to={`/en/cities/travel-to/${city.cityname}`}>{city.name}</Link></Col>)
     }) 
     return (
       <Grid>
         <Row>
           <Col xs={12}>
-            <h1 style={{ textAlign: 'center' }} >Cities</h1>
+            <Center>
+              <h1 style={{ textAlign: 'center' }} >Cities</h1>
+              <input type="text" value={this.state.citiesFilter} onChange={this.handleCitiesFilterChange} />
+            </Center>
           </Col>
         </Row>
         <Row>
