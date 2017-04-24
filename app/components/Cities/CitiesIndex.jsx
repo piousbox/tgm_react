@@ -12,8 +12,8 @@ class CitiesIndex extends React.Component {
   }
 
   componentDidMount() {
-    fetch(config.apiDomain + "/api/cities.json").then(r => r.json()).then(json => {
-      this.setState({ cities: json.cities })
+    fetch(config.apiUrl + "/api/cities.json").then(r => r.json()).then(data => {
+      this.setState({ cities: data })
     })
   }
 
@@ -33,11 +33,10 @@ class CitiesIndex extends React.Component {
 */
 
   render() {
-    console.log('herehere')
     let cities = []
-    /* this.cities.forEach( city => {
-      cities.push(<div>city: {city.cityname}</div>)
-    }) */
+    this.state.cities.forEach( city => {
+      cities.push(<div>{city.cityname}</div>)
+    }) 
     return (
       <div>
         <h1>cities list:</h1>

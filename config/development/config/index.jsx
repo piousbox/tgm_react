@@ -1,7 +1,7 @@
 
 let Config = {
   envName: "development",
-  apiUrl: "http://localhost:3005"
+  apiUrl: "http://localhost:3004"
 }
 
 export default Config
