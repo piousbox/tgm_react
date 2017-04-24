@@ -2,7 +2,7 @@ import React          from 'react';
 import ReactDOM       from 'react-dom'
 import { expect }     from 'chai'
 import ReactTestUtils from 'react-dom/test-utils'
-// import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 
 import CitiesIndex from '../CitiesIndex.jsx'
 
@@ -20,18 +20,14 @@ describe('CitiesIndex', () => {
   })
 
   it('filters cities', () => {
-    let instance = shallowRender(CitiesIndex)
+    let wrapper = mount(<CitiesIndex />)
     let cities = [ { cityname: 'abba' }, { cityname: 'boring' } ]
     let event = { target: { value: 'a' } }
 
-    console.log("+++ +++ instance:", instance.props)
-    console.log("+++ +++ state:", instance.getState )
-
-    instance.setState({ cities: cities, filteredCities: [1, 2, 3] })
-    instance.handleCitiesFilterChange(event)
-    let result = instance.state.filteredCities
-    console.log('+++ +++ result:', result);
-    expect(1).to.equal(2)
+    wrapper.setState({ cities: cities, filteredCities: [1, 2, 3] })
+    wrapper.instance().handleCitiesFilterChange(event)
+    let result = wrapper.instance().state.filteredCities
+    expect(result).to.eql([cities[0]]) // only abba b/c only it includes letter 'a'
   })
 
 })

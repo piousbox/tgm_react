@@ -20,8 +20,6 @@ class CitiesIndex extends React.Component {
   }
 
   handleCitiesFilterChange (e) {
-    console.log('+++ +++ HEREHERE, state:', this.state)
-
     // this.setState({ citiesFilter: e.target.value })
     let filteredCities = []
     this.state.cities.forEach( (city, idx) => {
@@ -29,9 +27,7 @@ class CitiesIndex extends React.Component {
         filteredCities.push( city )
       }
     })
-    console.log('+++ +++ not setting state...')
     this.setState((prev, props) => {
-      console.log('+++ +++ setting state...')
       return Object.assign(prev, { filteredCities, })
     })
   }
