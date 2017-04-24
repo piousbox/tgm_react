@@ -1,6 +1,8 @@
 import React from 'react'
 import config from 'config'
 
+import { Grid, Row, Col } from 'react-bootstrap'
+
 class CitiesIndex extends React.Component {
 
   constructor(props) {
@@ -36,13 +38,19 @@ class CitiesIndex extends React.Component {
   render() {
     let cities = []
     this.state.cities.forEach( city => {
-      cities.push(<div>{city.cityname}</div>)
+      cities.push(<Col xs={4}>{city.cityname}</Col>)
     }) 
     return (
-      <div>
-        <h1>cities list:</h1>
-        { cities }
-      </div>
+      <Grid>
+        <Row>
+          <Col xs={12}>
+            <h1 style={{ textAlign: 'center' }} >Cities</h1>
+          </Col>
+        </Row>
+        <Row>
+          { cities }
+        </Row>
+      </Grid>
     )
   }
 }

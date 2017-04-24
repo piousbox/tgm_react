@@ -1,21 +1,38 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col,
+         Nav, NavItem, Navbar
+} from 'react-bootstrap'
 
 import { Link } from 'react-router'
 
 import styles from './_App.scss'
 
+import Footer from './Footer'
+
 class Home extends React.Component {
   render () {
     return (
       <div>
-        <h1>Welcome Home!</h1>
-        <ul>
-          <li><Link to='/en/cities'>Cities Index</Link></li>
-          <li><Link to='/en/cities/travel-to/Chicago'>Travel to Chicago</Link></li>
-        </ul>
+        <Navbar fixedTop>
+          <Navbar.Header>
+            <Navbar.Brand>T.G.M</Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav bsStyle="pills" pullRight>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to='/en/cities'>Cities</Link></li>
+              <li><Link to='/en/galleries'>Galleries</Link></li>              
+              <li><Link to='/en/reports'>Reports</Link></li>              
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        <div style={{ marginTop: '60px' }}>
+          {this.props.children}
+        </div>
+        <Footer />
       </div>
     )
   }
