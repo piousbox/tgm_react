@@ -5,10 +5,11 @@ class CitiesIndex extends React.Component {
 
   constructor(props) {
     super(props)
+    this.state = { cities: [] }
   }
 
   getInitialState() {
-    return {}
+    return { cities: [] }
   }
 
   componentDidMount() {
