@@ -47,7 +47,8 @@ var config = {
   ],
   plugins: plugins,
   resolve: {
-    extensions: ['', '.js', '.json', '.jsx']
+    extensions: ['', '.js', '.json', '.jsx'],
+    modulesDirectories: ['node_modules', 'config/' + process.env.NODE_ENV ]
   },
   devServer: {
     contentBase: path.resolve(pkg.config.buildDir),
