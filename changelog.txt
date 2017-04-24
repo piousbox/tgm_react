@@ -2,4 +2,4 @@
 0.0.0 - let's do router
 0.0.1 - let's do flux
         got environments in
-
+        got footer in. lets put citiesShow api in

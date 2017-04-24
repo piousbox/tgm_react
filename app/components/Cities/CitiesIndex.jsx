@@ -1,7 +1,8 @@
 import React from 'react'
-import config from 'config'
-
 import { Grid, Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router'
+
+import config from 'config'
 
 class CitiesIndex extends React.Component {
 
@@ -38,7 +39,7 @@ class CitiesIndex extends React.Component {
   render() {
     let cities = []
     this.state.cities.forEach( city => {
-      cities.push(<Col xs={4}>{city.cityname}</Col>)
+      cities.push(<Col xs={4}><Link to={`/en/cities/travel-to/${city.cityname}`}>{city.name}</Link></Col>)
     }) 
     return (
       <Grid>
