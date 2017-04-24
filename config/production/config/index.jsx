@@ -1,7 +1,7 @@
 
 let Config = {
   envName: "production",
-  apiUrl: "http://localhost:3004"
+  apiUrl: "http://api.piousbox.com"
 }
 
 export default Config
