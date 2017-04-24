@@ -19,5 +19,5 @@ server.listen(port, host, function (err) {
   if (err) { console.log(err); }
   var url = util.format('http://%s:%d', host, port);
   console.log('Listening at %s', url);
-  opn(url);
+  // opn(url);
 });

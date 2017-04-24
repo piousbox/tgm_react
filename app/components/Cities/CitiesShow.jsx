@@ -9,13 +9,16 @@ class CitiesShow extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { city: {} }
+    this.state = { 
+      city: {
+        name: props.params.cityName,
+      }
+    }
   }
 
   componentDidMount() {
     let cityName = this.props.params.cityName
     fetch(`${config.apiUrl}/api/cities/${cityName}.json`).then(r => r.json()).then(data => {
-      window.data = data
       this.setState({ city: data })
     })
   }
@@ -34,16 +37,34 @@ class CitiesShow extends React.Component {
     let nReports = 0
     if (this.state.city.reports) {
       this.state.city.reports.forEach((n, idx) => {
-        reports.push(<li key={idx} ><Link to={`/en/reports/${n.slug}`}>{n.title}</Link></li>)
+        reports.push(<li key={idx} ><Link to={`/en/reports/view/${n.name_seo}`}>{n.name}</Link></li>)
       })
       nReports = this.state.city.reports.length
+    }
+
+    let galleries = []
+    let nGalleries = 0
+    if (this.state.city.galleries) {
+      this.state.city.galleries.forEach((n, idx) => {
+        galleries.push(<li key={idx}><Link to={`/en/galleries/${n.slug}`}>{n.name}</Link></li>)
+      })
+      nGalleries = this.state.city.galleries.length
+    }
+
+    let events = []
+    let nEvents = 0
+    if (this.state.city.events) {
+      this.state.city.events.forEach((n, idx) => {
+        events.push(<li key={idx}><Link to={`/en/events/${n.slug}`}>{n.name}</Link></li>)
+      })
+      nEvents = this.state.city.events.length
     }
 
     return (
       <Grid>
         <Row>
           <Col xs={12} >
-            <h1 style={{ textAlign: 'center' }} >{this.props.params.cityName}</h1>
+            <h1 style={{ textAlign: 'center' }} >{ this.state.city.name }</h1>
           </Col>
         </Row>
         <Row>
@@ -56,8 +77,14 @@ class CitiesShow extends React.Component {
             <ul>
               { reports }
             </ul>
-            <h2>Galleries</h2>
-            <h2>Events</h2>
+            <h2>Galleries ({nGalleries})</h2>
+            <ul>
+              { galleries }
+            </ul>
+            <h2>Events ({nEvents})</h2>
+            <ul>
+              { events }
+            </ul>
           </Col>               
         </Row>
       </Grid>

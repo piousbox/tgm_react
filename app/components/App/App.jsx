@@ -1,6 +1,6 @@
 import React    from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route, hashHistory } from 'react-router'
+import { Router, Route, browserHistory } from 'react-router'
 import PropTypes from 'prop-types'
 
 import 'whatwg-fetch'
@@ -40,7 +40,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router history={hashHistory}>
+      <Router history={browserHistory}>
         <Route path='/' component={Home}>
 
           <Route path="/en/reports" component={ReportsIndex}>

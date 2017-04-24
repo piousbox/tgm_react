@@ -55,6 +55,7 @@ var config = {
     hot: true,
     noInfo: false,
     inline: true,
+    historyApiFallback: true,
     stats: { colors: true }
   },
   externals: {

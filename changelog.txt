@@ -4,3 +4,6 @@
         got environments in
         got footer in. lets put citiesShow api in
         enzyme is in
+0.0.2 - lets polish cities show just before deploying
+        got reportsShow
+        got browserHistory
