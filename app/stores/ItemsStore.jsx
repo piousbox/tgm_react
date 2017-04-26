@@ -31,12 +31,11 @@ AppDispatcher.register((action) => {
 
   switch(action.actionType) {
     case ITEMS_GET_SUCCESS:
-      store.setAll(action.items);
-      break
+      // store.setAll(action.items);
+      return action.items
     case SET_API_URL:
       // store.set({ apiUrl: action.apiUrl })
       return action.apiUrl
-      break
     default:
   }
 });
