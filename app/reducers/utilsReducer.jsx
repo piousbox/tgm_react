@@ -1,11 +1,11 @@
 
 import {
-  SET_API_URL_STRING,
+  SET_API_URL,
 } from '../constants/AppConstants'
 
-const setApiUrlString = (state = 'none', action) => {
+const setApiUrl = (state = 'none', action) => {
   switch (action.actionType) {
-    case SET_API_URL_STRING:
+    case SET_API_URL:
       return action.apiUrl
     default:
       return state
@@ -13,7 +13,7 @@ const setApiUrlString = (state = 'none', action) => {
 }
 
 export default {
-  setApiUrlString,
+  setApiUrl,
 }
 
 

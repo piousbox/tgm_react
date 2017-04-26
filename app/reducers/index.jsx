@@ -1,10 +1,10 @@
 
 import { combineReducers } from 'redux'
 
-import { setApiUrlString } from './utilsReducer'
+import { setApiUrl } from './utilsReducer'
 
 const combinedApp = combineReducers({
-  setApiUrlString,
+  setApiUrl,
 })
 
 export default combinedApp

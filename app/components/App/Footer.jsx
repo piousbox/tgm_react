@@ -26,7 +26,10 @@ class Footer extends React.Component {
               </ul>
             </Col>
             <Col xs={4}>
-              2017 &copy; wasya_co
+              <ul>
+                <li>2017 &copy; wasya_co</li>
+                <li>apiUrl: {this.props.apiUrl}</li>
+              </ul>
             </Col>
           </Row>
         </Grid>

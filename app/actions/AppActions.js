@@ -24,7 +24,6 @@ export default {
     AppDispatch.dispatch({
       actionType: SET_API_URL_STRING,
       apiUrl: config.apiUrl,
-      // envName: config.envName
     })
   },
 

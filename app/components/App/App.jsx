@@ -1,16 +1,17 @@
 import React    from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, browserHistory } from 'react-router'
-import PropTypes from 'prop-types'
-import { Provider } from 'react-redux'
+import { Provider, connect } from 'react-redux'
 import 'whatwg-fetch'
 
 import config     from 'config'
+import PropTypes from 'prop-types'
 
 import styles     from './_App.scss'
 import bg         from './images/noisy_grid.png'
 import AppActions from '../../actions/AppActions'
 import ItemsStore from '../../stores/ItemsStore'
+import store      from '../../stores'
 import Home from './Home'
 import { ReportsIndex, ReportsShow } from '../Reports'
 import { GalleriesIndex, GalleriesShow } from '../Galleries'
@@ -27,6 +28,9 @@ class App extends React.Component {
 
   constructor(props) {
     super(props)
+    store.dispatch({ actionType: 'setApiUrl',
+                     apiUrl: config.apiUrl
+    })
   }
 
   state = getAppState()
@@ -46,9 +50,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <Provider store={ItemsStore}>
+      <Provider store={store} >
         <Router history={browserHistory}>
-          <Route path='/' component={Home}>
+          <Route path='/' component={Home} apiUrl={this.props.apiUrl} >
 
             <Route path="/en/reports" component={ReportsIndex}>
               <Route path='/en/reports/view/:reportName' component={ReportsShow} />
@@ -70,7 +74,16 @@ class App extends React.Component {
 }
 
 App.propTypes = {
-  children: PropTypes.node.isRequired
+  // children: PropTypes.node.isRequired // not actually required at all
+  apiUrl: PropTypes.string.isRequired,
 }
 
-export default App
+function mapStateToProps(state, ownProps) {
+  return {
+    apiUrl: state.apiUrl
+  }
+}
+
+// export default App
+export default connect(mapStateToProps)(App)
+

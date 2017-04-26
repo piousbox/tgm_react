@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 
 import { Grid, Row, Col,
@@ -30,12 +31,16 @@ class Home extends React.Component {
           </Navbar.Collapse>
         </Navbar>
         <div style={{ marginTop: '60px' }}>
-          {this.props.children}
+          { this.props.children }
         </div>
-        <Footer />
+        <Footer apiUrl={this.props.apiUrl} />
       </div>
     )
   }
+}
+
+Home.propTypes = {
+  children: PropTypes.object.isRequired
 }
 
 export default Home
