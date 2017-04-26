@@ -26,18 +26,19 @@ function getAppState() {
 
 class App extends React.Component {
 
-  constructor(props) {
+  /* constructor(props) {
     super(props)
     store.dispatch({ actionType: 'setApiUrl',
                      apiUrl: config.apiUrl
     })
-  }
+  } */
 
   state = getAppState()
 
   componentDidMount() {
-    ItemsStore.addChangeListener(this.onChange);
-    AppActions.getItems();
+    ItemsStore.addChangeListener(this.onChange)
+    AppActions.getItems()
+    AppActions.setApiUrl()
   }
 
   componentWillUnmount() {
@@ -52,7 +53,7 @@ class App extends React.Component {
     return (
       <Provider store={store} >
         <Router history={browserHistory}>
-          <Route path='/' component={Home} apiUrl={this.props.apiUrl} >
+          <Route path='/' component={Home} apiUrl={this.props.apiUrl} off={5} >
 
             <Route path="/en/reports" component={ReportsIndex}>
               <Route path='/en/reports/view/:reportName' component={ReportsShow} />
@@ -75,15 +76,15 @@ class App extends React.Component {
 
 App.propTypes = {
   // children: PropTypes.node.isRequired // not actually required at all
-  apiUrl: PropTypes.string.isRequired,
+  // apiUrl: PropTypes.string.isRequired,
 }
 
 function mapStateToProps(state, ownProps) {
   return {
-    apiUrl: state.apiUrl
+    apiUrl: state, // .apiUrl
   }
 }
 
-// export default App
-export default connect(mapStateToProps)(App)
+export default App
+// export default connect(mapStateToProps)(App)
 

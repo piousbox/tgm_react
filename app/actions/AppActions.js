@@ -13,16 +13,16 @@ import {
   CITIES_INDEX_SUCCESS,
   CITIES_INDEX_ERROR,
 
-  SET_API_URL_STRING,
+  SET_API_URL,
 } from '../constants/AppConstants';
 
 import config from 'config'
 
 export default {
 
-  setApiUrlString() {
-    AppDispatch.dispatch({
-      actionType: SET_API_URL_STRING,
+  setApiUrl() {
+    AppDispatcher.dispatch({
+      actionType: SET_API_URL,
       apiUrl: config.apiUrl,
     })
   },
@@ -43,7 +43,6 @@ export default {
     })
   },
 
-  // this is from the tutorial, don't need it anymore.
   getItems() {
     WebAPI.getItems()
     .then((items) => {

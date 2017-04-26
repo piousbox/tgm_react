@@ -3,7 +3,9 @@ import AppDispatcher from '../dispatcher/AppDispatcher';
 
 import {
   ITEMS_UPDATED,
-  ITEMS_GET_SUCCESS
+  ITEMS_GET_SUCCESS,
+
+  SET_API_URL,
 } from '../constants/AppConstants';
 
 class ItemsStore extends BaseStore {
@@ -19,15 +21,22 @@ class ItemsStore extends BaseStore {
   removeChangeListener(callback) {
     this.removeListener(ITEMS_UPDATED, callback);
   }
+
 }
 
 let store = new ItemsStore();
 
 AppDispatcher.register((action) => {
+  console.log('+++ +++ ItemsStore reducer is called 111', action)
+
   switch(action.actionType) {
     case ITEMS_GET_SUCCESS:
       store.setAll(action.items);
-      break;
+      break
+    case SET_API_URL:
+      // store.set({ apiUrl: action.apiUrl })
+      return action.apiUrl
+      break
     default:
   }
 });

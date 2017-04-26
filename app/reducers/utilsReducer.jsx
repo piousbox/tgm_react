@@ -4,6 +4,9 @@ import {
 } from '../constants/AppConstants'
 
 const setApiUrl = (state = 'none', action) => {
+
+  console.log('+++ +++ utilsReducer is called:', action)
+
   switch (action.actionType) {
     case SET_API_URL:
       return action.apiUrl
