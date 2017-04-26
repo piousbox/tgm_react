@@ -9,3 +9,6 @@ export const ITEMS_UPDATED = 'ITEMS_UPDATED';
 export const CITIES_INDEX_SUCCESS = 'cities index success'
 export const CITIES_INDEX_ERROR = 'cities index error'
 
+export const SET_API_URL_STRING = 'set api url string'
+
+

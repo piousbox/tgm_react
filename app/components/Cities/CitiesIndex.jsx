@@ -15,6 +15,7 @@ class CitiesIndex extends React.Component {
   
   componentDidMount() {
     fetch(config.apiUrl + "/api/cities.json").then(r => r.json()).then(data => {
+      console.log('+++ +++ data is:', data);
       this.setState({ cities: data, filteredCities: data })
     })
   }

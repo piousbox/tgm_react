@@ -2,8 +2,10 @@ import React    from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, browserHistory } from 'react-router'
 import PropTypes from 'prop-types'
-
+import { Provider } from 'react-redux'
 import 'whatwg-fetch'
+
+import config     from 'config'
 
 import styles     from './_App.scss'
 import bg         from './images/noisy_grid.png'
@@ -23,6 +25,10 @@ function getAppState() {
 
 class App extends React.Component {
 
+  constructor(props) {
+    super(props)
+  }
+
   state = getAppState()
 
   componentDidMount() {
@@ -40,23 +46,25 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router history={browserHistory}>
-        <Route path='/' component={Home}>
+      <Provider store={ItemsStore}>
+        <Router history={browserHistory}>
+          <Route path='/' component={Home}>
 
-          <Route path="/en/reports" component={ReportsIndex}>
-            <Route path='/en/reports/view/:reportName' component={ReportsShow} />
+            <Route path="/en/reports" component={ReportsIndex}>
+              <Route path='/en/reports/view/:reportName' component={ReportsShow} />
+            </Route>
+
+            <Route path="/en/galleries" component={GalleriesIndex}>
+              <Route path='/en/galleries/view/:galleryName' component={GalleriesShow} />
+            </Route>
+
+            <Route path='/en/cities' component={CitiesIndex} />
+            <Route path='/en/cities/travel-to/:cityName' component={CitiesShow} />
+            <Route path='/en/cities/travel-to/:cityName/events/:eventName' component={EventsShow} />
+
           </Route>
-
-          <Route path="/en/galleries" component={GalleriesIndex}>
-            <Route path='/en/galleries/view/:galleryName' component={GalleriesShow} />
-          </Route>
-
-          <Route path='/en/cities' component={CitiesIndex} />
-          <Route path='/en/cities/travel-to/:cityName' component={CitiesShow} />
-          <Route path='/en/cities/travel-to/:cityName/events/:eventName' component={EventsShow} />
-
-        </Route>
-      </Router>
+        </Router>
+      </Provider>
     );
   }
 }

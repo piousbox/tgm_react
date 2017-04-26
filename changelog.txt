@@ -7,3 +7,4 @@
 0.0.2 - lets polish cities show just before deploying
         got reportsShow
         got browserHistory
+0.0.3 - let's go redux, reducers

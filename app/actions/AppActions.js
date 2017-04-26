@@ -11,11 +11,22 @@ import {
   ITEMS_GET_ERROR,
 
   CITIES_INDEX_SUCCESS,
-  CITIES_INDEX_ERROR
+  CITIES_INDEX_ERROR,
+
+  SET_API_URL_STRING,
 } from '../constants/AppConstants';
 
+import config from 'config'
 
 export default {
+
+  setApiUrlString() {
+    AppDispatch.dispatch({
+      actionType: SET_API_URL_STRING,
+      apiUrl: config.apiUrl,
+      // envName: config.envName
+    })
+  },
 
   citiesIndex() {
     let url = "http://localhost:3000/api/cities.json"
@@ -33,6 +44,7 @@ export default {
     })
   },
 
+  // this is from the tutorial, don't need it anymore.
   getItems() {
     WebAPI.getItems()
     .then((items) => {
@@ -46,7 +58,7 @@ export default {
         actionType: ITEMS_GET_ERROR
       });
     });
-  }
+  } 
 
 }
 

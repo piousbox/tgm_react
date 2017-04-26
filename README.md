@@ -139,16 +139,12 @@ import './index.html';
 
 * You can adjust the lodash template data in the `webpack/loaders.js` file.
 
-
 ## Releasing
 
 1. `npm version patch`
 2. `git push --follow-tags`
 3. `npm login` (Optional)
 4. `npm publish`
-
-
-
 
 ## License
 
