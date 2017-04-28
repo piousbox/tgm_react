@@ -1,29 +1,21 @@
 
-import { createStore } from 'redux'
+import { createStore, combineReducers } from 'redux'
+
+import config from 'config'
 
 import {
   SET_API_URL,
+
+  SET_CITIES_INDEX,
+  SET_CITIES_INDEX_OK,
+  SET_CITIES,
+  SET_CITIES_OK,
+
 } from '../constants/AppConstants'
 
-// import rootReducer from '../reducers'
+import AppDispatcher from '../dispatcher/AppDispatcher'
 
-// docs say to use only one store in the app...
-// import CitiesStore from './CitiesStore'
-// import ItemsStore from './ItemsStore'
-
-/*
-export default () => {
-  return createStore(
-    rootReducer,
-    applyMiddleware(thunk)
-  )
-} */
-
-// a reducer
-function setApiUrl (state = 'none-set', action) {
-
-  console.log("+++ +++ setApiUrl() reducer is called with state:", state, "action:", action, 'and:', SET_API_URL)
-
+function apiUrlReducer (state = 'none-set', action) {
   switch (action.type) {
     case SET_API_URL:
       return action.apiUrl
@@ -32,6 +24,42 @@ function setApiUrl (state = 'none-set', action) {
   }
 }
 
-let store = createStore( setApiUrl )
+function citiesIndexReducer (state = {}, action) {
+  console.log("+++ +++ citiesIndexReducer with action:", action)
+
+  switch (action.type) {
+    case SET_CITIES_INDEX:
+      fetch(config.apiUrl + "/api/cities.json").then(r => r.json()).then(data => {
+        let citiesIndex = { a: 'b', c: 'd' }
+        let toDispatch = { type: SET_CITIES_INDEX_OK, citiesIndex: citiesIndex }
+        console.log("+++ +++ AppDispatcher dispatching:", toDispatch);
+        AppDispatcher.dispatch( toDispatch )
+      })
+      return ''
+
+    case SET_CITIES_INDEX_OK:
+      return action.citiesIndex
+
+    default:
+      return ''
+  }
+}
+
+function citiesReducer (state = {}, action) {
+  switch (action.type) {
+    case SET_CITIES:
+      return action.cities
+    default:
+      return state
+  }
+}
+
+let reducer_sets = combineReducers({
+  apiUrl: apiUrlReducer,
+  citiesIndex: citiesIndexReducer,
+  cities: citiesReducer
+})
+
+let store = createStore( reducer_sets )
 
 export default store

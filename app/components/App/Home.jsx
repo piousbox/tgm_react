@@ -9,8 +9,8 @@ import { Grid, Row, Col,
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
+import config from 'config'
 import styles from './_App.scss'
-
 import Footer from './Footer'
 
 import {
@@ -19,13 +19,10 @@ import {
 
 class Home extends React.Component {
   componentWillMount() {
-    this.props.dispatch({ type: SET_API_URL,
-                          apiUrl: 'this here url' });
+    this.props.dispatch({ type: SET_API_URL, apiUrl: config.apiUrl });
   }
 
   render () {
-    console.log('+++ +++ props in Home:', this.props)
-
     return (
       <div>
         <Navbar fixedTop>
@@ -44,7 +41,9 @@ class Home extends React.Component {
         </Navbar>
         <div style={{ marginTop: '60px' }}>
           { this.props.children }
-          apiUrl: { this.props.apiUrl }
+          <br /><br /><br />
+          <br /><br /><br />
+          <br /><br /><br />
         </div>
         <Footer apiUrl={this.props.apiUrl} />
       </div>
@@ -57,10 +56,13 @@ Home.propTypes = {
 }
 
 function mapStateToProps(state, ownProps) {
+  console.log("+++ +++ mapStateToProps in Home with state:", state)
+
   return {
-    apiUrl: state, // .apiUrl
+    apiUrl: state.apiUrl
   }
 }
 
 // export default Home
 export default connect(mapStateToProps)(Home)
+

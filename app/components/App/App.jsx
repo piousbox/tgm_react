@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 import styles     from './_App.scss'
 import bg         from './images/noisy_grid.png'
 import AppActions from '../../actions/AppActions'
-import ItemsStore from '../../stores/ItemsStore'
+// import ItemsStore from '../../stores/ItemsStore'
 import store      from '../../stores'
 import Home from './Home'
 import { ReportsIndex, ReportsShow } from '../Reports'
@@ -18,35 +18,36 @@ import { GalleriesIndex, GalleriesShow } from '../Galleries'
 import { CitiesIndex, CitiesShow } from '../Cities'
 import { EventsShow } from '../Events'
 
-function getAppState() {
+/* function getAppState() {
   return {
     items: ItemsStore.getAll()
   };
-}
+} */
 
 class App extends React.Component {
 
-  /* constructor(props) {
+  constructor(props) {
     super(props)
-    store.dispatch({ actionType: 'setApiUrl',
+    /* store.dispatch({ actionType: 'setApiUrl',
                      apiUrl: config.apiUrl
-    })
-  } */
+    }) */
+    this.state = {}
+  }
 
-  state = getAppState()
+  // state = getAppState()
 
   componentDidMount() {
-    ItemsStore.addChangeListener(this.onChange)
+    // ItemsStore.addChangeListener(this.onChange)
     AppActions.getItems()
     AppActions.setApiUrl()
   }
 
   componentWillUnmount() {
-    ItemsStore.removeChangeListener(this.onChange);
+    // ItemsStore.removeChangeListener(this.onChange);
   }
 
   onChange = () => {
-    this.setState(getAppState());
+    // this.setState(getAppState());
   }
 
   render() {
@@ -81,7 +82,7 @@ App.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    apiUrl: state, // .apiUrl
+    // apiUrl: state, // .apiUrl
   }
 }
 

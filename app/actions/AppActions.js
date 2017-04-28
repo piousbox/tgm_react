@@ -10,8 +10,7 @@ import {
   ITEMS_GET_SUCCESS,
   ITEMS_GET_ERROR,
 
-  CITIES_INDEX_SUCCESS,
-  CITIES_INDEX_ERROR,
+  CITIES_INDEX_OK,
 
   SET_API_URL,
 } from '../constants/AppConstants';
@@ -28,18 +27,18 @@ export default {
   },
 
   citiesIndex() {
-    let url = "http://localhost:3000/api/cities.json"
+    let url = config.apiUrl + "/api/cities.json"
     fetch(url).then(response => {
       return response.json()
     }).then(_data => {
       AppDispatcher.dispatch({
-        actionType: CITIES_INDEX_SUCCESS,
+        actionType: CITIES_INDEX_OK,
         cities: _data,
       })
     }).catch( () => {
-      AppDispatcher.dispatch({
+      /* AppDispatcher.dispatch({
         actionType: CITIES_INDEX_ERROR
-      })
+      }) */
     })
   },
 
