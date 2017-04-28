@@ -14,18 +14,19 @@ class CitiesIndex extends React.Component {
 
   constructor(props) {
     super(props)
-    // this.state = { cities: [], filteredCities: [] }
-    // this.handleCitiesFilterChange = this.handleCitiesFilterChange.bind(this)
+    this.state = { cities: [], filteredCities: [] }
+    this.handleCitiesFilterChange = this.handleCitiesFilterChange.bind(this)
   }
   
   componentWillMount() {
-    this.props.dispatch({ type: SET_CITIES_INDEX });
+    // this.props.dispatch({ type: SET_CITIES_INDEX });
   }
 
   componentDidMount() {
     /* fetch(config.apiUrl + "/api/cities.json").then(r => r.json()).then(data => {
       this.setState({ cities: data, filteredCities: data })
     }) */
+    console.log("+++ +++ did I mount?")
   }
 
   handleCitiesFilterChange (e) {
@@ -69,7 +70,7 @@ CitiesIndex.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    cities: state.citiesIndex
+    // cities: state.citiesIndex
   }
 }
 
