@@ -14,6 +14,9 @@ import {
   CITIES_INDEX_ERROR,
 
   SET_API_URL,
+
+  SET_CITIES_INDEX,
+
 } from '../constants/AppConstants';
 
 import config from 'config'
@@ -33,12 +36,13 @@ export default {
       return response.json()
     }).then(_data => {
       AppDispatcher.dispatch({
-        actionType: CITIES_INDEX_SUCCESS,
+        actionType: SET_CITIES_INDEX,
         cities: _data,
       })
-    }).catch( () => {
+    }).catch( (r) => {
       AppDispatcher.dispatch({
-        actionType: CITIES_INDEX_ERROR
+        actionType: SET_CITIES_INDEX,
+        error: e,
       })
     })
   },

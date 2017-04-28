@@ -1,10 +1,12 @@
 
 import { combineReducers } from 'redux'
 
-import { setApiUrl } from './utilsReducer'
+import { setApiUrl      } from './utilsReducer'
+import { setCitiesIndex } from './citiesReducer'
 
-const combinedApp = combineReducers({
+const combined = combineReducers({
   setApiUrl,
+  setCitiesIndex
 })
 
-export default combinedApp
+export default combined

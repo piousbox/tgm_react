@@ -1,9 +1,18 @@
-import React from 'react'
-import { Grid, Row, Col } from 'react-bootstrap'
-import { Link } from 'react-router'
+
+import React       from 'react'
+import { Link }    from 'react-router'
+import { connect } from 'react-redux'
+import { Grid, Row, Col,
+} from 'react-bootstrap'
 
 import config from 'config'
 import Center from '../Center'
+
+import AppDispatcher from '../../dispatcher/AppDispatcher'
+
+import {
+  SET_CITIES_INDEX,
+} from '../../constants/AppConstants'
 
 class CitiesIndex extends React.Component {
 
@@ -14,10 +23,17 @@ class CitiesIndex extends React.Component {
   }
   
   componentDidMount() {
-    fetch(config.apiUrl + "/api/cities.json").then(r => r.json()).then(data => {
+    /* fetch(config.apiUrl + "/api/cities.json").then(r => r.json()).then(data => {
       console.log('+++ +++ data is:', data);
       this.setState({ cities: data, filteredCities: data })
-    })
+    }) */
+
+    console.log("+++ +++ cities index, these props are:", this.props)
+
+    AppDispatcher.dispatch({ type: SET_CITIES_INDEX, cities: { a: 'b', c: 'd' } })
+
+    this.props.dispatch({ type: SET_CITIES_INDEX });
+
   }
 
   handleCitiesFilterChange (e) {
@@ -56,5 +72,16 @@ class CitiesIndex extends React.Component {
   }
 }
 
-export default CitiesIndex
+CitiesIndex.propTypes = {
+  // children: PropTypes.object.isRequired,
+}
 
+function mapStateToProps(state, ownProps) {
+  // console.log("+++ +++ mapStateToProps in CitiesIndex, with state:", state)
+
+  return {
+    cities: state.setCitiesIndex
+  }
+}
+
+export default connect(mapStateToProps)(CitiesIndex)

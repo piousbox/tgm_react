@@ -15,8 +15,7 @@ const setApiUrl = (state = 'none', action) => {
   }
 }
 
-export default {
-  setApiUrl,
-}
+// export default { setApiUrl, }
+export default setApiUrl
 
 

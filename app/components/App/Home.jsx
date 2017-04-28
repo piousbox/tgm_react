@@ -24,8 +24,6 @@ class Home extends React.Component {
   }
 
   render () {
-    console.log('+++ +++ props in Home:', this.props)
-
     return (
       <div>
         <Navbar fixedTop>
@@ -57,10 +55,11 @@ Home.propTypes = {
 }
 
 function mapStateToProps(state, ownProps) {
+  // console.log("+++ +++ mapStateToProps at Home, with state:", state, "ownProps:", ownProps)
+
   return {
-    apiUrl: state, // .apiUrl
+    apiUrl: state.apiUrl
   }
 }
 
-// export default Home
 export default connect(mapStateToProps)(Home)
