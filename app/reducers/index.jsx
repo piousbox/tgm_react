@@ -6,8 +6,6 @@ import {
 } from '../constants/AppConstants'
 
 function apiUrlReducer(state = 'no-state', action) {
-  console.log("+++ +++ index reducer:", action)
-
   switch (action.type) {
     case SET_API_URL:
       return action.apiUrl

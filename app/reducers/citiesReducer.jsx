@@ -12,12 +12,9 @@ import AppDispatcher from '../dispatcher/AppDispatcher'
 import config from 'config'
 
 function citiesIndexReducer (state = {}, action) {
-  console.log("+++ +++ citiesIndexReducer with:", action)
-
   switch (action.type) {
     case SET_CITIES_INDEX:
       return action.cities
-
     default:
       return state
   }

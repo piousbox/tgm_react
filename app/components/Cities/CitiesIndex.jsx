@@ -11,8 +11,6 @@ import {
   SET_CITIES_INDEX,
 } from '../../constants/AppConstants'
 
-import CitiesStore from '../../stores/CitiesStore'
-// import AppDispatcher from '../../dispatcher/AppDispatcher'
 import { citiesIndex } from '../../actions'
 
 class CitiesIndex extends React.Component {
@@ -28,32 +26,27 @@ class CitiesIndex extends React.Component {
   }
 
   componentDidMount() {
-    /* fetch(config.apiUrl + "/api/cities.json").then(r => r.json()).then(data => {
-      this.setState({ cities: data, filteredCities: data })
-    }) */
+    // console.log("+++ +++ props are:", this.props)
+    this.setState({ citiesIndex: this.props.citiesIndex })
   }
 
   handleCitiesFilterChange (e) {
     let filteredCities = []
-    this.state.cities.forEach( (city, idx) => {
+    this.props.citiesIndex.forEach( (city) => {
       if (city.cityname.toLowerCase().indexOf(e.target.value) !== -1) {
         filteredCities.push( city )
       }
     })
     this.setState((prev, props) => {
-      return Object.assign(prev, { filteredCities, })
+      return Object.assign({}, prev, { 
+        citiesIndex: filteredCities,
+      })
     })
   }
   
   render() {
     let cities = []
-    /* this.state.filteredCities.forEach( (city, idx) => {
-      cities.push(<Col key={idx} xs={4}><Link to={`/en/cities/travel-to/${city.cityname}`}>{city.name}</Link></Col>)
-    }) */
-
-    console.log("+++ +++ citiesIndex props:", this.props)
-
-    Object.keys(this.props.citiesIndex).forEach( (idx) => {
+    Object.keys(this.state.citiesIndex).forEach( (idx) => {
       cities.push( <Col key={idx} xs={4}>{this.props.citiesIndex[idx].name}</Col> )
     })
 
@@ -70,9 +63,6 @@ class CitiesIndex extends React.Component {
         <Row>
           { cities }
         </Row>
-        <Row>
-          Cities 2: { this.state.cities }
-        </Row>
       </Grid>
     )
   }
@@ -85,7 +75,6 @@ CitiesIndex.propTypes = {
 function mapStateToProps(state, ownProps) {
   return {
     citiesIndex: state.citiesIndex,
-    cities: state.cities,
   }
 }
 

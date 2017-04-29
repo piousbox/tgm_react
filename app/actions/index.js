@@ -26,15 +26,12 @@ const setApiUrl = () => {
 }
 
 const citiesIndex = () => {
-  return (dispatch, getState) => {
-    console.log("++++ +++ thunk here")
-
+  return (dispatch, getState) => { 
     let state = getState()
     let url = config.apiUrl + "/api/cities.json"
 
     fetch(url).then(r => r.json()).then(_data => {
       dispatch({
-        // actionType: SET_CITIES_INDEX,
         type: SET_CITIES_INDEX,
         cities: _data,
       })

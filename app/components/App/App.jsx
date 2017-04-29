@@ -60,8 +60,6 @@ App.propTypes = {
 }
 
 function mapStateToProps(state, ownProps) {
-  // console.log("+++ +++ mapStateToProps:", state)
-
   return {
     apiUrl: state.apiUrl,
     citiesIndex: state.citiesIndex

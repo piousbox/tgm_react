@@ -18,6 +18,7 @@ import {
 } from '../../constants/AppConstants'
 
 import AppDispatcher from '../../dispatcher/AppDispatcher'
+import { LinkContainer } from 'react-router-bootstrap'
 
 class Home extends React.Component {
 
@@ -42,7 +43,7 @@ class Home extends React.Component {
               <li><Link to="/">Home</Link></li>
               <li><Link to='/en/cities'>Cities</Link></li>
               <li><Link to='/en/galleries'>Galleries</Link></li>              
-              <li><Link to='/en/reports'>Reports</Link></li>              
+              <li><Link to='/en/reports'>Reports</Link></li>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
