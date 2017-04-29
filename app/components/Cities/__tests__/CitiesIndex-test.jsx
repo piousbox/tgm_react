@@ -4,29 +4,37 @@ import { expect }     from 'chai'
 import ReactTestUtils from 'react-dom/test-utils'
 import { mount, shallow } from 'enzyme'
 
+import { Provider, connect } from 'react-redux'
+import store from '../../../stores'
+
 import CitiesIndex from '../CitiesIndex.jsx'
 
-function shallowRender(Component) {
+/* function shallowRender(Component) {
   const renderer = ReactTestUtils.createRenderer()
-  renderer.render(<Component/>)
+  renderer.render(
+    <Provider store={store}>
+      <Component/>
+    </Provider>
+  )
   return renderer.getRenderOutput()
-}
+} */
 
 describe('CitiesIndex', () => {
   it('Should render the correct element', () => {
-    let app1 = ReactTestUtils.renderIntoDocument(<CitiesIndex />)
+    let app1 = ReactTestUtils.renderIntoDocument(<Provider store={store}><CitiesIndex /></Provider>)
     let elem = ReactDOM.findDOMNode(app1)
-    expect(elem.tagName).to.equal('DIV')
+    expect(elem.tagName.toLowerCase()).to.equal('div')
   })
 
   it('filters cities', () => {
-    let wrapper = mount(<CitiesIndex />)
-    let cities = [ { cityname: 'abba' }, { cityname: 'boring' } ]
+    let cities = [ { name: 'abba' }, { name: 'boring' } ]
     let event = { target: { value: 'a' } }
-
-    wrapper.setState({ cities: cities, filteredCities: [1, 2, 3] })
-    wrapper.instance().handleCitiesFilterChange(event)
-    let result = wrapper.instance().state.filteredCities
+    let wrapper = shallow(<CitiesIndex store={store} citiesIndex={cities} aaa={"bbb bbb"} />).shallow()
+    wrapper.setProps({ citiesIndex: cities })
+    // wrapper.setState({ cities: cities, citiesIndex: [1, 2, 3] })
+    let funcToTest = wrapper.instance().handleCitiesFilterChange
+    funcToTest(event)
+    let result = wrapper.instance().state.citiesIndex
     expect(result).to.eql([cities[0]]) // only abba b/c only it includes letter 'a'
   })
 
