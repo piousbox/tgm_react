@@ -19,21 +19,24 @@ class CitiesIndex extends React.Component {
     super(props)
     this.state = { cities: [], filteredCities: [], citiesIndex: [] }
     this.handleCitiesFilterChange = this.handleCitiesFilterChange.bind(this)
+    this.props.dispatch(citiesIndex());
+    // this.setState({ citiesIndex: this.props.citiesIndex })
   }
   
   componentWillMount() {
-    this.props.dispatch(citiesIndex());
   }
 
   componentDidMount() {
-    // console.log("+++ +++ props are:", this.props)
-    this.setState({ citiesIndex: this.props.citiesIndex })
+  }
+
+  componentWillReceiveProps (nextProps) {
+    this.setState({ citiesIndex: nextProps.citiesIndex })
   }
 
   handleCitiesFilterChange (e) {
     let filteredCities = []
     this.props.citiesIndex.forEach( (city) => {
-      if (city.cityname.toLowerCase().indexOf(e.target.value) !== -1) {
+      if (city.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
         filteredCities.push( city )
       }
     })
@@ -47,7 +50,7 @@ class CitiesIndex extends React.Component {
   render() {
     let cities = []
     Object.keys(this.state.citiesIndex).forEach( (idx) => {
-      cities.push( <Col key={idx} xs={4}>{this.props.citiesIndex[idx].name}</Col> )
+      cities.push( <Col key={idx} xs={4}>{this.state.citiesIndex[idx].name}</Col> )
     })
 
     return (
