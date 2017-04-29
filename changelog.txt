@@ -10,3 +10,4 @@
 0.0.3 - let's go redux, reducers
 0.0.4 - broken and I'm making it worse
 0.0.5 - from 0.0.3, lets try to get state and reducers right.
+        let's just get flux right

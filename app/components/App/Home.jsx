@@ -17,7 +17,14 @@ import {
   SET_API_URL,
 } from '../../constants/AppConstants'
 
+import AppDispatcher from '../../dispatcher/AppDispatcher'
+
 class Home extends React.Component {
+
+  constructor(props) {
+    super(props)
+  }
+
   componentWillMount() {
     this.props.dispatch({ type: SET_API_URL, apiUrl: config.apiUrl });
   }
@@ -56,7 +63,7 @@ Home.propTypes = {
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log("+++ +++ mapStateToProps in Home with state:", state)
+  // console.log("+++ +++ mapStateToProps in Home with state:", state)
 
   return {
     apiUrl: state.apiUrl
