@@ -13,3 +13,5 @@ export const SET_CITIES_INDEX = 'set cities index'
 export const CITIES_INDEX_UPDATED = 'cities index updated'
 
 export const SET_CITIES = 'set cities'
+
+export const SET_SITE_NEWSITEMS = 'set site newsitems'

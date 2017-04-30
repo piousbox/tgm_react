@@ -20,10 +20,13 @@ import {
 import AppDispatcher from '../../dispatcher/AppDispatcher'
 import { LinkContainer } from 'react-router-bootstrap'
 
+import { siteNewsitemsIndex } from '../../actions'
+
 class Home extends React.Component {
 
   constructor(props) {
-    super(props)
+    super(props) 
+    this.props.dispatch(siteNewsitemsIndex());
   }
 
   componentWillMount() {
@@ -31,6 +34,13 @@ class Home extends React.Component {
   }
 
   render () {
+    let newsitems = []
+    if (this.props.siteNewsitems) {
+      this.props.siteNewsitems.forEach((item, idx) => {
+        newsitems.push(<li key={idx} >{item.name}</li>)
+      })
+    }
+
     return (
       <div>
         <Navbar fixedTop>
@@ -48,7 +58,14 @@ class Home extends React.Component {
           </Navbar.Collapse>
         </Navbar>
         <div style={{ marginTop: '60px' }}>
+          Newsitems:
+          <ul>{ newsitems }</ul>
+
+          <br /><br /><br />
+          <br /><br /><br />
+          <br /><br /><br />
           { this.props.children }
+
           <br /><br /><br />
           <br /><br /><br />
           <br /><br /><br />
@@ -64,10 +81,9 @@ Home.propTypes = {
 }
 
 function mapStateToProps(state, ownProps) {
-  // console.log("+++ +++ mapStateToProps in Home with state:", state)
-
   return {
-    apiUrl: state.apiUrl
+    apiUrl: state.apiUrl,
+    siteNewsitems: state.siteNewsitems,
   }
 }
 

@@ -12,4 +12,4 @@
 0.0.5 - from 0.0.3, lets try to get state and reducers right.
         let's just get flux right
         lastly here, tests
-
+0.0.6 - let's have newsitems of site travel-guide.mobi on the homepage

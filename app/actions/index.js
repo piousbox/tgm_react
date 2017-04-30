@@ -14,6 +14,9 @@ import {
   SET_CITIES_INDEX,
 
   SET_API_URL,
+
+  SET_SITE_NEWSITEMS,
+
 } from '../constants/AppConstants';
 
 import config from 'config'
@@ -39,7 +42,25 @@ const citiesIndex = () => {
   }
 }
 
+const siteNewsitemsIndex = () => {
+  return (dispatch, getState) => {
+    let state = getState()
+    let url = `${config.apiUrl}/api/sites/show/travel-guide.mobi.json`
+    
+    fetch(url).then(r => r.json()).then(_data => {
+      console.log("+++ +++ dispatching SET_SITE_NEWSITEMS with:", _data)
+
+      dispatch({
+        type: SET_SITE_NEWSITEMS,
+        siteNewsitems: _data.site.newsitems,
+      })
+    })
+  }
+}
+
 export default {
   setApiUrl,
   citiesIndex,
+
+  siteNewsitemsIndex,
 }
