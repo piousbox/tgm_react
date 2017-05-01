@@ -31,7 +31,7 @@ class MainNavigation extends React.Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav bsStyle="pills" pullRight>
-              <li><Link to="/en">Home</Link></li>
+              <li><Link to="/">Home</Link></li>
               <li><Link to='/en/cities'>Cities</Link></li>
               <li><Link to='/en/galleries'>Galleries</Link></li>              
               <li><Link to='/en/reports'>Reports</Link></li>

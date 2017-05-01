@@ -48,9 +48,18 @@ class CitiesIndex extends React.Component {
   }
   
   render() {
+    if (this.state.citiesIndex.length === 0) {
+      this.state.citiesIndex = this.props.citiesIndex
+    }    
+
     let cities = []
     Object.keys(this.state.citiesIndex).forEach( (idx) => {
-      cities.push( <Col key={idx} xs={4}>{this.state.citiesIndex[idx].name}</Col> )
+      cities.push(
+        <Col key={idx} xs={4}>
+          <Link to={`/en/cities/travel-to/${this.state.citiesIndex[idx].cityname}`} >
+            { this.state.citiesIndex[idx].name }
+          </Link>
+        </Col>)
     })
 
     return (

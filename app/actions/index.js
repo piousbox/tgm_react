@@ -32,13 +32,20 @@ const citiesIndex = () => {
   return (dispatch, getState) => { 
     let state = getState()
     let url = config.apiUrl + "/api/cities.json"
-
-    fetch(url).then(r => r.json()).then(_data => {
+    
+    if (state.citiesIndex.length > 0) {
       dispatch({
         type: SET_CITIES_INDEX,
-        cities: _data,
+        cities: state.citiesIndex
       })
-    })
+    } else {
+      fetch(url).then(r => r.json()).then(_data => {
+        dispatch({
+          type: SET_CITIES_INDEX,
+          cities: _data,
+        })
+      })
+    }
   }
 }
 
@@ -48,8 +55,6 @@ const siteNewsitemsIndex = () => {
     let url = `${config.apiUrl}/api/sites/show/travel-guide.mobi.json`
     
     fetch(url).then(r => r.json()).then(_data => {
-      console.log("+++ +++ dispatching SET_SITE_NEWSITEMS with:", _data)
-
       dispatch({
         type: SET_SITE_NEWSITEMS,
         siteNewsitems: _data.site.newsitems,

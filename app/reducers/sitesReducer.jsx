@@ -12,8 +12,6 @@ import AppDispatcher from '../dispatcher/AppDispatcher'
 import config from 'config'
 
 function sitesReducer (state = [], action) {
-  console.log("+++ +++ sitesReducer received:", action)
-
   switch (action.type) {
     case SET_SITE_NEWSITEMS:
       return action.siteNewsitems
