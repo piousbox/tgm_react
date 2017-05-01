@@ -26,7 +26,9 @@ class MainNavigation extends React.Component {
       <div>
         <Navbar fixedTop>
           <Navbar.Header>
-            <Navbar.Brand>T.G.M</Navbar.Brand>
+            <Navbar.Brand>
+              <Link to="/">T.G.M</Link>
+            </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>

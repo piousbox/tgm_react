@@ -2,8 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Grid, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router'
+import { connect } from 'react-redux'
 
 import config from 'config'
+import Newsitems from '../App/Newsitems'
+
+import { citiesShow } from '../../actions'
 
 class CitiesShow extends React.Component {
 
@@ -11,28 +15,21 @@ class CitiesShow extends React.Component {
     super(props)
     this.state = { 
       city: {
-        name: props.params.cityName,
+        name: props.params.cityname,
       }
     }
+    this.props.dispatch(citiesShow({ cityname: props.params.cityname }))
   }
 
   componentDidMount() {
-    let cityName = this.props.params.cityName
+    // cityName -> cityname
+    /* let cityName = this.props.params.cityName
     fetch(`${config.apiUrl}/api/cities/${cityName}.json`).then(r => r.json()).then(data => {
       this.setState({ city: data })
-    })
+    }) */
   }
 
   render () {
-    let newsitems = []
-    let nNewsitems = 0
-    if (this.state.city.newsitems) {
-      this.state.city.newsitems.forEach((n, idx) => {
-        newsitems.push(<div key={idx}>{n.descr}</div>)
-      })
-      nNewsitems = this.state.city.newsitems.length
-    }
-
     let reports = []
     let nReports = 0
     if (this.state.city.reports) {
@@ -69,8 +66,7 @@ class CitiesShow extends React.Component {
         </Row>
         <Row>
           <Col xs={6}>
-            <h2>Newsitems ({nNewsitems})</h2>
-            { newsitems }
+            <Newsitems newsitems={ this.props.city.newsitems } />
           </Col>
           <Col xs={6}>
             <h2>Reports ({nReports})</h2>
@@ -92,5 +88,14 @@ class CitiesShow extends React.Component {
   }
 }
 
-export default CitiesShow
+CitiesShow.propTypes = {
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    city: state.city,
+  }
+}
+
+export default connect(mapStateToProps)(CitiesShow)
 

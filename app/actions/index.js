@@ -12,6 +12,8 @@ import {
   ITEMS_GET_ERROR,
 
   SET_CITIES_INDEX,
+  SET_CITIES_SHOW,
+  SET_CITY,
 
   SET_API_URL,
 
@@ -49,6 +51,21 @@ const citiesIndex = () => {
   }
 }
 
+const citiesShow = (args) => {
+  return (dispatch, getState) => {
+    let state = getState()
+    let url = `${config.apiUrl}/api/cities/${args.cityname}.json`
+    fetch(url).then(r => r.json()).then(_data => {
+      // console.log("+++ +++ data:", _data)
+      dispatch({
+        type: SET_CITY,
+        cityname: args.cityname,
+        city: _data, // this is right so far
+      })
+    })
+  }
+}
+
 const siteNewsitemsIndex = () => {
   return (dispatch, getState) => {
     let state = getState()
@@ -65,7 +82,9 @@ const siteNewsitemsIndex = () => {
 
 export default {
   setApiUrl,
+
   citiesIndex,
+  citiesShow,
 
   siteNewsitemsIndex,
 }

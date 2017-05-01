@@ -14,11 +14,12 @@ function apiUrlReducer(state = 'no-state', action) {
   }
 }
 
-import { citiesIndexReducer } from './citiesReducer'
+import { citiesIndexReducer, citiesShowReducer } from './citiesReducer'
 import { sitesReducer } from './sitesReducer'
 
 export default combineReducers({
   apiUrl: apiUrlReducer,
   citiesIndex: citiesIndexReducer,
+  city: citiesShowReducer,
   siteNewsitems: sitesReducer,
 })

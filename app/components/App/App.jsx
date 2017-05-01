@@ -50,8 +50,8 @@ class App extends React.Component {
             </Route>
 
             <Route path='/en/cities' component={CitiesIndex} citiesIndex={this.props.citiesIndex} />
-            <Route path='/en/cities/travel-to/:cityName' component={CitiesShow} />
-            <Route path='/en/cities/travel-to/:cityName/events/:eventName' component={EventsShow} />
+            <Route path='/en/cities/travel-to/:cityname' component={CitiesShow} />
+            <Route path='/en/cities/travel-to/:cityname/events/:eventName' component={EventsShow} />
               
           </Route>
         </Router>

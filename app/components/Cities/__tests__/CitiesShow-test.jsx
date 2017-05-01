@@ -8,7 +8,7 @@ import CitiesShow from '../CitiesShow.jsx'
 describe('CitiesShow', () => {
   it('Should render the correct element', () => {
     let app1 = ReactTestUtils.renderIntoDocument(
-      <CitiesShow params={{ cityName: 'xxTestCityNamexx' }} />
+      <CitiesShow params={{ cityname: 'xxTestCitynamexx' }} />
     );
     let elem = ReactDOM.findDOMNode(app1);
     expect(elem.tagName.toLowerCase()).to.equal('div');

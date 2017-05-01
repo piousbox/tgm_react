@@ -29,11 +29,11 @@ class CitiesIndex extends React.Component {
   componentDidMount() {
   }
 
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     this.setState({ citiesIndex: nextProps.citiesIndex })
   }
 
-  handleCitiesFilterChange (e) {
+  handleCitiesFilterChange(e) {
     let filteredCities = []
     this.props.citiesIndex.forEach( (city) => {
       if (city.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {

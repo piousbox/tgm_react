@@ -3,26 +3,26 @@ import React from 'react'
 import { Grid, Row, Col } from 'react-bootstrap'
 
 import Center from './../Center'
+import styles from './_Newsitems.scss'
 
 class Newsitems extends React.Component {
-  render () {
+  render() {
     let listitems = []
-    this.props.newsitems.forEach( (n, idx) => {
-      listitems.push(
-        <li key={idx} >
-          <div>{ n.name }</div>
-          <div>{ n.descr }</div>
-        </li>)
-    })
-    return(
-      <Grid>
-        <Row>
-          <Col xs={12}>
-            <Center><h3>Newsitems</h3></Center>
-            <ul>{ listitems }</ul>
-          </Col>
-        </Row>
-      </Grid>
+    if (this.props.newsitems && this.props.newsitems.length > 0) {
+      this.props.newsitems.forEach( (n, idx) => {
+        listitems.push(
+          <li key={idx} className={ styles.newsitem }>
+            <div>{ n.name }</div>
+            <div dangerouslySetInnerHTML={{ __html: n.descr }} />
+          </li>)
+      })
+    }
+    
+    return (
+      <div>
+        <Center><h3>News ({ listitems.length })</h3></Center>
+        <ul>{ listitems }</ul>
+      </div>
     )
   }
 }

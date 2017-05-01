@@ -5,7 +5,9 @@
 
 import {
   SET_CITIES_INDEX,
-  CITIES_INDEX_UPDATED
+  SET_CITIES_SHOW,
+  SET_CITY,
+
 } from '../constants/AppConstants'
 
 import AppDispatcher from '../dispatcher/AppDispatcher'
@@ -20,6 +22,16 @@ function citiesIndexReducer (state = {}, action) {
   }
 }
 
+const citiesShowReducer = (state={}, action) => {
+  switch (action.type) {
+    case SET_CITY:
+      return action.city
+    default:
+      return state
+  }
+}
+
 export default {
   citiesIndexReducer,
+  citiesShowReducer,
 }
