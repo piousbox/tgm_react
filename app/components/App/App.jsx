@@ -38,7 +38,7 @@ class App extends React.Component {
     return (
       <Provider store={store} >
         <Router history={browserHistory}>
-          <Route path='/' component={MainNavigation} apiUrl={this.props.apiUrl} >
+          <Route path='/' component={MainNavigation} >
             <IndexRoute component={Home} />
 
             <Route path="/en/reports" component={ReportsIndex}>
@@ -65,8 +65,7 @@ App.propTypes = {
 
 function mapStateToProps(state, ownProps) {
   return {
-    apiUrl: state.apiUrl,
-    citiesIndex: state.citiesIndex
+    citiesIndex: state.citiesIndex,
   }
 }
 

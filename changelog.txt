@@ -14,3 +14,6 @@
         lastly here, tests
 0.0.6 - let's have newsitems of site travel-guide.mobi on the homepage
         newsitems in a city (and the city show itself)
+        lets reposition apiUrl and show it in footer again
+        one ad is in
+        lets have features on homepage

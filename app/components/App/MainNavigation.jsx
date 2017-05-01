@@ -9,10 +9,11 @@ import { Grid, Row, Col,
 import { Link, Redirect } from 'react-router'
 import { connect } from 'react-redux'
 
-import config from 'config'
 import styles from './_App.scss'
 import Footer from './Footer'
+import Leaderboard from './Leaderboard'
 
+import config from 'config'
 import {
   SET_API_URL,
 } from '../../constants/AppConstants'
@@ -21,6 +22,11 @@ import AppDispatcher from '../../dispatcher/AppDispatcher'
 import { LinkContainer } from 'react-router-bootstrap'
 
 class MainNavigation extends React.Component {
+
+  componentWillMount() {
+    this.props.dispatch({ type: SET_API_URL, apiUrl: config.apiUrl });
+  }
+
   render () {
     return (
       <div>
@@ -41,6 +47,8 @@ class MainNavigation extends React.Component {
           </Navbar.Collapse>
         </Navbar>
         <div style={{ marginTop: '60px' }}>
+          <Leaderboard />
+
           { this.props.children }
         </div>
         <Footer apiUrl={this.props.apiUrl} />
@@ -49,5 +57,10 @@ class MainNavigation extends React.Component {
   }
 }
 
-// export default connect(mapStateToProps)(MainNavigation)
-export default MainNavigation
+const mapStateToProps = (state, ownProps) => {
+  return {
+    apiUrl: state.apiUrl,
+  }
+}
+
+export default connect(mapStateToProps)(MainNavigation)

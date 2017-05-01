@@ -4,10 +4,10 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
-import config from 'config'
+import styles from './_Cities.scss'
+import { citiesShow } from '../../actions'
 import Newsitems from '../App/Newsitems'
 
-import { citiesShow } from '../../actions'
 
 class CitiesShow extends React.Component {
 
@@ -22,11 +22,6 @@ class CitiesShow extends React.Component {
   }
 
   componentDidMount() {
-    // cityName -> cityname
-    /* let cityName = this.props.params.cityName
-    fetch(`${config.apiUrl}/api/cities/${cityName}.json`).then(r => r.json()).then(data => {
-      this.setState({ city: data })
-    }) */
   }
 
   render () {
@@ -57,12 +52,34 @@ class CitiesShow extends React.Component {
       nEvents = this.state.city.events.length
     }
 
+    let features = []
+    if (this.props.city && this.props.city.features && this.props.city.features.length > 0) {
+      this.props.city.features.forEach((f, idx) => {
+        if (f.inner_html) {
+          features.push(
+            <Col xs={3} key={idx} className={ styles.featureWrapper } >
+              <div dangerouslySetInnerHTML={{ __html: f.inner_html }} />
+            </Col>)
+        } else {
+          features.push(
+            <Col xs={3} key={idx} className={ styles.featureWrapper } >
+              <div className={ styles.feature } >
+                { f.name }
+              </div>
+            </Col>)
+        }
+      })
+    }
+
     return (
       <Grid>
         <Row>
           <Col xs={12} >
             <h1 style={{ textAlign: 'center' }} >{ this.state.city.name }</h1>
           </Col>
+        </Row>
+        <Row>
+          { features }
         </Row>
         <Row>
           <Col xs={6}>

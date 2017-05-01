@@ -31,7 +31,6 @@ class Home extends React.Component {
   }
 
   componentWillMount() {
-    this.props.dispatch({ type: SET_API_URL, apiUrl: config.apiUrl });
   }
 
   render () {
@@ -47,6 +46,7 @@ class Home extends React.Component {
         <Grid>
           <Row>
             <Col xs={6}>
+              abba
             </Col>
             <Col xs={6}>
               <Newsitems newsitems={ this.props.siteNewsitems } />
