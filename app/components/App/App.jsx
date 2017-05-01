@@ -1,6 +1,8 @@
 import React    from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route, browserHistory } from 'react-router'
+import { Router, Route, browserHistory, Redirect,
+         IndexRoute
+} from 'react-router'
 import { Provider, connect } from 'react-redux'
 import 'whatwg-fetch'
 
@@ -15,6 +17,7 @@ import { ReportsIndex, ReportsShow } from '../Reports'
 import { GalleriesIndex, GalleriesShow } from '../Galleries'
 import { CitiesIndex, CitiesShow } from '../Cities'
 import { EventsShow } from '../Events'
+import MainNavigation from './MainNavigation'
 
 class App extends React.Component {
 
@@ -35,7 +38,8 @@ class App extends React.Component {
     return (
       <Provider store={store} >
         <Router history={browserHistory}>
-          <Route path='/' component={Home} apiUrl={this.props.apiUrl} off={5} >
+          <Route path='/' component={MainNavigation} apiUrl={this.props.apiUrl} >
+            <IndexRoute component={Home} />
 
             <Route path="/en/reports" component={ReportsIndex}>
               <Route path='/en/reports/view/:reportName' component={ReportsShow} />
@@ -48,7 +52,7 @@ class App extends React.Component {
             <Route path='/en/cities' component={CitiesIndex} citiesIndex={this.props.citiesIndex} />
             <Route path='/en/cities/travel-to/:cityName' component={CitiesShow} />
             <Route path='/en/cities/travel-to/:cityName/events/:eventName' component={EventsShow} />
-
+              
           </Route>
         </Router>
       </Provider>

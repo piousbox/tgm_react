@@ -12,6 +12,7 @@ import { connect } from 'react-redux'
 import config from 'config'
 import styles from './_App.scss'
 import Footer from './Footer'
+import Newsitems from './Newsitems'
 
 import {
   SET_API_URL,
@@ -42,35 +43,8 @@ class Home extends React.Component {
     }
 
     return (
-      <div>
-        <Navbar fixedTop>
-          <Navbar.Header>
-            <Navbar.Brand>T.G.M</Navbar.Brand>
-            <Navbar.Toggle />
-          </Navbar.Header>
-          <Navbar.Collapse>
-            <Nav bsStyle="pills" pullRight>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to='/en/cities'>Cities</Link></li>
-              <li><Link to='/en/galleries'>Galleries</Link></li>              
-              <li><Link to='/en/reports'>Reports</Link></li>
-            </Nav>
-          </Navbar.Collapse>
-        </Navbar>
-        <div style={{ marginTop: '60px' }}>
-          Newsitems:
-          <ul>{ newsitems }</ul>
-
-          <br /><br /><br />
-          <br /><br /><br />
-          <br /><br /><br />
-          { this.props.children }
-
-          <br /><br /><br />
-          <br /><br /><br />
-          <br /><br /><br />
-        </div>
-        <Footer apiUrl={this.props.apiUrl} />
+      <div style={{ marginTop: '60px' }}>
+        <Newsitems newsitems={ this.props.siteNewsitems } />
       </div>
     )
   }

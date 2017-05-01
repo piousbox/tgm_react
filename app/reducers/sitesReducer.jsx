@@ -11,7 +11,7 @@ import {
 import AppDispatcher from '../dispatcher/AppDispatcher'
 import config from 'config'
 
-function sitesReducer (state = {}, action) {
+function sitesReducer (state = [], action) {
   console.log("+++ +++ sitesReducer received:", action)
 
   switch (action.type) {

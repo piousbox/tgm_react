@@ -6,43 +6,46 @@ import { Grid, Row, Col,
          Nav, NavItem, Navbar
 } from 'react-bootstrap'
 
-import { Link } from 'react-router'
+import { Link, Redirect } from 'react-router'
 import { connect } from 'react-redux'
 
+import config from 'config'
 import styles from './_App.scss'
-import Home from './Home'
+import Footer from './Footer'
+
+import {
+  SET_API_URL,
+} from '../../constants/AppConstants'
+
+import AppDispatcher from '../../dispatcher/AppDispatcher'
+import { LinkContainer } from 'react-router-bootstrap'
 
 class MainNavigation extends React.Component {
   render () {
-    console.log('+++ +++ props in MainNavigation:', this.props)
-
     return (
-      <Navbar fixedTop>
-        <Navbar.Header>
-          <Navbar.Brand>T.G.M</Navbar.Brand>
-          <Navbar.Toggle />
-        </Navbar.Header>
-        <Navbar.Collapse>
-          <Nav bsStyle="pills" pullRight>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to='/en/cities'>Cities</Link></li>
-            <li><Link to='/en/galleries'>Galleries</Link></li>              
-            <li><Link to='/en/reports'>Reports</Link></li>              
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+      <div>
+        <Navbar fixedTop>
+          <Navbar.Header>
+            <Navbar.Brand>T.G.M</Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav bsStyle="pills" pullRight>
+              <li><Link to="/en">Home</Link></li>
+              <li><Link to='/en/cities'>Cities</Link></li>
+              <li><Link to='/en/galleries'>Galleries</Link></li>              
+              <li><Link to='/en/reports'>Reports</Link></li>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        <div style={{ marginTop: '60px' }}>
+          { this.props.children }
+        </div>
+        <Footer apiUrl={this.props.apiUrl} />
+      </div>
     )
   }
 }
 
-Home.propTypes = {
-  // children: PropTypes.object.isRequired,
-}
-
-function mapStateToProps(state, ownProps) {
-  return {
-    // apiUrl: state, // .apiUrl
-  }
-}
-
-export default connect(mapStateToProps)(MainNavigation)
+// export default connect(mapStateToProps)(MainNavigation)
+export default MainNavigation
