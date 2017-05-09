@@ -23,6 +23,8 @@ function citiesIndexReducer (state = {}, action) {
 }
 
 const citiesShowReducer = (state={}, action) => {
+  // console.log('+++ +++ citiesShowReducer():', action)
+
   switch (action.type) {
     case SET_CITY:
       return action.city

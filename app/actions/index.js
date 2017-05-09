@@ -56,7 +56,7 @@ const citiesShow = (args) => {
     let state = getState()
     let url = `${config.apiUrl}/api/cities/${args.cityname}.json`
     fetch(url).then(r => r.json()).then(_data => {
-      // console.log("+++ +++ data:", _data)
+      console.log("+++ +++ citiesShow() data:", _data)
       dispatch({
         type: SET_CITY,
         cityname: args.cityname,
