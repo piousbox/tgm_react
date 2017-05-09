@@ -9,7 +9,7 @@
 
 ## Install
 
-node ip 10.0.1.157
+node ip - this project is on lb
 dev port 3005
 
 

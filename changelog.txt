@@ -17,3 +17,6 @@
         lets reposition apiUrl and show it in footer again
         one ad is in
         lets have features on homepage
+0.0.7 - need to be able to work on it, so lets do test-driven
+        lets put reports in city show
+        lets figure out why reports view redirects to piousbox.com (api issue)

@@ -25,13 +25,16 @@ class CitiesShow extends React.Component {
   }
 
   render () {
+    console.log('+++ +++ CitiesShow props:', this.props)
+    console.log('+++ +++ CitiesShow state:', this.state)
+
     let reports = []
     let nReports = 0
-    if (this.state.city.reports) {
-      this.state.city.reports.forEach((n, idx) => {
+    if (this.props.city.reports) {
+      this.props.city.reports.forEach((n, idx) => {
         reports.push(<li key={idx} ><Link to={`/en/reports/view/${n.name_seo}`}>{n.name}</Link></li>)
       })
-      nReports = this.state.city.reports.length
+      nReports = this.props.city.reports.length
     }
 
     let galleries = []
