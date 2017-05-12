@@ -69,7 +69,7 @@ const citiesShow = (args) => {
 const siteNewsitemsIndex = () => {
   return (dispatch, getState) => {
     let state = getState()
-    let url = `${config.apiUrl}/api/sites/show/travel-guide.mobi.json`
+    let url = `${config.apiUrl}/api/sites/view/travel-guide.mobi.json`
     
     fetch(url).then(r => r.json()).then(_data => {
       dispatch({
