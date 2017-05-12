@@ -9,16 +9,6 @@ import store from '../../../stores'
 
 import CitiesIndex from '../CitiesIndex.jsx'
 
-/* function shallowRender(Component) {
-  const renderer = ReactTestUtils.createRenderer()
-  renderer.render(
-    <Provider store={store}>
-      <Component/>
-    </Provider>
-  )
-  return renderer.getRenderOutput()
-} */
-
 describe('CitiesIndex', () => {
   it('Should render the correct element', () => {
     let app1 = ReactTestUtils.renderIntoDocument(<Provider store={store}><CitiesIndex /></Provider>)
