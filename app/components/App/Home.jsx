@@ -45,10 +45,7 @@ class Home extends React.Component {
       <div style={{ marginTop: '60px' }}>
         <Grid>
           <Row>
-            <Col xs={6}>
-              abba
-            </Col>
-            <Col xs={6}>
+            <Col xs={12}>
               <Newsitems newsitems={ this.props.siteNewsitems } />
             </Col>
           </Row>

@@ -15,11 +15,19 @@ function apiUrlReducer(state = 'no-state', action) {
 }
 
 import { citiesIndexReducer, citiesShowReducer } from './citiesReducer'
+import { galleriesShowReducer } from './galleriesReducer'
+import { reportsShowReducer } from './reportsReducer'
 import { sitesReducer } from './sitesReducer'
 
 export default combineReducers({
   apiUrl: apiUrlReducer,
+
   citiesIndex: citiesIndexReducer,
   city: citiesShowReducer,
+
+  gallery: galleriesShowReducer,
+
+  report: reportsShowReducer,
+
   siteNewsitems: sitesReducer,
 })

@@ -48,6 +48,9 @@ class CitiesIndex extends React.Component {
   }
   
   render() {
+    console.log('+++ +++ state:', this.state)
+    console.log('+++ +++ props:', this.props)
+
     if (this.state.citiesIndex.length === 0) {
       this.state.citiesIndex = this.props.citiesIndex
     }    
