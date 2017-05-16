@@ -24,35 +24,36 @@ class CitiesShow extends React.Component {
   componentDidMount() {
   }
 
+  componentWillMount() {
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({...this.state, city: nextProps.city})
+  }
+  
   render () {
-    console.log('+++ +++ CitiesShow props:', this.props)
-    console.log('+++ +++ CitiesShow state:', this.state)
+    // console.log('+++ +++ CitiesShow props:', this.props)
+    // console.log('+++ +++ CitiesShow state:', this.state)
 
     let reports = []
-    let nReports = 0
     if (this.props.city.reports) {
       this.props.city.reports.forEach((n, idx) => {
-        reports.push(<li key={idx} ><Link to={`/en/reports/view/${n.name_seo}`}>{n.name}</Link></li>)
+        reports.push(<li key={idx} ><Link to={`/en/reports/show/${n.reportname}`}>{n.name}</Link></li>)
       })
-      nReports = this.props.city.reports.length
     }
 
     let galleries = []
-    let nGalleries = 0
     if (this.state.city.galleries) {
       this.state.city.galleries.forEach((n, idx) => {
-        galleries.push(<li key={idx}><Link to={`/en/galleries/${n.slug}`}>{n.name}</Link></li>)
+        galleries.push(<li key={idx}><Link to={`/en/galleries/show/${n.galleryname}`}>{n.name}</Link></li>)
       })
-      nGalleries = this.state.city.galleries.length
     }
 
     let events = []
-    let nEvents = 0
     if (this.state.city.events) {
       this.state.city.events.forEach((n, idx) => {
-        events.push(<li key={idx}><Link to={`/en/events/${n.slug}`}>{n.name}</Link></li>)
+        events.push(<li key={idx}><Link to={`/en/events/show/${n.slug}`}>{n.name}</Link></li>)
       })
-      nEvents = this.state.city.events.length
     }
 
     let features = []
@@ -79,6 +80,15 @@ class CitiesShow extends React.Component {
         <Row>
           <Col xs={12} >
             <h1 style={{ textAlign: 'center' }} >{ this.state.city.name }</h1>
+            <ul style={{ display: 'inline' }} >
+              <li><a href="javascript:void(0);">Reports</a></li>
+              <li><a href="javascript:void(0);">Galaleries</a></li>
+              <li><a href="javascript:void(0);">Videos</a></li>
+              <li><a href="javascript:void(0);">Venues</a></li>
+              <li><a href="javascript:void(0);">Events</a></li>
+              <li><a href="javascript:void(0);">People</a></li>
+            </ul>
+            <div class="description">{ this.props.city.description }</div>
           </Col>
         </Row>
         <Row>
@@ -89,15 +99,15 @@ class CitiesShow extends React.Component {
             <Newsitems newsitems={ this.props.city.newsitems } />
           </Col>
           <Col xs={6}>
-            <h2>Reports ({nReports})</h2>
+            <h2>Reports ({reports.length})</h2>
             <ul>
               { reports }
             </ul>
-            <h2>Galleries ({nGalleries})</h2>
+            <h2>Galleries ({galleries.length})</h2>
             <ul>
               { galleries }
             </ul>
-            <h2>Events ({nEvents})</h2>
+            <h2>Events ({events.length})</h2>
             <ul>
               { events }
             </ul>
@@ -114,6 +124,7 @@ CitiesShow.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   return {
     city: state.city,
+    // galleries: state.galleries, // Let's have galleries inside the city for now.
   }
 }
 

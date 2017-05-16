@@ -42,16 +42,16 @@ class App extends React.Component {
             <IndexRoute component={Home} />
 
             <Route path="/en/reports" component={ReportsIndex}>
-              <Route path='/en/reports/view/:reportName' component={ReportsShow} />
+              <Route path='/en/reports/show/:reportname' component={ReportsShow} />
             </Route>
 
             <Route path="/en/galleries" component={GalleriesIndex}>
-              <Route path='/en/galleries/view/:galleryName' component={GalleriesShow} />
+              <Route path='/en/galleries/show/:galleryname' component={GalleriesShow} />
             </Route>
 
             <Route path='/en/cities' component={CitiesIndex} citiesIndex={this.props.citiesIndex} />
             <Route path='/en/cities/travel-to/:cityname' component={CitiesShow} />
-            <Route path='/en/cities/travel-to/:cityname/events/:eventName' component={EventsShow} />
+            <Route path='/en/cities/travel-to/:cityname/events/:eventname' component={EventsShow} />
               
           </Route>
         </Router>

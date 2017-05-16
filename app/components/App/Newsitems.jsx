@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Grid, Row, Col } from 'react-bootstrap'
 
+import Newsitem from './Newsitem'
 import Center from './../Center'
 import styles from './_Newsitems.scss'
 
@@ -12,8 +13,7 @@ class Newsitems extends React.Component {
       this.props.newsitems.forEach( (n, idx) => {
         listitems.push(
           <li key={idx} className={ styles.newsitem }>
-            <div>{ n.name }</div>
-            <div dangerouslySetInnerHTML={{ __html: n.descr }} />
+            <Newsitem newsitem={ n } />
           </li>)
       })
     }

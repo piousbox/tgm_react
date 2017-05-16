@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { connect } from 'react-redux'
 
 import { Grid, Row, Col } from 'react-bootstrap'
 
 import config from 'config'
 import Center from '../Center'
+
+import { reportsShow } from '../../actions'
 
 class ReportsShow extends React.Component {
 
@@ -13,13 +16,13 @@ class ReportsShow extends React.Component {
     this.state = {
       report: {}
     }
+    this.props.dispatch(reportsShow({ reportname: props.params.reportname }))
   }
 
-  componentDidMount() {
-    let name = this.props.params.reportName
-    fetch(config.apiUrl + `/en/reports/view/${name}.json`).then(r => r.json()).then(data => {
-      this.setState({ report: data })
-    })
+  componentWillReceiveProps(nextProps) {
+    console.log("+++ +++ reportsShow received props:", nextProps)
+
+    this.setState({ ...this.state, report: nextProps.report })
   }
 
   render () {
@@ -34,7 +37,7 @@ class ReportsShow extends React.Component {
         </Row>
         <Row>
           <Col xs={8} xsOffset={2}>
-            <div dangerouslySetInnerHTML={{__html: this.state.report.descr}} />
+            <div dangerouslySetInnerHTML={{__html: this.state.report.description}} />
           </Col>
         </Row>
       </Grid>
@@ -42,5 +45,14 @@ class ReportsShow extends React.Component {
   }
 }
 
-export default ReportsShow
+ReportsShow.propTypes = {
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    report: state.report,
+  }
+}
+
+export default connect(mapStateToProps)(ReportsShow)
 
