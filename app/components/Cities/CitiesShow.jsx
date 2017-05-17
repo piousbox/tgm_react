@@ -10,10 +10,9 @@ import { Grid, Row, Col,
 import styles from './_Cities.scss'
 import { citiesShow } from '../../actions'
 import Newsitems from '../App/Newsitems'
-
+import CitiesShowMap from './CitiesShowMap'
 
 class CitiesShow extends React.Component {
-
   constructor(props) {
     super(props)
     this.state = { 
@@ -96,6 +95,7 @@ class CitiesShow extends React.Component {
         </Row>
         <Row>
           <Col xs={6}>
+            <CitiesShowMap />
             <Newsitems newsitems={ this.props.city.newsitems } />
           </Col>
           <Col xs={6}>
