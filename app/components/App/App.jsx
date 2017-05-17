@@ -18,6 +18,7 @@ import { GalleriesIndex, GalleriesShow } from '../Galleries'
 import { CitiesIndex, CitiesShow } from '../Cities'
 import { EventsShow } from '../Events'
 import MainNavigation from './MainNavigation'
+import TgmRouter from './TgmRouter'
 
 class App extends React.Component {
 
@@ -46,7 +47,7 @@ class App extends React.Component {
             </Route>
 
             <Route path="/en/galleries" component={GalleriesIndex}>
-              <Route path='/en/galleries/show/:galleryname' component={GalleriesShow} />
+              <Route path={TgmRouter.galleriesShowPath} component={GalleriesShow} />
             </Route>
 
             <Route path='/en/cities' component={CitiesIndex} citiesIndex={this.props.citiesIndex} />

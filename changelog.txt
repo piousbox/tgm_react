@@ -20,3 +20,5 @@
 0.0.7 - need to be able to work on it, so lets do test-driven
         lets put reports in city show
         lets figure out why reports view redirects to piousbox.com (api issue)
+let's link home newsitem to the page.
+let's introduce another layer of routing

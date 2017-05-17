@@ -1,8 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Grid, Row, Col } from 'react-bootstrap'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
+
+import { Grid, Row, Col,
+         Nav
+} from 'react-bootstrap'
 
 import styles from './_Cities.scss'
 import { citiesShow } from '../../actions'
@@ -32,9 +35,6 @@ class CitiesShow extends React.Component {
   }
   
   render () {
-    // console.log('+++ +++ CitiesShow props:', this.props)
-    // console.log('+++ +++ CitiesShow state:', this.state)
-
     let reports = []
     if (this.props.city.reports) {
       this.props.city.reports.forEach((n, idx) => {
@@ -80,15 +80,15 @@ class CitiesShow extends React.Component {
         <Row>
           <Col xs={12} >
             <h1 style={{ textAlign: 'center' }} >{ this.state.city.name }</h1>
-            <ul style={{ display: 'inline' }} >
-              <li><a href="javascript:void(0);">Reports</a></li>
+            <Nav bsStyle="pills">
+              <li><Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports</Link></li>
               <li><a href="javascript:void(0);">Galaleries</a></li>
               <li><a href="javascript:void(0);">Videos</a></li>
               <li><a href="javascript:void(0);">Venues</a></li>
               <li><a href="javascript:void(0);">Events</a></li>
               <li><a href="javascript:void(0);">People</a></li>
-            </ul>
-            <div class="description">{ this.props.city.description }</div>
+            </Nav>
+            <div className="description">{ this.props.city.description }</div>
           </Col>
         </Row>
         <Row>
