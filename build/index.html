@@ -2,7 +2,8 @@
 <html class="no-js" lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width" />
+  <!-- <meta name="viewport" content="width=device-width" /> -->
+  <meta name="viewport" content="initial-scale=1.0">
   <title>travel-guide-mobi</title>
   
   <link type="text/css" rel="stylesheet" media="all" href="/css/app.0.0.0.css" />
@@ -12,6 +13,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
+
+  <script>
+    function initMap() {
+      window.google = google;
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASTxVRpD3hpK5_EHWDROrzuvLNhOsvbuE&callback=initMap" async defer></script>
 
   <base href='/'>
   <script>
