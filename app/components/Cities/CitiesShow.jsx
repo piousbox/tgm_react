@@ -95,7 +95,7 @@ class CitiesShow extends React.Component {
         </Row>
         <Row>
           <Col xs={6}>
-            <CitiesShowMap />
+            <CitiesShowMap city={this.props.city} />
             <Newsitems newsitems={ this.props.city.newsitems } />
           </Col>
           <Col xs={6}>
