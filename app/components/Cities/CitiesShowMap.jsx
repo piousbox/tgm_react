@@ -15,7 +15,7 @@ class CitiesShowMap extends React.Component {
 
   // console.log("+++ +++ center of map now:", new window.google.maps.LatLng(4.5, -74));
 
-    return(   
+    return (   
       <div className={styles.map} >
         <Map google={window.google} zoom={14} initialCenter={{ lat: 4.674535, lng: -74.084084 }}>
           <Marker onClick={this.onMarkerClick}

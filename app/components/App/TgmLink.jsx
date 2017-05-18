@@ -6,11 +6,11 @@ import TgmRouter from './TgmRouter'
 class TgmLink extends React.Component {
   render () {
     if (this.props.newsitem) {
-      return(        
+      return (        
         <Link to={ TgmRouter.galleriesShowLink(this.props.newsitem.galleryname) }>{ this.props.newsitem.name }</Link>
       )
     } else {
-      return(
+      return (
         <div>Default TgmLink - info not provided</div>
       )
     }

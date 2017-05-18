@@ -119,6 +119,7 @@
       "comma-dangle": 0,
       "no-undef": 0,
       "space-infix-ops": 0,
+      "space-return-throw-case": 0,
       "strict": [
         2,
         "global"

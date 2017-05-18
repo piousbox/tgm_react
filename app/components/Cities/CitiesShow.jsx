@@ -30,7 +30,7 @@ class CitiesShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({...this.state, city: nextProps.city})
+    this.setState(Object.assugn({}, this.state, {city: nextProps.city}))
   }
   
   render () {
@@ -81,11 +81,11 @@ class CitiesShow extends React.Component {
             <h1 style={{ textAlign: 'center' }} >{ this.state.city.name }</h1>
             <Nav bsStyle="pills">
               <li><Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports</Link></li>
-              <li><a href="javascript:void(0);">Galaleries</a></li>
-              <li><a href="javascript:void(0);">Videos</a></li>
-              <li><a href="javascript:void(0);">Venues</a></li>
-              <li><a href="javascript:void(0);">Events</a></li>
-              <li><a href="javascript:void(0);">People</a></li>
+              <li><a href="#">Galaleries</a></li>
+              <li><a href="#">Videos</a></li>
+              <li><a href="#">Venues</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">People</a></li>
             </Nav>
             <div className="description">{ this.props.city.description }</div>
           </Col>
