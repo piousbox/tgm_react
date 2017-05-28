@@ -24,8 +24,8 @@ class GalleriesShow extends React.Component {
 
 
   render () {
-    console.log("+++ +++ galleriesShow props:", this.props)
-    console.log("+++ +++ galleriesShow state:", this.state)
+    // console.log("+++ +++ galleriesShow props:", this.props)
+    // console.log("+++ +++ galleriesShow state:", this.state)
 
     let thumb_photos = []
     if (this.state.photos) {
