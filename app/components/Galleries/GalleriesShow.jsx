@@ -10,6 +10,8 @@ import { galleriesShow } from '../../actions'
 import Center from '../Center'
 
 class GalleriesShow extends React.Component {
+
+
   constructor(props) {
     super(props)
     this.state = { gallery: {} }
@@ -17,12 +19,13 @@ class GalleriesShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ ...this.state, photos: nextProps.gallery.photos })
+    this.setState(Object.assign({}, this.state, {photos: nextProps.gallery.photos }))
   }
 
+
   render () {
-    console.log("+++ +++ galleriesShow props:", this.props)
-    console.log("+++ +++ galleriesShow state:", this.state)
+    // console.log("+++ +++ galleriesShow props:", this.props)
+    // console.log("+++ +++ galleriesShow state:", this.state)
 
     let thumb_photos = []
     if (this.state.photos) {
@@ -58,7 +61,7 @@ class GalleriesShow extends React.Component {
           </Col>
         </Row>
       </Grid>
-    )
+    ) 
   }
 }
 

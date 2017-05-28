@@ -22,7 +22,7 @@ class ReportsShow extends React.Component {
   componentWillReceiveProps(nextProps) {
     console.log("+++ +++ reportsShow received props:", nextProps)
 
-    this.setState({ ...this.state, report: nextProps.report })
+    this.setState(Object.assign({}, this.state, {report: nextProps.report }))
   }
 
   render () {
