@@ -30,7 +30,7 @@ class CitiesShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState(Object.assugn({}, this.state, {city: nextProps.city}))
+    this.setState(Object.assign({}, this.state, {city: nextProps.city}))
   }
   
   render () {
