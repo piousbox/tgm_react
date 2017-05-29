@@ -13,4 +13,4 @@ git commit -m 'auto-build on `date +%Y%m%d`' ;
 git push &&
 git checkout "$tagNumber" &&
 
-echo ok
+echo "tgm build ok"
