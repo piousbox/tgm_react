@@ -9,8 +9,9 @@ import { galleriesShow } from '../../actions'
 
 import Center from '../Center'
 
-class GalleriesShow extends React.Component {
+import styles from './_Galleries.scss'
 
+class GalleriesShow extends React.Component {
 
   constructor(props) {
     super(props)
@@ -21,7 +22,6 @@ class GalleriesShow extends React.Component {
   componentWillReceiveProps(nextProps) {
     this.setState(Object.assign({}, this.state, {photos: nextProps.gallery.photos }))
   }
-
 
   render () {
     // console.log("+++ +++ galleriesShow props:", this.props)
@@ -41,7 +41,7 @@ class GalleriesShow extends React.Component {
     if (this.state.photos) {
       this.state.photos.forEach((photo, idx) => {
         large_photos.push(
-          <div>
+          <div className={ styles.largePhotos }>
             <img src={photo.large_url} alt='' />
             <br /><br />
           </div>)
