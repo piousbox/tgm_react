@@ -43,7 +43,7 @@ class App extends React.Component {
             <IndexRoute component={Home} />
 
             <Route path="/en/reports" component={ReportsIndex}>
-              <Route path='/en/reports/show/:reportname' component={ReportsShow} />
+              <Route path={TgmRouter.reportsShowPath} component={ReportsShow} />
             </Route>
 
             <Route path="/en/galleries" component={GalleriesIndex}>

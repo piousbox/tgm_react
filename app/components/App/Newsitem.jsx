@@ -11,16 +11,22 @@ class Newsitem extends React.Component {
   render() {
     let newsitem = {}
     let photos = []
+    let descr = [] 
 
     if (this.props.newsitem.photos) {
       this.props.newsitem.photos.forEach( (photo, idx) => {
         photos.push( <img src={ photo.thumb_url } alt='' /> )
       })
     }
+    
+    if (this.props.newsitem.descr) {
+      descr = this.props.newsitem.descr
+    }
 
     return (
       <div>
         <p><TgmLink newsitem={ this.props.newsitem } /></p>
+        { descr }
         { photos }
       </div>
     )
