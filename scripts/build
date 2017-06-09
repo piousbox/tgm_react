@@ -4,6 +4,8 @@ set -x
 
 tagNumber=`git branch | grep -e "^*" | cut -d' ' -f 2`
 
+npm run test-travis &&
+
 git checkout master &&
 git merge "$tagNumber" &&
 npm run clean &&
