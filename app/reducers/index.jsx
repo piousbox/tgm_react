@@ -18,6 +18,7 @@ import { citiesIndexReducer, citiesShowReducer } from './citiesReducer'
 import { galleriesShowReducer } from './galleriesReducer'
 import { reportsShowReducer } from './reportsReducer'
 import { sitesReducer } from './sitesReducer'
+import { venuesShowReducer } from './venuesReducer'
 
 export default combineReducers({
   apiUrl: apiUrlReducer,
@@ -30,4 +31,6 @@ export default combineReducers({
   report: reportsShowReducer,
 
   siteNewsitems: sitesReducer,
+
+  venue: venuesShowReducer,
 })

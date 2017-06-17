@@ -21,3 +21,7 @@ export const SET_GALLERY = 'set gallery'
 export const SET_REPORT = 'set report'
 
 export const SET_SITE_NEWSITEMS = 'set site newsitems'
+
+export const SET_VENUE = 'set venue'
+export const SET_VENUES = 'set venues' // not used yet _vp_ 20170617
+

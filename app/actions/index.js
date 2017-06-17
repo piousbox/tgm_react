@@ -23,6 +23,8 @@ import {
 
   SET_SITE_NEWSITEMS,
 
+  SET_VENUE,
+
 } from '../constants/AppConstants';
 
 import config from 'config'
@@ -103,6 +105,19 @@ const reportsShow = (args) => {
   }
 }
 
+const venuesShow = (args) => {
+  return (dispatch, getState) => {
+    let url = `${config.apiUrl}/api/venues/view/${args.venuename}.json`
+    fetch(url).then(r => r.json()).then(_data => {
+      console.log("+++ +++ got venue data:", _data)
+      dispatch({
+        type: SET_VENUE,
+        venue: _data.venue,
+      })
+    })
+  }
+}
+
 const siteNewsitemsIndex = () => {
   return (dispatch, getState) => {
     let state = getState()
@@ -118,7 +133,6 @@ const siteNewsitemsIndex = () => {
 }
 
 export default {
-  setApiUrl,
 
   citiesIndex,
   citiesShow,
@@ -127,5 +141,8 @@ export default {
 
   reportsShow,
 
+  setApiUrl,
   siteNewsitemsIndex,
+
+  venuesShow,
 }

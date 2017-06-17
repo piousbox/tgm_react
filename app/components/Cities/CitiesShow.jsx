@@ -55,6 +55,18 @@ class CitiesShow extends React.Component {
       })
     }
 
+    let venues = []
+    if (this.state.city.venues) {
+      this.state.city.venues.forEach((n, idx) => {
+        venues.push(
+          <li key={idx}>
+            <Link to={`/en/cities/travel-to/${this.state.city.cityname}/venues/show/${n.name_seo}`}>{n.name}</Link>
+            <div dangerouslySetInnerHTML={{ __html: n.description }} />
+          </li>
+        )
+      })
+    }
+    
     let features = []
     if (this.props.city && this.props.city.features && this.props.city.features.length > 0) {
       this.props.city.features.forEach((f, idx) => {
@@ -87,7 +99,7 @@ class CitiesShow extends React.Component {
               <li><a href="#">Events</a></li>
               <li><a href="#">People</a></li>
             </Nav>
-            <div className="description">{ this.props.city.description }</div>
+            <div className="description" dangerouslySetInnerHTML={{ __html: this.props.city.description }} />
           </Col>
         </Row>
         <Row>
@@ -110,6 +122,10 @@ class CitiesShow extends React.Component {
             <h2>Events ({events.length})</h2>
             <ul>
               { events }
+            </ul>
+            <h2> Venues ({venues.length})</h2>
+            <ul>
+              { venues }
             </ul>
           </Col>               
         </Row>
