@@ -135,7 +135,6 @@ class CitiesShow extends React.Component {
             <ul>
               { venues }
             </ul>
-          </Col>               
             <h2>Videos ({videos.length})</h2>
             <div>{ videos }</div>
           </Col>
