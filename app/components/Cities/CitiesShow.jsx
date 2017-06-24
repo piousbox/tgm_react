@@ -7,10 +7,11 @@ import { Grid, Row, Col,
          Nav
 } from 'react-bootstrap'
 
-import styles from './_Cities.scss'
+import styles         from './_Cities.scss'
 import { citiesShow } from '../../actions'
-import Newsitems from '../App/Newsitems'
-import CitiesShowMap from './CitiesShowMap'
+import Newsitems      from '../App/Newsitems'
+import CitiesShowMap  from './CitiesShowMap'
+import VideoPreview   from '../Videos/VideoPreview'
 
 class CitiesShow extends React.Component {
   constructor(props) {
@@ -74,6 +75,13 @@ class CitiesShow extends React.Component {
       })
     }
 
+    let videos = []
+    if (this.props.city && this.props.city.videos) {
+      this.props.city.videos.forEach((v, idx) => {
+        videos.push(<div key={idx}><VideoPreview video={v} /></div>)
+      })
+    }
+
     return (
       <Grid>
         <Row>
@@ -111,7 +119,9 @@ class CitiesShow extends React.Component {
             <ul>
               { events }
             </ul>
-          </Col>               
+            <h2>Videos ({videos.length})</h2>
+            <div>{ videos }</div>
+          </Col>
         </Row>
       </Grid>
     )

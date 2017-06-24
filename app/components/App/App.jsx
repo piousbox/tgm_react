@@ -17,6 +17,7 @@ import { ReportsIndex, ReportsShow } from '../Reports'
 import { GalleriesIndex, GalleriesShow } from '../Galleries'
 import { CitiesIndex, CitiesShow } from '../Cities'
 import { EventsShow } from '../Events'
+import VideosShow from '../Videos/VideosShow'
 import MainNavigation from './MainNavigation'
 import TgmRouter from './TgmRouter'
 
@@ -54,6 +55,8 @@ class App extends React.Component {
             <Route path='/en/cities/travel-to/:cityname' component={CitiesShow} />
             <Route path='/en/cities/travel-to/:cityname/events/:eventname' component={EventsShow} />
               
+            <Route path='/en/videos/show/:youtube_id' component={VideosShow} />
+
           </Route>
         </Router>
       </Provider>
