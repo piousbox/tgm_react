@@ -12,6 +12,9 @@ let TgmRouter = {
   venuesShowPath: '/en/venues/show/:reportname',
   venuesShowLink: (g) => { return `/en/venues/show/${g}` },
 
+  videosShowPath: '/en/videos/show/:youtube_id',
+  videosShowLink: (g) => { return `/en/videos/show/${g}` },
+
 }
 
 export default TgmRouter
