@@ -1,12 +1,16 @@
 import React from 'react'
 
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col,
+         Panel,
+} from 'react-bootstrap'
 
 import Center from './../Center'
 import styles from './_Newsitems.scss'
 
 import TgmLink from './TgmLink'
 import VideoPreview   from '../Videos/VideoPreview'
+
+import Meta from '../Meta'
 
 class Newsitem extends React.Component {
   render() {
@@ -15,7 +19,7 @@ class Newsitem extends React.Component {
     let descr = []
 
     if (this.props.newsitem.item_type === 'video') {
-      descr.push(<VideoPreview video={ this.props.newsitem } />)
+      return (<VideoPreview video={ this.props.newsitem } />)
     }
 
     if (this.props.newsitem.photos) {
@@ -29,11 +33,12 @@ class Newsitem extends React.Component {
     }
 
     return (
-      <div>
-        <p><TgmLink newsitem={ this.props.newsitem } /></p>
+      <Panel>
+        <h3><TgmLink newsitem={ this.props.newsitem } /></h3>
+        <Meta item={ this.props.newsitem } />
         { descr }
         { photos }
-      </div>
+      </Panel>
     )
   }
 }
