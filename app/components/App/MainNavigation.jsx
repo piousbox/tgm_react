@@ -51,7 +51,7 @@ class MainNavigation extends React.Component {
     } else if (this.state.profile.id) {
       profile_pic = (<img src={`//graph.facebook.com/${this.state.profile.id}/picture`} alt='' />)
     } else {
-      profile_pic = (<FacebookAuth appId="123014244977505" callback={(response) => {this.props.dispatch(setProfile(response))}} component={MyFacebookButton} />)
+      profile_pic = (<FacebookAuth appId={config.fbAppId} callback={(response) => {this.props.dispatch(setProfile(response))}} component={MyFacebookButton} />)
     }
     
     return (
