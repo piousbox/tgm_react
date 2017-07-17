@@ -64,8 +64,7 @@ class Home extends React.Component {
         <Grid>
           <Row>
             <Col xs={12}>
-              <FacebookAuth appId="123014244977505" callback={(response) => {this.props.dispatch(setProfile(response))}} 
-                            component={MyFacebookButton} />
+              { /* <FacebookAuth appId="123014244977505" callback={(response) => {this.props.dispatch(setProfile(response))}} component={MyFacebookButton} /> */ }
 
               <Newsitems newsitems={ this.props.siteNewsitems } />
             </Col>

@@ -21,13 +21,27 @@ import {
 import AppDispatcher from '../../dispatcher/AppDispatcher'
 import { LinkContainer } from 'react-router-bootstrap'
 
+import { setProfile } from '../../actions'
+import FacebookAuth from 'react-facebook-auth'
+import { EmailSignUpForm, AuthGlobals } from 'redux-auth/default-theme'
+import { authStateReducer } from 'redux-auth'
+const MyFacebookButton = ({ onClick }) => (
+  <button onClick={onClick}>f</button>
+);
+
 class MainNavigation extends React.Component {
+
+  constructor (props) {
+    super(props)
+    if (localStorage.getItem('fbAccountId')) {
+      this.state = { profile: { id: localStorage.getItem('fbAccountId') } }
+    } else {
+      this.state = { profile: {} }
+    }
+  }
 
   componentWillMount() {
     this.props.dispatch({ type: SET_API_URL, apiUrl: config.apiUrl });
-    if (localStorage.getItem('fbAccountId')) {
-      this.state = { profile: { id: localStorage.getItem('fbAccountId') } }
-    }      
   }
 
   render () {
@@ -36,6 +50,8 @@ class MainNavigation extends React.Component {
       profile_pic = (<img src={`//graph.facebook.com/${this.props.profile.id}/picture`} alt='' />)
     } else if (this.state.profile.id) {
       profile_pic = (<img src={`//graph.facebook.com/${this.state.profile.id}/picture`} alt='' />)
+    } else {
+      profile_pic = (<FacebookAuth appId="123014244977505" callback={(response) => {this.props.dispatch(setProfile(response))}} component={MyFacebookButton} />)
     }
     
     return (
