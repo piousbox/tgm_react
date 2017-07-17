@@ -19,6 +19,8 @@ import {
 
   SET_GALLERY,
 
+  SET_PROFILE,
+
   SET_REPORT,
 
   SET_SITE_NEWSITEMS,
@@ -36,6 +38,13 @@ const setApiUrl = () => {
   }
 }
 
+const setProfile = (input) => {
+  return {
+    type: SET_PROFILE,
+    profile: input
+  }
+}
+
 const citiesIndex = () => {
   return (dispatch, getState) => { 
     let state = getState()
@@ -49,7 +58,7 @@ const citiesIndex = () => {
     } else {
       fetch(url).then(r => r.json()).then(_data => {
 
-        console.log('+++ +++ _data is:', _data)
+        // console.log('+++ +++ _data is:', _data)
 
         dispatch({
           type: SET_CITIES_INDEX,
@@ -142,6 +151,7 @@ export default {
   reportsShow,
 
   setApiUrl,
+  setProfile,
   siteNewsitemsIndex,
 
   venuesShow,

@@ -2,8 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 
+import FacebookAuth from 'react-facebook-auth'
+import { EmailSignUpForm, AuthGlobals } from 'redux-auth/default-theme'
+import { authStateReducer } from 'redux-auth'
+
 import { Grid, Row, Col,
-         Nav, NavItem, Navbar
+         Nav, NavItem, Navbar,
 } from 'react-bootstrap'
 
 import { Link } from 'react-router'
@@ -21,7 +25,21 @@ import {
 import AppDispatcher from '../../dispatcher/AppDispatcher'
 import { LinkContainer } from 'react-router-bootstrap'
 
-import { siteNewsitemsIndex } from '../../actions'
+import { siteNewsitemsIndex, setProfile } from '../../actions'
+
+const loginFbUser = (r) => {
+  console.log('+++ +++ todo!')
+}
+
+const saveFbUser = (r) => {
+  console.log('+++ +++ more todo!')
+}
+
+const MyFacebookButton = ({ onClick }) => (
+  <button onClick={onClick}>
+    Login with facebook
+  </button>
+);
 
 class Home extends React.Component {
 
@@ -46,6 +64,9 @@ class Home extends React.Component {
         <Grid>
           <Row>
             <Col xs={12}>
+              <FacebookAuth appId="123014244977505" callback={(response) => {this.props.dispatch(setProfile(response))}} 
+                            component={MyFacebookButton} />
+
               <Newsitems newsitems={ this.props.siteNewsitems } />
             </Col>
           </Row>
@@ -56,7 +77,6 @@ class Home extends React.Component {
 }
 
 Home.propTypes = {
-  // children: PropTypes.object.isRequired,
 }
 
 function mapStateToProps(state, ownProps) {
@@ -66,6 +86,5 @@ function mapStateToProps(state, ownProps) {
   }
 }
 
-// export default Home
 export default connect(mapStateToProps)(Home)
 

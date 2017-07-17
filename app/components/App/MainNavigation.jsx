@@ -25,9 +25,19 @@ class MainNavigation extends React.Component {
 
   componentWillMount() {
     this.props.dispatch({ type: SET_API_URL, apiUrl: config.apiUrl });
+    if (localStorage.getItem('fbAccountId')) {
+      this.state = { profile: { id: localStorage.getItem('fbAccountId') } }
+    }      
   }
 
   render () {
+    let profile_pic = null
+    if (this.props.profile.id) {
+      profile_pic = (<img src={`//graph.facebook.com/${this.props.profile.id}/picture`} alt='' />)
+    } else if (this.state.profile.id) {
+      profile_pic = (<img src={`//graph.facebook.com/${this.state.profile.id}/picture`} alt='' />)
+    }
+    
     return (
       <div>
         <Navbar fixedTop>
@@ -43,6 +53,7 @@ class MainNavigation extends React.Component {
               <li><Link to='/en/cities'>Cities</Link></li>
               { /* <li><Link to='/en/galleries'>Galleries</Link></li> */ }
               { /* <li><Link to='/en/reports'>Reports</Link></li> */ }
+              <li>{ profile_pic }</li>
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -59,6 +70,7 @@ class MainNavigation extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     apiUrl: state.apiUrl,
+    profile: state.profile,
   }
 }
 

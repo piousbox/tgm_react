@@ -18,6 +18,8 @@ export const SET_CITY = 'set city'
 
 export const SET_GALLERY = 'set gallery'
 
+export const SET_PROFILE = 'set profile'
+
 export const SET_REPORT = 'set report'
 
 export const SET_SITE_NEWSITEMS = 'set site newsitems'

@@ -24,3 +24,4 @@
         let's introduce another layer of routing
 0.0.8 - lets put in maps
         let's remove leaderboard, >100% width
+0.0.9 - lets wire facebook auth

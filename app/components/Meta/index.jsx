@@ -2,9 +2,6 @@ import React from 'react'
 
 class Meta extends React.Component {
   render () {
-
-    console.log("+++ +++ meta item:", this.props.item)
-
     let items = []
 
     if (this.props.item && this.props.item.tag) {
