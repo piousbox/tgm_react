@@ -6,12 +6,17 @@ import { connect } from 'react-redux'
 import { Grid, Row, Col,
          Nav,
          Panel,
+         Button,
 } from 'react-bootstrap'
 
 import styles         from './_Cities.scss'
-import { citiesShow } from '../../actions'
-import Newsitems      from '../App/Newsitems'
 import CitiesShowMap  from './CitiesShowMap'
+
+import { citiesShow } from '../../actions'
+
+import Newsitems      from '../App/Newsitems'
+import Leaderboard    from '../App/Leaderboard'
+
 import VideoPreview   from '../Videos/VideoPreview'
 
 class CitiesShow extends React.Component {
@@ -60,9 +65,10 @@ class CitiesShow extends React.Component {
         } else {
           features.push(
             <Col xs={3} key={idx} className={ styles.featureWrapper } >
-              <div className={ styles.feature } >
+              <Panel>
                 { f.name }
-              </div>
+                { f.subhead }
+              </Panel>
             </Col>)
         }
       })
@@ -103,6 +109,7 @@ class CitiesShow extends React.Component {
     }
     
     let videos = []
+    let nVideos = this.props.city.n_videos
     if (this.props.city && this.props.city.videos) {
       this.props.city.videos.forEach((v, idx) => {
         videos.push(<div key={idx}><VideoPreview video={v} /></div>)
@@ -113,14 +120,16 @@ class CitiesShow extends React.Component {
       <Grid>
         <Row>
           <Col xs={12} >
+            <Leaderboard />
             <h1 style={{ textAlign: 'center' }} >{ this.state.city.name }</h1>
             <Nav bsStyle="pills">
+              <li>News</li>
               <li><Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports</Link></li>
-              <li><a href="#">Galaleries</a></li>
-              <li><a href="#">Videos</a></li>
-              <li><a href="#">Venues</a></li>
-              <li><a href="#">Events</a></li>
-              <li><button onClick={this.showPeople}>People ({nPeople})</button></li>
+              <li><a href="#">Galaleries ()</a></li>
+              <li><a href="#">Videos ({nVideos})</a></li>
+              <li><a href="#">Venues ()</a></li>
+              <li><a href="#">Events ()</a></li>
+              <li><Button bsStyle="primary" onClick={this.showPeople}>People ({nPeople})</Button></li>
             </Nav>
             <div className="expandable"><ul>{people}</ul></div>
             <div className="description" dangerouslySetInnerHTML={{ __html: this.props.city.description }} />
@@ -129,32 +138,36 @@ class CitiesShow extends React.Component {
         <Row>
           { features }
         </Row>
+
+        { /* map row */ }
         <Row>
           <Col xs={6}>
             <CitiesShowMap city={this.props.city} />
-            <Newsitems newsitems={ this.props.city.newsitems } />
           </Col>
           <Col xs={6}>
+            <h2>Events ({events.length})</h2><ul>{ events }</ul>
+            <h2>Venues ({venues.length})</h2><ul>{ venues }</ul>
+          </Col>
+        </Row>
+
+        { /* newsitems row */ }
+        <Row>
+          <Col xs={12}>
+            <Newsitems newsitems={ this.props.city.newsitems } />
+          </Col>
+        </Row>
+
+        { /* <Row>
+          <Col xs={6}>
             <h2>Reports ({reports.length})</h2>
-            <ul>
-              { reports }
-            </ul>
+            <ul>{ reports }</ul>
             <h2>Galleries ({galleries.length})</h2>
-            <ul>
-              { galleries }
-            </ul>
-            <h2>Events ({events.length})</h2>
-            <ul>
-              { events }
-            </ul>
-            <h2> Venues ({venues.length})</h2>
-            <ul>
-              { venues }
-            </ul>
+            <ul>{ galleries }</ul>
             <h2>Videos ({videos.length})</h2>
             <div>{ videos }</div>
           </Col>
-        </Row>
+        </Row> */ }
+
       </Grid>
     )
   }

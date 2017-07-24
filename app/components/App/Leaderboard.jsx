@@ -8,7 +8,7 @@ class Leaderboard extends React.Component {
 
     return (
       <Center>
-        <div dangerouslySetInnerHTML={{ __html: adstring }} />
+        <div style={{ border: '1px solid gray' }} dangerouslySetInnerHTML={{ __html: adstring }} />
       </Center>
     )
   }
