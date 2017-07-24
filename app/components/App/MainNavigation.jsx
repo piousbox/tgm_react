@@ -21,10 +21,11 @@ import {
 import AppDispatcher from '../../dispatcher/AppDispatcher'
 import { LinkContainer } from 'react-router-bootstrap'
 
-import { setProfile } from '../../actions'
+import { profileAction } from '../../actions'
 import FacebookAuth from 'react-facebook-auth'
 import { EmailSignUpForm, AuthGlobals } from 'redux-auth/default-theme'
 import { authStateReducer } from 'redux-auth'
+
 const MyFacebookButton = ({ onClick }) => (
   <button onClick={onClick}>f</button>
 );
@@ -40,23 +41,25 @@ class MainNavigation extends React.Component {
     }
   }
 
-  componentWillMount() {
-    this.props.dispatch({ type: SET_API_URL, apiUrl: config.apiUrl });
+  componentWillMount(nextProps) {
+    // this.props.dispatch({ type: SET_API_URL, apiUrl: config.apiUrl });
+    console.log("+++ +++ MainNavigation nextProps?:", nextProps)
   }
 
   render () {
-    let profile_pic = null
+    let profilePic = null
     if (this.props.profile.id) {
-      profile_pic = (<img src={`//graph.facebook.com/${this.props.profile.id}/picture`} alt='' />)
+      profilePic = (<img src={`//graph.facebook.com/${this.props.profile.id}/picture`} alt='' />)
     } else if (this.state.profile.id) {
-      profile_pic = (<img src={`//graph.facebook.com/${this.state.profile.id}/picture`} alt='' />)
-    } else {
-      profile_pic = (<FacebookAuth appId={config.fbAppId} callback={(response) => {this.props.dispatch(setProfile(response))}} component={MyFacebookButton} />)
-    }
+      profilePic = (<img src={`//graph.facebook.com/${this.state.profile.id}/picture`} alt='' />)
+    } 
+    let fbLogin = (<FacebookAuth appId={config.fbAppId} fields="name,email,picture" 
+                                 callback={(response) => {this.props.dispatch(profileAction(response))}} 
+                                 component={MyFacebookButton} />)
     
     return (
       <div>
-        <Navbar fixedTop>
+        <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
               <Link to="/">T.G.M</Link>
@@ -69,7 +72,9 @@ class MainNavigation extends React.Component {
               <li><Link to='/en/cities'>Cities</Link></li>
               { /* <li><Link to='/en/galleries'>Galleries</Link></li> */ }
               { /* <li><Link to='/en/reports'>Reports</Link></li> */ }
-              <li>{ profile_pic }</li>
+              <li><Link to="/en/profile">Profile</Link></li>
+              <li>{ profilePic }</li>
+              <li>{ fbLogin }</li>
             </Nav>
           </Navbar.Collapse>
         </Navbar>

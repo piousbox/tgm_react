@@ -24,7 +24,7 @@ class Newsitem extends React.Component {
 
     if (this.props.newsitem.photos) {
       this.props.newsitem.photos.forEach( (photo, idx) => {
-        photos.push( <img src={ photo.thumb_url } alt='' /> )
+        photos.push(<img key={idx} src={ photo.thumb_url } alt='' />)
       })
     }
     

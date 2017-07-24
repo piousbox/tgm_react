@@ -9,7 +9,22 @@ import ig from './images/social/instagram.png'
 import fb from './images/social/facebook.png'
 import uu from './images/social/youtube.png'
 
+import {
+  DO_LOGOUT,
+} from '../../constants/AppConstants'
+
+import { connect } from 'react-redux'
+
 class Footer extends React.Component {
+
+  constructor(props) {
+    super(props)
+  }
+
+  logout = () => {
+    this.props.dispatch({ type: DO_LOGOUT })
+  }
+
   render () {
     return (
       <div className={styles.footer1} style={{ backgroundImage: `url(${bg})` }} >
@@ -30,8 +45,14 @@ class Footer extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col xs={12} >
-              apiUrl: {this.props.apiUrl}
+            <Col xs={4} >
+              { /* apiUrl: {this.props.apiUrl} */ }
+            </Col>
+            <Col xs={4}>
+              <button onClick={this.logout} >Logout</button>
+            </Col>
+            <Col xs={4}>
+              ;
             </Col>
           </Row>
         </Grid>
@@ -40,7 +61,13 @@ class Footer extends React.Component {
   }
 }
 
-export default Footer
+function mapStateToProps(state, ownProps) {
+  return {
+    profile: state.profile,
+  }
+}
+
+export default connect(mapStateToProps)(Footer)
 
       
       

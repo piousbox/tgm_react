@@ -25,3 +25,5 @@
 0.0.8 - lets put in maps
         let's remove leaderboard, >100% width
 0.0.9 - lets wire facebook auth
+0.0.10 - continue wiring facebook auth, and refactors
+         I want to be able to show people in a city

@@ -1,19 +1,25 @@
 
 let TgmRouter = {
-  citiesShowPath: '/en/cities/travel-to/:galleryname',
-  citiesShowLink: (g) => { return `/en/cities/travel-to/${g}` },
+  cityPath: '/en/cities/travel-to/:cityname',
+  cityLink: (g) => { return `/en/cities/travel-to/${g}` },
 
-  galleriesShowPath: '/en/galleries/show/:galleryname',
-  galleriesShowLink: (g) => { return `/en/galleries/show/${g}` },
+  cityEventPath: '/en/cities/travel-to/:cityname/events/show/:eventname',
+  cityEventLink: (g) => { return `/en/cities/travel-to/${g.cityname}/events/show/${g.eventname}` },
 
-  reportsShowPath: '/en/reports/show/:reportname',
-  reportsShowLink: (g) => { return `/en/reports/show/${g}` },
+  cityVenuePath: '/en/cities/travel-to/:cityname/venues/show/:venuename',
+  cityVenueLink: (g) => { return `/en/cities/travel-to/${g.cityname}/venues/show/${g.venuename}` },
 
-  venuesShowPath: '/en/venues/show/:reportname',
-  venuesShowLink: (g) => { return `/en/venues/show/${g}` },
+  galleryPath: '/en/galleries/show/:galleryname',
+  galleryLink: (g) => { return `/en/galleries/show/${g}` },
 
-  videosShowPath: '/en/videos/show/:youtube_id',
-  videosShowLink: (g) => { return `/en/videos/show/${g}` },
+  reportPath: '/en/reports/show/:reportname',
+  reportLink: (g) => { return `/en/reports/show/${g}` },
+
+  venuePath: '/en/venues/show/:venuename',
+  venueLink: (g) => { return `/en/venues/show/${g}` },
+
+  videoPath: '/en/videos/show/:youtube_id',
+  videoLink: (g) => { return `/en/videos/show/${g}` },
 
 }
 

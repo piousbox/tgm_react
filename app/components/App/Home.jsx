@@ -25,7 +25,7 @@ import {
 import AppDispatcher from '../../dispatcher/AppDispatcher'
 import { LinkContainer } from 'react-router-bootstrap'
 
-import { siteNewsitemsIndex, setProfile } from '../../actions'
+import { siteNewsitemsIndex } from '../../actions'
 
 const loginFbUser = (r) => {
   console.log('+++ +++ todo!')
@@ -64,8 +64,6 @@ class Home extends React.Component {
         <Grid>
           <Row>
             <Col xs={12}>
-              { /* <FacebookAuth appId="123014244977505" callback={(response) => {this.props.dispatch(setProfile(response))}} component={MyFacebookButton} /> */ }
-
               <Newsitems newsitems={ this.props.siteNewsitems } />
             </Col>
           </Row>

@@ -4,7 +4,8 @@ import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
 import { Grid, Row, Col,
-         Nav
+         Nav,
+         Panel,
 } from 'react-bootstrap'
 
 import styles         from './_Cities.scss'
@@ -33,21 +34,13 @@ class CitiesShow extends React.Component {
   componentWillReceiveProps(nextProps) {
     this.setState(Object.assign({}, this.state, {city: nextProps.city}))
   }
+
+  showPeople = () => {
+    this.setState(Object.assign({}, this.state, { users: this.props.city.users }))
+  }
   
   render () {
-    let reports = []
-    if (this.props.city.reports) {
-      this.props.city.reports.forEach((n, idx) => {
-        reports.push(<li key={idx} ><Link to={`/en/reports/show/${n.reportname}`}>{n.name}</Link></li>)
-      })
-    }
-
-    let galleries = []
-    if (this.state.city.galleries) {
-      this.state.city.galleries.forEach((n, idx) => {
-        galleries.push(<li key={idx}><Link to={`/en/galleries/show/${n.galleryname}`}>{n.name}</Link></li>)
-      })
-    }
+    console.log('+++ +++ citiesShow props:', this.props)
 
     let events = []
     if (this.state.city.events) {
@@ -56,18 +49,6 @@ class CitiesShow extends React.Component {
       })
     }
 
-    let venues = []
-    if (this.state.city.venues) {
-      this.state.city.venues.forEach((n, idx) => {
-        venues.push(
-          <li key={idx}>
-            <Link to={`/en/cities/travel-to/${this.state.city.cityname}/venues/show/${n.name_seo}`}>{n.name}</Link>
-            <div dangerouslySetInnerHTML={{ __html: n.description }} />
-          </li>
-        )
-      })
-    }
-    
     let features = []
     if (this.props.city && this.props.city.features && this.props.city.features.length > 0) {
       this.props.city.features.forEach((f, idx) => {
@@ -87,6 +68,40 @@ class CitiesShow extends React.Component {
       })
     }
 
+    let galleries = []
+    if (this.state.city.galleries) {
+      this.state.city.galleries.forEach((n, idx) => {
+        galleries.push(<li key={idx}><Link to={`/en/galleries/show/${n.galleryname}`}>{n.name}</Link></li>)
+      })
+    }
+
+    let nPeople = this.props.city.n_users
+    let people = []
+    if (this.state.users) {
+      this.state.users.forEach((user, idx) => {
+        people.push(<li key={idx}>{user.name}</li>)
+      })
+    }
+
+    let reports = []
+    if (this.props.city.reports) {
+      this.props.city.reports.forEach((n, idx) => {
+        reports.push(<li key={idx} ><Link to={`/en/reports/show/${n.reportname}`}>{n.name}</Link></li>)
+      })
+    }
+
+    let venues = []
+    if (this.state.city.venues) {
+      this.state.city.venues.forEach((n, idx) => {
+        venues.push(
+          <li key={idx}>
+            <Link to={`/en/cities/travel-to/${this.state.city.cityname}/venues/show/${n.name_seo}`}>{n.name}</Link>
+            <div dangerouslySetInnerHTML={{ __html: n.description }} />
+          </li>
+        )
+      })
+    }
+    
     let videos = []
     if (this.props.city && this.props.city.videos) {
       this.props.city.videos.forEach((v, idx) => {
@@ -105,8 +120,9 @@ class CitiesShow extends React.Component {
               <li><a href="#">Videos</a></li>
               <li><a href="#">Venues</a></li>
               <li><a href="#">Events</a></li>
-              <li><a href="#">People</a></li>
+              <li><button onClick={this.showPeople}>People ({nPeople})</button></li>
             </Nav>
+            <div className="expandable"><ul>{people}</ul></div>
             <div className="description" dangerouslySetInnerHTML={{ __html: this.props.city.description }} />
           </Col>
         </Row>

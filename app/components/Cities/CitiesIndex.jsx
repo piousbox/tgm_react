@@ -17,10 +17,9 @@ class CitiesIndex extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { cities: [], filteredCities: [], citiesIndex: [] }
+    this.state = { cities: [], filteredCities: [] }
     this.handleCitiesFilterChange = this.handleCitiesFilterChange.bind(this)
-    this.props.dispatch(citiesIndex());
-    // this.setState({ citiesIndex: this.props.citiesIndex })
+    this.props.dispatch(citiesIndex())
   }
   
   componentWillMount() {
@@ -30,37 +29,34 @@ class CitiesIndex extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({ citiesIndex: nextProps.citiesIndex })
+    this.setState({ cities: nextProps.cities })
   }
 
   handleCitiesFilterChange(e) {
     let filteredCities = []
-    this.props.citiesIndex.forEach( (city) => {
+    this.props.cities.forEach( (city) => {
       if (city.name.toLowerCase().indexOf(e.target.value.toLowerCase()) !== -1) {
         filteredCities.push( city )
       }
     })
     this.setState((prev, props) => {
       return Object.assign({}, prev, { 
-        citiesIndex: filteredCities,
+        cities: filteredCities,
       })
     })
   }
   
   render() {
-    console.log('+++ +++ state:', this.state)
-    console.log('+++ +++ props:', this.props)
-
-    if (this.state.citiesIndex.length === 0) {
-      this.state.citiesIndex = this.props.citiesIndex
+    if (this.state.cities.length === 0) {
+      this.state.cities = this.props.cities
     }    
 
     let cities = []
-    Object.keys(this.state.citiesIndex).forEach( (idx) => {
+    Object.keys(this.state.cities).forEach( (idx) => {
       cities.push(
         <Col key={idx} xs={4}>
-          <Link to={`/en/cities/travel-to/${this.state.citiesIndex[idx].cityname}`} >
-            { this.state.citiesIndex[idx].name }
+          <Link to={`/en/cities/travel-to/${this.state.cities[idx].cityname}`} >
+            { this.state.cities[idx].name }
           </Link>
         </Col>)
     })
@@ -84,12 +80,11 @@ class CitiesIndex extends React.Component {
 }
 
 CitiesIndex.propTypes = {
-  // citiesIndex: PropTypes.object.isRequired,
 }
 
 function mapStateToProps(state, ownProps) {
   return {
-    citiesIndex: state.citiesIndex,
+    cities: state.cities,
   }
 }
 

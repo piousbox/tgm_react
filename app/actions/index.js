@@ -38,11 +38,8 @@ const setApiUrl = () => {
   }
 }
 
-const setProfile = (input) => {
-  return {
-    type: SET_PROFILE,
-    profile: input
-  }
+const profileAction = (input) => {
+  return({ type: SET_PROFILE, profile: input })
 }
 
 const citiesIndex = () => {
@@ -50,10 +47,10 @@ const citiesIndex = () => {
     let state = getState()
     let url = config.apiUrl + "/api/cities.json"
     
-    if (state.citiesIndex.length > 0) {
+    if (state.cities.length > 0) {
       dispatch({
         type: SET_CITIES_INDEX,
-        cities: state.citiesIndex
+        cities: state.cities
       })
     } else {
       fetch(url).then(r => r.json()).then(_data => {
@@ -148,10 +145,11 @@ export default {
 
   galleriesShow,
 
+  profileAction,
+
   reportsShow,
 
   setApiUrl,
-  setProfile,
   siteNewsitemsIndex,
 
   venuesShow,

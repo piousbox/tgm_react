@@ -19,12 +19,11 @@ describe('CitiesIndex', () => {
   it('filters cities', () => {
     let cities = [ { name: 'abba' }, { name: 'boring' } ]
     let event = { target: { value: 'a' } }
-    let wrapper = shallow(<CitiesIndex store={store} citiesIndex={cities} aaa={"bbb bbb"} />).shallow()
-    wrapper.setProps({ citiesIndex: cities })
-    // wrapper.setState({ cities: cities, citiesIndex: [1, 2, 3] })
+    let wrapper = shallow(<CitiesIndex store={store} cities={cities} aaa={"bbb bbb"} />).shallow()
+    wrapper.setProps({ cities: cities })
     let funcToTest = wrapper.instance().handleCitiesFilterChange
     funcToTest(event)
-    let result = wrapper.instance().state.citiesIndex
+    let result = wrapper.instance().state.cities
     expect(result).to.eql([cities[0]]) // only abba b/c only it includes letter 'a'
   })
 
