@@ -1,7 +1,11 @@
 import React from 'react'
 
 import Center from '../Center'
-import { Grid, Row, Col, Panel } from 'react-bootstrap'
+
+import { Grid, Row, Col,
+         Panel,
+         Button,
+} from 'react-bootstrap'
 
 import { connect } from 'react-redux'
 
@@ -60,25 +64,38 @@ class Profile extends React.Component {
     return (
       <Grid>
         <Row>
-          <Col xs={12}>
-            Profile
-            <form onSubmit={this.handleSubmit}>
-              <ul>
-                <li>
-                  <img src={`//graph.facebook.com/${this.props.profile.id}/picture`} alt='' />
-                </li>
-                <li>City:
-                  <select value={this.state.profile.current_city_id} onChange={this.handleCityChange} >
-                    <option selected={!this.state.profile.current_city_id} disabled>Choose City...</option>
-                    { citiesOptions }
-                  </select>
-                </li>
-                <li>About:
-                  <textarea rows="4" cols="5" value={this.state.profile.about} onChange={this.handleAboutChange} />
-                </li>
-              </ul>
-              <input type="submit" value="Submit" />
-            </form>
+          <Col xs={12} md={6} mdOffset={3} xsOffset={0}>
+            <Panel>
+              <Center><h1>My Profile</h1></Center>
+              <form onSubmit={this.handleSubmit}>
+                <Row>
+                  <Col xs={3}>
+                    <img src={`//graph.facebook.com/${this.props.profile.id}/picture`} alt='' />
+                  </Col>
+                  <Col xs={9}>
+                    { this.state.profile.name }
+                    <br />
+                    { this.state.profile.email }
+                  </Col>
+                </Row>
+                <Row>
+                  <Col xs={12}>
+                    <b>About me:</b><br />
+                    <textarea style={{ width: '100%'}} rows="4" value={this.state.profile.about} onChange={this.handleAboutChange} />
+                  </Col>
+                  <Col xs={12}>
+                    <b>Current City:</b><br />
+                    <select value={this.state.profile.current_city_id} onChange={this.handleCityChange} >
+                      <option selected={!this.state.profile.current_city_id} disabled>Choose City...</option>
+                      { citiesOptions }
+                    </select>
+                  </Col>
+                  <Col xs={3} xsOffset={9} >
+                    <Button bsStyle="primary" type="submit" value="Submit" >Submit</Button>
+                  </Col>
+                </Row>
+              </form>
+            </Panel>
           </Col>
         </Row>
       </Grid>

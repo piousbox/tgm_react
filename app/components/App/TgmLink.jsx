@@ -8,11 +8,11 @@ class TgmLink extends React.Component {
     if (this.props.newsitem) {
       switch (this.props.newsitem.item_type) {
         case 'gallery':
-          return (<Link to={ TgmRouter.galleriesShowLink(this.props.newsitem.galleryname) }>{ this.props.newsitem.name }</Link>)
+          return (<Link to={ TgmRouter.galleryLink(this.props.newsitem.galleryname) }>{ this.props.newsitem.name }</Link>)
         case 'report':
-          return (<Link to={ TgmRouter.reportsShowLink(this.props.newsitem.reportname) }>{ this.props.newsitem.name }</Link>)
+          return (<Link to={ TgmRouter.reportLink(this.props.newsitem.reportname) }>{ this.props.newsitem.name }</Link>)
         case 'video':
-          return (<Link to={ TgmRouter.videosShowLink(this.props.newsitem.youtube_id) }>{ this.props.newsitem.name }</Link>)
+          return (<Link to={ TgmRouter.videosLink(this.props.newsitem.youtube_id) }>{ this.props.newsitem.name }</Link>)
         default:
           return(<div>info not provided</div>)
       }
