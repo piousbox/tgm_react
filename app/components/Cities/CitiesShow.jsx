@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
 import { Grid, Row, Col,
-         Nav,
+         Nav, NavItem,
          Panel,
          Button,
 } from 'react-bootstrap'
@@ -18,6 +18,8 @@ import Newsitems      from '../App/Newsitems'
 import Leaderboard    from '../App/Leaderboard'
 
 import VideoPreview   from '../Videos/VideoPreview'
+
+import scrollToElement from 'scroll-to-element'
 
 class CitiesShow extends React.Component {
   constructor(props) {
@@ -43,10 +45,22 @@ class CitiesShow extends React.Component {
   showPeople = () => {
     this.setState(Object.assign({}, this.state, { users: this.props.city.users }))
   }
+
+  handleSelect = (e) => {
+    console.log("+++ +++ handleSelect:", e)
+
+    switch (e) {
+      case 'cityNews':
+        scrollToElement(`#${e}`)
+      default:
+        null
+    }
+  }
   
   render () {
     console.log('+++ +++ citiesShow props:', this.props)
 
+    let nEvents = this.props.city.n_events
     let events = []
     if (this.state.city.events) {
       this.state.city.events.forEach((n, idx) => {
@@ -74,12 +88,15 @@ class CitiesShow extends React.Component {
       })
     }
 
+    let nGalleries = this.props.city.n_galleries
     let galleries = []
     if (this.state.city.galleries) {
       this.state.city.galleries.forEach((n, idx) => {
         galleries.push(<li key={idx}><Link to={`/en/galleries/show/${n.galleryname}`}>{n.name}</Link></li>)
       })
     }
+
+    let nNews = this.props.city.n_newsitems
 
     let nPeople = this.props.city.n_users
     let people = []
@@ -89,6 +106,7 @@ class CitiesShow extends React.Component {
       })
     }
 
+    let nReports = this.props.city.n_reports
     let reports = []
     if (this.props.city.reports) {
       this.props.city.reports.forEach((n, idx) => {
@@ -96,6 +114,7 @@ class CitiesShow extends React.Component {
       })
     }
 
+    let nVenues = this.props.city.n_venues
     let venues = []
     if (this.state.city.venues) {
       this.state.city.venues.forEach((n, idx) => {
@@ -122,14 +141,14 @@ class CitiesShow extends React.Component {
           <Col xs={12} >
             <Leaderboard />
             <h1 style={{ textAlign: 'center' }} >{ this.state.city.name }</h1>
-            <Nav bsStyle="pills">
-              <li>News</li>
-              <li><Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports</Link></li>
-              <li><a href="#">Galaleries ()</a></li>
+            <Nav bsStyle="pills" onSelect={this.handleSelect}>
+              <NavItem eventKey={'cityNews'} href="javascript:void(0);">News ({nNews})</NavItem>
+              <li><Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports ({nReports})</Link></li>
+              <li><a href="#">Galleries ({nGalleries})</a></li>
               <li><a href="#">Videos ({nVideos})</a></li>
-              <li><a href="#">Venues ()</a></li>
-              <li><a href="#">Events ()</a></li>
-              <li><Button bsStyle="primary" onClick={this.showPeople}>People ({nPeople})</Button></li>
+              <li><a href="#">Venues ({nVenues})</a></li>
+              <li><a href="#">Events ({nEvents})</a></li>
+              <li><a onClick={this.showPeople}>People ({nPeople})</a></li>
             </Nav>
             <div className="expandable"><ul>{people}</ul></div>
             <div className="description" dangerouslySetInnerHTML={{ __html: this.props.city.description }} />
@@ -145,13 +164,13 @@ class CitiesShow extends React.Component {
             <CitiesShowMap city={this.props.city} />
           </Col>
           <Col xs={6}>
-            <h2>Events ({events.length})</h2><ul>{ events }</ul>
-            <h2>Venues ({venues.length})</h2><ul>{ venues }</ul>
+            <h2>Events ({nEvents})</h2><ul>{ events }</ul>
+            <h2>Venues ({nVenues})</h2><ul>{ venues }</ul>
           </Col>
         </Row>
 
         { /* newsitems row */ }
-        <Row>
+        <Row id="cityNews" >
           <Col xs={12}>
             <Newsitems newsitems={ this.props.city.newsitems } />
           </Col>
