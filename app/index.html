@@ -9,17 +9,8 @@
   <link type="text/css" rel="stylesheet" media="all" href="/css/app.<%= version %>.css" />
   <% } %>
 
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css">
-
-  <script>
-    function initMap() {
-      window.google = google;
-    }
-  </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASTxVRpD3hpK5_EHWDROrzuvLNhOsvbuE&callback=initMap" async defer></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"><!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap-theme.min.css"><!-- Optional theme -->
 
   <base href='/'>
   <script>
@@ -27,22 +18,20 @@
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-53077236-2', 'auto');
+    ga('create', 'UA-53077236-3', 'auto'); // tgm, _vp_ 20170725
     ga('send', 'pageview');    
   </script>
-
-  <style>
-   @media only screen and (max-device-width : 1024px) {
-     .largePhotos img {
-       width: 100%;
-     }
-   }
-  </style>
 
 </head>
 <body>
   <div id="app"></div>
-  <script src="/js/app.<%= version %>.js"></script>
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script             src="/js/app.<%= version %>.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASTxVRpD3hpK5_EHWDROrzuvLNhOsvbuE&callback=initMap"></script>
+  <script async       src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <script>
+   function initMap() {
+     window.google = google;
+   }
+  </script>
 </body>
 </html>

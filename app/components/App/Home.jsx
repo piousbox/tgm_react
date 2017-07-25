@@ -18,6 +18,8 @@ import styles from './_App.scss'
 import Footer from './Footer'
 import Newsitems from './Newsitems'
 
+import Leaderboard from './Leaderboard'
+
 import {
   SET_API_URL,
 } from '../../constants/AppConstants'
@@ -63,8 +65,12 @@ class Home extends React.Component {
       <div style={{ marginTop: '60px' }}>
         <Grid>
           <Row>
+            Feature cities?
+          </Row>
+
+          <Row>
             <Col xs={12}>
-              <Newsitems newsitems={ this.props.siteNewsitems } />
+              <Newsitems newsitems={ this.props.siteNewsitems } nAds={3} />
             </Col>
           </Row>
         </Grid>
