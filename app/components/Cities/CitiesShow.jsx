@@ -54,8 +54,7 @@ class CitiesShow extends React.Component {
     switch (e) {
       case 'cityNews':
         scrollToElement(`#${e}`)
-      default:
-        null
+        break
     }
   }
   
@@ -144,7 +143,7 @@ class CitiesShow extends React.Component {
             <Leaderboard />
             <h1 style={{ textAlign: 'center' }} >{ this.state.city.name }</h1>
             <Nav bsStyle="pills" onSelect={this.handleSelect}>
-              <NavItem eventKey={'cityNews'} href="javascript:void(0);">News ({nNews})</NavItem>
+              <NavItem eventKey={'cityNews'}>News ({nNews})</NavItem>
               <li><Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports ({nReports})</Link></li>
               <li><a href="#">Galleries ({nGalleries})</a></li>
               <li><a href="#">Videos ({nVideos})</a></li>
