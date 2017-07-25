@@ -65,7 +65,7 @@ class Home extends React.Component {
       <div style={{ marginTop: '60px' }}>
         <Grid>
           <Row>
-            Feature cities?
+            { /* Feature cities? */ }
           </Row>
 
           <Row>
