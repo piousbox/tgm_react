@@ -27,3 +27,5 @@
 0.0.9 - lets wire facebook auth
 0.0.10 - continue wiring facebook auth, and refactors
          I want to be able to show people in a city
+         some ads show. 
+         lets have media queries, make the city show look real nice.
