@@ -31,7 +31,7 @@ class Newsitems extends React.Component {
             <Newsitem newsitem={ n } />
           </li>)
 
-        if (Math.random() < 0.7 && nAds) {
+        if (Math.random() < 0.5 && nAds) {
           listitems.push(<Leaderboard key={idx++} />)
           nAds--
         }
