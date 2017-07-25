@@ -9,6 +9,8 @@ import { Grid, Row, Col,
          Button,
 } from 'react-bootstrap'
 
+import scrollToElement from 'scroll-to-element'
+
 import styles         from './_Cities.scss'
 import CitiesShowMap  from './CitiesShowMap'
 
@@ -19,7 +21,7 @@ import Leaderboard    from '../App/Leaderboard'
 
 import VideoPreview   from '../Videos/VideoPreview'
 
-import scrollToElement from 'scroll-to-element'
+import LargeSquare    from '../App/LargeSquare'
 
 class CitiesShow extends React.Component {
   constructor(props) {
@@ -58,7 +60,7 @@ class CitiesShow extends React.Component {
   }
   
   render () {
-    console.log('+++ +++ citiesShow props:', this.props)
+    // console.log('+++ +++ citiesShow props:', this.props)
 
     let nEvents = this.props.city.n_events
     let events = []
@@ -164,6 +166,7 @@ class CitiesShow extends React.Component {
             <CitiesShowMap city={this.props.city} />
           </Col>
           <Col xs={6}>
+            <LargeSquare />
             <h2>Events ({nEvents})</h2><ul>{ events }</ul>
             <h2>Venues ({nVenues})</h2><ul>{ venues }</ul>
           </Col>

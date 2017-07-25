@@ -1,7 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col,
+         Panel, 
+} from 'react-bootstrap'
 
 import { connect } from 'react-redux'
 
@@ -41,10 +43,11 @@ class GalleriesShow extends React.Component {
     if (this.state.photos) {
       this.state.photos.forEach((photo, idx) => {
         large_photos.push(
-          <div className={ styles.largePhotos }>
-            <img src={photo.large_url} alt='' />
-            <br /><br />
-          </div>)
+          <Panel>
+            <div className={ styles.largePhotos }>
+              <img src={photo.large_url} alt='' />
+            </div>
+          </Panel>)
       })
     }
     
