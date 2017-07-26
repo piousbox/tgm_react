@@ -35,9 +35,12 @@ const routes = {
     { path: TgmRouter.cityPath, component: CitiesShow },
     { path: TgmRouter.cityEventPath, component: EventsShow },
     { path: TgmRouter.cityVenuePath, component: VenuesShow },
+
     { path: '/en/galleries', component: GalleriesIndex, childRoutes: [
       { path: TgmRouter.galleryPath, component: GalleriesShow },
     ]},
+    { path: TgmRouter.galleryPhotoPath, component: GalleriesShow },
+
     { path: '/en/reports/', component: ReportsIndex, childRoutes: [
       { path: TgmRouter.reportPath, component: ReportsShow },
     ]},

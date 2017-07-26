@@ -12,6 +12,9 @@ let TgmRouter = {
   galleryPath: '/en/galleries/show/:galleryname',
   galleryLink: (g) => { return `/en/galleries/show/${g}` },
 
+  galleryPhotoPath: '/en/galleries/show/:galleryname/:photoIdx',
+  galleryPhotoLink: (g) => { return `/en/galleries/show/${g.galleryname}/${g.photoIdx}` },
+
   reportPath: '/en/reports/show/:reportname',
   reportLink: (g) => { return `/en/reports/show/${g}` },
 
