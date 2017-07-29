@@ -54,6 +54,8 @@ class Home extends React.Component {
   }
 
   render () {
+    console.log('+++ +++ rendering Home:', this.props)
+
     let newsitems = []
     if (this.props.siteNewsitems) {
       this.props.siteNewsitems.forEach((item, idx) => {

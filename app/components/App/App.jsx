@@ -14,7 +14,7 @@ import bg         from './images/noisy_grid.png'
 import store      from '../../stores'
 import Home from './Home'
 import { ReportsIndex, ReportsShow } from '../Reports'
-import { GalleriesIndex, GalleriesShow } from '../Galleries'
+import { GalleriesIndex, GalleriesShow, GalleriesPhotoShow } from '../Galleries'
 import { CitiesIndex, CitiesShow } from '../Cities'
 import { EventsShow } from '../Events'
 import { VenuesShow } from '../Venues'
@@ -36,10 +36,10 @@ const routes = {
     { path: TgmRouter.cityEventPath, component: EventsShow },
     { path: TgmRouter.cityVenuePath, component: VenuesShow },
 
-    { path: '/en/galleries', component: GalleriesIndex, childRoutes: [
-      { path: TgmRouter.galleryPath, component: GalleriesShow },
+    { path: TgmRouter.galleriesPath, component: GalleriesIndex, childRoutes: [
+      { path: TgmRouter.galleryPath, component: GalleriesShow },  
     ]},
-    { path: TgmRouter.galleryPhotoPath, component: GalleriesShow },
+    { path: TgmRouter.galleryPhotoPath, component: GalleriesPhotoShow },
 
     { path: '/en/reports/', component: ReportsIndex, childRoutes: [
       { path: TgmRouter.reportPath, component: ReportsShow },

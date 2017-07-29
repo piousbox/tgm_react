@@ -1,6 +1,8 @@
 
-import GalleriesShow from './GalleriesShow'
+import GalleriesPhotoShow from './GalleriesPhotoShow'
+import GalleriesShow      from './GalleriesShow'
 
 export default {
-  GalleriesShow
+  GalleriesPhotoShow,
+  GalleriesShow,
 }

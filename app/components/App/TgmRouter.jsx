@@ -9,9 +9,10 @@ let TgmRouter = {
   cityVenuePath: '/en/cities/travel-to/:cityname/venues/show/:venuename',
   cityVenueLink: (g) => { return `/en/cities/travel-to/${g.cityname}/venues/show/${g.venuename}` },
 
+  galleriesPath: '/en/galleries',
+  galleriesLink: '/en/galleries',
   galleryPath: '/en/galleries/show/:galleryname',
   galleryLink: (g) => { return `/en/galleries/show/${g}` },
-
   galleryPhotoPath: '/en/galleries/show/:galleryname/:photoIdx',
   galleryPhotoLink: (g) => { return `/en/galleries/show/${g.galleryname}/${g.photoIdx}` },
 
