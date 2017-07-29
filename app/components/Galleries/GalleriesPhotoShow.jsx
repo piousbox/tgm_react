@@ -34,12 +34,12 @@ class GalleriesPhotoShow extends React.Component {
     let largePhoto   = null
     let prev         = null
     let photoIdx     = parseInt(this.props.params.photoIdx)
-    if (photoIdx != 0) {
+    if (photoIdx !== 0) {
       let link = TgmRouter.galleryPhotoLink({galleryname: this.props.params.galleryname, photoIdx: photoIdx-1})
       prev = (<Link to={link}>previous</Link>)
     }
     let next         = null
-    if (this.state.photos && photoIdx+1 != this.state.photos.length) {
+    if (this.state.photos && photoIdx+1 !== this.state.photos.length) {
       let link = TgmRouter.galleryPhotoLink({galleryname: this.props.params.galleryname, photoIdx: photoIdx+1})
       next = (<Link to={link}>next</Link>)
     }
