@@ -5,6 +5,7 @@ import Center from '../Center'
 import { Grid, Row, Col,
          Panel,
          Button,
+         Nav, NavItem,
 } from 'react-bootstrap'
 
 import { connect } from 'react-redux'
@@ -13,12 +14,37 @@ import { citiesIndex, profileAction } from '../../actions'
 
 import TgmApi from './TgmApi'
 
-class Profile extends React.Component {
+import { Link } from 'react-router'
 
+import { MyReports } from '../Profile'
+
+/**
+ * Galleries
+ */
+class MyGalleries extends React.Component {
+  render () {
+    return(
+      <div>
+        <Center><h1>Galleries</h1></Center>
+      </div>)
+  }
+}
+
+/**
+ * Profile
+ */
+class Profile extends React.Component {
   constructor(props) {
     super(props)
     this.state = { profile: {},
                    cities: [],
+                   activeKey: 'galleries',
+                   menuContent: <MyGalleries />,
+                   my: {
+                     galleries: [],
+                     reports: [],
+                     videos: [],
+                   },
     }
   }
 
@@ -28,7 +54,7 @@ class Profile extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     console.log('+++ +++ profile will receive props:', nextProps)
-    this.setState(Object.assign({}, this.state, { profile: this.props.profile }))
+    this.setState(Object.assign({}, this.state, { profile: nextProps.profile }))
   }
 
   handleSubmit = (e) => {
@@ -50,9 +76,33 @@ class Profile extends React.Component {
   handleCityChange  = (e) => { this.state.profile.current_city_id = e.target.value }
   handleAboutChange = (e) => { this.state.profile.about           = e.target.value }
 
-  render() {
+  handleSelect = (e) => {
+    switch (e) {
+      case "reports":
+        break
+      case "galleries":
+        break
+      default:
+        console.log('+++ +++ handleSelect - this should not happen!', e)
+    }
+    this.setState(Object.assign({}, this.state, { activeKey: e }))
+  }
+
+  render() {      
     console.log("+++ +++ Profile render props:", this.props)
     console.log("+++ +++ Profile render state:", this.state)
+
+    let menuContent = null
+    switch (this.state.activeKey) {
+      case 'galleries':
+        menuContent = <MyGalleries />
+        break
+      case 'reports':
+        menuContent = <MyReports />
+        break
+      default:
+        console.log('+++ +++ this 234 should never happen')
+    }
 
     let citiesOptions = []
     if (Object.keys(this.props.cities).length > 0) {
@@ -64,7 +114,8 @@ class Profile extends React.Component {
     return (
       <Grid>
         <Row>
-          <Col xs={12} md={6} mdOffset={3} xsOffset={0}>
+
+          <Col xs={12} md={6} mdOffset={3} xsOffset={0} lg={6} lgOffset={0}>
             <Panel>
               <Center><h1>My Profile</h1></Center>
               <form onSubmit={this.handleSubmit}>
@@ -81,7 +132,8 @@ class Profile extends React.Component {
                 <Row>
                   <Col xs={12}>
                     <b>About me:</b><br />
-                    <textarea style={{ width: '100%'}} rows="4" value={this.state.profile.about} onChange={this.handleAboutChange} />
+                    <textarea style={{ width: '100%'}} rows="4" value={this.state.profile.about} 
+                              onChange={this.handleAboutChange} />
                   </Col>
                   <Col xs={12}>
                     <b>Current City:</b><br />
@@ -97,6 +149,18 @@ class Profile extends React.Component {
               </form>
             </Panel>
           </Col>
+
+          <Col xs={12} md={6} mdOffset={3} xsOffset={0} lg={6} lgOffset={0}>
+            <Nav bsStyle="tabs" activeKey={this.state.activeKey} onSelect={this.handleSelect}>
+              <NavItem eventKey="reports">Reports</NavItem>
+              <NavItem eventKey="galleries">Galleries</NavItem>
+              <NavItem eventKey="videos">Videos</NavItem>
+            </Nav>
+            <Panel style={{ borderTop: 'none' }} >
+              { menuContent }
+            </Panel>
+          </Col>
+
         </Row>
       </Grid>
     )

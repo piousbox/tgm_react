@@ -19,6 +19,9 @@ import {
 
   SET_GALLERY,
 
+  SET_MY_GALLERIES,
+  SET_MY_REPORTS,
+
   SET_PROFILE,
 
   SET_REPORT,
@@ -98,6 +101,22 @@ const galleriesShow = (args) => {
   }
 }
 
+const myGalleriesAction = (args) => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: SET_MY_GALLERIES,
+    })
+  }
+}
+
+const myReportsAction = (args) => {
+  return (dispatch, getState) => {
+    dispatch({
+      type: SET_MY_REPORTS,
+    })
+  }
+}
+
 const reportsShow = (args) => {
   return (dispatch, getState) => {
     let url = `${config.apiUrl}/api/reports/view/${args.reportname}.json`
@@ -146,6 +165,9 @@ export default {
   galleriesShow,
 
   profileAction,
+
+  myReportsAction,
+  myGalleriesAction,
 
   reportsShow,
 

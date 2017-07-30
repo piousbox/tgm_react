@@ -27,6 +27,16 @@ import TgmApi from '../components/App/TgmApi'
 
 import config from 'config'
 
+function myReportsReducer (state = {}, action) {
+  // @TODO
+  return state
+}
+
+function myGalleriesReducer (state = {}, action) {
+  // @TODO
+  return state
+}
+
 function profileReducer (state = {}, action) {
   switch (action.type) {
     case SET_PROFILE:
@@ -48,7 +58,12 @@ function profileReducer (state = {}, action) {
             email:       action.profile.email,
             name:        action.profile.name,
           }),
+        }).then(r => r.json()).then(_data => {
+          console.log('+++ +++ from fb profile data from ishapi:', _data)
+          action.profile.longAccessToken = _data.profile.fb_long_access_token
+          action.profile.token           = _data.profile.fb_long_access_token
         })
+
         localStorage.setItem('fbAccount', JSON.stringify(action.profile))
         return action.profile
 
@@ -61,8 +76,6 @@ function profileReducer (state = {}, action) {
         // not logged in, browse anonymously
         action.profile = {}
       }
-
-      console.log('+++ +++ profile so far:', action.profile)
 
       /**
        * ishapi: get current city
@@ -102,6 +115,9 @@ export default combineReducers({
   city: citiesShowReducer,
 
   gallery: galleriesShowReducer,
+
+  myReports: myReportsReducer,
+  myGalleries: myGalleriesReducer,
 
   profile: profileReducer,
 

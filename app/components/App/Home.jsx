@@ -24,7 +24,6 @@ import {
   SET_API_URL,
 } from '../../constants/AppConstants'
 
-import AppDispatcher from '../../dispatcher/AppDispatcher'
 import { LinkContainer } from 'react-router-bootstrap'
 
 import { siteNewsitemsIndex } from '../../actions'
@@ -37,11 +36,11 @@ const saveFbUser = (r) => {
   console.log('+++ +++ more todo!')
 }
 
-const MyFacebookButton = ({ onClick }) => (
+/* const MyFacebookButton = ({ onClick }) => (
   <button onClick={onClick}>
     Login with facebook
   </button>
-);
+); */
 
 class Home extends React.Component {
 
