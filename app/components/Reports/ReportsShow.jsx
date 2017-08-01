@@ -9,6 +9,9 @@ import Center from '../Center'
 
 import { reportsShow } from '../../actions'
 
+import Leaderboard from '../App/Leaderboard'
+import LargeSquare from '../App/LargeSquare'
+
 class ReportsShow extends React.Component {
 
   constructor(props) {
@@ -39,6 +42,10 @@ class ReportsShow extends React.Component {
         </Row>
         <Row>
           <Col xs={8} xsOffset={2}>
+            <Leaderboard />
+            <div style={{ float: 'left', padding: '5px', width: '350px' }}>
+              <LargeSquare />
+            </div>
             <div dangerouslySetInnerHTML={{__html: this.state.report.description}} />
           </Col>
         </Row>
