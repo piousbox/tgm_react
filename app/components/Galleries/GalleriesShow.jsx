@@ -13,6 +13,8 @@ import Center from '../Center'
 
 import styles from './_Galleries.scss'
 
+import Leaderboard from '../App/Leaderboard'
+
 class GalleriesShow extends React.Component {
 
   constructor(props) {
@@ -55,9 +57,11 @@ class GalleriesShow extends React.Component {
       <Grid>
         <Row>
           <Col xs={12}>
+            <Leaderboard />
             <h2><Center>{ this.props.gallery.name }</Center></h2>
             { thumb_photos }
             <hr />
+            <Leaderboard />
             <Center>
               { large_photos }
             </Center>
