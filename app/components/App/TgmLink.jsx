@@ -8,7 +8,7 @@ class TgmLink extends React.Component {
     if (this.props.newsitem) {
       switch (this.props.newsitem.item_type) {
         case 'gallery':
-          return (<Link to={ TgmRouter.galleryLink(this.props.newsitem.galleryname) }>{ this.props.newsitem.name }</Link>)
+          return (<Link to={ TgmRouter.galleryPhotoLink(this.props.newsitem.galleryname) }>{ this.props.newsitem.name }</Link>)
         case 'report':
           return (<Link to={ TgmRouter.reportLink(this.props.newsitem.reportname) }>{ this.props.newsitem.name }</Link>)
         case 'video':

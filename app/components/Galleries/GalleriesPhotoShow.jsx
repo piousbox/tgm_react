@@ -15,6 +15,8 @@ import { Link } from 'react-router'
 
 import styles from './_Galleries.scss'
 
+import Leaderboard from '../App/Leaderboard'
+
 class GalleriesPhotoShow extends React.Component {
 
   constructor(props) {
@@ -46,7 +48,10 @@ class GalleriesPhotoShow extends React.Component {
     let thumb_photos = []
     if (this.state.photos) {
       this.state.photos.forEach((photo, idx) => {
-        thumb_photos.push(<img src={photo.thumb_url} alt='' key={idx} />)
+        thumb_photos.push(
+          <Link key={idx} to={TgmRouter.galleryPhotoLink({ galleryname: this.props.params.galleryname, photoIdx: idx})} >
+            <img src={photo.thumb_url} alt='' style={{ padding: '5px' }} />
+          </Link>)
       })
     
       largePhoto = (<img style={{ width: '100%' }} 
@@ -57,22 +62,25 @@ class GalleriesPhotoShow extends React.Component {
     
     return (
       <Grid>
+        <Leaderboard />
         <h2><Center>{ this.props.gallery.name }</Center></h2>
         <Row>
-          <Col xs={6}>
+          <Col md={9} xs={12} >
             <Center>
               { prev } | { next }
-              <br />
+              <br /><br />
               { largePhoto }
-              <br />
+              <br /><br />
               { prev } | { next }
             </Center>
           </Col>
-          <Col xs={6}>
+          <Col md={3} xs={12} >
             { thumb_photos }
             <hr />
           </Col>
         </Row>
+        <br /><br />
+        <Leaderboard />
       </Grid>
     ) 
   }

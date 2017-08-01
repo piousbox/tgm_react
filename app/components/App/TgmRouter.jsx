@@ -14,7 +14,13 @@ let TgmRouter = {
   galleryPath: '/:lang(en|ru|pt|es)/galleries/show/:galleryname',
   galleryLink: (g) => { return `/en/galleries/show/${g}` },
   galleryPhotoPath: '/:lang(en|ru|pt|es)/galleries/show/:galleryname/:photoIdx',
-  galleryPhotoLink: (g) => { return `/en/galleries/show/${g.galleryname}/${g.photoIdx}` },
+  galleryPhotoLink: (g, i) => {
+    if ('string' === typeof g) {
+      return `/en/galleries/show/${g}/${i||0}`
+    } else if ('object' === typeof g) {
+      return `/en/galleries/show/${g.galleryname}/${g.photoIdx||0}`
+    }
+  },
 
   reportPath: '/:lang(en|ru|pt|es)/reports/show/:reportname',
   reportLink: (g) => { return `/en/reports/show/${g}` },

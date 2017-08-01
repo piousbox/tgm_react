@@ -133,6 +133,7 @@
       ],
       "quotes": 0,
       "no-alert": 0,
+      "yoda": 1,
       "no-underscore-dangle": 0,
       "react/display-name": 0,
       "react/jsx-quotes": 1,
