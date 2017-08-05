@@ -1,17 +1,22 @@
 import React from 'react'
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col,
+         Panel,
+} from 'react-bootstrap'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import config from 'config'
 import Center from '../Center'
+import Clearfix from '../Clearfix'
 
 import {
   SET_CITIES_INDEX,
 } from '../../constants/AppConstants'
 
 import { citiesIndex } from '../../actions'
+
+import Leaderboard from '../App/Leaderboard'
 
 class CitiesIndex extends React.Component {
 
@@ -52,23 +57,38 @@ class CitiesIndex extends React.Component {
     }    
 
     let cities = []
-    Object.keys(this.state.cities).forEach( (idx) => {
+    let keyIdx = 0
+    Object.keys(this.state.cities).forEach((idx) => {
+      let city = this.state.cities[idx]
+
+      let ans = (parseInt(idx) + 1) % 3 === 0
+      console.log("+++ clearfux?", parseInt(idx), ans)
+
       cities.push(
-        <Col key={idx} xs={4}>
-          <Link to={`/en/cities/travel-to/${this.state.cities[idx].cityname}`} >
-            { this.state.cities[idx].name }
-          </Link>
+        <Col key={keyIdx++} xs={4}>
+          <Panel><Center>
+            <Link to={`/en/cities/travel-to/${this.state.cities[idx].cityname}`} >
+              { city.name }
+              { city.photo ? (<div><img src={city.photo} alt='' /></div>) : null }
+            </Link>
+          </Center></Panel>
         </Col>)
+      if (ans) {
+        console.log('+++ clearfix!')
+        cities.push(<Clearfix key={keyIdx++} />)
+      }
     })
 
     return (
       <Grid>
         <Row>
           <Col xs={12}>
+            <Leaderboard />
             <Center>
               <h1 style={{ textAlign: 'center' }} >Cities</h1>
               <input type="text" value={this.state.citiesFilter} onChange={this.handleCitiesFilterChange} />
             </Center>
+            <br /><br />
           </Col>
         </Row>
         <Row>

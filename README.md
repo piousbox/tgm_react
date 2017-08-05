@@ -13,7 +13,7 @@
 ## Install
 
 node ip - this project is on lb
-dev port 8005
+dev port 8006
 
 
 
