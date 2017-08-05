@@ -131,7 +131,6 @@ class CitiesWrapper extends React.Component {
     return (
       <Grid>
         <Row>
-          city?
           <Col xs={12} >
             <Leaderboard />
             <h1 style={{ textAlign: 'center' }} >{ this.state.city.name }</h1>
@@ -145,7 +144,6 @@ class CitiesWrapper extends React.Component {
               <li><a onClick={this.showPeople}>People ({nPeople})</a></li>
             </Nav>
             <div className="expandable"><ul>{people}</ul></div>
-            <div className="description" dangerouslySetInnerHTML={{ __html: this.props.city.description }} />
           </Col>
         </Row>
         <Row>{ features }</Row>

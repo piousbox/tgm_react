@@ -19,7 +19,7 @@ function apiUrlReducer(state = 'no-state', action) {
 
 import { citiesIndexReducer, citiesShowReducer } from './citiesReducer'
 import { galleriesShowReducer } from './galleriesReducer'
-import { reportsShowReducer } from './reportsReducer'
+import { reportsShowReducer, reportsReducer } from './reportsReducer'
 import { sitesReducer } from './sitesReducer'
 import { venuesShowReducer } from './venuesReducer'
 
@@ -122,6 +122,7 @@ export default combineReducers({
   profile: profileReducer,
 
   report: reportsShowReducer,
+  reports: reportsReducer,
 
   siteNewsitems: sitesReducer,
 

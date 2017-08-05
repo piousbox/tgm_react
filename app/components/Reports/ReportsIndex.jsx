@@ -7,7 +7,7 @@ import { Grid, Row, Col } from 'react-bootstrap'
 import config from 'config'
 import Center from '../Center'
 
-// import { reportsShow } from '../../actions'
+import { reportsIndex } from '../../actions'
 
 import Leaderboard from '../App/Leaderboard'
 import LargeSquare from '../App/LargeSquare'
@@ -19,22 +19,29 @@ class ReportsIndex extends React.Component {
     this.state = {
       reports: []
     }
-    // this.props.dispatch(reportsShow({ reportname: props.params.reportname }))
+    this.props.dispatch(reportsIndex({ cityname: props.params.cityname }))
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("+++ +++ reportsIndex received props:", nextProps)
-
-    this.setState(Object.assign({}, this.state, {report: nextProps.report }))
+    // console.log("+++ +++ reportsIndex received props:", nextProps)
+    this.setState(Object.assign({}, this.state, {reports: nextProps.reports }))
   }
 
   render () {
-    console.log('+++ +++ render ReportsIndex:', this.props)
+    console.log('+++ +++ render ReportsIndex props:', this.props)
+    console.log('+++ +++ render ReportsIndex state:', this.state)
+
+    let reports = []
+    this.state.reports.forEach((n, idx) => {
+      // console.log("+++ n?", n)
+      reports.push(<li key={idx} >{n.name}</li>)
+    })
 
     return (
       <Grid>
         <Row>
-          Reports, pls?
+          <Center>Reports</Center>
+          <ul>{ reports }</ul>
         </Row>
       </Grid>
     )

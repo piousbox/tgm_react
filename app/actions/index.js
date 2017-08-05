@@ -25,6 +25,7 @@ import {
   SET_PROFILE,
 
   SET_REPORT,
+  SET_REPORTS,
 
   SET_SITE_NEWSITEMS,
 
@@ -57,9 +58,6 @@ const citiesIndex = () => {
       })
     } else {
       fetch(url).then(r => r.json()).then(_data => {
-
-        // console.log('+++ +++ _data is:', _data)
-
         dispatch({
           type: SET_CITIES_INDEX,
           cities: _data,
@@ -130,6 +128,19 @@ const reportsShow = (args) => {
   }
 }
 
+const reportsIndex = (args) => {
+  return (dispatch, getState) => {
+    let url = `${config.apiUrl}/api/reports.json?cityname=${args.cityname}`
+    fetch(url).then(r => r.json()).then(_data => {
+      console.log("+++ +++ reportsIndex got data:", _data)
+      dispatch({
+        type: SET_REPORTS,
+        reports: _data,
+      })
+    })
+  }
+}
+
 const venuesShow = (args) => {
   return (dispatch, getState) => {
     let url = `${config.apiUrl}/api/venues/view/${args.venuename}.json`
@@ -170,6 +181,7 @@ export default {
   myGalleriesAction,
 
   reportsShow,
+  reportsIndex,
 
   setApiUrl,
   siteNewsitemsIndex,
