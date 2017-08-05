@@ -43,7 +43,7 @@ class MainNavigation extends React.Component {
 
   componentWillMount(nextProps) {
     // this.props.dispatch({ type: SET_API_URL, apiUrl: config.apiUrl });
-    console.log("+++ +++ MainNavigation nextProps?:", nextProps)
+    // console.log("+++ +++ MainNavigation nextProps?:", nextProps)
   }
 
   render () {

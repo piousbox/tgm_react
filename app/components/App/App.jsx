@@ -12,16 +12,18 @@ import PropTypes from 'prop-types'
 import styles     from './_App.scss'
 import bg         from './images/noisy_grid.png'
 import store      from '../../stores'
+
 import Home from './Home'
-import { ReportsIndex, ReportsShow } from '../Reports'
-import { GalleriesIndex, GalleriesShow, GalleriesPhotoShow } from '../Galleries'
-import { CitiesIndex, CitiesShow } from '../Cities'
+import MainNavigation from './MainNavigation'
+import Profile from './Profile'
+import TgmRouter from './TgmRouter'
+
+import { CitiesIndex, CitiesShow, CitiesWrapper } from '../Cities'
 import { EventsShow } from '../Events'
+import { GalleriesIndex, GalleriesShow, GalleriesPhotoShow } from '../Galleries'
+import { ReportsIndex, ReportsShow } from '../Reports'
 import { VenuesShow } from '../Venues'
 import VideosShow from '../Videos/VideosShow'
-import Profile from './Profile'
-import MainNavigation from './MainNavigation'
-import TgmRouter from './TgmRouter'
 
 import { citiesIndex, profileAction } from '../../actions'
 
@@ -32,7 +34,9 @@ const routes = {
   childRoutes: [
     { path: '/en/profile', component: Profile },
     { path: '/en/cities', component: CitiesIndex },
-    { path: TgmRouter.cityPath, component: CitiesShow },
+    { path: TgmRouter.cityWrapperPath, component: CitiesWrapper, childRoutes: [
+      { path: TgmRouter.cityReportsPath, component: ReportsIndex },
+    ]},
     { path: TgmRouter.cityEventPath, component: EventsShow },
     { path: TgmRouter.cityVenuePath, component: VenuesShow },
 
@@ -66,8 +70,8 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('+++ +++ App props:', this.props)
-    console.log('+++ +++ App state:', this.state)
+    // console.log('+++ +++ App props:', this.props)
+    // console.log('+++ +++ App state:', this.state)
 
     return (
       <Provider store={store} >

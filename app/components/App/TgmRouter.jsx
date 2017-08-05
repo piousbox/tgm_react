@@ -9,6 +9,17 @@ let TgmRouter = {
   cityVenuePath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/venues/show/:venuename',
   cityVenueLink: (g) => { return `/en/cities/travel-to/${g.cityname}/venues/show/${g.venuename}` },
 
+  cityReportsPath: "/:lang(en|ru|pt|es)/cities/travel-to/:cityname/reports",
+  cityReportsLink: (g) => { 
+    if ('string' === typeof g) {
+      return `/en/cities/travel-to/${g}/reports`
+    } else if ('object' === typeof g) {
+      return `/en/cities/travel-to/${g.cityname}/reports`
+    }
+  },
+
+  cityWrapperPath: "/:lang(en|ru|pt|es)/cities/travel-to",
+
   galleriesPath: '/:lang(en|ru|pt|es)/galleries',
   galleriesLink: '/en/galleries',
   galleryPath: '/:lang(en|ru|pt|es)/galleries/show/:galleryname',

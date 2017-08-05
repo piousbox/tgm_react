@@ -62,7 +62,6 @@ class CitiesIndex extends React.Component {
       let city = this.state.cities[idx]
 
       let ans = (parseInt(idx) + 1) % 3 === 0
-      console.log("+++ clearfux?", parseInt(idx), ans)
 
       cities.push(
         <Col key={keyIdx++} xs={4}>
@@ -74,7 +73,6 @@ class CitiesIndex extends React.Component {
           </Center></Panel>
         </Col>)
       if (ans) {
-        console.log('+++ clearfix!')
         cities.push(<Clearfix key={keyIdx++} />)
       }
     })

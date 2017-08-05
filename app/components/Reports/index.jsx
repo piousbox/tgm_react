@@ -1,6 +1,8 @@
 
+import ReportsIndex from './ReportsIndex'
 import ReportsShow from './ReportsShow'
 
 export default {
-  ReportsShow
+  ReportsIndex,
+  ReportsShow,
 }

@@ -23,7 +23,7 @@ import VideoPreview   from '../Videos/VideoPreview'
 
 import LargeSquare    from '../App/LargeSquare'
 
-class CitiesShow extends React.Component {
+class CitiesWrapper extends React.Component {
   constructor(props) {
     super(props)
     this.state = { 
@@ -32,12 +32,6 @@ class CitiesShow extends React.Component {
       }
     }
     this.props.dispatch(citiesShow({ cityname: props.params.cityname }))
-  }
-
-  componentDidMount() {
-  }
-
-  componentWillMount() {
   }
 
   componentWillReceiveProps(nextProps) {
@@ -49,8 +43,6 @@ class CitiesShow extends React.Component {
   }
 
   handleSelect = (e) => {
-    console.log("+++ +++ handleSelect:", e)
-
     switch (e) {
       case 'cityNews':
         scrollToElement(`#${e}`)
@@ -59,7 +51,7 @@ class CitiesShow extends React.Component {
   }
   
   render () {
-    // console.log('+++ +++ citiesShow props:', this.props)
+    console.log('+++ +++ citiesWrapper props:', this.props)
 
     let nEvents = this.props.city.n_events
     let events = []
@@ -139,6 +131,7 @@ class CitiesShow extends React.Component {
     return (
       <Grid>
         <Row>
+          city?
           <Col xs={12} >
             <Leaderboard />
             <h1 style={{ textAlign: 'center' }} >{ this.state.city.name }</h1>
@@ -155,49 +148,14 @@ class CitiesShow extends React.Component {
             <div className="description" dangerouslySetInnerHTML={{ __html: this.props.city.description }} />
           </Col>
         </Row>
-        <Row>
-          { features }
-        </Row>
-
-        { /* map row */ }
-        <Row>
-          <Col xs={6}>
-            <CitiesShowMap city={this.props.city} />
-          </Col>
-          <Col xs={6}>
-            <LargeSquare />
-            <h2>Events ({nEvents})</h2><ul>{ events }</ul>
-            <h2>Venues ({nVenues})</h2><ul>{ venues }</ul>
-          </Col>
-        </Row>
-
-        { /* newsitems row */ }
-        <Row id="cityNews" >
-          <Col xs={12}>
-            <Newsitems newsitems={ this.props.city.newsitems } />
-          </Col>
-        </Row>
-
-        { /* <Row>
-          <Col xs={6}>
-            <h2>Reports ({reports.length})</h2>
-            <ul>{ reports }</ul>
-            <h2>Galleries ({galleries.length})</h2>
-            <ul>{ galleries }</ul>
-            <h2>Videos ({videos.length})</h2>
-            <div>{ videos }</div>
-          </Col>
-        </Row> */ }
-
-        <Row>
-          { this.props.children } 
-        </Row>
+        <Row>{ features }</Row>
+        <Row>{ this.props.children }</Row>
       </Grid>
     )
   }
 }
 
-CitiesShow.propTypes = {
+CitiesWrapper.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -207,5 +165,5 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps)(CitiesShow)
+export default connect(mapStateToProps)(CitiesWrapper)
 
