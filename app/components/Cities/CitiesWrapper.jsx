@@ -23,15 +23,35 @@ import VideoPreview   from '../Videos/VideoPreview'
 
 import LargeSquare    from '../App/LargeSquare'
 
+
 class CitiesWrapper extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { 
+    if (localStorage.getItem('mapToggled') === null) {
+      localStorage.setItem('mapToggled', 'true')
+    }
+    this.state = {
+      mapWrapper: localStorage.getItem('mapToggled') == 'true' ? this.mapContent() : null,
+      mapToggled: localStorage.getItem('mapToggled') == 'true' ? true : false,
       city: {
         name: props.params.cityname,
       }
     }
     this.props.dispatch(citiesShow({ cityname: props.params.cityname }))
+  }
+
+  mapContent = () => {
+    return ( 
+      <Panel style={{ borderTop: 'none' }} >
+        <Col xs={6}>
+          <CitiesShowMap city={this.props.city} />
+        </Col>
+        <Col xs={6}>
+          <LargeSquare />
+          { /* <h2>Events ({nEvents})</h2><ul>{ events }</ul> */ }
+          { /* <h2>Venues ({nVenues})</h2><ul>{ venues }</ul> */ }
+        </Col>
+      </Panel>)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -49,9 +69,20 @@ class CitiesWrapper extends React.Component {
         break
     }
   }
+
+  toggleMap = (e) => {
+    if (this.state.mapToggled) {
+      this.setState(Object.assign({}, this.state, { mapToggled: false, mapWrapper: null }))
+      localStorage.setItem('mapToggled', 'false')
+    } else  {
+      this.setState(Object.assign({}, this.state, { mapToggled: true, mapWrapper: this.mapContent() }))
+      localStorage.setItem('mapToggled', 'true')
+    }
+  }
   
   render () {
     console.log('+++ +++ citiesWrapper props:', this.props)
+    console.log('+++ +++ citiesWrapper state:', this.state)
 
     let nEvents = this.props.city.n_events
     let events = []
@@ -130,24 +161,39 @@ class CitiesWrapper extends React.Component {
 
     return (
       <Grid>
+        <Leaderboard />
+        <h1 style={{ textAlign: 'center' }} >{ this.state.city.name }</h1>
+
+        { /* map row */ }
+        <Row>
+          <Col xs={12}>
+            <Nav bsStyle="tabs" >
+              <NavItem className="active" onClick={this.toggleMap}>{ this.state.mapToggled ? 'Collapse Map' : 'Expand Map' }</NavItem>
+            </Nav>{ this.state.mapWrapper }<hr />
+          </Col>
+        </Row>
+
+        <Row>{ features }</Row>
+
+        { /* secondary navigation */ }
         <Row>
           <Col xs={12} >
-            <Leaderboard />
-            <h1 style={{ textAlign: 'center' }} >{ this.state.city.name }</h1>
-            <Nav bsStyle="pills" onSelect={this.handleSelect}>
+            <Nav bsStyle="tabs" onSelect={this.handleSelect}>
               <NavItem eventKey={'cityNews'}>News ({nNews})</NavItem>
-              <li><Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports ({nReports})</Link></li>
+              <li className="active" ><Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports ({nReports})</Link></li>
               <li><a href="#">Galleries ({nGalleries})</a></li>
               <li><a href="#">Videos ({nVideos})</a></li>
               <li><a href="#">Venues ({nVenues})</a></li>
               <li><a href="#">Events ({nEvents})</a></li>
               <li><a onClick={this.showPeople}>People ({nPeople})</a></li>
             </Nav>
-            <div className="expandable"><ul>{people}</ul></div>
+            <Panel style={{ borderTop: 'none' }}>
+              { this.props.children }
+              { /* <div className="expandable"><ul>{people}</ul></div> */ }
+            </Panel>
           </Col>
         </Row>
-        <Row>{ features }</Row>
-        <Row>{ this.props.children }</Row>
+
       </Grid>
     )
   }

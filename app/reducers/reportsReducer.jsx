@@ -11,7 +11,7 @@ import {
 import AppDispatcher from '../dispatcher/AppDispatcher'
 import config from 'config'
 
-const reportsReducer = (state={}, action) => {
+const reportsReducer = (state=[], action) => {
   switch (action.type) {
     case SET_REPORTS:
       return action.reports

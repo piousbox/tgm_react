@@ -35,6 +35,7 @@ const routes = {
     { path: '/en/profile', component: Profile },
     { path: '/en/cities', component: CitiesIndex },
     { path: TgmRouter.cityWrapperPath, component: CitiesWrapper, childRoutes: [
+      { path: TgmRouter.cityPath, component: CitiesShow },
       { path: TgmRouter.cityReportsPath, component: ReportsIndex },
     ]},
     { path: TgmRouter.cityEventPath, component: EventsShow },

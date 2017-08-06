@@ -28,14 +28,15 @@ class ReportsIndex extends React.Component {
   }
 
   render () {
-    console.log('+++ +++ render ReportsIndex props:', this.props)
-    console.log('+++ +++ render ReportsIndex state:', this.state)
+    // console.log('+++ +++ render ReportsIndex props:', this.props)
+    // console.log('+++ +++ render ReportsIndex state:', this.state)
 
     let reports = []
-    this.state.reports.forEach((n, idx) => {
-      // console.log("+++ n?", n)
-      reports.push(<li key={idx} >{n.name}</li>)
-    })
+    if (this.state.reports) {
+      this.state.reports.forEach((n, idx) => {
+        reports.push(<li key={idx} >{n.name}</li>)
+      })
+    }
 
     return (
       <Grid>
