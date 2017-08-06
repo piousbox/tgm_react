@@ -19,12 +19,11 @@ class Newsitems extends React.Component {
     let listitems = []
     if (this.props.newsitems && this.props.newsitems.length > 0) {
       let idx = 0
-      this.props.newsitems.forEach((n) => {
+      this.props.newsitems.forEach((n, idx) => {
         listitems.push(
-          <li key={idx++} className={ styles.newsitem }>
-            <Newsitem newsitem={ n } />
-          </li>)
-
+          <Newsitem key={idx} newsitem={ n } />
+        )
+        
         if (Math.random() < 0.5 && nAds) {
           listitems.push(<Leaderboard key={idx++} />)
           nAds--
@@ -33,7 +32,9 @@ class Newsitems extends React.Component {
     }
     
     return (
-      <ul>{ listitems }</ul>
+      <div>
+        { listitems }
+      </div>
     )
   }
 }

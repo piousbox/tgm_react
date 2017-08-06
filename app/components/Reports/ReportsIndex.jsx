@@ -9,6 +9,8 @@ import Center from '../Center'
 
 import { reportsIndex } from '../../actions'
 
+import ReportsIndexItem from './ReportsIndexItem'
+
 import Leaderboard from '../App/Leaderboard'
 import LargeSquare from '../App/LargeSquare'
 
@@ -34,17 +36,14 @@ class ReportsIndex extends React.Component {
     let reports = []
     if (this.state.reports) {
       this.state.reports.forEach((n, idx) => {
-        reports.push(<li key={idx} >{n.name}</li>)
+        reports.push(<ReportsIndexItem report={n} />)
       })
     }
 
     return (
-      <Grid>
-        <Row>
-          <Center>Reports</Center>
-          <ul>{ reports }</ul>
-        </Row>
-      </Grid>
+      <div>
+        { reports }
+      </div>
     )
   }
 }

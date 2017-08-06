@@ -1,16 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col,
+         Panel, 
+} from 'react-bootstrap'
 
 import config from 'config'
-import Center from '../Center'
 
 import { reportsShow } from '../../actions'
 
-import Leaderboard from '../App/Leaderboard'
-import LargeSquare from '../App/LargeSquare'
+import Center      from '../Center'
+
+import { LargeSquare, Leaderboard, TgmRouter } from '../App'
 
 class ReportsIndexItem extends React.Component {
 
@@ -21,15 +24,12 @@ class ReportsIndexItem extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
-  }
-
   render () {
-    console.log('+++ +++ render ReportsIndexItem:', this.props)
-
     return (
       <Panel>
-        { this.props.report.name }
+        <h2><Link to={TgmRouter.reportLink(this.props.report)} >{ this.props.report.name }</Link></h2>
+        { this.props.report.subhead }
+        { this.props.report.body }
       </Panel>
     )
   }

@@ -171,7 +171,6 @@ class CitiesWrapper extends React.Component {
 
     return (
       <Grid>
-        <Leaderboard />
         <h1 style={{ textAlign: 'center' }} >{ this.state.city.name }</h1>
 
         { /* map row */ }

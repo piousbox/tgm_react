@@ -34,8 +34,15 @@ let TgmRouter = {
   },
 
   reportPath: '/:lang(en|ru|pt|es)/reports/show/:reportname',
-  reportLink: (g) => { return `/en/reports/show/${g}` },
-
+  reportLink: (g) => { 
+    if (typeof g === 'string') {
+      return `/en/reports/show/${g}`
+    } else if (typeof g === 'object') {
+      let lang = g.lang ? g.lang : 'en'
+      return `/${lang}/reports/show/${g.reportname}`
+    }
+  },
+  
   venuePath: '/:lang(en|ru|pt|es)/venues/show/:venuename',
   venueLink: (g) => { return `/en/venues/show/${g}` },
 
