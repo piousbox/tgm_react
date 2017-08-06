@@ -31,8 +31,8 @@ class CitiesWrapper extends React.Component {
       localStorage.setItem('mapToggled', 'true')
     }
     this.state = {
-      mapWrapper: localStorage.getItem('mapToggled') == 'true' ? this.mapContent() : null,
-      mapToggled: localStorage.getItem('mapToggled') == 'true' ? true : false,
+      mapWrapper: localStorage.getItem('mapToggled') === 'true' ? this.mapContent() : null,
+      mapToggled: localStorage.getItem('mapToggled') === 'true' ? true : false,
       city: {
         name: props.params.cityname,
       }
