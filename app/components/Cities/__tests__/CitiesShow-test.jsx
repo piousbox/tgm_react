@@ -13,6 +13,6 @@ describe('CitiesShow', () => {
   it('Should render the correct element', () => {
     let app1 = ReactTestUtils.renderIntoDocument(<Provider store={store}><CitiesShow params={{ cityname: 'xxTestCitynamexx' }} /></Provider>)
     let elem = ReactDOM.findDOMNode(app1)
-    expect(elem.tagName.toLowerCase()).to.equal('div')
+    expect(elem.tagName.toLowerCase()).to.equal('ul')
   })
 })

@@ -18,6 +18,7 @@ import { citiesShow } from '../../actions'
 
 import Newsitems      from '../App/Newsitems'
 import Leaderboard    from '../App/Leaderboard'
+import TgmRouter      from '../App/TgmRouter'
 
 import VideoPreview   from '../Videos/VideoPreview'
 
@@ -159,6 +160,15 @@ class CitiesWrapper extends React.Component {
       })
     }
 
+    let activeTab = "news"
+    this.props.routes.forEach((r, idx) => {
+      switch (r.path) {
+        case TgmRouter.cityReportsPath:
+          activeTab = 'reports'
+          break
+      }
+    })
+
     return (
       <Grid>
         <Leaderboard />
@@ -179,8 +189,12 @@ class CitiesWrapper extends React.Component {
         <Row>
           <Col xs={12} >
             <Nav bsStyle="tabs" onSelect={this.handleSelect}>
-              <NavItem eventKey={'cityNews'}>News ({nNews})</NavItem>
-              <li className="active" ><Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports ({nReports})</Link></li>
+              <li className={activeTab === 'news' ? 'active' : null} >
+                <Link to={TgmRouter.cityLink(this.state.city.cityname)}>News ({nNews})</Link>
+              </li>
+              <li className={activeTab === 'reports' ? 'active' : null} >
+                <Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports ({nReports})</Link>
+              </li>
               <li><a href="#">Galleries ({nGalleries})</a></li>
               <li><a href="#">Videos ({nVideos})</a></li>
               <li><a href="#">Venues ({nVenues})</a></li>

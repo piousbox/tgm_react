@@ -16,12 +16,6 @@ class Newsitems extends React.Component {
       nAds = this.props.nAds
     }
 
-    let ad1 = null
-    if (nAds) {
-      ad1 = (<Leaderboard />)
-      nAds--
-    }
-
     let listitems = []
     if (this.props.newsitems && this.props.newsitems.length > 0) {
       let idx = 0
@@ -39,11 +33,7 @@ class Newsitems extends React.Component {
     }
     
     return (
-      <div>
-        { ad1 }
-        <Center><h3>News ({ listitems.length })</h3></Center>
-        <ul>{ listitems }</ul>
-      </div>
+      <ul>{ listitems }</ul>
     )
   }
 }

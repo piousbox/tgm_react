@@ -83,18 +83,7 @@ class CitiesShow extends React.Component {
     }
 
     return (
-      <Grid>
-        { /* newsitems row */ }
-        <Row id="cityNews" >
-          <Col xs={12}>
-            <Newsitems newsitems={ this.props.city.newsitems } />
-          </Col>
-        </Row>
-
-        <Row>
-          { this.props.children } 
-        </Row>
-      </Grid>
+      <Newsitems newsitems={ this.props.city.newsitems } />
     )
   }
 }
