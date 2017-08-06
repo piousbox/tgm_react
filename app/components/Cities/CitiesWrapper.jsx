@@ -166,6 +166,9 @@ class CitiesWrapper extends React.Component {
         case TgmRouter.cityReportsPath:
           activeTab = 'reports'
           break
+        case TgmRouter.cityGalleriesPath:
+          activeTab = 'galleries'
+          break
       }
     })
 
@@ -194,7 +197,9 @@ class CitiesWrapper extends React.Component {
               <li className={activeTab === 'reports' ? 'active' : null} >
                 <Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports ({nReports})</Link>
               </li>
-              <li><a href="#">Galleries ({nGalleries})</a></li>
+              <li className={activeTab === 'galleries' ? 'active' : null } >
+                <Link to={TgmRouter.cityGalleriesLink(this.state.city)}>Galleries ({nGalleries})</Link>
+              </li>
               <li><a href="#">Videos ({nVideos})</a></li>
               <li><a href="#">Venues ({nVenues})</a></li>
               <li><a href="#">Events ({nEvents})</a></li>

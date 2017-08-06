@@ -6,6 +6,15 @@ let TgmRouter = {
   cityEventPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/events/show/:eventname',
   cityEventLink: (g) => { return `/en/cities/travel-to/${g.cityname}/events/show/${g.eventname}` },
 
+  cityGalleriesPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/galleries',
+  cityGalleriesLink: (g) => { 
+    if ('string' === typeof g) {
+      return `/en/cities/travel-to/${g}/galleries`
+    } else if ('object' === typeof g) {
+      return `/en/cities/travel-to/${g.cityname}/galleries`
+    }
+  },
+
   cityVenuePath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/venues/show/:venuename',
   cityVenueLink: (g) => { return `/en/cities/travel-to/${g.cityname}/venues/show/${g.venuename}` },
 

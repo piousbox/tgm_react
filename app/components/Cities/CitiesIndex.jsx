@@ -81,7 +81,6 @@ class CitiesIndex extends React.Component {
       <Grid>
         <Row>
           <Col xs={12}>
-            <Leaderboard />
             <Center>
               <h1 style={{ textAlign: 'center' }} >Cities</h1>
               <input type="text" value={this.state.citiesFilter} onChange={this.handleCitiesFilterChange} />

@@ -46,9 +46,13 @@ const routes = {
     ]},
     { path: TgmRouter.galleryPhotoPath, component: GalleriesPhotoShow },
 
-    { path: '/en/reports/', component: ReportsIndex, childRoutes: [
-      { path: TgmRouter.reportPath, component: ReportsShow },
-    ]},
+    { path: '/en/reports/', component: ReportsIndex, 
+      /* childRoutes: [
+        { path: TgmRouter.reportPath, component: ReportsShow },
+      ], */
+    },
+    { path: TgmRouter.reportPath, component: ReportsShow },
+
     { path: TgmRouter.videoPath, component: VideosShow },
   ],
 }

@@ -36,7 +36,7 @@ class ReportsIndex extends React.Component {
     let reports = []
     if (this.state.reports) {
       this.state.reports.forEach((n, idx) => {
-        reports.push(<ReportsIndexItem report={n} />)
+        reports.push(<ReportsIndexItem key={idx} report={n} />)
       })
     }
 

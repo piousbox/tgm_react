@@ -52,7 +52,10 @@ class Footer extends React.Component {
               <button onClick={this.logout} >Logout</button>
             </Col>
             <Col xs={4}>
-              ;
+              <ul className="debug">
+                <li>{ this.props.params }</li>
+                <li>{ this.props.routes }</li>
+              </ul>
             </Col>
           </Row>
         </Grid>

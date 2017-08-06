@@ -19,9 +19,9 @@ class Newsitems extends React.Component {
     let listitems = []
     if (this.props.newsitems && this.props.newsitems.length > 0) {
       let idx = 0
-      this.props.newsitems.forEach((n, idx) => {
+      this.props.newsitems.forEach((n, _) => {
         listitems.push(
-          <Newsitem key={idx} newsitem={ n } />
+          <Newsitem key={idx++} newsitem={ n } />
         )
         
         if (Math.random() < 0.5 && nAds) {

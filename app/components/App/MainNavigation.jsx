@@ -78,10 +78,8 @@ class MainNavigation extends React.Component {
             </Nav>
           </Navbar.Collapse>
         </Navbar>
-        <div style={{ marginTop: '60px' }}>
-          { /* <Leaderboard /> */ }
-          { this.props.children }
-        </div>
+        <Leaderboard />
+        { this.props.children }
         <Footer apiUrl={this.props.apiUrl} />
       </div>
     )
