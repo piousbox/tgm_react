@@ -18,6 +18,7 @@ import {
   SET_CITY,
 
   SET_GALLERY,
+  SET_GALLERIES,
 
   SET_MY_GALLERIES,
   SET_MY_REPORTS,
@@ -78,6 +79,18 @@ const citiesShow = (args) => {
         cityname: args.cityname,
         city: _data.city,
         galleries: _data.galleries,
+      })
+    })
+  }
+}
+
+const galleriesIndex = (args) => {
+  return (dispatch, getState) => {
+    let url = `${config.apiUrl}/api/galleries.json?cityname=${args.cityname}`
+    fetch(url).then(r => r.json()).then(_data => {
+      dispatch({
+        type: SET_GALLERIES,
+        galleries: _data,
       })
     })
   }
@@ -173,6 +186,7 @@ export default {
   citiesIndex,
   citiesShow,
 
+  galleriesIndex,
   galleriesShow,
 
   profileAction,

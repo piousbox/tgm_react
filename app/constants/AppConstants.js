@@ -18,7 +18,8 @@ export const SET_CITIES       = 'set cities'
 export const SET_CITIES_SHOW  = 'set cities show'
 export const SET_CITY         = 'set city'
 
-export const SET_GALLERY = 'set gallery'
+export const SET_GALLERY   = 'set gallery'
+export const SET_GALLERIES = 'set galleries'
 
 export const SET_MY_GALLERIES = 'set my galleries'
 export const SET_MY_REPORTS   = 'set my reports'
