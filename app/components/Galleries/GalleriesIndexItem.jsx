@@ -25,10 +25,18 @@ class GalleriesIndexItem extends React.Component {
   }
 
   render () {
+    let thumbs = []
+    this.props.gallery.photos.forEach((photo, idx) => {
+      if (idx < 9) {
+        thumbs.push(<img style={{ margin: '0 1em 1em 0' }} src={photo.thumb_url} alt='' key={idx} />)
+      }
+    })
+
     return (
       <Panel>
-        <h2><Link to={TgmRouter.galleryLink(this.props.gallery)} >{ this.props.gallery.name }</Link></h2>
+        <h2><Link to={TgmRouter.galleryPhotoLink(this.props.gallery)} >{ this.props.gallery.name }</Link></h2>
         { this.props.gallery.subhead }
+        { thumbs }
         { this.props.gallery.body }
       </Panel>
     )

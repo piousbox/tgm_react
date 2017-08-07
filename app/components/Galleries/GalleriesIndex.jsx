@@ -55,7 +55,7 @@ GalleriesIndex.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    galleries: state.galleries,
+    galleries: state.city.galleries,
   }
 }
 

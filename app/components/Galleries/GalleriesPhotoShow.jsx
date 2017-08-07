@@ -62,7 +62,6 @@ class GalleriesPhotoShow extends React.Component {
     
     return (
       <Grid>
-        <Leaderboard />
         <h2><Center>{ this.props.gallery.name }</Center></h2>
         <Row>
           <Col md={9} xs={12} >

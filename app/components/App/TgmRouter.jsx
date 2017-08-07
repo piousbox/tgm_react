@@ -32,7 +32,13 @@ let TgmRouter = {
   galleriesPath: '/:lang(en|ru|pt|es)/galleries',
   galleriesLink: '/en/galleries',
   galleryPath: '/:lang(en|ru|pt|es)/galleries/show/:galleryname',
-  galleryLink: (g) => { return `/en/galleries/show/${g}` },
+  galleryLink: (g) => { 
+    if (typeof g === 'string') {
+      return `/en/galleries/show/${g}`
+    } else if (typeof g === 'object') {
+    return `/en/galleries/show/${g.galleryname}`
+    }
+  },
   galleryPhotoPath: '/:lang(en|ru|pt|es)/galleries/show/:galleryname/:photoIdx',
   galleryPhotoLink: (g, i) => {
     if ('string' === typeof g) {
