@@ -5,6 +5,9 @@ import { Grid, Row, Col,
 } from 'react-bootstrap'
 
 import { connect } from 'react-redux'
+import { Link }    from 'react-router'
+
+import TgmRouter from './TgmRouter'
 
 class Features extends React.Component {
 
@@ -15,17 +18,27 @@ class Features extends React.Component {
 
   render () {
     console.log('+++ +++ features props:', this.props)
-    console.log('+++ +++ features state:', this.state)
+    // console.log('+++ +++ features state:', this.state)
 
     let features = []
-
-    if (this.state.city && this.state.city.features) {
-      this.state.city.features.forEach((f, idx) => {
-        features.push(<Col key={idx} xs={12/this.props.nFeatures} >feature!</Col>)
+    if (this.props.features) {
+      this.props.features.forEach((f, idx) => {
+        features.push(
+          <Col key={idx} xs={12/4} >
+            <Panel>
+              <h3><Link to={TgmRouter.reportLink(f.reportname)}  >{ f.name }</Link></h3>
+              <img src={f.photo_url} alt={f.name} />
+              <br />
+              { f.subhead }
+            </Panel>
+          </Col>)
       })
     }
 
-    return (<Row>{ features }</Row>)
+    return (
+      <Row>
+        { features }
+      </Row>)
   }
 }
 

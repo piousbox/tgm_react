@@ -9,7 +9,7 @@ import Center from '../Center'
 
 import { reportsShow } from '../../actions'
 
-import { LargeSquare, Leaderboard, Meta } from '../App'
+import { LargeSquare, Leaderboard, Meta, Clearfix } from '../App'
 
 class ReportsShow extends React.Component {
 
@@ -42,12 +42,14 @@ class ReportsShow extends React.Component {
         </Row>
         <Row>
           <Col xs={8} xsOffset={2}>
-            { /* <Leaderboard /> */ }
-            <div style={{ float: 'left', padding: '5px', width: '350px' }}>
+            <div className="subhead" style={{ margin: '2em 0 2em 0' }} ><i>{this.state.report.subhead}</i></div>
+            <div style={{ float: 'left', padding: '5px', width: '410px', clear: 'right' }}>
+              <img src={this.state.report.photo_url} alt={this.state.report.name} />
+            </div>
+            <div style={{ float: 'left', padding: '5px', width: '350px', clear: 'left' }}>
               <LargeSquare />
             </div>
             <div dangerouslySetInnerHTML={{__html: this.state.report.description}} />
-
             <br /><br />
             <Leaderboard />
           </Col>

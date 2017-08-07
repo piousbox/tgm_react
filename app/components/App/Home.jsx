@@ -14,11 +14,12 @@ import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
 import config from 'config'
-import styles from './_App.scss'
-import Footer from './Footer'
-import Newsitems from './Newsitems'
 
+import styles      from './_App.scss'
+import Features    from './Features'
+import Footer      from './Footer'
 import Leaderboard from './Leaderboard'
+import Newsitems   from './Newsitems'
 
 import {
   SET_API_URL,
@@ -26,7 +27,7 @@ import {
 
 import { LinkContainer } from 'react-router-bootstrap'
 
-import { siteNewsitemsIndex } from '../../actions'
+import { siteShow } from '../../actions'
 
 const loginFbUser = (r) => {
   console.log('+++ +++ todo!')
@@ -46,14 +47,14 @@ class Home extends React.Component {
 
   constructor(props) {
     super(props) 
-    this.props.dispatch(siteNewsitemsIndex());
+    this.props.dispatch(siteShow());
   }
 
   componentWillMount() {
   }
 
   render () {
-    console.log('+++ +++ rendering Home:', this.props)
+    // console.log('+++ +++ rendering Home:', this.props)
 
     let newsitems = []
     if (this.props.siteNewsitems) {
@@ -65,13 +66,11 @@ class Home extends React.Component {
     return (
       <div style={{ marginTop: '60px' }}>
         <Grid>
-          <Row>
-            { /* Feature cities? */ }
-          </Row>
+          <Features features={this.props.site.features} />
 
           <Row>
             <Col xs={12}>
-              <Newsitems newsitems={ this.props.siteNewsitems } nAds={3} />
+              <Newsitems newsitems={ this.props.site.newsitems } nAds={3} />
             </Col>
           </Row>
         </Grid>
@@ -86,7 +85,7 @@ Home.propTypes = {
 function mapStateToProps(state, ownProps) {
   return {
     apiUrl: state.apiUrl,
-    siteNewsitems: state.siteNewsitems,
+    site: state.site,
   }
 }
 

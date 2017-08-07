@@ -124,7 +124,7 @@ export default combineReducers({
   report: reportsShowReducer,
   reports: reportsReducer,
 
-  siteNewsitems: sitesReducer,
+  site: sitesReducer,
 
   venue: venuesShowReducer,
 })

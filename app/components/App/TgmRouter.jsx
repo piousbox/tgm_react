@@ -36,7 +36,7 @@ let TgmRouter = {
     if (typeof g === 'string') {
       return `/en/galleries/show/${g}`
     } else if (typeof g === 'object') {
-    return `/en/galleries/show/${g.galleryname}`
+      return `/en/galleries/show/${g.galleryname}`
     }
   },
   galleryPhotoPath: '/:lang(en|ru|pt|es)/galleries/show/:galleryname/:photoIdx',
@@ -58,6 +58,16 @@ let TgmRouter = {
     }
   },
   
+  tagPath: '',
+  tagLink: (g) => {
+    if (typeof g === 'string') {
+      return `/en/tags/show/${g}`
+    } else if (typeof g === 'object') {
+      let lang = g.lang ? g.lang : 'en'
+      return `/${lang}/tags/show/${g.tagname}`
+    }
+  },
+
   venuePath: '/:lang(en|ru|pt|es)/venues/show/:venuename',
   venueLink: (g) => { return `/en/venues/show/${g}` },
 

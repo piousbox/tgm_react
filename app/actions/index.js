@@ -28,7 +28,7 @@ import {
   SET_REPORT,
   SET_REPORTS,
 
-  SET_SITE_NEWSITEMS,
+  SET_SITE,
 
   SET_VENUE,
 
@@ -167,15 +167,15 @@ const venuesShow = (args) => {
   }
 }
 
-const siteNewsitemsIndex = () => {
+const siteShow = () => {
   return (dispatch, getState) => {
     let state = getState()
     let url = `${config.apiUrl}/api/sites/view/travel-guide.mobi.json`
     
     fetch(url).then(r => r.json()).then(_data => {
       dispatch({
-        type: SET_SITE_NEWSITEMS,
-        siteNewsitems: _data.site.newsitems,
+        type: SET_SITE,
+        site: _data.site,
       })
     })
   }
@@ -198,7 +198,7 @@ export default {
   reportsIndex,
 
   setApiUrl,
-  siteNewsitemsIndex,
+  siteShow,
 
   venuesShow,
 }
