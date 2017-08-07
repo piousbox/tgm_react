@@ -30,8 +30,8 @@ class GalleriesPhotoShow extends React.Component {
   }
 
   render () {
-    console.log("+++ +++ galleriesPhotoShow props:", this.props)
-    console.log("+++ +++ galleriesPhotoShow state:", this.state)
+    // console.log("+++ +++ galleriesPhotoShow props:", this.props)
+    // console.log("+++ +++ galleriesPhotoShow state:", this.state)
 
     let largePhoto   = null
     let prev         = null
