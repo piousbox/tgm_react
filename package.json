@@ -152,7 +152,7 @@
     }
   },
   "scripts": {
-    "build": "NODE_ENV=production npm run webpack && cp -v htaccess build/.htaccess && echo ok",
+    "build": "NODE_ENV=production npm run webpack && cp -v htaccess build/.htaccess && cp sitemap* build/ -v && echo ok",
     "clean": "rimraf $npm_package_config_buildDir && mkdir $npm_package_config_buildDir",
     "env": "env",
     "lint": "eslint --ext .js --ext .jsx ./app ./webpack && echo No linting errors.",
