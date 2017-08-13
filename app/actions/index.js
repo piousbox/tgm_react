@@ -172,12 +172,16 @@ const siteShow = () => {
     let state = getState()
     let url = `${config.apiUrl}/api/sites/view/travel-guide.mobi.json`
     
-    fetch(url).then(r => r.json()).then(_data => {
-      dispatch({
-        type: SET_SITE,
-        site: _data.site,
+    if (Object.keys(state.site).length > 0) {
+      ;
+    } else {
+      fetch(url).then(r => r.json()).then(_data => {
+        dispatch({
+          type: SET_SITE,
+          site: _data.site,
+        })
       })
-    })
+    }
   }
 }
 

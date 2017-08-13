@@ -88,7 +88,7 @@ class Profile extends React.Component {
     this.setState(Object.assign({}, this.state, { activeKey: e }))
   }
 
-  render() {      
+  render() {
     console.log("+++ +++ Profile render props:", this.props)
     console.log("+++ +++ Profile render state:", this.state)
 
