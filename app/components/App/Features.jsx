@@ -23,6 +23,7 @@ class Features extends React.Component {
     const perRow = 4
 
     let features = []
+    let renderedFeaturesCount = 0
     if (this.props.features) {
       this.props.features.forEach((f, idx) => {
         if (f.reportname) {
@@ -35,6 +36,7 @@ class Features extends React.Component {
                 { f.subhead }
               </Panel>
             </Col>)
+          renderedFeaturesCount++;
         } else if (f.galleryname) {
           features.push(
             <Col key={idx} xs={12/perRow} >
@@ -45,10 +47,9 @@ class Features extends React.Component {
                 { f.subhead }
               </Panel>
             </Col>)
-        } else {
-          features.push(<div>No feature content</div>)
+          renderedFeaturesCount++
         }
-        if ((idx+1) % perRow === 0) {
+        if (renderedFeaturesCount % perRow === 0) {
           features.push(<div style={{ clear: 'both' }} />)
         }
       })
