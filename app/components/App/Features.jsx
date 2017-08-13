@@ -17,28 +17,42 @@ class Features extends React.Component {
   }
 
   render () {
-    console.log('+++ +++ features props:', this.props)
+    // console.log('+++ +++ features props:', this.props)
     // console.log('+++ +++ features state:', this.state)
+
+    const perRow = 4
 
     let features = []
     if (this.props.features) {
       this.props.features.forEach((f, idx) => {
-        features.push(
-          <Col key={idx} xs={12/4} >
-            <Panel>
-              <h3><Link to={TgmRouter.reportLink(f.reportname)}  >{ f.name }</Link></h3>
-              <img src={f.photo_url} alt={f.name} />
-              <br />
-              { f.subhead }
-            </Panel>
-          </Col>)
+        if (f.reportname) {
+          features.push(
+            <Col key={idx} xs={12/perRow} >
+              <Panel>
+                <h3><Link to={TgmRouter.reportLink(f.reportname)}  >{ f.name }</Link></h3>
+                <img src={f.photo_url} alt={f.name} />
+                <br />
+                { f.subhead }
+              </Panel>
+            </Col>)
+        } else if (f.galleryname) {
+          features.push(
+            <Col key={idx} xs={12/perRow} >
+              <Panel>
+                <h3><Link to={TgmRouter.galleryPhotoLink(f.galleryname)}  >{ f.name }</Link></h3>
+                <img src={f.photo_url} alt={f.name} />
+                <br />
+                { f.subhead }
+              </Panel>
+            </Col>)
+        }
+        if ((idx+1) % perRow === 0) {
+          features.push(<div style={{ clear: 'both' }} />)
+        }
       })
     }
 
-    return (
-      <Row>
-        { features }
-      </Row>)
+    return (<Row>{ features }</Row>)
   }
 }
 

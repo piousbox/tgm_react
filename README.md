@@ -13,7 +13,8 @@
 ## Install
 
 node ip - this project is on lb
-dev port 8006
+dev port 8005 (conflicts with tomcat7 by default)
+
 
 
 
