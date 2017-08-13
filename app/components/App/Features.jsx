@@ -45,6 +45,8 @@ class Features extends React.Component {
                 { f.subhead }
               </Panel>
             </Col>)
+        } else {
+          features.push(<div>No feature content</div>)
         }
         if ((idx+1) % perRow === 0) {
           features.push(<div style={{ clear: 'both' }} />)
@@ -52,7 +54,7 @@ class Features extends React.Component {
       })
     }
 
-    return (<Row>a{ features }</Row>)
+    return (<Row>{ features }</Row>)
   }
 }
 
