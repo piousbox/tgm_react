@@ -52,7 +52,7 @@ class Features extends React.Component {
       })
     }
 
-    return (<Row>{ features }</Row>)
+    return (<Row>a{ features }</Row>)
   }
 }
 
