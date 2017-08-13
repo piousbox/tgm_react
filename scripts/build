@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo 'THIS FAILS A LOT...'
+exit 5
+
 set -x
 
 tagNumber=`git branch | grep -e "^*" | cut -d' ' -f 2`
