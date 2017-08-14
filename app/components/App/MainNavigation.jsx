@@ -62,7 +62,7 @@ class MainNavigation extends React.Component {
         <Navbar>
           <Navbar.Header>
             <Navbar.Brand>
-              <Link to="/">T.G.M</Link>
+              <Link to="/">{ config.siteTitle }</Link>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>

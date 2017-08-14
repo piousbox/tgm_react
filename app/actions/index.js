@@ -170,7 +170,7 @@ const venuesShow = (args) => {
 const siteShow = () => {
   return (dispatch, getState) => {
     let state = getState()
-    let url = `${config.apiUrl}/api/sites/view/travel-guide.mobi.json`
+    let url = `${config.apiUrl}/api/sites/view/${config.domain}.json`
     
     if (Object.keys(state.site).length > 0) {
       ;
