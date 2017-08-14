@@ -34,7 +34,7 @@ var config = {
   devtool: DEBUG || TEST ? 'inline-source-map' : false,
   entry: entry,
   output: {
-    path: path.resolve(pkg.config.buildDir),
+    path: path.resolve(pkg.config.buildDir[process.env.NODE_ENV]),
     publicPath: '/',
     filename: jsBundle,
     pathinfo: false
@@ -51,7 +51,7 @@ var config = {
     modulesDirectories: ['node_modules', 'config/' + process.env.NODE_ENV ]
   },
   devServer: {
-    contentBase: path.resolve(pkg.config.buildDir),
+    contentBase: path.resolve(pkg.config.buildDir[process.env.NODE_ENV]),
     hot: true,
     noInfo: false,
     inline: true,
