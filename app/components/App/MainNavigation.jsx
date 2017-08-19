@@ -47,6 +47,8 @@ class MainNavigation extends React.Component {
   }
 
   render () {
+    console.log('+++ +++ MainNavigation props:', this.props)
+
     let profilePic = null
     if (this.props.profile.id) {
       profilePic = (<img src={`//graph.facebook.com/${this.props.profile.id}/picture`} alt='' />)
@@ -80,7 +82,7 @@ class MainNavigation extends React.Component {
         </Navbar>
         <Leaderboard />
         { this.props.children }
-        <Footer apiUrl={this.props.apiUrl} />
+        <Footer apiUrl={this.props.apiUrl} domain={this.props.domain} />
       </div>
     )
   }
@@ -89,6 +91,7 @@ class MainNavigation extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     apiUrl: state.apiUrl,
+    domain: state.domain,
     profile: state.profile,
   }
 }

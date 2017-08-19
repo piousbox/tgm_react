@@ -11,6 +11,7 @@ import {
 function apiUrlReducer(state = 'no-state', action) {
   switch (action.type) {
     case SET_API_URL:
+      console.log('+++ +++ apiUrlReducer', action)
       return action.apiUrl
     default:
       return state

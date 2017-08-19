@@ -9,6 +9,8 @@ import ig from './images/social/instagram.png'
 import fb from './images/social/facebook.png'
 import uu from './images/social/youtube.png'
 
+import config from 'config'
+
 import {
   DO_LOGOUT,
 } from '../../constants/AppConstants'
@@ -26,6 +28,8 @@ class Footer extends React.Component {
   }
 
   render () {
+    // console.log('+++ +++ Footer props:', this.props)
+
     return (
       <div className={styles.footer1} style={{ backgroundImage: `url(${bg})` }} >
         <Grid style={{ height: '200px' }} >
@@ -46,15 +50,18 @@ class Footer extends React.Component {
           </Row>
           <Row>
             <Col xs={4} >
-              { /* apiUrl: {this.props.apiUrl} */ }
+              <ul>
+                { /* <li>apiUrl: {this.props.apiUrl}</li> */ }
+                <li>Domain: {config.domain}</li>
+              </ul>
             </Col>
             <Col xs={4}>
               <button onClick={this.logout} >Logout</button>
             </Col>
             <Col xs={4}>
               <ul className="debug">
-                <li>{ this.props.params }</li>
-                <li>{ this.props.routes }</li>
+                { /* <li>{ this.props.params }</li> */ }
+                { /* <li>{ this.props.routes }</li> */ }
               </ul>
             </Col>
           </Row>

@@ -8,7 +8,8 @@
     "buildDir": {
       "production": "./build",
       "piousbox": "./build_piousbox",
-      "tgm": "./build_tgm"
+      "tgm": "./build_tgm",
+      "development": "./build"
     },
     "buildDirTests": "./build_tests",
     "devHost": "localhost",
