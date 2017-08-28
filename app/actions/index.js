@@ -173,7 +173,7 @@ const siteShow = () => {
     let url = `${config.apiUrl}/api/sites/view/${config.domain}.json`
     
     if (Object.keys(state.site).length > 0) {
-      ;
+      // ;
     } else {
       fetch(url).then(r => r.json()).then(_data => {
         dispatch({

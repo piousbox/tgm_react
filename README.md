@@ -16,7 +16,7 @@ dev port 8005 (conflicts with tomcat7 by default, so `sudo service tomcat7 stop`
 
 to setup tgm:
 
- git clone 
+ git clone <your repo>
  npm install
  npm run build
  npm run start

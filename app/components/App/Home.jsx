@@ -70,7 +70,7 @@ class Home extends React.Component {
 
           <Row>
             <Col xs={12}>
-              <Newsitems newsitems={ this.props.site.newsitems } nAds={3} />
+              <Newsitems newsitems={ this.props.site.newsitems } nAds={3} site={this.props.site} />
             </Col>
           </Row>
         </Grid>

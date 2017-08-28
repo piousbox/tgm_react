@@ -9,7 +9,20 @@ import styles from './_Newsitems.scss'
 import Leaderboard from './Leaderboard'
 
 class Newsitems extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = { cursor: 0, count: null }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    console.log('+++ +++ newsitems will receive props:', nextProps)
+    this.setState(Object.assign({}, this.state, { count: nextProps.site.n_newsitems }))
+  }
+
   render() {
+    console.log('+++ +++ newsitems props:', this.props)
+    console.log('+++ +++ newsitems state:', this.state)
 
     let nAds = 0
     if (this.props.nAds && this.props.nAds > 0) {
@@ -31,9 +44,17 @@ class Newsitems extends React.Component {
       })
     }
     
+    let pagination = []
+    let pageNumber = 1;
+    for (let i = 0; i < this.state.count; i += 10) {
+      pagination.push(<span><button onClick={() => {gotoPage(pageNumber)}}>{pageNumber++}</button></span>)
+    }
+    
     return (
       <div>
+        { pagination }
         { listitems }
+        { pagination }
       </div>
     )
   }
