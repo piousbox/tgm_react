@@ -29,6 +29,7 @@ import {
   SET_REPORTS,
 
   SET_SITE,
+  SET_SITE_NEWSITEMS,
 
   SET_VENUE,
 
@@ -167,6 +168,19 @@ const venuesShow = (args) => {
   }
 }
 
+const siteNewsitemsAction = (args = {}) => {
+  return (dispatch, getState) => {
+    let state = getState()
+    let url = `${config.apiUrl}/api/sites/view/${config.domain}/newsitems/${args.page}.json`
+    fetch(url).then(r => r.json()).then(_data => {
+      dispatch({
+        type: SET_SITE_NEWSITEMS,
+        newsitems: _data.newsitems,
+      })
+    })
+  }
+}
+
 const siteShow = () => {
   return (dispatch, getState) => {
     let state = getState()
@@ -203,6 +217,7 @@ export default {
 
   setApiUrl,
   siteShow,
+  siteNewsitemsAction,
 
   venuesShow,
 }

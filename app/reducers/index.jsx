@@ -6,12 +6,13 @@ import {
 
   SET_API_URL,
   SET_PROFILE,
+  SET_SITE_NEWSITEMS,
+
 } from '../constants/AppConstants'
 
 function apiUrlReducer(state = 'no-state', action) {
   switch (action.type) {
     case SET_API_URL:
-      console.log('+++ +++ apiUrlReducer', action)
       return action.apiUrl
     default:
       return state
@@ -38,11 +39,19 @@ function myGalleriesReducer (state = {}, action) {
   return state
 }
 
+function newsitemsReducer(state = {}, action) {
+  switch (action.type) {
+    case SET_SITE_NEWSITEMS:
+      return action.newsitems
+      break
+    default:
+      return state
+  }
+}
+
 function profileReducer (state = {}, action) {
   switch (action.type) {
     case SET_PROFILE:
-      console.log('+++ +++ profileReducer:', action)
-
       /**
        * facebook: either info is passed, or I have it in localStorage, or I don't have it.
        */
@@ -60,7 +69,6 @@ function profileReducer (state = {}, action) {
             name:        action.profile.name,
           }),
         }).then(r => r.json()).then(_data => {
-          console.log('+++ +++ from fb profile data from ishapi:', _data)
           action.profile.longAccessToken = _data.profile.fb_long_access_token
           action.profile.token           = _data.profile.fb_long_access_token
         })
@@ -91,7 +99,6 @@ function profileReducer (state = {}, action) {
             accessToken: action.profile.accessToken,
           })
         }).then(r => r.json()).then(_data => {
-          // console.log('+++ +++ profileReducer, got ish dataz:', _data)
           action.profile.current_city    = _data.current_city
           action.profile.about           = _data.about
           action.profile.current_city_id = _data.current_city_id
@@ -100,7 +107,6 @@ function profileReducer (state = {}, action) {
       return action.profile
 
     case DO_LOGOUT:
-      console.log('+++ +++ reducer do logout:', action)
       localStorage.removeItem('fbAccount')
       return {}
     default:
@@ -119,6 +125,8 @@ export default combineReducers({
 
   myReports: myReportsReducer,
   myGalleries: myGalleriesReducer,
+
+  newsitems: newsitemsReducer,
 
   profile: profileReducer,
 
