@@ -6,6 +6,7 @@ import {
 
   SET_API_URL,
   SET_PROFILE,
+
   SET_SITE_NEWSITEMS,
 
 } from '../constants/AppConstants'
@@ -99,9 +100,10 @@ function profileReducer (state = {}, action) {
             accessToken: action.profile.accessToken,
           })
         }).then(r => r.json()).then(_data => {
-          action.profile.current_city    = _data.current_city
-          action.profile.about           = _data.about
-          action.profile.current_city_id = _data.current_city_id
+          action.profile = Object.assign({}, action.profile, _data)
+          // action.profile.current_city    = _data.current_city
+          // action.profile.about           = _data.about
+          // action.profile.current_city_id = _data.current_city_id
         })
       }
       return action.profile

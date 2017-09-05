@@ -58,6 +58,8 @@ class MainNavigation extends React.Component {
     let fbLogin = (<FacebookAuth appId={config.fbAppId} fields="name,email,picture" 
                                  callback={(response) => {this.props.dispatch(profileAction(response))}} 
                                  component={MyFacebookButton} />)
+
+    let lang = this.props.profile.lang
     
     return (
       <div>
@@ -76,6 +78,7 @@ class MainNavigation extends React.Component {
               { /* <li><Link to='/en/reports'>Reports</Link></li> */ }
               <li><Link to="/en/profile">Profile</Link></li>
               <li>{ profilePic }</li>
+              <li>{ lang }</li>
               <li>{ fbLogin }</li>
             </Nav>
           </Navbar.Collapse>

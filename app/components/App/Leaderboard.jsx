@@ -14,7 +14,7 @@ class Leaderboard extends React.Component {
   }
 
   componentDidMount () {
-    if (this.props.site.is_ads_enabled) {
+    if (this.props.site && this.props.site.is_ads_enabled) {
       (window.adsbygoogle = window.adsbygoogle || []).push({});
     }
   }

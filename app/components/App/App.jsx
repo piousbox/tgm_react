@@ -14,6 +14,7 @@ import bg         from './images/noisy_grid.png'
 import store      from '../../stores'
 
 import Home from './Home'
+
 import MainNavigation from './MainNavigation'
 import Profile from './Profile'
 import TgmRouter from './TgmRouter'
@@ -32,6 +33,8 @@ const routes = {
   component: MainNavigation,
   indexRoute: { component: Home },
   childRoutes: [
+    { path: TgmRouter.sitePath, component: Home },
+
     { path: '/en/profile', component: Profile },
     { path: '/en/cities', component: CitiesIndex },
     { path: TgmRouter.cityWrapperPath, component: CitiesWrapper, childRoutes: [

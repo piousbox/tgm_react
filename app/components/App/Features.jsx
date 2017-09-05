@@ -26,7 +26,16 @@ class Features extends React.Component {
     let renderedFeaturesCount = 0
     if (this.props.features) {
       this.props.features.forEach((f, idx) => {
-        if (f.reportname) {
+        if (f.link_path) {
+          features.push(
+            <Col key={idx} xs={12/perRow} >
+              <Panel>
+                <h3><a href={f.link_path} >{ f.name }</a></h3>
+                { f.photo_url ? <img src={f.photo_url} alt='' /> : null }
+              </Panel>
+            </Col>)
+          renderedFeaturesCount++;
+        } else if (f.reportname) {
           features.push(
             <Col key={idx} xs={12/perRow} >
               <Panel>

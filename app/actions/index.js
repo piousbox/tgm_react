@@ -74,7 +74,6 @@ const citiesShow = (args) => {
     let state = getState()
     let url = `${config.apiUrl}/api/cities/view/${args.cityname}.json`
     fetch(url).then(r => r.json()).then(_data => {
-      console.log("+++ +++ citiesShow() data:", _data)
       dispatch({
         type: SET_CITY,
         cityname: args.cityname,
@@ -98,12 +97,9 @@ const galleriesIndex = (args) => {
 }
 
 const galleriesShow = (args) => {
-  console.log("+++ +++ start action galleriesShow:", args)
-
   return (dispatch, getState) => {
     let url = `${config.apiUrl}/api/galleries/view/${args.galleryname}.json`
     fetch(url).then(r => r.json()).then(_data => {
-      console.log("+++ +++ galleriesShow() data:", _data)
       dispatch({
         type: SET_GALLERY,
         galleryname: args.galleryname,

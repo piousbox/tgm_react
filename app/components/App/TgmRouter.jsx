@@ -58,6 +58,15 @@ let TgmRouter = {
     }
   },
   
+  sitePath: '/:lang(en|ru|es|pt)/sites/show',
+  siteLink: (g) => {
+    if (typeof g === 'string') {
+      return `/${g}/sites/show`
+    } else if (typeof g === 'object') {
+      return `/${g.lang}/sites/show`
+    }
+  },
+           
   tagPath: '',
   tagLink: (g) => {
     if (typeof g === 'string') {

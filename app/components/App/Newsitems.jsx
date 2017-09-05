@@ -7,7 +7,7 @@ import Newsitem from './Newsitem'
 import Center from './../Center'
 import styles from './_Newsitems.scss'
 
-import { siteNewsitemsAction } from '../../actions'
+import { siteNewsitemsAction, siteShow } from '../../actions'
 
 import Leaderboard from './Leaderboard'
 
@@ -17,6 +17,7 @@ class Newsitems extends React.Component {
     super(props)
     this.state = { page: 1, count: null }
     this.props.dispatch(siteNewsitemsAction({ page: this.state.page }))
+    this.props.dispatch(siteShow())
   }
 
   componentWillReceiveProps(nextProps) {
@@ -55,10 +56,12 @@ class Newsitems extends React.Component {
     
     let pagination = []
     let pageNumber = 1
-    for (let i = 0; i < this.props.site.n_newsitems; i += 10) {
-      (pageNumber) => {
-        pagination.push(<span><button onClick={() => {this.gotoPage(pageNumber)}}>{pageNumber}</button></span>)
-      }(pageNumber++)
+    if (this.props.site) {
+      for (let i = 0; i < this.props.site.n_newsitems; i += 10) {
+        (pageNumber) => {
+          pagination.push(<span><button onClick={() => {this.gotoPage(pageNumber)}}>{pageNumber}</button></span>)
+        }(pageNumber++)
+      }
     }
     
     return (
