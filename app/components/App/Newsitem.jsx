@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { Grid, Row, Col,
          Panel,
@@ -8,16 +9,22 @@ import Center from './../Center'
 import styles from './_Newsitems.scss'
 
 import TgmLink from './TgmLink'
-import VideoPreview   from '../Videos/VideoPreview'
+import { VideoEmbed, VideoPreview } from '../Videos'
 
 import Meta from '../Meta'
 
 class Newsitem extends React.Component {
   render() {
+    console.log('+++ +++ Newsitem props:', this.props)
+
     let newsitem = {}
 
     if (this.props.newsitem.item_type === 'video') {
-      return (<VideoPreview video={ this.props.newsitem } />)
+      if (this.props.site.play_videos_in_preview) {
+        return (<VideoEmbed video={ this.props.newsitem } />)
+      } else {
+        return (<VideoPreview video={ this.props.newsitem } />)
+      }
     }
 
     let photos = []
@@ -47,4 +54,11 @@ class Newsitem extends React.Component {
   }
 }
 
-export default Newsitem
+
+function mapStateToProps(state, ownProps) {
+  return {
+    site: state.site,
+  }
+}
+
+export default connect(mapStateToProps)(Newsitem)
