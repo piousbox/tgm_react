@@ -76,6 +76,7 @@ let TgmRouter = {
       return `/${lang}/tags/show/${g.tagname}`
     }
   },
+  tgm2Path: 'tgm2',
 
   venuePath: '/:lang(en|ru|pt|es)/venues/show/:venuename',
   venueLink: (g) => { return `/en/venues/show/${g}` },

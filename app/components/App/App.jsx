@@ -26,40 +26,49 @@ import { ReportsIndex, ReportsShow } from '../Reports'
 import { VenuesShow } from '../Venues'
 import VideosShow from '../Videos/VideosShow'
 
+import Tgm2     from './Tgm2'
+import Tgm2Home from './Tgm2Home'
+
 import { citiesIndex, profileAction } from '../../actions'
 
-const routes = {
-  path: '/',
-  component: MainNavigation,
-  indexRoute: { component: Home },
-  childRoutes: [
-    { path: TgmRouter.sitePath, component: Home },
+const routes = [
+  { path: '/tgm2',
+    component: Tgm2,
+    indexRoute: { component: Tgm2Home },
+  },
+  { path: '/',
+    component: MainNavigation,
+    indexRoute: { component: Home },
+    childRoutes: [
 
-    { path: '/en/profile', component: Profile },
-    { path: '/en/cities', component: CitiesIndex },
-    { path: TgmRouter.cityWrapperPath, component: CitiesWrapper, childRoutes: [
-      { path: TgmRouter.cityPath, component: CitiesShow },
-      { path: TgmRouter.cityReportsPath, component: ReportsIndex },
-      { path: TgmRouter.cityGalleriesPath, component: GalleriesIndex },
-    ]},
-    { path: TgmRouter.cityEventPath, component: EventsShow },
-    { path: TgmRouter.cityVenuePath, component: VenuesShow },
+      { path: TgmRouter.sitePath, component: Home },
 
-    { path: TgmRouter.galleriesPath, component: GalleriesIndex, childRoutes: [
-      { path: TgmRouter.galleryPath, component: GalleriesShow },  
-    ]},
-    { path: TgmRouter.galleryPhotoPath, component: GalleriesPhotoShow },
+      { path: '/en/profile', component: Profile },
+      { path: '/en/cities', component: CitiesIndex },
+      { path: TgmRouter.cityWrapperPath, component: CitiesWrapper, childRoutes: [
+        { path: TgmRouter.cityPath, component: CitiesShow },
+        { path: TgmRouter.cityReportsPath, component: ReportsIndex },
+        { path: TgmRouter.cityGalleriesPath, component: GalleriesIndex },
+      ]},
+      { path: TgmRouter.cityEventPath, component: EventsShow },
+      { path: TgmRouter.cityVenuePath, component: VenuesShow },
+      
+      { path: TgmRouter.galleriesPath, component: GalleriesIndex, childRoutes: [
+        { path: TgmRouter.galleryPath, component: GalleriesShow },  
+      ]},
+      { path: TgmRouter.galleryPhotoPath, component: GalleriesPhotoShow },
 
-    { path: '/en/reports/', component: ReportsIndex, 
-      /* childRoutes: [
-        { path: TgmRouter.reportPath, component: ReportsShow },
-      ], */
-    },
-    { path: TgmRouter.reportPath, component: ReportsShow },
+      { path: '/en/reports/', component: ReportsIndex, 
+        /* childRoutes: [
+           { path: TgmRouter.reportPath, component: ReportsShow },
+           ], */
+      },
+      { path: TgmRouter.reportPath, component: ReportsShow },
 
-    { path: TgmRouter.videoPath, component: VideosShow },
-  ],
-}
+      { path: TgmRouter.videoPath, component: VideosShow },
+    ],
+  },
+]
 
 class App extends React.Component {
 
