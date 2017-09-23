@@ -32,3 +32,4 @@
 0.0.11 - in preparation for Klau to write articles, react auth and profile.
 
 0.1.1  - tgm2 is in, as react
+0.1.2  - I fucked it up
