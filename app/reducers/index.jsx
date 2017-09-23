@@ -30,6 +30,12 @@ import TgmApi from '../components/App/TgmApi'
 
 import config from 'config'
 
+function leftPaneReducer (state = {}, action) {
+  console.log('+++ +++ reduce leftPane?')
+
+  return({ name: 'key-name', description: 'key-description', modelName: 'Report' })
+}
+
 function myReportsReducer (state = {}, action) {
   // @TODO
   return state
@@ -116,6 +122,10 @@ function profileReducer (state = {}, action) {
   }
 }
 
+function rightPaneReducer (state = {}, action) {
+  return state
+}
+
 
 export default combineReducers({
   apiUrl: apiUrlReducer,
@@ -124,6 +134,8 @@ export default combineReducers({
   city: citiesShowReducer,
 
   gallery: galleriesShowReducer,
+
+  leftPane: leftPaneReducer,
 
   myReports: myReportsReducer,
   myGalleries: myGalleriesReducer,
@@ -134,6 +146,7 @@ export default combineReducers({
 
   report: reportsShowReducer,
   reports: reportsReducer,
+  rightPane: rightPaneReducer,
 
   site: sitesReducer,
 

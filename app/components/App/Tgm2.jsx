@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { Grid, Row, Col,
          Panel, 
@@ -7,11 +8,14 @@ import { Grid, Row, Col,
 import arrowLeft  from './images/16x16/arrow-left.png'
 import arrowRight from './images/16x16/arrow-right.png'
 
+import Report2 from '../Reports/Reports2Show'
+
 class Tgm2 extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { collapseState: 'right' };
+    this.state = { collapseState: 'right',
+    };
 
     this.collapseLeft = this.collapseLeft.bind(this)
     this.collapseRight = this.collapseRight.bind(this)
@@ -38,6 +42,15 @@ class Tgm2 extends React.Component {
   }
 
   render () {
+    console.log('+++ tgm2:', this.props, this.state)
+
+    let leftPane = null
+    if (this.props.leftPane) {
+      if (this.props.leftPane.modelName === 'Report') {
+        leftPane = <Report2 report={this.props.leftPane} />
+      }
+    }
+    
     return(
       <div className="container">
         
@@ -63,21 +76,8 @@ class Tgm2 extends React.Component {
             </ul>
             <div className="tab-wrapper">
               <div className="tab-content">
-                <div className="tab-pane" id="web-design-6">
-                  <p className="m-b0">Web design <a href="#">lorem ipsum</a> dolor sit amet, consectetuer adipiscing elit.
-                    Praesent mattis commyolk augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci Cras laoreet. 
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis 
-                    commyolk augue aliquam ornare augue.</p>
-                </div>
-                <div className="tab-pane" id="graphic-design-6">
-                  <p className="m-b0"><strong><em>Graphic Design lorem ipsum dolor sit amet, consectetuer adipiscing elit.</em></strong><br />
-                    Praesent Suspendisse 
-                    et justo. mattis commyolk augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci Cras laoreet. 
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis 
-                    commyolk augue aliquam ornare augue.</p>
-                </div>
-                <div className="tab-pane active" id="developement-6">
-                  ACCA?
+                <div className="tab-pane active" id="web-design-6">
+                  { leftPane }
                 </div>
               </div>
             </div>
@@ -94,17 +94,8 @@ class Tgm2 extends React.Component {
             </ul>
             <div className="tab-wrapper">
               <div className="tab-content">
-                <div className="tab-pane" id="web-design-6">
-                  { this.props.children }
-                </div>
-                <div className="tab-pane" id="graphic-design-6">
-                  <p className="m-b0"><strong><em>Graphic Design lorem ipsum dolor sit amet, consectetuer adipiscing elit.</em></strong><br />
-                    Praesent Suspendisse 
-                    et justo. mattis commyolk augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci Cras laoreet. 
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis 
-                    commyolk augue aliquam ornare augue.</p>
-                </div>
-                <div className="tab-pane active" id="developement-6">
+                <div className="tab-pane active">
+                  { this.state.rightPane }
                   <Panel>
                     <h5>{"Alberto's"}</h5>
                     <p>{"I guess it's quite popular and also there are a lot of good dancers regularing that place. Would recommend, if there is no problem with me coming in there the next time, which will be when?"}</p>
@@ -135,4 +126,14 @@ class Tgm2 extends React.Component {
   }
 }
 
-export default Tgm2
+Tgm2.propTypes = {
+}
+
+function mapStateToProps(state, ownProps) {
+  return {
+    leftPane: state.leftPane,
+    rightPane: state.rightPane,
+  }
+}
+
+export default connect(mapStateToProps)(Tgm2)

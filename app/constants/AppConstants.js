@@ -32,6 +32,8 @@ export const SET_REPORTS = 'set reports'
 export const SET_SITE = 'set site'
 export const SET_SITE_NEWSITEMS = 'set site newsitems'
 
+export const SET_TGM2_HOME = 'set tgm2 home'
+
 export const SET_VENUE  = 'set venue'
 export const SET_VENUES = 'set venues' // not used yet _vp_ 20170617
 

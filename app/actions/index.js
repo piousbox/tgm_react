@@ -31,6 +31,8 @@ import {
   SET_SITE,
   SET_SITE_NEWSITEMS,
 
+  SET_TGM2_HOME,
+
   SET_VENUE,
 
 } from '../constants/AppConstants';
@@ -195,6 +197,13 @@ const siteShow = () => {
   }
 }
 
+const tgm2homeAction = () => {
+  dispatch({
+    type: SET_TGM2_HOME,
+    home: 'nothing',
+  })
+}
+
 export default {
 
   citiesIndex,
@@ -214,6 +223,8 @@ export default {
   setApiUrl,
   siteShow,
   siteNewsitemsAction,
+
+  tgm2homeAction,
 
   venuesShow,
 }
