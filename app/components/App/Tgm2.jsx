@@ -77,14 +77,7 @@ class Tgm2 extends React.Component {
                     commyolk augue aliquam ornare augue.</p>
                 </div>
                 <div className="tab-pane active" id="developement-6">
-                  <Row>
-                    <Col sm={6}>
-                      <p className="m-b0">Developement lorem ipsum dolor sit amet, consectetuer adipiscing elit. Commyolk Suspendisse et justo. Praesent mattis  augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci Cras laoreet. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis commyolk augue aliquam ornare augue.</p>
-                    </Col>
-                    <Col sm={6}>
-                      abba?
-                    </Col>
-                  </Row>
+                  ACCA?
                 </div>
               </div>
             </div>

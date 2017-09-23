@@ -19,10 +19,15 @@ import MainNavigation from './MainNavigation'
 import Profile from './Profile'
 import TgmRouter from './TgmRouter'
 
-import { CitiesIndex, CitiesShow, CitiesWrapper } from '../Cities'
+import { 
+  CitiesIndex, CitiesShow, Cities2Show, CitiesWrapper,
+} from '../Cities'
 import { EventsShow } from '../Events'
-import { GalleriesIndex, GalleriesShow, GalleriesPhotoShow } from '../Galleries'
+import { 
+  GalleriesIndex, GalleriesShow, GalleriesPhotoShow, 
+} from '../Galleries'
 import { ReportsIndex, ReportsShow } from '../Reports'
+import { TagsShow } from '../Tags/TagsShow'
 import { VenuesShow } from '../Venues'
 import VideosShow from '../Videos/VideosShow'
 
@@ -35,6 +40,10 @@ const routes = [
   { path: '/tgm2',
     component: Tgm2,
     indexRoute: { component: Tgm2Home },
+    childRoutes: [
+      { path: '/tgm2/cities/:cityname', component: Cities2Show },
+      { path: '/tgm2/cities/:cityname/tags/:tagname', component: TagsShow },
+    ],
   },
   { path: '/',
     component: MainNavigation,
