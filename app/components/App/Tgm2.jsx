@@ -112,52 +112,26 @@ class Tgm2 extends React.Component {
                     commyolk augue aliquam ornare augue.</p>
                 </div>
                 <div className="tab-pane active" id="developement-6">
-                  <Panel>abba?</Panel>
-                  <p className="m-b0">
-                    Developement lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    et justo. Praesent mattis  augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci Cras laoreet. 
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis 
-                    commyolk augue aliquam ornare augue.</p>
-                  <p className="m-b0">
-                    Developement lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    et justo. Praesent mattis  augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci Cras laoreet. 
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis 
-                    commyolk augue aliquam ornare augue.</p>
-                  <p className="m-b0">
-                    Developement lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    et justo. Praesent mattis  augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci Cras laoreet. 
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis 
-                    commyolk augue aliquam ornare augue.</p>
-                  <p className="m-b0">
-                    Developement lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    et justo. Praesent mattis  augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci Cras laoreet. 
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis 
-                    commyolk augue aliquam ornare augue.</p>
-                  <p className="m-b0">
-                    Developement lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    et justo. Praesent mattis  augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci Cras laoreet. 
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis 
-                    commyolk augue aliquam ornare augue.</p>
-                  <p className="m-b0">
-                    Developement lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    et justo. Praesent mattis  augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci Cras laoreet. 
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis 
-                    commyolk augue aliquam ornare augue.</p>
-                  <p className="m-b0">
-                    Developement lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    et justo. Praesent mattis  augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci Cras laoreet. 
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis 
-                    commyolk augue aliquam ornare augue.</p>
-                  <p className="m-b0">
-                    Developement lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    et justo. Praesent mattis  augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci Cras laoreet. 
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis 
-                    commyolk augue aliquam ornare augue.</p>
-                  <p className="m-b0">
-                    Developement lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-                    et justo. Praesent mattis  augue Aliquam ornare hendrerit augue Cras tellus In pulvinar lectus a est Curabitur eget orci Cras laoreet. 
-                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse et justo. Praesent mattis 
-                    commyolk augue aliquam ornare augue.</p>
+                  <Panel>
+                    <h5>{"Alberto's"}</h5>
+                    <p>{"I guess it's quite popular and also there are a lot of good dancers regularing that place. Would recommend, if there is no problem with me coming in there the next time, which will be when?"}</p>
+                  </Panel>
+                  <Panel>
+                    <h5>Santa Clara Dance Studio</h5>
+                    <p>That&apos;s fridays. I've never been there, and will post a review as soon as I go there to check it out.</p>
+                  </Panel>
+                  <Panel>
+                    <h5>Palomar Ballroom</h5>
+                    <p>It&apos;s a bit far from where I live, but Santa Cruz is nice (relatively, with sidenotes) and the population that goes to that ballroom is quite nice.</p>
+                  </Panel>
+                  <Panel>
+                    <h5>Agenda Salsa</h5>
+                    <p>That&apos;s Wednesdays, which is nice b/c it&apos;s not on Friday. The instruction is so-so, but you can still meet nice people and have fun there.</p>
+                  </Panel>
+                  <Panel>
+                    <h5>The Starlite Ballroom</h5>
+                    <p>Sundays, let&apos;s check it out. Terrible calendar infographic. Cannot be worse I think. Impossible to read. But hey, if the ballroom is okay, I&apos;m in.</p>
+                  </Panel>
                 </div>
               </div>
             </div>
