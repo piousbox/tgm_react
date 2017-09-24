@@ -10,6 +10,10 @@
 
 20170517: I tried peact-google-maps, now trying google-maps-react
 
+## Test
+
+ npm run test-travis
+
 ## Install
 
 dev port 8005 (conflicts with tomcat7 by default, so `sudo service tomcat7 stop`)

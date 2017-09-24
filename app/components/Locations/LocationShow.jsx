@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { setLocation } from '../../actions'
-import './js/vanilla.kinetic'
 
 import Draggable from 'react-draggable'
 
@@ -13,27 +12,6 @@ class LocationShow extends React.Component {
     this.state = {}
     this.props.dispatch(setLocation(props.params.locationname))
   }
-
-  /* componentDidMount () {
-    console.log('component did mount')
-    new VanillaKinetic(document.getElementById("locationMapContainer"), {
-      filterTarget: function(target, e) {
-        if (!/down|start/.test(e.type)) {
-          return !(/area|a|input/i.test(target.tagName));
-        }
-      }
-    })
-  }
-  render () {
-    console.log("+++ +++ rendering Location:", this.props, this.state)
-
-    return(<div id="locationMapContainer">
-  <div id="locationMap" style={{ height: this.props.location.background_image_height,
-                                 width: this.props.location.background_image_width,
-                                 background: `no-repeat url(${this.props.location.background_image_path})` }}>
-  </div>
-    </div>)
-  } */
 
   render () {
     console.log("+++ +++ LocationShow render:", this.props, this.state)

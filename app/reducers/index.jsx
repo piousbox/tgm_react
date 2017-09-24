@@ -45,7 +45,6 @@ function locationReducer (state = {}, action) {
         return _data.location
       }) */
       return action.location
-      break
     default:
       return state
   }
@@ -65,7 +64,6 @@ function newsitemsReducer(state = {}, action) {
   switch (action.type) {
     case SET_SITE_NEWSITEMS:
       return action.newsitems
-      break
     default:
       return state
   }

@@ -9,11 +9,11 @@ import arrowLeft  from './images/16x16/arrow-left.png'
 import arrowRight from './images/16x16/arrow-right.png'
 import arrowUp    from './images/16x16/arrow-top.png'
 import arrowDown  from './images/16x16/arrow-bottom.png'
-import avatar     from './images/avatars/2.jpg'
 
 import Report2 from '../Reports/Reports2Show'
 
 import { setLocation } from '../../actions'
+import FbConnect from './FbConnect'
 
 class Headerz extends React.Component {
   constructor(props) {
@@ -30,9 +30,10 @@ class Headerz extends React.Component {
     <li><a href="#">Cities</a></li>
     <li><a href="#">Tags</a></li>
     <li><a href="#">News</a></li>
+    <li><a href="#">Profile</a></li>
   </ul>
   <div className="header-2">
-    <a href="javascript:;">Home</a> &gt; <a href="#">Tags</a> &gt; <a href="#">Dancing</a> &gt; <a href="#">Salsa</a>
+    <a href="#">Home</a> &gt; <a href="#">Tags</a> &gt; <a href="#">Dancing</a> &gt; <a href="#">Salsa</a>
   </div>
     </div>)
   }
@@ -153,7 +154,7 @@ class Tgm2 extends React.Component {
           </div>
           <div className="folder folder-right folder-half">
             <ul className="nav nav-tabs">
-              <li className="active"><a href="javascript:;">Videos</a></li>
+              <li className="active"><a href="#">Videos</a></li>
               <li className=""><a href="#graphic-design-6" data-toggle="tab" aria-expanded="false"><span className="title-head">News</span></a></li>
               <li className=""><a href="#developement-6" data-toggle="tab" aria-expanded="false"><span className="title-head">People</span></a></li>
             </ul>
@@ -171,9 +172,7 @@ class Tgm2 extends React.Component {
               <a className="btn-down" onClick={this.collapseDown} ><img src={ arrowDown } alt='' /></a>
             </div>            
             <div className="folder-footer-content">
-              <img className="avatar" src={ avatar } alt='' />
-              <h5>What's up avatar</h5>
-              abba, aba
+              <FbConnect />
             </div>
           </div>
         </div>

@@ -56,11 +56,12 @@ class Newsitems extends React.Component {
     
     let pagination = []
     let pageNumber = 1
+    const lambda = (pageNum) => {
+      pagination.push(<span><button onClick={() => {this.gotoPage(pageNum)}}>{pageNum}</button></span>)
+    }
     if (this.props.site) {
       for (let i = 0; i < this.props.site.n_newsitems; i += 10) {
-        (pageNumber) => {
-          pagination.push(<span><button onClick={() => {this.gotoPage(pageNumber)}}>{pageNumber}</button></span>)
-        }(pageNumber++)
+        lambda(pageNumber++)
       }
     }
     
