@@ -36,14 +36,14 @@ class LocationShow extends React.Component {
   } */
 
   render () {
+    console.log("+++ +++ LocationShow render:", this.props, this.state)
+
     let oWidth = 200;
     let oHeight = 200;
     if (document.getElementById('web-design-6')) {
       oWidth = document.getElementById('web-design-6').offsetWidth
       oHeight = document.getElementById('web-design-6').offsetHeight
     }
-
-    console.log("+++ +++ owidth, oheight:", oWidth, oHeight)
 
     return(
       <div style={{ width: this.props.location.background_image_width*2 - oWidth,

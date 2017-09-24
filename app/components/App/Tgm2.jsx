@@ -13,6 +13,8 @@ import avatar     from './images/avatars/2.jpg'
 
 import Report2 from '../Reports/Reports2Show'
 
+import { setLocation } from '../../actions'
+
 class Headerz extends React.Component {
   constructor(props) {
     super(props);
@@ -48,8 +50,18 @@ class Tgm2 extends React.Component {
     this.collapseRight = this.collapseRight.bind(this)
     this.collapseUp    = this.collapseUp.bind(this)
     this.collapseDown  = this.collapseDown.bind(this)
+
+    this.rerender = this.rerender.bind(this)
   }
   
+  rerender () {
+    // this.forceUpdate()
+    // this.setState(this.state)
+    if (this.props.params.locationname) {
+      this.props.dispatch(setLocation(this.props.params.locationname))
+    }
+  }
+
   collapseLeft () {
     if (this.state.collapseState === 'left') {
       /* nothing */
@@ -58,6 +70,7 @@ class Tgm2 extends React.Component {
     } else if (this.state.collapseState === 'right') {
       this.setState({ collapseState: 'center' })
     }
+    this.rerender()
   }
 
   collapseRight () {
@@ -68,6 +81,7 @@ class Tgm2 extends React.Component {
     } else if (this.state.collapseState === 'left') {
       this.setState({ collapseState: 'center' })
     }
+    this.rerender()
   }
 
   collapseUp () {
@@ -76,6 +90,7 @@ class Tgm2 extends React.Component {
     } else if (this.state.collapseFooter === 'down') {
       this.setState({ collapseFooter: 'up' })
     }
+    this.rerender()
   }
 
   collapseDown () {
@@ -84,6 +99,7 @@ class Tgm2 extends React.Component {
     } else if (this.state.collapseFooter === 'up') {
       this.setState({ collapseFooter: 'down' })
     }
+    this.rerender()
   }
 
   render () {
