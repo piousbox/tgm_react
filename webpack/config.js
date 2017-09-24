@@ -20,7 +20,7 @@ if (DEBUG) {
     util.format(
       'webpack-dev-server/client?http://%s:%d',
       pkg.config.devHost,
-      pkg.config.devPort
+      pkg.config.devPort[process.env.NODE_ENV]
     )
   );
   entry.app.push('webpack/hot/dev-server');

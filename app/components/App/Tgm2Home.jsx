@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { tgm2homeAction } from '../../actions'
+// import { tgm2homeAction } from '../../actions'
 
 class Tgm2Home extends React.Component {
 
   constructor(props) {
     super(props)
-    this.props.dispatch(tgm2homeAction());
+    // props.dispatch(tgm2homeAction());
   }
 
   render () {
