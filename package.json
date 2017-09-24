@@ -9,7 +9,8 @@
       "production": "./build",
       "piousbox": "./build_piousbox",
       "tgm": "./build_tgm",
-      "development": "./build"
+      "development": "./build",
+      "bjjc": "./build_bjjc"
     },
     "buildDirTests": "./build_tests",
     "devHost": "localhost",
@@ -162,6 +163,7 @@
     "build": "NODE_ENV=production npm run webpack && cp -v htaccess build/.htaccess && cp sitemap* build/ -v && echo ok",
     "build_tgm": "NODE_ENV=tgm npm run webpack && cp -v htaccess build/.htaccess && cp sitemap* build/ -v && echo ok",
     "build_piousbox": "NODE_ENV=piousbox npm run webpack && cp -v htaccess build/.htaccess && cp sitemap* build/ -v && echo ok",
+    "build_bjjc": "NODE_ENV=bjjc npm run webpack && cp -v htaccess build/.htaccess && echo ok",
     "clean": "NODE_ENV=production rimraf $npm_package_config_buildDir_production && mkdir $npm_package_config_buildDir_production",
     "env": "env",
     "lint": "eslint --ext .js --ext .jsx ./app ./webpack && echo No linting errors.",

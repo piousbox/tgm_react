@@ -55,8 +55,6 @@ class Tgm2 extends React.Component {
   }
   
   rerender () {
-    // this.forceUpdate()
-    // this.setState(this.state)
     if (this.props.params.locationname) {
       this.props.dispatch(setLocation(this.props.params.locationname))
     }
