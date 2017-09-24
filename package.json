@@ -27,6 +27,7 @@
     "react": "^15.5.0",
     "react-bootstrap": "^0.30.8",
     "react-dom": "^15.5.3",
+    "react-draggable": "^3.0.3",
     "react-facebook-auth": "^1.0.0",
     "react-google-maps": "7.0.0",
     "react-redux": "^5.0.4",

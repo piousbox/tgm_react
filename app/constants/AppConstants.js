@@ -21,6 +21,8 @@ export const SET_CITY         = 'set city'
 export const SET_GALLERY   = 'set gallery'
 export const SET_GALLERIES = 'set galleries'
 
+export const SET_LOCATION = 'set location'
+
 export const SET_MY_GALLERIES = 'set my galleries'
 export const SET_MY_REPORTS   = 'set my reports'
 

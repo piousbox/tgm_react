@@ -34,3 +34,4 @@
 0.1.1  - tgm2 is in, as react
 0.1.2  - fucked up
 0.1.3  - renders ok
+         maybe map marginally works in react?

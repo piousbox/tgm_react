@@ -11,6 +11,8 @@ class Tgm2Home extends React.Component {
   }
 
   render () {
+    console.log("+++ +++ rendering tgm2home:", this.props, this.state)
+
     return(
       <div>Tgm2Home</div>
     )

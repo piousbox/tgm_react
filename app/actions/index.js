@@ -20,6 +20,8 @@ import {
   SET_GALLERY,
   SET_GALLERIES,
 
+  SET_LOCATION,
+
   SET_MY_GALLERIES,
   SET_MY_REPORTS,
 
@@ -43,6 +45,18 @@ const setApiUrl = () => {
   return {
     type: SET_API_URL,
     apiUrl: config.apiUrl,
+  }
+}
+
+const setLocation = (locationName) => {
+  return (dispatch, getState) => {
+    let url = `${config.apiUrl}/api/locations/${locationName}.json`
+    fetch(url).then(r => r.json()).then(_data => {
+      dispatch({
+        type: SET_LOCATION,
+        location: _data,
+      })
+    })
   }
 }
 
@@ -221,6 +235,7 @@ export default {
   reportsIndex,
 
   setApiUrl,
+  setLocation,
   siteShow,
   siteNewsitemsAction,
 

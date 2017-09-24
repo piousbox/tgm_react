@@ -30,6 +30,7 @@ import { ReportsIndex, ReportsShow } from '../Reports'
 import { TagsShow } from '../Tags/TagsShow'
 import { VenuesShow } from '../Venues'
 import VideosShow from '../Videos/VideosShow'
+import Location from '../Locations/LocationShow'
 
 import Tgm2     from './Tgm2'
 import Tgm2Home from './Tgm2Home'
@@ -41,7 +42,8 @@ const routes = [
     component: Tgm2,
     indexRoute: { component: Tgm2Home },
     childRoutes: [
-      { path: '/tgm2/cities/:cityname', component: Cities2Show },
+      { path: '/tgm2/locations/:locationname',        component: Location },
+      { path: '/tgm2/cities/:cityname',               component: Cities2Show },
       { path: '/tgm2/cities/:cityname/tags/:tagname', component: TagsShow },
     ],
   },
@@ -83,8 +85,8 @@ class App extends React.Component {
 
   constructor(props) {
     super(props)
-    this.props.dispatch(citiesIndex())
-    this.props.dispatch(profileAction())
+    // this.props.dispatch(citiesIndex())
+    // this.props.dispatch(profileAction())
   }
 
   componentDidMount() {

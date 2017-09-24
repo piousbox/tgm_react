@@ -13,7 +13,12 @@ import avatar     from './images/avatars/2.jpg'
 
 import Report2 from '../Reports/Reports2Show'
 
-class Headers extends React.Component {
+class Headerz extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
+
   render () {
     return(<div>
   <div className="header header-slim">
@@ -35,7 +40,7 @@ class Tgm2 extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { collapseState: 'right',
+    this.state = { collapseState: 'center',
                    collapseFooter: 'up',
     };
 
@@ -82,14 +87,7 @@ class Tgm2 extends React.Component {
   }
 
   render () {
-    console.log('+++ tgm2:', this.props, this.state)
-
-    let leftPane = null
-    if (this.props.leftPane) {
-      if (this.props.leftPane.modelName === 'Report') {
-        leftPane = <Report2 report={this.props.leftPane} />
-      }
-    }
+    console.log('+++ +++ render Tgm2:', this.props, this.state)
     
     let rightPane = (<div>
       <Panel>
@@ -116,7 +114,7 @@ class Tgm2 extends React.Component {
 
     return(
       <div className="container">
-        <Headers />
+        <Headerz />
         
         <div className={ `folder folder-both folder-collapse-${this.state.collapseState} footer-${this.state.collapseFooter}` } >
           <div className="folder folder-left folder-half">
@@ -128,7 +126,7 @@ class Tgm2 extends React.Component {
             <div className="tab-wrapper">
               <div className="tab-content">
                 <div className="tab-pane active" id="web-design-6">
-                  { leftPane }
+                  { this.props.children }
                 </div>
               </div>
             </div>
@@ -139,7 +137,7 @@ class Tgm2 extends React.Component {
           </div>
           <div className="folder folder-right folder-half">
             <ul className="nav nav-tabs">
-              <li className="active"><a href="javascript:;">Venues</a></li>
+              <li className="active"><a href="javascript:;">Videos</a></li>
               <li className=""><a href="#graphic-design-6" data-toggle="tab" aria-expanded="false"><span className="title-head">News</span></a></li>
               <li className=""><a href="#developement-6" data-toggle="tab" aria-expanded="false"><span className="title-head">People</span></a></li>
             </ul>

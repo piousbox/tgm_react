@@ -5,6 +5,9 @@ import {
   DO_LOGOUT,
 
   SET_API_URL,
+
+  SET_LOCATION,
+
   SET_PROFILE,
 
   SET_SITE_NEWSITEMS,
@@ -31,9 +34,21 @@ import TgmApi from '../components/App/TgmApi'
 import config from 'config'
 
 function leftPaneReducer (state = {}, action) {
-  console.log('+++ +++ reduce leftPane?')
-
   return({ name: 'key-name', description: 'key-description', modelName: 'Report' })
+}
+
+function locationReducer (state = {}, action) {
+  switch (action.type) {
+    case SET_LOCATION:
+      /* fetch(TgmApi.location( action.locationname )).then(r => r.json()).then(_data => {
+        console.log("+++ +++ locationReducer data is:", _data)
+        return _data.location
+      }) */
+      return action.location
+      break
+    default:
+      return state
+  }
 }
 
 function myReportsReducer (state = {}, action) {
@@ -136,6 +151,7 @@ export default combineReducers({
   gallery: galleriesShowReducer,
 
   leftPane: leftPaneReducer,
+  location: locationReducer,
 
   myReports: myReportsReducer,
   myGalleries: myGalleriesReducer,
