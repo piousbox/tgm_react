@@ -1,6 +1,6 @@
 
 /*
- * tgm_react appActions.js
+ * tgm_react (of bjjc) appActions.js
  */
 
 // import ReduxThunk from 'redux-thunk'
@@ -8,6 +8,8 @@
 import AppDispatcher from '../dispatcher/AppDispatcher'
 
 import {
+  DO_LOGOUT,
+
   ITEMS_GET_SUCCESS,
   ITEMS_GET_ERROR,
 
@@ -60,8 +62,25 @@ const setLocation = (locationName) => {
   }
 }
 
-const profileAction = (input) => {
-  return({ type: SET_PROFILE, profile: input })
+const profileAction = () => {
+  if (localStorage.getItem('fbAccount')) {
+    let fbAccount = JSON.parse(localStorage.getItem('fbAccount'))
+    return({ type: SET_PROFILE, fbAccount: fbAccount })
+  }
+  console.log('here?')
+  return({ type: SET_PROFILE, fbAccount: null })
+}
+
+const loginAction = (r2) => {
+  console.log('+++ +++ loginAction:', r2)
+
+  localStorage.setItem('fbAccount', JSON.stringify(r2))
+  return({ type: SET_PROFILE, fb: r2, abba: 'zetta' })
+}
+
+const logoutAction = () => {
+  localStorage.removeItem('fbAccount')
+  return({ type: SET_PROFILE, fbAccount: null }) 
 }
 
 const citiesIndex = () => {
@@ -211,21 +230,15 @@ const siteShow = () => {
   }
 }
 
-const tgm2homeAction = () => {
-  dispatch({
-    type: SET_TGM2_HOME,
-    home: 'nothing',
-  })
-}
-
 export default {
-
   citiesIndex,
   citiesShow,
 
   galleriesIndex,
   galleriesShow,
 
+  loginAction,
+  logoutAction,
   profileAction,
 
   myReportsAction,
@@ -238,8 +251,6 @@ export default {
   setLocation,
   siteShow,
   siteNewsitemsAction,
-
-  tgm2homeAction,
 
   venuesShow,
 }

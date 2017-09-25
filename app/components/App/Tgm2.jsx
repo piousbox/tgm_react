@@ -104,12 +104,12 @@ class Tgm2 extends React.Component {
   }
 
   render () {
-    console.log('+++ +++ render Tgm2:', this.props, this.state)
+    // console.log('+++ +++ render Tgm2:', this.props, this.state)
     
     let rightPane = (<div>
       <Panel>
-        <h5>{"Alberto's"}</h5>
-        <p>{"I guess it's quite popular and also there are a lot of good dancers regularing that place. Would recommend, if there is no problem with me coming in there the next time, which will be when?"}</p>
+        <h5>Alberto's</h5>
+        <p>I guess it's quite popular and also there are a lot of good dancers regularing that place. Would recommend, if there is no problem with me coming in there the next time, which will be when?</p>
       </Panel>
       <Panel>
         <h5>Santa Clara Dance Studio</h5>
