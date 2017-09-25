@@ -20,18 +20,12 @@ class FbConnect extends React.Component {
 
   constructor(props) {
     super(props)
-    console.log('dispatch from fbConnect constructor')
     props.dispatch(profileAction())
     this.state = { profile: {} }
   }
 
   render () {
     console.log("+++ +++ rendering FbConnect:", this.props, this.state)
-
-    /*     let profile = this.props.profile
-    if (!profile) {
-      profile = this.state.profile
-    } */
 
     let loggedIn = !!(this.props.profile && this.props.profile.name)
 
@@ -44,9 +38,9 @@ class FbConnect extends React.Component {
         <div style={{ display: 'inline-block' }}>
           <img className="avatar" src={ avatar } alt='' />
           <h5>What's up { this.props.profile.name }</h5>
-          You have { this.props.profile.n_stars } <img style={{ display: 'inline' }} src={ star } alt='star' />\'s. 
+          You have { this.props.profile.n_stars } <img style={{ display: 'inline' }} src={ star } alt='star' />'s. 
           <Button >Buy More</Button>
-          <button onCLick={this.props.dispatch(logoutAction())} >Logout</button>
+          <button onClick={() => {this.props.dispatch(logoutAction())}} >Logout</button>
         </div>
       )
     } else {

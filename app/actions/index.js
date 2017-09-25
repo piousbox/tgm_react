@@ -43,6 +43,8 @@ import {
 
 import config from 'config'
 
+import TgmApi from '../components/App/TgmApi'
+
 const setApiUrl = () => {
   return {
     type: SET_API_URL,
@@ -63,19 +65,29 @@ const setLocation = (locationName) => {
 }
 
 const profileAction = () => {
-  if (localStorage.getItem('fbAccount')) {
-    let fbAccount = JSON.parse(localStorage.getItem('fbAccount'))
-    return({ type: SET_PROFILE, fbAccount: fbAccount })
+  return (dispatch, getState) => {
+    if (localStorage.getItem('fbAccount')) {
+      let fbAccount = JSON.parse(localStorage.getItem('fbAccount'))
+      fetch(TgmApi.profile, {
+        method: 'POST',
+        headers: new Headers({
+          'Content-Type': 'application/json',
+        }),
+        body: localStorage.getItem('fbAccount'),
+      }).then(r => r.json()).then(_data => {
+        fbAccount = Object.assign({}, fbAccount, _data)
+        dispatch({ type: SET_PROFILE, fbAccount: fbAccount })
+      })
+    }
+    dispatch({ type: SET_PROFILE, fbAccount: null })
   }
-  console.log('here?')
-  return({ type: SET_PROFILE, fbAccount: null })
 }
 
 const loginAction = (r2) => {
-  console.log('+++ +++ loginAction:', r2)
-
-  localStorage.setItem('fbAccount', JSON.stringify(r2))
-  return({ type: SET_PROFILE, fb: r2, abba: 'zetta' })
+  return (dispatch, getState) => {
+    localStorage.setItem('fbAccount', JSON.stringify(r2))
+    dispatch(profileAction())
+  }
 }
 
 const logoutAction = () => {
@@ -164,7 +176,6 @@ const reportsShow = (args) => {
   return (dispatch, getState) => {
     let url = `${config.apiUrl}/api/reports/view/${args.reportname}.json`
     fetch(url).then(r => r.json()).then(_data => {
-      console.log("+++ +++ reportsShow data:", _data)
       dispatch({
         type: SET_REPORT,
         report: _data.report,
@@ -177,7 +188,6 @@ const reportsIndex = (args) => {
   return (dispatch, getState) => {
     let url = `${config.apiUrl}/api/reports.json?cityname=${args.cityname}`
     fetch(url).then(r => r.json()).then(_data => {
-      console.log("+++ +++ reportsIndex got data:", _data)
       dispatch({
         type: SET_REPORTS,
         reports: _data,
@@ -190,7 +200,6 @@ const venuesShow = (args) => {
   return (dispatch, getState) => {
     let url = `${config.apiUrl}/api/venues/view/${args.venuename}.json`
     fetch(url).then(r => r.json()).then(_data => {
-      console.log("+++ +++ got venue data:", _data)
       dispatch({
         type: SET_VENUE,
         venue: _data.venue,

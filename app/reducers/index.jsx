@@ -57,32 +57,8 @@ function newsitemsReducer(state = {}, action) {
 function profileReducer (state = {}, action) {
   switch (action.type) {
     case SET_PROFILE:
-      
-      console.log('+++ +++ this profile reducer', action)
-      
-      if (!action.fb) {
-        return null
-      }
+      return action.fbAccount
 
-      fetch(TgmApi.profile, {
-        method: 'POST',
-        headers: new Headers({
-          'Content-Type': 'application/json',
-        }),
-        body: JSON.stringify({
-          accessToken: action.fb.accessToken,
-          userId:      action.fb.userId,
-          email:       action.fb.email,
-          name:        action.fb.name,
-        }),
-      }).then(r => r.json()).then(_data => {
-        action.fb = Object.assign({}, action.fb, _data.profile)
-      })
-
-      // here, fb == fbAccount == profile, although they are not strictly the same.
-      // I don't store profile in localstorage.
-      return action.fb
-      
     default:
       return state
   }
