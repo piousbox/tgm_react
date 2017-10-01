@@ -6,6 +6,7 @@
   "license": "MIT",
   "config": {
     "buildDir": {
+      "_default": "./build",
       "production": "./build",
       "piousbox": "./build_piousbox",
       "tgm": "./build_tgm",
@@ -24,7 +25,9 @@
       "test": 8088
     },
     "static_domain": {
+      "_default": "static.piousbox.com",
       "development": "static.local",
+      "piousbox": "static.piousbox.com",
       "production": "static.piousbox.com"
     }
   },
@@ -175,10 +178,7 @@
   },
   "scripts": {
     "build": "NODE_ENV=production npm run webpack && cp -v htaccess build/.htaccess && cp sitemap* build/ -v && echo ok",
-    "build_piousbox": "NODE_ENV=piousbox npm run webpack && cp -v htaccess build_piousbox/.htaccess && cp sitemap* build_piousbox/ -v && echo ok",
-    "build_tgm_trash": "NODE_ENV=tgm npm run webpack && cp -v htaccess build/.htaccess && cp sitemap* build/ -v && echo ok",
-    "build_bjjc_trash": "NODE_ENV=production_bjjc npm run webpack && cp -v htaccess build/.htaccess && rm -rf ../static.local/public/tgm2 && cp -r build_bjjc/ ../static.local/public/tgm2 && echo ok",
-
+    "build_piousbox": "rm build_piousbox -rf && mkdir build_piousbox && NODE_ENV=piousbox npm run webpack && cp -v htaccess build_piousbox/.htaccess && cp sitemap* build_piousbox/ -v && echo ok",
     "clean": "NODE_ENV=production rimraf $npm_package_config_buildDir_production && mkdir $npm_package_config_buildDir_production",
     "env": "env",
     "lint": "eslint --ext .js --ext .jsx ./app ./webpack && echo No linting errors.",
