@@ -175,7 +175,7 @@
   },
   "scripts": {
     "build": "NODE_ENV=production npm run webpack && cp -v htaccess build/.htaccess && cp sitemap* build/ -v && echo ok",
-    "build_piousbox": "NODE_ENV=piousbox npm run webpack && cp -v htaccess build/.htaccess && cp sitemap* build/ -v && echo ok",
+    "build_piousbox": "NODE_ENV=piousbox npm run webpack && cp -v htaccess build_piousbox/.htaccess && cp sitemap* build_piousbox/ -v && echo ok",
     "build_tgm_trash": "NODE_ENV=tgm npm run webpack && cp -v htaccess build/.htaccess && cp sitemap* build/ -v && echo ok",
     "build_bjjc_trash": "NODE_ENV=production_bjjc npm run webpack && cp -v htaccess build/.htaccess && rm -rf ../static.local/public/tgm2 && cp -r build_bjjc/ ../static.local/public/tgm2 && echo ok",
 
