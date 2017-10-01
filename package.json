@@ -22,6 +22,10 @@
       "development": 8005,
       "development_bjjc": 8006,
       "test": 8088
+    },
+    "static_domain": {
+      "development": "static.local",
+      "production": "static.piousbox.com"
     }
   },
   "dependencies": {
