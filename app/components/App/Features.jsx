@@ -59,7 +59,7 @@ class Features extends React.Component {
           renderedFeaturesCount++
         }
         if (renderedFeaturesCount % perRow === 0) {
-          features.push(<div style={{ clear: 'both' }} />)
+          features.push(<div key={`${idx}-a`} style={{ clear: 'both' }} />)
         }
       })
     }

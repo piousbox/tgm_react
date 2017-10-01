@@ -30,8 +30,7 @@ class Newsitems extends React.Component {
   }
 
   render() {
-    // console.log('+++ +++ newsitems props:', this.props)
-    // console.log('+++ +++ newsitems state:', this.state)
+    // console.log('+++ +++ newsitems props:', this.props, this.state)
 
     let nAds = 0
     if (this.props.nAds && this.props.nAds > 0) {
@@ -56,12 +55,12 @@ class Newsitems extends React.Component {
     
     let pagination = []
     let pageNumber = 1
-    const lambda = (pageNum) => {
-      pagination.push(<span><button onClick={() => {this.gotoPage(pageNum)}}>{pageNum}</button></span>)
+    const lambda = (pageNum, idx) => {
+      pagination.push(<span key={idx} ><button onClick={() => {this.gotoPage(pageNum)}}>{pageNum}</button></span>)
     }
     if (this.props.site) {
       for (let i = 0; i < this.props.site.n_newsitems; i += 10) {
-        lambda(pageNumber++)
+        lambda(pageNumber++, i)
       }
     }
     

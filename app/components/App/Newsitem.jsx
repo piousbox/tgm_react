@@ -15,7 +15,7 @@ import Meta from '../Meta'
 
 class Newsitem extends React.Component {
   render() {
-    console.log('+++ +++ Newsitem props:', this.props)
+    // console.log('+++ +++ Newsitem props:', this.props, this.state)
 
     let newsitem = {}
 
