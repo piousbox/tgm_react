@@ -38,9 +38,9 @@ class Newsitem extends React.Component {
       photos.push(<img src={ this.props.newsitem.photos[0].large_url } style={{ width: '100%' }} alt='' />)
     }
     
-    let descr = []
+    let descr
     if (this.props.newsitem.descr) {
-      descr = this.props.newsitem.descr
+      descr = (<div dangerouslySetInnerHTML={{ __html: this.props.newsitem.descr }} />)
     }
 
     return (
