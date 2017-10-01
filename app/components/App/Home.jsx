@@ -74,7 +74,9 @@ class Home extends React.Component {
           <Features features={this.props.site.features} />
 
           <Row>
-            <Col xs={12}>
+            <Col xs={12} xsOffset={0} 
+                 md={8} mdOffset={2}
+                 lg={6} lgOffset={3} >
               <Newsitems newsitems={ this.props.site.newsitems } nAds={3} site={this.props.site} />
             </Col>
           </Row>

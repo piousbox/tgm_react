@@ -10,6 +10,10 @@
 
 20170517: I tried peact-google-maps, now trying google-maps-react
 
+## Test
+
+ npm run test-travis
+
 ## Install
 
 dev port 8005 (conflicts with tomcat7 by default, so `sudo service tomcat7 stop`)
@@ -34,5 +38,13 @@ You have to have local API running at localhost:3000, so do:
 
  cd <M3_ROOT> && be rails s
 
+Port 8005
+
+Ports:
+      "tgm": 8004,
+      "development_tgm": 8004,
+      "development": 8005,
+      "development_bjjc": 8006,
+      "test": 8088
 
 

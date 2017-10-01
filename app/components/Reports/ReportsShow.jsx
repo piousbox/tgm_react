@@ -28,7 +28,7 @@ class ReportsShow extends React.Component {
   }
 
   render () {
-    console.log('+++ +++ render ReportsShow:', this.props)
+    console.log('+++ +++ render ReportsShow:', this.props, this.state)
 
     return (
       <Grid>

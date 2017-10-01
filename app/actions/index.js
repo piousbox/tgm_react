@@ -1,6 +1,6 @@
 
 /*
- * tgm_react appActions.js
+ * tgm_react (of bjjc) appActions.js
  */
 
 // import ReduxThunk from 'redux-thunk'
@@ -8,6 +8,8 @@
 import AppDispatcher from '../dispatcher/AppDispatcher'
 
 import {
+  DO_LOGOUT,
+
   ITEMS_GET_SUCCESS,
   ITEMS_GET_ERROR,
 
@@ -20,6 +22,8 @@ import {
   SET_GALLERY,
   SET_GALLERIES,
 
+  SET_LOCATION,
+
   SET_MY_GALLERIES,
   SET_MY_REPORTS,
 
@@ -31,11 +35,15 @@ import {
   SET_SITE,
   SET_SITE_NEWSITEMS,
 
+  SET_TGM2_HOME,
+
   SET_VENUE,
 
 } from '../constants/AppConstants';
 
 import config from 'config'
+
+import TgmApi from '../components/App/TgmApi'
 
 const setApiUrl = () => {
   return {
@@ -44,8 +52,47 @@ const setApiUrl = () => {
   }
 }
 
-const profileAction = (input) => {
-  return({ type: SET_PROFILE, profile: input })
+const setLocation = (locationName) => {
+  return (dispatch, getState) => {
+    let url = `${config.apiUrl}/api/locations/${locationName}.json`
+    fetch(url).then(r => r.json()).then(_data => {
+      dispatch({
+        type: SET_LOCATION,
+        location: _data,
+      })
+    })
+  }
+}
+
+const profileAction = () => {
+  return (dispatch, getState) => {
+    if (localStorage.getItem('fbAccount')) {
+      let fbAccount = JSON.parse(localStorage.getItem('fbAccount'))
+      fetch(TgmApi.profile, {
+        method: 'POST',
+        headers: new Headers({
+          'Content-Type': 'application/json',
+        }),
+        body: localStorage.getItem('fbAccount'),
+      }).then(r => r.json()).then(_data => {
+        fbAccount = Object.assign({}, fbAccount, _data)
+        dispatch({ type: SET_PROFILE, fbAccount: fbAccount })
+      })
+    }
+    dispatch({ type: SET_PROFILE, fbAccount: null })
+  }
+}
+
+const loginAction = (r2) => {
+  return (dispatch, getState) => {
+    localStorage.setItem('fbAccount', JSON.stringify(r2))
+    dispatch(profileAction())
+  }
+}
+
+const logoutAction = () => {
+  localStorage.removeItem('fbAccount')
+  return({ type: SET_PROFILE, fbAccount: null }) 
 }
 
 const citiesIndex = () => {
@@ -129,7 +176,6 @@ const reportsShow = (args) => {
   return (dispatch, getState) => {
     let url = `${config.apiUrl}/api/reports/view/${args.reportname}.json`
     fetch(url).then(r => r.json()).then(_data => {
-      console.log("+++ +++ reportsShow data:", _data)
       dispatch({
         type: SET_REPORT,
         report: _data.report,
@@ -142,7 +188,6 @@ const reportsIndex = (args) => {
   return (dispatch, getState) => {
     let url = `${config.apiUrl}/api/reports.json?cityname=${args.cityname}`
     fetch(url).then(r => r.json()).then(_data => {
-      console.log("+++ +++ reportsIndex got data:", _data)
       dispatch({
         type: SET_REPORTS,
         reports: _data,
@@ -155,7 +200,6 @@ const venuesShow = (args) => {
   return (dispatch, getState) => {
     let url = `${config.apiUrl}/api/venues/view/${args.venuename}.json`
     fetch(url).then(r => r.json()).then(_data => {
-      console.log("+++ +++ got venue data:", _data)
       dispatch({
         type: SET_VENUE,
         venue: _data.venue,
@@ -196,13 +240,14 @@ const siteShow = () => {
 }
 
 export default {
-
   citiesIndex,
   citiesShow,
 
   galleriesIndex,
   galleriesShow,
 
+  loginAction,
+  logoutAction,
   profileAction,
 
   myReportsAction,
@@ -212,6 +257,7 @@ export default {
   reportsIndex,
 
   setApiUrl,
+  setLocation,
   siteShow,
   siteNewsitemsAction,
 
