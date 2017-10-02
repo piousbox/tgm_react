@@ -9,8 +9,6 @@ import styles from './_Newsitems.scss'
 
 import { siteNewsitemsAction, siteShow } from '../../actions'
 
-import Leaderboard from './Leaderboard'
-
 class Newsitems extends React.Component {
 
   constructor(props) {

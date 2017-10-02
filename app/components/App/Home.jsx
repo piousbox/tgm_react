@@ -15,11 +15,11 @@ import { connect } from 'react-redux'
 
 import config from 'config'
 
-import styles      from './_App.scss'
-import Features    from './Features'
-import Footer      from './Footer'
-import Leaderboard from './Leaderboard'
-import Newsitems   from './Newsitems'
+import Clearfix      from './Clearfix'
+import styles        from './_App.scss'
+import Features      from './Features'
+import Footer        from './Footer'
+import { Newsitem  } from '../Newsitem'
 
 import {
   SET_API_URL,
@@ -62,24 +62,28 @@ class Home extends React.Component {
     // console.log('+++ +++ rendering Home:', this.props)
 
     let newsitems = []
-    if (this.props.siteNewsitems) {
-      this.props.siteNewsitems.forEach((item, idx) => {
-        newsitems.push(<li key={idx} >{item.name}</li>)
+    let tempRow = []
+    if (this.props.site.newsitems) {
+      this.props.site.newsitems.forEach((item, idx) => {
+        newsitems.push(
+          <Col key={idx} xs={12} sm={12} md={6} lg={6}>
+            <Newsitem newsitem={item} />
+          </Col>
+        )
+        if ((idx+1) % 2 === 0) {
+          newsitems.push(<Clearfix />)
+        }
       })
     }
 
     return (
       <div style={{ marginTop: '60px' }}>
         <Grid>
+
           <Features features={this.props.site.features} />
 
-          <Row>
-            <Col xs={12} xsOffset={0} 
-                 md={8} mdOffset={2}
-                 lg={6} lgOffset={3} >
-              <Newsitems newsitems={ this.props.site.newsitems } nAds={3} site={this.props.site} />
-            </Col>
-          </Row>
+          { newsitems }
+
         </Grid>
       </div>
     )

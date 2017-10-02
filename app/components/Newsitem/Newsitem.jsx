@@ -8,10 +8,9 @@ import { Grid, Row, Col,
 import Center from './../Center'
 import styles from './_Newsitems.scss'
 
-import TgmLink from './TgmLink'
 import { VideoEmbed, VideoPreview } from '../Videos'
 
-import Meta from '../Meta'
+import { Meta, TgmLink } from '../App'
 
 class Newsitem extends React.Component {
   render() {

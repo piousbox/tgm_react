@@ -16,8 +16,7 @@ import CitiesShowMap  from './CitiesShowMap'
 
 import { citiesShow } from '../../actions'
 
-import Newsitems      from '../App/Newsitems'
-import Leaderboard    from '../App/Leaderboard'
+import { Newsitems }  from '../Newsitem'
 
 import VideoPreview   from '../Videos/VideoPreview'
 

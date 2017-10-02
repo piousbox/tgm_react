@@ -16,14 +16,10 @@ import CitiesShowMap  from './CitiesShowMap'
 
 import { citiesShow } from '../../actions'
 
-import Newsitems      from '../App/Newsitems'
-import Leaderboard    from '../App/Leaderboard'
-import TgmRouter      from '../App/TgmRouter'
+import { Newsitems }  from '../Newsitem'
+import { TgmRouter }  from '../App'
 
 import VideoPreview   from '../Videos/VideoPreview'
-
-import LargeSquare    from '../App/LargeSquare'
-
 
 class CitiesWrapper extends React.Component {
   constructor(props) {
@@ -48,7 +44,6 @@ class CitiesWrapper extends React.Component {
           <CitiesShowMap city={this.props.city} />
         </Col>
         <Col xs={6}>
-          <LargeSquare />
           { /* <h2>Events ({nEvents})</h2><ul>{ events }</ul> */ }
           { /* <h2>Venues ({nVenues})</h2><ul>{ venues }</ul> */ }
         </Col>
