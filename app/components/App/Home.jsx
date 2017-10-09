@@ -47,11 +47,11 @@ class Home extends React.Component {
 
   constructor(props) {
     super(props) 
-    this.props.dispatch(siteShow());
+    props.dispatch(siteShow());
 
-    console.log('+++ +++ home:', this.props)
-    if (this.props.site) {
-      localStorage.setItem("lang", this.props.site.lang)
+    console.log('+++ +++ Home constructor:', props)
+    if (props.site) {
+      localStorage.setItem("lang", props.site.lang)
     }
   }
 
@@ -79,11 +79,8 @@ class Home extends React.Component {
     return (
       <div style={{ marginTop: '60px' }}>
         <Grid>
-
           <Features features={this.props.site.features} />
-
           { newsitems }
-
         </Grid>
       </div>
     )

@@ -87,7 +87,7 @@ CitiesShow.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   return {
     city: state.city,
-    galleries: state.galleries,
+    // galleries: state.galleries,
   }
 }
 

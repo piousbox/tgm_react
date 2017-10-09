@@ -77,8 +77,7 @@ class CitiesWrapper extends React.Component {
   }
   
   render () {
-    // console.log('+++ +++ citiesWrapper props:', this.props)
-    // console.log('+++ +++ citiesWrapper state:', this.state)
+    console.log('+++ +++ citiesWrapper render:', this.props, this.state)
 
     let nEvents = this.props.city.n_events
     let events = []
@@ -112,7 +111,7 @@ class CitiesWrapper extends React.Component {
     let galleries = []
     if (this.state.city.galleries) {
       this.state.city.galleries.forEach((n, idx) => {
-        galleries.push(<li key={idx}><Link to={`/en/galleries/show/${n.galleryname}`}>{n.name}</Link></li>)
+        galleries.push(<li key={idx}><Link to={TgmRouter.galleryLink(n.galleryname)}>{n.name}</Link></li>)
       })
     }
 

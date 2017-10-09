@@ -103,8 +103,7 @@ class App extends React.Component {
 
     return (
       <Provider store={store} >
-        <Router history={browserHistory} routes={routes} >
-        </Router>
+        <Router history={browserHistory} routes={routes} />
       </Provider>
     );
   }

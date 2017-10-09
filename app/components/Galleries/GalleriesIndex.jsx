@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
 import { Grid, Row, Col,
@@ -14,19 +15,21 @@ class GalleriesIndex extends React.Component {
 
   constructor(props) {
     super(props)
+    console.log('+++ +++ GalleriesIndex constructor:', props)
+
     this.state = {
-      galleries: []
+      galleries: props.galleries,
     }
-    this.props.dispatch(galleriesIndex({ cityname: props.params.cityname }))
+    props.dispatch(galleriesIndex({ cityname: props.params.cityname }))
   }
 
   componentWillReceiveProps(nextProps) {
-    // console.log("+++ +++ galleriesIndex received props:", nextProps)
+    console.log("+++ +++ galleriesIndex will receive props:", nextProps, this.props)
     this.setState(Object.assign({}, this.state, {galleries: nextProps.galleries }))
   }
 
   render () {
-    // console.log('+++ +++ render GalleriesIndex props:', this.props, this.state)
+    console.log('+++ +++ GalleriesIndex render:', this.props, this.state)
 
     let galleries = []
     if (this.state.galleries) {
@@ -44,6 +47,7 @@ class GalleriesIndex extends React.Component {
 }
 
 GalleriesIndex.propTypes = {
+  params: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = (state, ownProps) => {
