@@ -1,30 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
-
 import { Grid, Row, Col,
          Nav, NavItem, Navbar
 } from 'react-bootstrap'
-
+import { authStateReducer } from 'redux-auth'
 import { Link, Redirect } from 'react-router'
 import { connect } from 'react-redux'
-
-import styles from './_App.scss'
-import Footer from './Footer'
-import Leaderboard from './Leaderboard'
+import { LinkContainer } from 'react-router-bootstrap'
+import FacebookAuth from 'react-facebook-auth'
+import { EmailSignUpForm, AuthGlobals } from 'redux-auth/default-theme'
 
 import config from 'config'
+import styles      from './_App.scss'
+import Footer      from './Footer'
+import Leaderboard from './Leaderboard'
 import {
   SET_API_URL,
 } from '../../constants/AppConstants'
-
-import AppDispatcher from '../../dispatcher/AppDispatcher'
-import { LinkContainer } from 'react-router-bootstrap'
-
 import { profileAction } from '../../actions'
-import FacebookAuth from 'react-facebook-auth'
-import { EmailSignUpForm, AuthGlobals } from 'redux-auth/default-theme'
-import { authStateReducer } from 'redux-auth'
+import TgmRouter from './TgmRouter'
 
 const MyFacebookButton = ({ onClick }) => (
   <button onClick={onClick}>f</button>
@@ -74,8 +69,8 @@ class MainNavigation extends React.Component {
             <Nav bsStyle="pills" pullRight>
               <li><Link to="/">Home</Link></li>
               <li><Link to='/en/cities'>Cities</Link></li>
-              { /* <li><Link to='/en/galleries'>Galleries</Link></li> */ }
-              { /* <li><Link to='/en/reports'>Reports</Link></li> */ }
+              { /* <li><Link to={TgmRouter.galleriesLink}>Galleries</Link></li> */ }
+              { /* <li><Link to={TgmRouter.reportsLink}>Reports</Link></li> */ }
               <li><Link to="/en/profile">Profile</Link></li>
               <li>{ profilePic }</li>
               <li>{ lang }</li>

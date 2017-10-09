@@ -2,24 +2,18 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
-
 import { Grid, Row, Col,
          Nav, NavItem,
          Panel,
          Button,
 } from 'react-bootstrap'
-
 import scrollToElement from 'scroll-to-element'
 
 import styles         from './_Cities.scss'
 import CitiesShowMap  from './CitiesShowMap'
-
 import { citiesShow } from '../../actions'
-
 import { Newsitems }  from '../Newsitem'
-
 import VideoPreview   from '../Videos/VideoPreview'
-
 import LargeSquare    from '../App/LargeSquare'
 
 class CitiesShow extends React.Component {
@@ -58,7 +52,7 @@ class CitiesShow extends React.Component {
   }
   
   render () {
-    // console.log('+++ +++ citiesShow props:', this.props)
+    // console.log('+++ +++ citiesShow props:', this.props, this.state)
 
     let nEvents = this.props.city.n_events
     let events = []
@@ -93,7 +87,7 @@ CitiesShow.propTypes = {
 const mapStateToProps = (state, ownProps) => {
   return {
     city: state.city,
-    // galleries: state.galleries, // Let's have galleries inside the city for now.
+    galleries: state.galleries,
   }
 }
 

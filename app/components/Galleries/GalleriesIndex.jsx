@@ -1,20 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { connect } from 'react-redux'
-
 import { Grid, Row, Col,
          Panel,
  } from 'react-bootstrap'
 
 import config from 'config'
 import Center from '../Center'
-
 import { galleriesIndex } from '../../actions'
-
 import GalleriesIndexItem from './GalleriesIndexItem'
-
-import Leaderboard from '../App/Leaderboard'
-import LargeSquare from '../App/LargeSquare'
 
 class GalleriesIndex extends React.Component {
 
@@ -32,8 +26,7 @@ class GalleriesIndex extends React.Component {
   }
 
   render () {
-    // console.log('+++ +++ render GalleriesIndex props:', this.props)
-    // console.log('+++ +++ render GalleriesIndex state:', this.state)
+    // console.log('+++ +++ render GalleriesIndex props:', this.props, this.state)
 
     let galleries = []
     if (this.state.galleries) {

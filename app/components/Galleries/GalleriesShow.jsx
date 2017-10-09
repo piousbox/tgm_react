@@ -1,19 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
 import { Grid, Row, Col,
          Panel, 
 } from 'react-bootstrap'
-
 import { connect } from 'react-redux'
 
 import { galleriesShow } from '../../actions'
-
 import Center from '../Center'
-
 import styles from './_Galleries.scss'
-
-import Leaderboard from '../App/Leaderboard'
 
 class GalleriesShow extends React.Component {
 
@@ -28,8 +22,7 @@ class GalleriesShow extends React.Component {
   }
 
   render () {
-    // console.log("+++ +++ galleriesShow props:", this.props)
-    // console.log("+++ +++ galleriesShow state:", this.state)
+    // console.log("+++ +++ galleriesShow props:", this.props, this.state)
 
     let thumb_photos = []
     if (this.state.photos) {
@@ -57,11 +50,9 @@ class GalleriesShow extends React.Component {
       <Grid>
         <Row>
           <Col xs={12}>
-            <Leaderboard />
             <h2><Center>{ this.props.gallery.name }</Center></h2>
             { thumb_photos }
             <hr />
-            <Leaderboard />
             <Center>
               { large_photos }
             </Center>

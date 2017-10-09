@@ -57,6 +57,8 @@ let TgmRouter = {
       return `/${lang}/reports/show/${g.reportname}`
     }
   },
+  reportPath: '/:lang(en|ru|pt|es)/reports',
+  reportsLink: '/en/reports',
   
   sitePath: '/:lang(en|ru|es|pt)/sites/show',
   siteLink: (g) => {
