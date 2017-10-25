@@ -17,50 +17,40 @@ class Features extends React.Component {
   }
 
   render () {
-    // console.log('+++ +++ features props:', this.props)
-    // console.log('+++ +++ features state:', this.state)
+    // console.log('+++ +++ features props:', this.props, this.state)
 
-    const perRow = 4
+    const perRowMd = 2
+    const perRowLg = 4
 
     let features = []
-    let renderedFeaturesCount = 0
+    let panel
+    let panelStyle = { minHeight: '200px' }
     if (this.props.features) {
       this.props.features.forEach((f, idx) => {
         if (f.link_path) {
-          features.push(
-            <Col key={idx} xs={12/perRow} >
-              <Panel>
-                <h3><a href={f.link_path} >{ f.name }</a></h3>
-                { f.photo_url ? <img src={f.photo_url} alt='' /> : null }
-              </Panel>
-            </Col>)
-          renderedFeaturesCount++;
+          panel = (
+            <Panel style={panelStyle}>
+              <h3><a href={f.link_path} >{ f.name }</a></h3>
+              { f.photo_url ? <img src={f.photo_url} alt='' /> : null }
+            </Panel>)
         } else if (f.reportname) {
-          features.push(
-            <Col key={idx} xs={12/perRow} >
-              <Panel>
-                <h3><Link to={TgmRouter.reportLink(f.reportname)}  >{ f.name }</Link></h3>
-                <img src={f.photo_url} alt={f.name} />
-                <br />
-                { f.subhead }
-              </Panel>
-            </Col>)
-          renderedFeaturesCount++;
+          panel = (
+            <Panel style={panelStyle}>
+              <h3><Link to={TgmRouter.reportLink(f.reportname)}  >{ f.name }</Link></h3>
+              <img src={f.photo_url} alt={f.name} />
+              <br />
+              { f.subhead }
+            </Panel>)
         } else if (f.galleryname) {
-          features.push(
-            <Col key={idx} xs={12/perRow} >
-              <Panel>
-                <h3><Link to={TgmRouter.galleryPhotoLink(f.galleryname)}  >{ f.name }</Link></h3>
-                <img src={f.photo_url} alt={f.name} />
-                <br />
-                { f.subhead }
-              </Panel>
-            </Col>)
-          renderedFeaturesCount++
+          panel = (
+            <Panel style={panelStyle}>
+              <h3><Link to={TgmRouter.galleryPhotoLink(f.galleryname)}  >{ f.name }</Link></h3>
+              <img src={f.photo_url} alt={f.name} />
+              <br />
+              { f.subhead }
+            </Panel>)
         }
-        if (renderedFeaturesCount % perRow === 0) {
-          features.push(<div key={`${idx}-a`} style={{ clear: 'both' }} />)
-        }
+        features.push(<Col key={idx} md={12/perRowMd} lg={12/perRowLg} xs={12} >{ panel }</Col>)
       })
     }
 

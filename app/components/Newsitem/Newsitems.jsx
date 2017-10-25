@@ -1,11 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { Grid, Row, Col } from 'react-bootstrap'
+import { Grid, Row, Col,
+         Button 
+} from 'react-bootstrap'
 
 import Newsitem from './Newsitem'
-import Center from './../Center'
-import styles from './_Newsitems.scss'
+import Center   from './../Center'
+import Clearfix from './../Clearfix'
+import styles   from './_Newsitems.scss'
 
 import { siteNewsitemsAction, siteShow } from '../../actions'
 
@@ -30,31 +33,29 @@ class Newsitems extends React.Component {
   render() {
     // console.log('+++ +++ newsitems props:', this.props, this.state)
 
-    let nAds = 0
-    if (this.props.nAds && this.props.nAds > 0) {
-      nAds = this.props.nAds
-    }
-
     let listitems = []
     let newsitems = this.props.newsitems
     if (newsitems && newsitems.length > 0) {
       let idx = 0
-      newsitems.forEach((n, _) => {
+      newsitems.map((n, idx) => {
         listitems.push(
-          <Newsitem key={idx++} newsitem={ n } />
+          <Col key={idx} xs={12} sm={12} md={6} lg={6}>
+            <Newsitem newsitem={ n } />
+          </Col>
         )
-        
-        if (Math.random() < 0.5 && nAds) {
-          listitems.push(<Leaderboard key={idx++} />)
-          nAds--
+        if ((idx+1) % 2 === 0) {
+          listitems.push(<Clearfix key={`${idx}-clearfix`} />)
         }
       })
     }
     
     let pagination = []
     let pageNumber = 1
+    let activeStyle = { fontWeight: 'bold' }
     const lambda = (pageNum, idx) => {
-      pagination.push(<span key={idx} ><button onClick={() => {this.gotoPage(pageNum)}}>{pageNum}</button></span>)
+      pagination.push(
+        <Button bsStyle={this.state.page == pageNum ? 'info' : ''} className="btn" onClick={() => {this.gotoPage(pageNum)}}
+                key={idx} >{pageNum}</Button>)
     }
     if (this.props.site) {
       for (let i = 0; i < this.props.site.n_newsitems; i += 10) {
@@ -63,9 +64,9 @@ class Newsitems extends React.Component {
     }
     
     return (
-      <div>
+      <div className="newsitems" >
         { pagination }
-        { listitems }
+        <Row>{ listitems }</Row>
         { pagination }
       </div>
     )

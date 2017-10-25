@@ -19,7 +19,7 @@ import Clearfix      from './Clearfix'
 import styles        from './_App.scss'
 import Features      from './Features'
 import Footer        from './Footer'
-import { Newsitem  } from '../Newsitem'
+import { Newsitems  } from '../Newsitem'
 
 import {
   SET_API_URL,
@@ -61,26 +61,11 @@ class Home extends React.Component {
   render () {
     // console.log('+++ +++ rendering Home:', this.props)
 
-    let newsitems = []
-    let tempRow = []
-    if (this.props.site.newsitems) {
-      this.props.site.newsitems.forEach((item, idx) => {
-        newsitems.push(
-          <Col key={idx} xs={12} sm={12} md={6} lg={6}>
-            <Newsitem newsitem={item} />
-          </Col>
-        )
-        if ((idx+1) % 2 === 0) {
-          newsitems.push(<Clearfix />)
-        }
-      })
-    }
-
     return (
       <div style={{ marginTop: '60px' }}>
         <Grid>
           <Features features={this.props.site.features} />
-          { newsitems }
+          <Newsitems />
         </Grid>
       </div>
     )
