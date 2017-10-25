@@ -58,7 +58,7 @@ class Newsitems extends React.Component {
                 key={idx} >{pageNum}</Button>)
     }
     if (this.props.site) {
-      for (let i = 0; i < this.props.site.n_newsitems; i += 10) {
+      for (let i = 0; i < this.props.site.n_newsitems; i += this.props.site.newsitems_per_page) {
         lambda(pageNumber++, i)
       }
     }
