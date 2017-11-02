@@ -1,7 +1,7 @@
 
 let Config = {
   envName: "production",
-  apiUrl: "http://manager.piousbox.com",
+  apiUrl: "https://manager.piousbox.com",
   fbAppId: "155288885040689",
   domain: "piousbox.com",
   siteTitle: "Piousbox",
