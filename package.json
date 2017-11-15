@@ -183,7 +183,7 @@
   },
   "scripts": {
     "build": "NODE_ENV=production npm run webpack && cp -v htaccess build/.htaccess && cp sitemap* build/ -v && echo ok",
-    "build_piousbox": "rm build_piousbox -rf && mkdir build_piousbox && NODE_ENV=piousbox npm run webpack && cp -v htaccess build_piousbox/.htaccess && cp sitemap* build_piousbox/ -v && cp -rv archive/201711_bjjc-email-signup build/ && echo ok",
+    "build_piousbox": "rm build_piousbox -rf && mkdir build_piousbox && NODE_ENV=piousbox npm run webpack && cp -v htaccess build_piousbox/.htaccess && cp sitemap* build_piousbox/ -v && cp -rv archive/201711_bjjc-email-signup build_piousbox/ && echo ok",
     "clean": "NODE_ENV=production rimraf $npm_package_config_buildDir_production && mkdir $npm_package_config_buildDir_production",
     "env": "env",
     "lint": "eslint --ext .js --ext .jsx ./app ./webpack && echo No linting errors.",
