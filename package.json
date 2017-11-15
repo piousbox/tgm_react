@@ -4,33 +4,6 @@
   "description": "Seed project for React apps using ES6 & webpack.",
   "repository": "https://github.com/badsyntax/react-seed",
   "license": "MIT",
-  "config": {
-    "buildDir": {
-      "_default": "./build",
-      "production": "./build",
-      "piousbox": "./build_piousbox",
-      "tgm": "./build_tgm",
-      "development": "./build",
-      "development_bjjc": "./build_bjjc",
-      "production_bjjc": "./build_bjjc",
-      "test": "./build_test"
-    },
-    "buildDirTests": "./build_tests",
-    "devHost": "localhost",
-    "devPort": {
-      "tgm": 8004,
-      "development_tgm": 8004,
-      "development": 8005,
-      "development_bjjc": 8006,
-      "test": 8088
-    },
-    "static_domain": {
-      "_default": "static.piousbox.com",
-      "development": "static.local",
-      "piousbox": "static.piousbox.com",
-      "production": "static.piousbox.com"
-    }
-  },
   "dependencies": {
     "classnames": "^2.1.3",
     "flux": "^2.0.3",
@@ -177,9 +150,40 @@
       "react/wrap-multilines": 1
     }
   },
+  "config": {
+    "buildDir": {
+      "_default": "./build",
+      "production": "./build",
+      "piousbox": "./build_piousbox",
+      "tgm": "./build_tgm",
+      "development": "./build",
+      "development_bjjc": "./build_bjjc",
+      "production_bjjc": "./build_bjjc",
+      "test": "./build_test"
+    },
+    "buildDirTests": "./build_tests",
+    "devHost": "localhost",
+    "devPort": {
+      "tgm": 8004,
+      "development_tgm": 8004,
+      "development": 8005,
+      "development_bjjc": 8006,
+      "test": 8088
+    },
+    "static_domain": {
+      "_default": "static.piousbox.com",
+      "development": "static.local",
+      "piousbox": "static.piousbox.com",
+      "production": "static.piousbox.com"
+    },
+    "title": {
+      "piousbox": "Piousbox, a personal blog",
+      "production": "Travel Guide Mobi"
+    }
+  },
   "scripts": {
     "build": "NODE_ENV=production npm run webpack && cp -v htaccess build/.htaccess && cp sitemap* build/ -v && echo ok",
-    "build_piousbox": "rm build_piousbox -rf && mkdir build_piousbox && NODE_ENV=piousbox npm run webpack && cp -v htaccess build_piousbox/.htaccess && cp sitemap* build_piousbox/ -v && echo ok",
+    "build_piousbox": "rm build_piousbox -rf && mkdir build_piousbox && NODE_ENV=piousbox npm run webpack && cp -v htaccess build_piousbox/.htaccess && cp sitemap* build_piousbox/ -v && cp -rv archive/201711_bjjc-email-signup build/ && echo ok",
     "clean": "NODE_ENV=production rimraf $npm_package_config_buildDir_production && mkdir $npm_package_config_buildDir_production",
     "env": "env",
     "lint": "eslint --ext .js --ext .jsx ./app ./webpack && echo No linting errors.",
