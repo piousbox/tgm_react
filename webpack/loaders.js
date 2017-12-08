@@ -17,6 +17,7 @@ var htmlLoader = [
     'version=' + pkg.version,
     'title=' + pkg.config.title[process.env.NODE_ENV],
     'static_domain=' + pkg.config.static_domain[process.env.NODE_ENV] || pkg.config.static_domain._default,
+    'googleAnalytics=' + pkg.config.googleAnalytics[process.env.NODE_ENV],
     'debug=' + DEBUG
   ].join('&')
 ].join('!');

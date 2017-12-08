@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "classnames": "^2.1.3",
+    "concat-stream": "^1.6.0",
     "flux": "^2.0.3",
     "google-maps-react-pi": "1.0.20",
     "js-google-api-wrapper": "0.0.8",
@@ -49,7 +50,7 @@
     "css-loader": "^0.15.2",
     "enzyme": "^2.8.2",
     "escope": "^3.3.0",
-    "eslint": "^0.24.0",
+    "eslint": "^4.12.1",
     "eslint-plugin-react": "^2.6.4",
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^0.8.2",
@@ -179,6 +180,12 @@
     "title": {
       "piousbox": "Piousbox, a personal blog",
       "production": "Travel Guide Mobi"
+    },
+    "googleAnalytics": {
+      "production": "UA-53077236-3",
+      "piousbox": "UA-53077236-1",
+      "development": "",
+      "test": ""
     }
   },
   "scripts": {
