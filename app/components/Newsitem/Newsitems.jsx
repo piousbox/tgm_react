@@ -39,9 +39,7 @@ class Newsitems extends React.Component {
       let idx = 0
       newsitems.map((n, idx) => {
         listitems.push(
-          <Col key={idx} xs={12} sm={12} md={6} lg={6}>
-            <Newsitem newsitem={ n } />
-          </Col>
+          <Newsitem key={idx} newsitem={ n } />
         )
         if ((idx+1) % 2 === 0) {
           listitems.push(<Clearfix key={`${idx}-clearfix`} />)

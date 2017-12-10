@@ -57,22 +57,23 @@ const routes = [
 
       { path: TgmRouter.sitePath, component: Home },
 
-      { path: '/en/profile', component: Profile },
       { path: '/en/cities', component: CitiesIndex },
       { path: TgmRouter.cityWrapperPath, component: CitiesWrapper, childRoutes: [
         { path: TgmRouter.cityPath, component: CitiesShow },
         { path: TgmRouter.cityGalleriesPath, component: GalleriesIndex },
         { path: TgmRouter.cityReportsPath, component: ReportsIndex },
         { path: TgmRouter.cityUsersPath, component: UsersShow },
+        { path: TgmRouter.cityVenuePath, component: VenuesShow },
         { path: TgmRouter.cityVenuesPath, component: VenuesIndex },
       ]},
       { path: TgmRouter.cityEventPath, component: EventsShow },
-      { path: TgmRouter.cityVenuePath, component: VenuesShow },
       
       { path: TgmRouter.galleriesPath, component: GalleriesIndex, childRoutes: [
         { path: TgmRouter.galleryPath, component: GalleriesShow },  
       ]},
       { path: TgmRouter.galleryPhotoPath, component: GalleriesPhotoShow },
+
+      { path: '/en/profile', component: Profile },
 
       { path: '/en/reports/', component: ReportsIndex, 
         /* childRoutes: [

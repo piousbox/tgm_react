@@ -1,7 +1,16 @@
 
 let TgmRouter = {
   cityPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname',
-  cityLink: (g) => { return `/en/cities/travel-to/${g}` },
+  cityLink: (g) => {
+    if (typeof g === 'string') {
+      return `/en/cities/travel-to/${g}`
+    } else if (typeof g === 'object' ){
+      return `/en/cities/travel-to/${g.cityname}`
+    } else {
+      console.log('no city passed to cityLink!')
+      return null
+    }
+  },
 
   cityEventPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/events/show/:eventname',
   cityEventLink: (g) => { return `/en/cities/travel-to/${g.cityname}/events/show/${g.eventname}` },
@@ -25,7 +34,13 @@ let TgmRouter = {
     return `/en/cities/travel-to/${g.cityname}/venues`
   },
   cityVenuePath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/venues/show/:venuename',
-  cityVenueLink: (g) => { return `/en/cities/travel-to/${g.cityname}/venues/show/${g.venuename}` },
+  cityVenueLink: (g, gg) => {
+    if (arguments.length === 1) {
+      return `/en/cities/travel-to/${g.cityname}/venues/show/${g.venuename}`
+    } else {
+      return `/en/cities/travel-to/${g}/venues/show/${gg}`
+    }
+  },
 
   cityReportsPath: "/:lang(en|ru|pt|es)/cities/travel-to/:cityname/reports",
   cityReportsLink: (g) => { 

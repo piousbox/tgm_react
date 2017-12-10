@@ -76,13 +76,9 @@ class CitiesShow extends React.Component {
     }
 
     return (
-      <Grid>
-        <Row>
-          <Col xs={12} xsOffset={0} md={6} mdOffset={3}>
-            <Newsitems newsitems={ this.props.city.newsitems } />
-          </Col>
-        </Row>
-      </Grid>
+      <div style={{ padding: '0 10px' }}>
+        <Newsitems newsitems={ this.props.city.newsitems } />
+      </div>
     )
   }
 }

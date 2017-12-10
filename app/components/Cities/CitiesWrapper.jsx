@@ -78,8 +78,11 @@ class CitiesWrapper extends React.Component {
   
   render () {
     console.log('+++ +++ citiesWrapper:', this.props, this.state)
+    let activeTab = null
 
-    let activeTab = 'news'
+    if (this.props.router.location.pathname === TgmRouter.cityLink(this.props.params.cityname)) {
+      activeTab = 'news'
+    }
 
     let nEvents = this.props.city.n_events
     let events = []
@@ -172,48 +175,50 @@ class CitiesWrapper extends React.Component {
       }
     })
 
+    let secondaryNav = (<Nav bsStyle="tabs" onSelect={this.handleSelect}>
+            <li className={activeTab === 'news' ? 'active' : null} >
+              <Link to={TgmRouter.cityLink(this.state.city.cityname)}>News ({nNews})</Link>
+            </li>
+            { /* <li className={activeTab === 'reports' ? 'active' : null} >
+                 <Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports ({nReports})</Link>
+                 </li> 
+                 <li className={activeTab === 'galleries' ? 'active' : null } >
+                 <Link to={TgmRouter.cityGalleriesLink(this.state.city)}>Galleries ({nGalleries})</Link>
+                 </li>
+                 <li><a href="#">Videos ({nVideos})</a></li> */ }
+            <li className={activeTab === 'venues' ? 'active' : null} >
+              <Link to={TgmRouter.cityVenuesLink(this.state.city)}>Venues ({nVenues})</Link>
+            </li>
+            <li><a href="#">Events ({nEvents})</a></li>
+            { /* <li><Link to={TgmRouter.cityUsersLink(this.state.city)}>People</Link></li> */ }
+    </Nav>)
+    
+    let mapRow = (<Row>
+            <Col xs={12}>
+              <Nav bsStyle="tabs" >
+                <NavItem className="active" onClick={this.toggleMap}>{ this.state.mapToggled ? 'Collapse Map' : 'Expand Map' }</NavItem>
+              </Nav>
+              { this.state.mapWrapper }
+              <hr />
+            </Col>
+    </Row>)
+
     return (
       <Grid>
         <h1 style={{ textAlign: 'center' }} >{ this.state.city.name }</h1>
 
-        { /* map row */ }
         <Row>
-          <Col xs={12}>
-            <Nav bsStyle="tabs" >
-              <NavItem className="active" onClick={this.toggleMap}>{ this.state.mapToggled ? 'Collapse Map' : 'Expand Map' }</NavItem>
-            </Nav>{ this.state.mapWrapper }<hr />
-          </Col>
-        </Row>
-
-        <Row>{ features }</Row>
-
-        { /* secondary navigation */ }
-        <Row>
-          <Col xs={12} >
-            <Nav bsStyle="tabs" onSelect={this.handleSelect}>
-              <li className={activeTab === 'news' ? 'active' : null} >
-                <Link to={TgmRouter.cityLink(this.state.city.cityname)}>News ({nNews})</Link>
-              </li>
-              { /* <li className={activeTab === 'reports' ? 'active' : null} >
-                <Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports ({nReports})</Link>
-              </li> 
-              <li className={activeTab === 'galleries' ? 'active' : null } >
-                <Link to={TgmRouter.cityGalleriesLink(this.state.city)}>Galleries ({nGalleries})</Link>
-              </li>
-              <li><a href="#">Videos ({nVideos})</a></li> */ }
-              <li className={activeTab === 'venues' ? 'active' : null} >
-                <Link to={TgmRouter.cityVenuesLink(this.state.city)}>Venues ({nVenues})</Link>
-              </li>
-              <li><a href="#">Events ({nEvents})</a></li>
-              { /* <li><Link to={TgmRouter.cityUsersLink(this.state.city)}>People</Link></li> */ }
-            </Nav>
+          <Col xs={12} md={6}>
+            { secondaryNav }
             <Panel style={{ borderTop: 'none' }}>
               { this.props.children }
-              { /* <div className="expandable"><ul>{people}</ul></div> */ }
             </Panel>
           </Col>
+          <Col xs={12} md={6}>
+            { mapRow }
+            { features }
+          </Col>
         </Row>
-
       </Grid>
     )
   }

@@ -6,6 +6,7 @@ import { Grid, Row, Col } from 'react-bootstrap'
 
 import config from 'config'
 import Center from '../Center'
+import { docTitle } from '../App'
 
 import { venuesShow } from '../../actions'
 
@@ -18,6 +19,8 @@ class VenuesShow extends React.Component {
       venue: {},
     }
     this.props.dispatch(venuesShow({ venuename: props.params.venuename }))
+
+    this.componentDidMount = this.componentDidMount.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
@@ -26,22 +29,20 @@ class VenuesShow extends React.Component {
     this.setState(Object.assign({}, this.state, {venue: nextProps.venue }))
   }
 
+  componentDidMount() {
+    if (this.state.venue) {
+      document.title = docTitle(`${this.props.venue.name} - in ${this.props.params.cityname}`)
+    }
+  }
+
   render () {
     return (
-      <Grid>
-        <Row>
-          <Col xs={12}>
-            <Center>
-              <h1>{ this.state.venue.name }</h1>
-            </Center>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={8} xsOffset={2}>
-            <div dangerouslySetInnerHTML={{__html: this.state.venue.description}} />
-          </Col>
-        </Row>
-      </Grid>
+      <div>
+        <Center>
+          <h1>{ this.state.venue.name }</h1>
+        </Center>
+        <div dangerouslySetInnerHTML={{__html: this.state.venue.description}} />
+      </div>
     )
   }
 }
