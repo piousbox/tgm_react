@@ -77,7 +77,13 @@ class CitiesWrapper extends React.Component {
   }
   
   render () {
-    // console.log('+++ +++ citiesWrapper:', this.props, this.state)
+    console.log('+++ +++ citiesWrapper:', this.props, this.state)
+
+    let activeTab = 'news'
+    let onVenues = this.props.route.childRoutes[this.props.route.childRoutes.length-1].path == TgmRouter.cityVenuesPath ? 'yes' : 'no'
+    if (onVenues) {
+      activeTab = 'venues'
+    }
 
     let nEvents = this.props.city.n_events
     let events = []
@@ -154,7 +160,6 @@ class CitiesWrapper extends React.Component {
       })
     }
 
-    let activeTab = "news"
     this.props.routes.forEach((r, idx) => {
       switch (r.path) {
         case TgmRouter.cityReportsPath:
@@ -188,16 +193,18 @@ class CitiesWrapper extends React.Component {
               <li className={activeTab === 'news' ? 'active' : null} >
                 <Link to={TgmRouter.cityLink(this.state.city.cityname)}>News ({nNews})</Link>
               </li>
-              <li className={activeTab === 'reports' ? 'active' : null} >
+              { /* <li className={activeTab === 'reports' ? 'active' : null} >
                 <Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports ({nReports})</Link>
-              </li>
+              </li> 
               <li className={activeTab === 'galleries' ? 'active' : null } >
                 <Link to={TgmRouter.cityGalleriesLink(this.state.city)}>Galleries ({nGalleries})</Link>
               </li>
-              <li><a href="#">Videos ({nVideos})</a></li>
-              <li><Link to={TgmRouter.cityVenuesLink(this.state.city)}>Venues ({nVenues})</Link></li>
+              <li><a href="#">Videos ({nVideos})</a></li> */ }
+              <li className={activeTab === 'venues' ? 'active' : null} >
+                <Link to={TgmRouter.cityVenuesLink(this.state.city)}>Venues ({nVenues})</Link>
+              </li>
               <li><a href="#">Events ({nEvents})</a></li>
-              <li><Link to={TgmRouter.cityUsersLink(this.state.city)}>People</Link></li>
+              { /* <li><Link to={TgmRouter.cityUsersLink(this.state.city)}>People</Link></li> */ }
             </Nav>
             <Panel style={{ borderTop: 'none' }}>
               { this.props.children }
