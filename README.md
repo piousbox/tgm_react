@@ -8,7 +8,7 @@
 
 ## Develop
 
-20170517: I tried peact-google-maps, now trying google-maps-react
+20170517: I tried react-google-maps, now trying google-maps-react
 
 ## Test
 

@@ -1,0 +1,14 @@
+W, [2017-12-10T22:26:29.392673 #2741]  WARN -- : Creating scope :public. Overwriting existing method Report.public.
+W, [2017-12-10T22:26:29.413571 #2741]  WARN -- : Creating scope :public. Overwriting existing method Venue.public.
+TGM sitemap (in production) 2017-12-10 22:26:30 +0000
+Cities: 96
+Venues: 51
+Reports: 6
+Galleries: 25
+W, [2017-12-10T22:26:55.005486 #2865]  WARN -- : Creating scope :public. Overwriting existing method Report.public.
+W, [2017-12-10T22:26:55.031619 #2865]  WARN -- : Creating scope :public. Overwriting existing method Venue.public.
+TGM sitemap (in production) 2017-12-10 22:26:56 +0000
+Cities: 96
+Venues: 51
+Reports: 6
+Galleries: 25

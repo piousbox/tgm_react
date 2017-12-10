@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -ex
+
+ssh app_81 "cd /home/ubuntu/projects/microsites3/current && RAILS_ENV=production /home/ubuntu/.rbenv/versions/2.3.1/bin/bundle exec rake tgm:sitemap 2>&1 > /home/ubuntu/tgm_sitemap_day.log "
+scp app_81:/home/ubuntu/projects/microsites3/current/sitemap_tgm.xml /home/piousbox/projects/react/tgm_react
+scp app_81:/home/ubuntu/tgm_sitemap_day.log /home/piousbox/projects/react/tgm_react/tmp
+cat tmp/tgm_sitemap_day.log >> sitemap.log
