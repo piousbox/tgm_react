@@ -9,7 +9,7 @@ import TgmRouter from './TgmRouter'
 class Meta extends React.Component {
 
   render () {
-    console.log("+++ +++ meta:", this.props)
+    // console.log("+++ +++ meta:", this.props)
 
     return (
       <div>

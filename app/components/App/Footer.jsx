@@ -39,7 +39,7 @@ class Footer extends React.Component {
   }
 
   render () {
-    console.log('+++ +++ Footer props:', this.props)
+    // console.log('+++ +++ Footer:', this.props, this.state)
 
     let langs = []
     if (this.props.site && this.props.site.langs) {

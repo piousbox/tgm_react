@@ -26,7 +26,7 @@ let store = new ItemsStore();
 
 AppDispatcher.register((action) => {
   console.log('+++ +++ ItemsStore reducer is called:', action)
-
+  
   switch(action.actionType) {
     case ITEMS_GET_SUCCESS:
       // store.setAll(action.items);

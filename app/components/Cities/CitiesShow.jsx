@@ -52,7 +52,7 @@ class CitiesShow extends React.Component {
   }
   
   render () {
-    // console.log('+++ +++ citiesShow props:', this.props, this.state)
+    console.log('+++ +++ render citiesShow:', this.props, this.state)
 
     let nEvents = this.props.city.n_events
     let events = []
@@ -76,7 +76,13 @@ class CitiesShow extends React.Component {
     }
 
     return (
-      <Newsitems newsitems={ this.props.city.newsitems } />
+      <Grid>
+        <Row>
+          <Col xs={12} xsOffset={0} md={6} mdOffset={3}>
+            <Newsitems newsitems={ this.props.city.newsitems } />
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }

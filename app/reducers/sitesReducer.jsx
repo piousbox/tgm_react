@@ -14,7 +14,7 @@ import config from 'config'
 function sitesReducer (state = {}, action) {
   switch (action.type) {
     case SET_SITE:
-      console.log('+++ +++ SET_SITE:', action)
+      // console.log('+++ +++ SET_SITE:', action)
 
       return action.site
     default:

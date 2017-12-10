@@ -77,7 +77,7 @@ class CitiesWrapper extends React.Component {
   }
   
   render () {
-    console.log('+++ +++ citiesWrapper render:', this.props, this.state)
+    console.log('+++ +++ citiesWrapper:', this.props, this.state)
 
     let nEvents = this.props.city.n_events
     let events = []
@@ -198,6 +198,7 @@ class CitiesWrapper extends React.Component {
               <li><a href="#">Venues ({nVenues})</a></li>
               <li><a href="#">Events ({nEvents})</a></li>
               <li><a onClick={this.showPeople}>People ({nPeople})</a></li>
+              <li><Link to={TgmRouter.cityPeopleLink(this.state.city)}>People-2</Link></li>
             </Nav>
             <Panel style={{ borderTop: 'none' }}>
               { this.props.children }
