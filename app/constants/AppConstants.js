@@ -35,5 +35,8 @@ export const SET_SITE_NEWSITEMS = 'set site newsitems'
 export const SET_TGM2_HOME = 'set tgm2 home'
 
 export const SET_VENUE  = 'set venue'
-export const SET_VENUES = 'set venues' // not used yet _vp_ 20170617
+export const SET_VENUES = 'set venues'
 
+export const CONST = {
+  setVenues: 'set venues',
+}

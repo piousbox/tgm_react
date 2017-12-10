@@ -15,11 +15,15 @@ let TgmRouter = {
     }
   },
 
-  cityPeoplePath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/people',
-  cityPeopleLink: (g) => {
-    return `/en/cities/travel-to/#{g.cityname}/people`
+  cityUsersPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/people',
+  cityUsersLink: (g) => {
+    return `/en/cities/travel-to/${g.cityname}/people`
   },
 
+  cityVenuesPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/venues',
+  cityVenuesLink: (g) => {
+    return `/en/cities/travel-to/${g.cityname}/venues`
+  },
   cityVenuePath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/venues/show/:venuename',
   cityVenueLink: (g) => { return `/en/cities/travel-to/${g.cityname}/venues/show/${g.venuename}` },
 

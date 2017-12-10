@@ -26,9 +26,12 @@ import { EventsShow } from '../Events'
 import { 
   GalleriesIndex, GalleriesShow, GalleriesPhotoShow, 
 } from '../Galleries'
-import { ReportsIndex, ReportsShow } from '../Reports'
+import { ReportsIndex, ReportsShow 
+} from '../Reports'
 import { TagsShow } from '../Tags/TagsShow'
-import { VenuesShow } from '../Venues'
+import { UsersShow } from '../Users'
+import { VenuesIndex, VenuesShow,
+} from '../Venues'
 import VideosShow from '../Videos/VideosShow'
 import Location from '../Locations/LocationShow'
 
@@ -58,8 +61,10 @@ const routes = [
       { path: '/en/cities', component: CitiesIndex },
       { path: TgmRouter.cityWrapperPath, component: CitiesWrapper, childRoutes: [
         { path: TgmRouter.cityPath, component: CitiesShow },
-        { path: TgmRouter.cityReportsPath, component: ReportsIndex },
         { path: TgmRouter.cityGalleriesPath, component: GalleriesIndex },
+        { path: TgmRouter.cityReportsPath, component: ReportsIndex },
+        { path: TgmRouter.cityUsersPath, component: UsersShow },
+        { path: TgmRouter.cityVenuesPath, component: VenuesIndex },
       ]},
       { path: TgmRouter.cityEventPath, component: EventsShow },
       { path: TgmRouter.cityVenuePath, component: VenuesShow },

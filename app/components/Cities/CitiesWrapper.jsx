@@ -195,10 +195,9 @@ class CitiesWrapper extends React.Component {
                 <Link to={TgmRouter.cityGalleriesLink(this.state.city)}>Galleries ({nGalleries})</Link>
               </li>
               <li><a href="#">Videos ({nVideos})</a></li>
-              <li><a href="#">Venues ({nVenues})</a></li>
+              <li><Link to={TgmRouter.cityVenuesLink(this.state.city)}>Venues ({nVenues})</Link></li>
               <li><a href="#">Events ({nEvents})</a></li>
-              <li><a onClick={this.showPeople}>People ({nPeople})</a></li>
-              <li><Link to={TgmRouter.cityPeopleLink(this.state.city)}>People-2</Link></li>
+              <li><Link to={TgmRouter.cityUsersLink(this.state.city)}>People</Link></li>
             </Nav>
             <Panel style={{ borderTop: 'none' }}>
               { this.props.children }
