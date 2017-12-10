@@ -16,7 +16,8 @@ import { citiesIndexReducer, citiesShowReducer } from './citiesReducer'
 import { galleriesShowReducer } from './galleriesReducer'
 import { reportsShowReducer, reportsReducer } from './reportsReducer'
 import { sitesReducer } from './sitesReducer'
-import { venuesShowReducer } from './venuesReducer'
+import { venueReducer, venuesReducer,
+} from './venuesReducer'
 
 import TgmApi from '../components/App/TgmApi'
 
@@ -84,5 +85,6 @@ export default combineReducers({
 
   site: sitesReducer,
 
-  venue: venuesShowReducer,
+  venue: venueReducer,
+  venues: venuesReducer,
 })

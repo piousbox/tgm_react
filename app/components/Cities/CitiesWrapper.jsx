@@ -77,7 +77,7 @@ class CitiesWrapper extends React.Component {
   }
   
   render () {
-    console.log('+++ +++ citiesWrapper:', this.props, this.state)
+    // console.log('+++ +++ citiesWrapper:', this.props, this.state)
 
     let nEvents = this.props.city.n_events
     let events = []

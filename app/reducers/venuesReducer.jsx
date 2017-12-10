@@ -4,13 +4,13 @@
  */
 
 import {
+  CONST,
   SET_VENUE,
 } from '../constants/AppConstants'
 
 import AppDispatcher from '../dispatcher/AppDispatcher'
-import config from 'config'
 
-const venuesShowReducer = (state={}, action) => {
+const venueReducer = (state={}, action) => {
   switch (action.type) {
     case SET_VENUE:
       return action.venue
@@ -19,6 +19,17 @@ const venuesShowReducer = (state={}, action) => {
   }
 }
 
+const venuesReducer = (state=[], action) => {
+  switch (action.type) {
+    case CONST.setVenues:
+      // console.log('+++ venuesReducer:', action)
+      return action.venues
+    default:
+      return state
+  }
+}
+
 export default {
-  venuesShowReducer,
+  venueReducer,
+  venuesReducer,
 }

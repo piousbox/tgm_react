@@ -179,9 +179,10 @@ const venuesShow = (args) => {
   }
 }
 
-const venuesIndexAction = (args) => {
+const venuesIndexAction = (arg) => {
+  // console.log('+++ venuesIndexAction:', arg)
   return (dispatch, getState) => {
-    let url = `${config.apiUrl}/api/venues.json?cityname=${args}`
+    let url = `${config.apiUrl}/api/venues.json?cityname=${arg.cityname}`
     fetch(url).then(r => r.json()).then(_data => {
       dispatch({
         type: CONST.setVenues,

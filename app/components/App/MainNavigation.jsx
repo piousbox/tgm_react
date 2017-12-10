@@ -42,7 +42,7 @@ class MainNavigation extends React.Component {
   }
 
   render () {
-    console.log('+++ +++ MainNavigation render:', this.props, this.state)
+    // console.log('+++ +++ MainNavigation render:', this.props, this.state)
 
     let profilePic = null
     if (this.props.profile.id) {
