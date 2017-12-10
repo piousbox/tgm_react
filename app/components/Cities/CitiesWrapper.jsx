@@ -80,10 +80,6 @@ class CitiesWrapper extends React.Component {
     console.log('+++ +++ citiesWrapper:', this.props, this.state)
 
     let activeTab = 'news'
-    let onVenues = this.props.route.childRoutes[this.props.route.childRoutes.length-1].path == TgmRouter.cityVenuesPath ? 'yes' : 'no'
-    if (onVenues) {
-      activeTab = 'venues'
-    }
 
     let nEvents = this.props.city.n_events
     let events = []
@@ -139,6 +135,7 @@ class CitiesWrapper extends React.Component {
       })
     }
 
+
     let nVenues = this.props.city.n_venues
     let venues = []
     if (this.state.city.venues) {
@@ -151,7 +148,11 @@ class CitiesWrapper extends React.Component {
         )
       })
     }
-    
+    if (this.props.router.location.pathname === TgmRouter.cityVenuesLink(this.props.city)) {
+      activeTab = 'venues'
+    }
+
+
     let videos = []
     let nVideos = this.props.city.n_videos
     if (this.props.city && this.props.city.videos) {
