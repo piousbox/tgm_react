@@ -9,7 +9,10 @@ import Center from '../Center'
 
 import { reportsShow } from '../../actions'
 
-import { LargeSquare, Leaderboard, Meta, Clearfix } from '../App'
+import { 
+  Clearfix, Meta, 
+  // LargeSquare, Leaderboard,
+} from '../App'
 
 class ReportsShow extends React.Component {
 
@@ -46,12 +49,10 @@ class ReportsShow extends React.Component {
             <div style={{ float: 'left', padding: '5px', width: '410px', clear: 'right' }}>
               <img src={this.state.report.photo_url} alt={this.state.report.name} />
             </div>
-            <div style={{ float: 'left', padding: '5px', width: '350px', clear: 'left' }}>
-              <LargeSquare />
-            </div>
+            { /* <div style={{ float: 'left', padding: '5px', width: '350px', clear: 'left' }}><LargeSquare /></div> */ }
             <div dangerouslySetInnerHTML={{__html: this.state.report.description}} />
             <br /><br />
-            <Leaderboard />
+            { /* <Leaderboard /> */ }
           </Col>
         </Row>
       </Grid>

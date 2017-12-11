@@ -13,7 +13,7 @@ import { EmailSignUpForm, AuthGlobals } from 'redux-auth/default-theme'
 
 import config from 'config'
 import styles      from './_App.scss'
-import Footer      from './Footer'
+import Footer2      from './Footer2'
 import Leaderboard from './Leaderboard'
 import {
   SET_API_URL,
@@ -67,21 +67,22 @@ class MainNavigation extends React.Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav bsStyle="pills" pullRight>
-              { /* <li><Link to="/">Home</Link></li> */} 
               { config.citiesEnabled ? <li><Link to='/en/cities'>Cities</Link></li> : null }
               { config.tagsEnabled ? <li><Link to={TgmRouter.tagsLink()}>Tags</Link></li> : null }
-              { /* <li><Link to={TgmRouter.galleriesLink}>Galleries</Link></li> */ }
-              { /* <li><Link to={TgmRouter.reportsLink}>Reports</Link></li> */ }
-              <li><Link to="/en/profile">Profile</Link></li>
+              { config.galleriesEnabled ? <li><Link to={TgmRouter.galleriesLink}>Galleries</Link></li> : null }
+              { config.reportsEnabled ? <li><Link to={TgmRouter.reportsLink}>Reports</Link></li> : null }
+
+              { /* <li><Link to="/en/profile">Profile</Link></li>
               <li>{ profilePic }</li>
               <li>{ lang }</li>
-              <li>{ fbLogin }</li>
+              <li>{ fbLogin }</li> */ }
             </Nav>
           </Navbar.Collapse>
         </Navbar>
         <Leaderboard />
         { this.props.children }
-        <Footer apiUrl={this.props.apiUrl} domain={this.props.domain} />
+        { /* <Footer apiUrl={this.props.apiUrl} domain={this.props.domain} /> */ }
+        <Footer2 />
       </div>
     )
   }

@@ -76,8 +76,8 @@ const routes = [
 
       { path: '/en/profile', component: Profile },
 
-      { path: '/en/reports/', component: ReportsIndex },
-      { path: TgmRouter.reportPath, component: ReportsShow },
+      { path: TgmRouter.reportsPath, component: ReportsIndex },
+      { path: TgmRouter.reportPath,  component: ReportsShow },
 
       { path: TgmRouter.tagsPath, component: TagsIndex, childRoutes: [
         { path: TgmRouter.tagPath, component: TagShow },
