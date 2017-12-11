@@ -15,6 +15,8 @@ import {
   ITEMS_GET_SUCCESS,
   ITEMS_GET_ERROR,
 
+  SET,
+
   SET_API_URL,
 
   SET_CITIES_INDEX,
@@ -223,6 +225,24 @@ const siteShow = () => {
   }
 }
 
+const tagAction = (tagname) => {
+  return (dispatch) => {
+    let url = `${config.apiUrl}/api/tags/view/${tagname}.json`
+    fetch(url).then(r => r.json()).then(_data => {
+      dispatch({ type: SET.tag, tag: _data })
+    })
+  }
+}
+
+const tagsAction = () => {
+  return (dispatch) => {
+    let url = `${config.apiUrl}/api/sites/view/${config.domain}/tags.json`
+    fetch(url).then(r => r.json()).then(_data => {
+      dispatch({ type: SET.tags, tags: _data })
+    })
+  }
+}
+        
 import { profileAction, loginAction, logoutAction } from './profileActions'
 
 export default {
@@ -246,6 +266,9 @@ export default {
   setLocation,
   siteShow,
   siteNewsitemsAction,
+
+  tagAction,
+  tagsAction,
 
   venuesShow,
   venuesIndexAction,

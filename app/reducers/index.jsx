@@ -4,10 +4,9 @@ import { combineReducers } from 'redux'
 import {
   DO_LOGOUT,
 
+  SET,
   SET_LOCATION,
-
   SET_PROFILE,
-
   SET_SITE_NEWSITEMS,
 
 } from '../constants/AppConstants'
@@ -65,6 +64,24 @@ function profileReducer (state = {}, action) {
   }
 }
 
+const tag = (state={}, action) => {
+  switch (action.type) {
+    case SET.tag:
+      return action.tag
+    default:
+      return state
+  }
+}
+
+const tags = (state=[], action) => {
+  switch (action.type) {
+    case SET.tags:
+      return action.tags
+    default: 
+      return state
+  }
+}
+
 export default combineReducers({
   cities: citiesIndexReducer,
   city: citiesShowReducer,
@@ -84,6 +101,9 @@ export default combineReducers({
   reports: reportsReducer,
 
   site: sitesReducer,
+
+  tag,
+  tags,
 
   venue: venueReducer,
   venues: venuesReducer,

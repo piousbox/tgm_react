@@ -40,3 +40,8 @@ export const SET_VENUES = 'set venues'
 export const CONST = {
   setVenues: 'set venues',
 }
+
+export const SET = {
+  tags: 'set-tags-1q',
+  tag: 'set-tag-5',
+}

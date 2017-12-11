@@ -65,7 +65,13 @@ class Home extends React.Component {
       <div style={{ marginTop: '60px' }}>
         <Grid>
           <Features features={this.props.site.features} />
-          <Newsitems />
+          <Row>
+            <Col xs={12} xsOffset={0} 
+                 sm={8} smOffset={2}
+                 md={6} mdOffset={3} >
+              <Newsitems />
+            </Col>
+          </Row>
         </Grid>
       </div>
     )

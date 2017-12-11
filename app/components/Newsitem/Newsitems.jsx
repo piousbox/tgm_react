@@ -64,7 +64,7 @@ class Newsitems extends React.Component {
     return (
       <div className="newsitems" >
         { pagination }
-        <Row>{ listitems }</Row>
+        { listitems }
         { pagination }
       </div>
     )

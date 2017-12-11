@@ -5,6 +5,9 @@ let Config = {
   fbAppId: "123014244977505",
   domain: "travel-guide.mobi",
   siteTitle: "Local T.G.M",
+
+  citiesEnabled: true,
+  tagsEnabled: true,
 }
 
 export default Config

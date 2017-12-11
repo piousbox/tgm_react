@@ -93,7 +93,7 @@ let TgmRouter = {
     }
   },
            
-  tagPath: '',
+  tagPath: '/:lang(en|ru|pt|es)/tags/show/:tagname',
   tagLink: (g) => {
     if (typeof g === 'string') {
       return `/en/tags/show/${g}`
@@ -102,7 +102,9 @@ let TgmRouter = {
       return `/${lang}/tags/show/${g.tagname}`
     }
   },
-  tgm2Path: 'tgm2',
+  tagsPath: '/:lang(en|ru|pt|es)/tags',
+  tagsLink: () => { return '/en/tags' },
+  tgm2Path: 'tgm2', // @obsolete @deprecated
 
   venuePath: '/:lang(en|ru|pt|es)/venues/show/:venuename',
   venueLink: (g) => { return `/en/venues/show/${g}` },

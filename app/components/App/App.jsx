@@ -35,6 +35,7 @@ import { VenuesIndex, VenuesShow,
 import VideosShow from '../Videos/VideosShow'
 import Location from '../Locations/LocationShow'
 
+import { TagsIndex, TagShow } from '../Tags'
 import Tgm2     from './Tgm2'
 import Tgm2Home from './Tgm2Home'
 
@@ -75,13 +76,13 @@ const routes = [
 
       { path: '/en/profile', component: Profile },
 
-      { path: '/en/reports/', component: ReportsIndex, 
-        /* childRoutes: [
-           { path: TgmRouter.reportPath, component: ReportsShow },
-           ], */
-      },
+      { path: '/en/reports/', component: ReportsIndex },
       { path: TgmRouter.reportPath, component: ReportsShow },
 
+      { path: TgmRouter.tagsPath, component: TagsIndex, childRoutes: [
+        { path: TgmRouter.tagPath, component: TagShow },
+      ]},
+      
       { path: TgmRouter.videoPath, component: VideosShow },
     ],
   },
