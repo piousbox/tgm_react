@@ -9,7 +9,7 @@ class VideosShow extends React.Component {
       <Grid>
         <Row>
           <Col sm={12}>
-            <iframe width="560" height="315" src={`http://www.youtube.com/embed/${this.props.params.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
+            <iframe width="560" height="315" src={`https://www.youtube.com/embed/${this.props.params.youtube_id}`} frameBorder="0" allowFullScreen></iframe>
           </Col>
         </Row>
       </Grid>
