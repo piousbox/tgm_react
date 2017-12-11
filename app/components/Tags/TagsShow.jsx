@@ -11,6 +11,19 @@ class TagShow extends React.Component {
     super(props)
     this.state = {}
     this.props.dispatch(tagAction(this.props.params.tagname))
+
+    this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    console.log('+++ tagShow will receive props')
+    if (nextProps.params.tagname !== this.props.params.tagname) {
+      this.props.dispatch(tagAction(nextProps.params.tagname))
+    }
+  }
+
+  componentWillUpdate () {
+    // console.log('+++ tagShow will update')
   }
 
   render () {

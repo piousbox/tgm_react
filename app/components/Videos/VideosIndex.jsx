@@ -11,7 +11,7 @@ class VideosIndex extends React.Component {
     let videos = []
     if (this.props.videos) {
       this.props.videos.map((video, index) => {
-        videos.push(<VideoPreview video={video} />)
+        videos.push(<VideoPreview key={index} video={video} />)
       })
     }
 
