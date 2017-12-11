@@ -6,6 +6,7 @@ let Config = {
   domain: "piousbox.com",
   siteTitle: "Piousbox",
   googleAnalytics: "UA-53077236-1", // not used
+  tagsEnabled: true,
 }
 
 export default Config

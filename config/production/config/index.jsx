@@ -6,6 +6,7 @@ let Config = {
   domain: "travel-guide.mobi",
   siteTitle: "T.G.M",
   googleAnalytics: "UA-53077236-3", // not used
+  citiesEnabled: true,
 }
 
 export default Config
