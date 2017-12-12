@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { Grid, Row, Col,
-         Button 
+         Button,
 } from 'react-bootstrap'
 
 import Newsitem from './Newsitem'
@@ -39,7 +39,7 @@ class Newsitems extends React.Component {
       let idx = 0
       newsitems.map((n, idx) => {
         listitems.push(
-          <Newsitem key={idx} newsitem={ n } />
+          <Col xs={12} ><Newsitem key={idx} newsitem={ n } /></Col>
         )
         if ((idx+1) % 2 === 0) {
           listitems.push(<Clearfix key={`${idx}-clearfix`} />)
@@ -52,7 +52,9 @@ class Newsitems extends React.Component {
     let activeStyle = { fontWeight: 'bold' }
     const lambda = (pageNum, idx) => {
       pagination.push(
-        <Button bsStyle={this.state.page == pageNum ? 'info' : ''} className="btn" onClick={() => {this.gotoPage(pageNum)}}
+        <Button bsStyle={this.state.page == pageNum ? 'info' : ''} 
+                className="btn" onClick={() => {this.gotoPage(pageNum)}}
+                style={{ marginRight: '.5em' }}
                 key={idx} >{pageNum}</Button>)
     }
     if (this.props.site) {
@@ -62,11 +64,10 @@ class Newsitems extends React.Component {
     }
     
     return (
-      <div className="newsitems" >
-        { pagination }
+      <Row>
         { listitems }
-        { pagination }
-      </div>
+        <Col xs={12}>{ pagination }</Col>
+      </Row>
     )
   }
 }

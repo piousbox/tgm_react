@@ -63,7 +63,7 @@ class Footer2 extends React.Component {
     }
 
     return (
-      <div style={{ backgroundImage: `url(${bg})` }} >
+      <div style={{ backgroundImage: `url(${bg})`, marginTop: '1em' }} >
         <Grid >
           <Row>
             <Col xs={12} style={{ padding: '10px' }} >

@@ -19,8 +19,9 @@ class Features extends React.Component {
   render () {
     // console.log('+++ +++ features props:', this.props, this.state)
 
+    const perRowXs = 1
     const perRowMd = 2
-    const perRowLg = 4
+    const perRowLg = 2
 
     let features = []
     let panel
@@ -50,7 +51,7 @@ class Features extends React.Component {
               { f.subhead }
             </Panel>)
         }
-        features.push(<Col key={idx} md={12/perRowMd} lg={12/perRowLg} xs={12} >{ panel }</Col>)
+        features.push(<Col key={idx} md={12/perRowMd} lg={12/perRowLg} xs={12/perRowXs} >{ panel }</Col>)
       })
     }
 
