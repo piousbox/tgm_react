@@ -27,6 +27,7 @@ class Newsitem extends React.Component {
     }
 
     let photos = []
+    let onePhoto = null
     if (this.props.newsitem.item_type === 'gallery') {
       if (this.props.newsitem.photos) {
         this.props.newsitem.photos.forEach( (photo, idx) => {
@@ -35,6 +36,9 @@ class Newsitem extends React.Component {
       }
     } else if (this.props.newsitem.item_type === 'photo') {
       photos.push(<img src={ this.props.newsitem.photos[0].large_url } style={{ width: '100%' }} alt='' />)
+    } else if (this.props.newsitem.item_type === 'report') {
+      onePhoto = <img src={ this.props.newsitem.photo_url }
+                      style={{ width: '100px', float: 'left', padding: '5px' }} alt='' />
     }
     
     let descr
@@ -46,8 +50,10 @@ class Newsitem extends React.Component {
       <Panel>
         <h3><TgmLink newsitem={ this.props.newsitem } /></h3>
         <Meta item={ this.props.newsitem } />
+        { onePhoto }
         { descr }
         { photos }
+        <div style={{ clear: 'both' }} />
       </Panel>
     )
   }
