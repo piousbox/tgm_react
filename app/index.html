@@ -4,7 +4,7 @@
   <link rel="shortcut icon" href="/favicon.ico">
 
   <meta charset="utf-8" />
-  <!-- <meta name="viewport" content="width=device-width" /> -->
+  <meta name="viewport" content="width=device-width" />
   <meta name="viewport" content="initial-scale=1.0">
   <title><%= title %></title>
   <% if (debug === false) { %>
@@ -62,11 +62,13 @@
     ga('send', 'pageview');    
   </script>
 
+  <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyASTxVRpD3hpK5_EHWDROrzuvLNhOsvbuE&callback=initMap"></script>
+
 </head>
 <body>
   <div id="app"></div>
   <script             src="/js/app.<%= version %>.js"></script>
-  <script async defer src="//maps.googleapis.com/maps/api/js?key=AIzaSyASTxVRpD3hpK5_EHWDROrzuvLNhOsvbuE&callback=initMap"></script>
+  <!-- <script async defer src="//maps.googleapis.com/maps/api/js?key=AIzaSyASTxVRpD3hpK5_EHWDROrzuvLNhOsvbuE&callback=initMap"></script> -->
   <script async       src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   <script>
    function initMap() {

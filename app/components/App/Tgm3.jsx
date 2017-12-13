@@ -13,6 +13,10 @@ import arrowRight from './images/16x16/arrow-right.png'
 import arrowUp    from './images/16x16/arrow-top.png'
 import arrowDown  from './images/16x16/arrow-bottom.png'
 
+import { 
+  GoogleMap, Marker, withGoogleMap,
+} from 'react-google-maps'
+
 import {
   citiesAction,
 
@@ -30,6 +34,24 @@ import TgmRouter from './TgmRouter'
 import Report2          from '../Reports/Reports2Show'
 import { Videos }       from '../Videos'
 
+const MyMapComponent = withGoogleMap((props) => {
+  return (
+    <GoogleMap 
+               defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }} >
+      <Marker position={{ lat: -34.397, lng: 150.644 }} />
+    </GoogleMap>)
+})
+
+const MapWithAMarker = withGoogleMap(props =>
+  <GoogleMap
+      defaultZoom={8}
+      defaultCenter={{ lat: -34.397, lng: 150.644 }}
+  >
+    <Marker
+        position={{ lat: -34.397, lng: 150.644 }}
+    />
+  </GoogleMap>
+)
 
 class Tgm3 extends React.Component {
   constructor(props) {
@@ -37,11 +59,11 @@ class Tgm3 extends React.Component {
 
     let nextState = { collapseState: 'center',
                       collapseFooter: 'up',
-                      showLeft: CONST.chapters, // map
+                      showLeft: CONST.map, // map
                       showRight: CONST.news,
-                      leftFolds: [ {key: CONST.chapters, readable: 'Chapters'},
-                                   {key: CONST.chat,     readable: 'Chat'}, ],
-                      rightFolds: [ CONST.news ], // story, tasks
+                      leftFolds: [ {key: CONST.map, readable: 'Map' },
+                                   {key: CONST.chat, readable: 'Chat'}, ],
+                      rightFolds: [ { key: CONST.news, readable: 'News' }, ],
     };
 
     props.dispatch(citiesAction())
@@ -152,11 +174,7 @@ class Tgm3 extends React.Component {
       if (this.state.leftFolds.indexOf(CONST.chapter) === -1) {
         this.state.leftFolds.push(CONST.chapter)
       }
-
-    // chapters
-    } else if (this.props.chapters.length === 0) {
-      this.props.dispatch(setChapters())
-    }  
+    }
   }
   
   componentDidMount () { window.addEventListener('resize', this.onWindowResize) }
@@ -186,16 +204,18 @@ class Tgm3 extends React.Component {
     let leftPane = (<div><Panel>default leftPane</Panel></div>)
     switch (this.state.showLeft) {
       case CONST.map:
-        if (this.props.blocation && this.props.blocation) {
-          // console.log('+++ rendering this blocation:', this.props.blocation)
-          leftPane = (<LocationShow location={this.props.blocation} />)
-        }
-        break
-      case CONST.chapter:
-        leftPane = (<Chapter chapter={this.props.chapter} />)
-        break
-      case CONST.chapters:
-        leftPane = (<Chapters chapters={this.props.chapters} />)
+        // HEREHERE
+        leftPane = (
+          <Panel style={{ height: '100%' }} >
+            <MyMapComponent mapElement={<div style={{ height: '100%' }} />} 
+                            loadingElement={<div style={{ height: '100%' }} />} 
+                            containerElement={<div style={{ height: '100%' }} />} />
+            <MapWithAMarker
+                containerElement={<div style={{ height: `400px` }} />}
+                mapElement={<div style={{ height: `100%` }} />}
+            />
+            what's here?
+          </Panel>)
         break
       default:
         if (this.props.blocation && this.props.blocation) {
@@ -227,7 +247,8 @@ class Tgm3 extends React.Component {
       
     let rightFolds = []
     this.state.rightFolds.map((i, idx) => {
-      rightFolds.push(<li key={idx} className={this.state.showRight === i ? 'active' : ''}><a href="javascript:;" onClick={() => { this.showRight(i) }}>{i}</a></li>)
+      rightFolds.push(<li key={idx} className={this.state.showRight === i.key ? 'active' : ''}>
+                <a href="javascript:;" onClick={() => { this.showRight(i.key) }}>{i.readable}</a></li>)
     })
 
     return(

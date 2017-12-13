@@ -36,8 +36,9 @@ export const SET_VENUE  = 'set venue'
 export const SET_VENUES = 'set venues'
 
 export const CONST = {
-  news: 'const-news',
-  setVenues: 'set venues',
+  map: 'const-map-1',
+  news: 'const-news-2',
+  venues: 'const-venues-3',
 }
 
 export const SET = {
@@ -46,4 +47,5 @@ export const SET = {
   profile: 'set-profile-90f',
   tags: 'set-tags-1q',
   tag: 'set-tag-5',
+  venues: 'set-venues-6',
 }
