@@ -17,7 +17,7 @@ const profileAction = () => {
         body: localStorage.getItem('fbAccount'),
       }).then(r => r.json()).then(_data => {
         fbAccount = Object.assign({}, fbAccount, _data)
-        dispatch({ type: SET_PROFILE, fbAccount: fbAccount })
+        dispatch({ type: SET.profile, fbAccount: fbAccount })
       })
     }
     dispatch({ type: SET.profile, fbAccount: null })
@@ -33,7 +33,7 @@ const loginAction = (r2) => {
 
 const logoutAction = () => {
   localStorage.removeItem('fbAccount')
-  return({ type: SET_PROFILE, fbAccount: null }) 
+  return({ type: SET.profile, fbAccount: null }) 
 }
 
 export default {

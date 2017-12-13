@@ -6,7 +6,6 @@ import {
 
   SET,
   SET_LOCATION,
-  SET_PROFILE,
   SET_SITE_NEWSITEMS,
 
 } from '../constants'
@@ -66,7 +65,7 @@ function newsitemsReducer(state = {}, action) {
 
 function profileReducer (state = {}, action) {
   switch (action.type) {
-    case SET_PROFILE:
+    case SET.profile:
       return action.fbAccount
 
     default:

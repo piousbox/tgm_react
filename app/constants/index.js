@@ -24,8 +24,6 @@ export const SET_LOCATION = 'set location'
 export const SET_MY_GALLERIES = 'set my galleries'
 export const SET_MY_REPORTS   = 'set my reports'
 
-export const SET_PROFILE = 'set profile'
-
 export const SET_REPORT  = 'set report'
 export const SET_REPORTS = 'set reports'
 
@@ -43,6 +41,7 @@ export const CONST = {
 
 export const SET = {
   galleries: 'set-galleries-099',
+  profile: 'set-profile-90f',
   tags: 'set-tags-1q',
   tag: 'set-tag-5',
 }
