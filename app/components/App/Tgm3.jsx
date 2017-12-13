@@ -14,23 +14,26 @@ import arrowUp    from './images/16x16/arrow-top.png'
 import arrowDown  from './images/16x16/arrow-bottom.png'
 
 import {
+  citiesAction,
+
   setCategories,
   setPath,
 } from '../../actions'
 
 import { CONST } from '../../constants'
 
-import Breadcrumbs  from './Breadcrumbs'
-import FbConnect        from './FbConnect'
-import Headers          from './Headers'
+import Breadcrumbs from './Breadcrumbs'
+import FbConnect from './FbConnect'
+import Headers from './Headers'
+import TgmRouter from './TgmRouter'
 
 import Report2          from '../Reports/Reports2Show'
 import { Videos }       from '../Videos'
 
+
 class Tgm3 extends React.Component {
   constructor(props) {
     super(props)
-    // console.log('+++ ++ Tgm3 constructor:', props)
 
     let nextState = { collapseState: 'center',
                       collapseFooter: 'up',
@@ -38,48 +41,10 @@ class Tgm3 extends React.Component {
                       showRight: CONST.news,
                       leftFolds: [ {key: CONST.chapters, readable: 'Chapters'},
                                    {key: CONST.chat,     readable: 'Chat'}, ],
-                      rightFolds: [ CONST.news, ], // story, tasks
+                      rightFolds: [ CONST.news ], // story, tasks
     };
 
-    // badge
-    if (props.params.badgename) {
-      [ CONST.quest, CONST.videos ].map((elem) => {
-        if (nextState.rightFolds.indexOf(elem) === -1) {
-          nextState.rightFolds.push(elem)
-        }
-      })
-      if (nextState.leftFolds.indexOf(CONST.location) === -1) {
-        nextState.leftFolds.push(CONST.location)
-      }
-      nextState.showLeft  = CONST.location
-      nextState.showRight = CONST.quest
-      props.dispatch(setBadge(props.params.badgename))
-      props.dispatch(setLocation(props.params.locationname))
-
-    // location
-    } else if (props.params.locationname) {
-      props.dispatch(setLocation(props.params.locationname))
-      nextState.showLeft = CONST.location
-      nextState.showRight = CONST.location
-      nextState.leftFolds.push( CONST.location )
-
-    // chapter
-    } else if (props.params.chaptername) {
-      props.dispatch(setChapter(props.params.chaptername))
-      nextState.leftFolds.push( CONST.chapter )
-      nextState.showLeft = CONST.chapter
-
-    // categories
-    } else if (props.router.location.pathname === BjjcRouter.categoriesLink()) {
-      props.dispatch(setCategories([config.defaultCategory]))
-      nextState.leftFolds.push({ key: CONST.categories, readable: 'Categories' })
-      nextState.showLeft = CONST.categories
-      nextState.rightFolds.push( CONST.videos )
-      nextState.showRight = CONST.videos
-
-    } else {
-      props.dispatch(setChapters())
-    }
+    props.dispatch(citiesAction())
 
     this.state = nextState
 
@@ -242,13 +207,13 @@ class Tgm3 extends React.Component {
     let rightPane = (<Panel>default rightPane</Panel>)
     switch (this.state.showRight) {
       case CONST.quest:
-        rightPane = (<Quest quest={this.props.quest} />)
+        // rightPane = (<Quest quest={this.props.quest} />)
         break
       case CONST.videos:
         rightPane = (<Videos videos={this.props.videos} />)
         break
       case CONST.location:
-        rightPane = (<Quest badge={this.props.blocation} />)
+        // rightPane = (<Quest badge={this.props.blocation} />)
         break
       default:
         // nothing
@@ -268,7 +233,7 @@ class Tgm3 extends React.Component {
     return(
       <div className="container">
         <Headers />
-        
+
         <div className={ `folder folder-both folder-collapse-${this.state.collapseState} footer-${this.state.collapseFooter}` } >
           <div className="folder folder-left folder-half">
             <ul className="nav nav-tabs">

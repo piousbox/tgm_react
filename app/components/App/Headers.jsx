@@ -17,12 +17,12 @@ class Headers extends React.Component {
   }
 
   render () {
-    // console.log('+++ +++ Headers render:', this.props, this.state)
+    console.log('+++ +++ Headers render:', this.props, this.state)
 
     return(
       <div>
         <div className="header header-slim" style={{ zIndex: 2 }} >
-          <Link to={TgmRouter.rootPath} >BJJCollective</Link>
+          <Link to='/' >tgm?todo:changeme</Link>
         </div>
         <ul className="header" style={{ zIndex: 2 }} >
           <li><Link to="/tgm3">Quests</Link></li>
@@ -31,7 +31,7 @@ class Headers extends React.Component {
           <li><Link to="/profile">Profile</Link></li>
         </ul>
         <div className="header-2" style={{ zIndex: 2 }} >
-          <BjjcBreadcrumbs />
+          <Breadcrumbs />
         </div>
       </div>
     )

@@ -26,7 +26,7 @@
     "react-router-dom": "^4.1.1",
     "react-router-redux": "^4.0.8",
     "react-scroll": "^1.4.8",
-    "react-stripe-elements": "^1.0.1",
+    "react-stripe-elements": "^1.2.1",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.7.2",
     "redux-auth": "0.0.5-beta5",

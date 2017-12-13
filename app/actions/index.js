@@ -17,8 +17,6 @@ import {
 
   SET,
 
-  SET_API_URL,
-
   SET_CITIES_INDEX,
   SET_CITIES_SHOW,
   SET_CITY,
@@ -47,13 +45,6 @@ import config from 'config'
 
 import TgmApi from '../components/App/TgmApi'
 
-const setApiUrl = () => {
-  return {
-    type: SET_API_URL,
-    apiUrl: config.apiUrl,
-  }
-}
-
 const setLocation = (locationName) => {
   return (dispatch, getState) => {
     let url = `${config.apiUrl}/api/locations/${locationName}.json`
@@ -66,10 +57,10 @@ const setLocation = (locationName) => {
   }
 }
 
-const citiesIndex = () => {
+const citiesAction = () => {
   return (dispatch, getState) => { 
     let state = getState()
-    let url = config.apiUrl + "/api/cities.json"
+    let url = `${config.apiUrl}/api/cities.json`
     
     if (state.cities.length > 0) {
       dispatch({
@@ -172,6 +163,12 @@ const reportsIndex = (args) => {
   }
 }
 
+const setPath = () => {
+  return (dispatch, getState) => {
+    dispatch({ type: SET.path })
+  }
+}
+
 const venuesShow = (args) => {
   return (dispatch, getState) => {
     let url = `${config.apiUrl}/api/venues/view/${args.venuename}.json`
@@ -249,7 +246,7 @@ const tagsAction = () => {
 import { profileAction, loginAction, logoutAction } from './profileActions'
 
 export default {
-  citiesIndex,
+  citiesAction,
   citiesShow,
 
   galleriesIndex,
@@ -265,8 +262,9 @@ export default {
   reportsShow,
   reportsIndex,
 
-  setApiUrl,
   setLocation,
+  setPath,
+
   siteShow,
   siteNewsitemsAction,
 

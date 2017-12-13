@@ -36,11 +36,13 @@ export const SET_VENUE  = 'set venue'
 export const SET_VENUES = 'set venues'
 
 export const CONST = {
+  news: 'const-news',
   setVenues: 'set venues',
 }
 
 export const SET = {
   galleries: 'set-galleries-099',
+  path: 'set-path-a@',
   profile: 'set-profile-90f',
   tags: 'set-tags-1q',
   tag: 'set-tag-5',
