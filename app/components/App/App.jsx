@@ -36,14 +36,15 @@ import VideosShow from '../Videos/VideosShow'
 import Location from '../Locations/LocationShow'
 
 import { TagsIndex, TagShow } from '../Tags'
-import Tgm2     from './Tgm2'
-import Tgm2Home from './Tgm2Home'
+import {
+  Tgm2, Tgm3, Tgm2Home 
+} from './'
 
 import { citiesIndex, profileAction } from '../../actions'
 
 const routes = [
-  { component: Tgm2, path: '/tgm2', },
-  { component: Tgm2, path: TgmRouter.citiesPath },
+  { component: Tgm3, path: '/', },
+  // { component: Tgm2, path: TgmRouter.citiesPath },
   { component: Tgm2, path: TgmRouter.cityPath },
   /* { path: '/',
     component: Tgm2,
