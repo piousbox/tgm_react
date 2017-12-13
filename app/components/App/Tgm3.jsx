@@ -19,8 +19,8 @@ import {
 
 import {
   citiesAction,
+  cityAction,
 
-  setCategories,
   setPath,
 } from '../../actions'
 
@@ -36,22 +36,19 @@ import { Videos }       from '../Videos'
 
 const MyMapComponent = withGoogleMap((props) => {
   return (
-    <GoogleMap 
-               defaultZoom={8} defaultCenter={{ lat: -34.397, lng: 150.644 }} >
-      <Marker position={{ lat: -34.397, lng: 150.644 }} />
+    <GoogleMap defaultZoom={1}
+               defaultCenter={{ lat: -34.397, lng: 150.644 }} >
+      { props.children }
     </GoogleMap>)
 })
 
-const MapWithAMarker = withGoogleMap(props =>
-  <GoogleMap
-      defaultZoom={8}
-      defaultCenter={{ lat: -34.397, lng: 150.644 }}
-  >
-    <Marker
-        position={{ lat: -34.397, lng: 150.644 }}
-    />
-  </GoogleMap>
-)
+const CityMap = withGoogleMap((props) => {
+  return (
+    <GoogleMap defaultZoom={4}
+               defaultCenter={{ lat: 30, lng: 100 }}>
+      { props.children }
+    </GoogleMap>)
+})
 
 class Tgm3 extends React.Component {
   constructor(props) {
@@ -60,13 +57,18 @@ class Tgm3 extends React.Component {
     let nextState = { collapseState: 'center',
                       collapseFooter: 'up',
                       showLeft: CONST.map, // map
-                      showRight: CONST.news,
+                      showRight: CONST.cities,
                       leftFolds: [ {key: CONST.map, readable: 'Map' },
-                                   {key: CONST.chat, readable: 'Chat'}, ],
-                      rightFolds: [ { key: CONST.news, readable: 'News' }, ],
+                                   {key: CONST.cityMap, readable: 'City Map'}, ],
+                      rightFolds: [ { key: CONST.cities, readable: 'Cities' },
+                                    { key: CONST.news, readable: 'News' }, ],
     };
 
-    props.dispatch(citiesAction())
+    if (this.props.params.cityname) {
+      props.dispatch(cityAction(this.props.params.cityname))
+    } else {
+      props.dispatch(citiesAction())
+    }
 
     this.state = nextState
 
@@ -130,15 +132,11 @@ class Tgm3 extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    // console.log('+++ +++ Tgm3 will receive props:', this.props, nextProps)
-    
+    // console.log('+++ +++ Tgm3 will receive props:', this.props, nextProps)    
     this.props.dispatch(setPath(nextProps.props.params))
     if (nextProps.props.params.locationname && this.props.params.locationname !== nextProps.props.params.locationname) {
       this.props.dispatch(setLocation(nextProps.params.locationname))
     }
-    /* if (nextProps.props.params.badgename && this.props.params.badgename !== nextProps.props.params.badgename) {
-      this.props.dispatch(setBadge(nextProps.params))
-    } */
   }
 
   componentWillUpdate (nextProps) {
@@ -181,8 +179,6 @@ class Tgm3 extends React.Component {
   componentWillUnmount () { window.removeEventListener('resize', this.onWindowResize) }
 
   showLeft (what) {
-    // console.log('+++ +++ showLeft:', what)
-
     this.setState({ showLeft: what })
     switch (what) {
       case 'chapters':
@@ -201,21 +197,30 @@ class Tgm3 extends React.Component {
   render () {
     console.log('+++ +++ Tgm3 render:', this.props, this.state)
     
+    let citiesMarkers = []
+    let citiesList = []
+    if (this.props.cities) {
+      this.props.cities.map((city, index) => {
+        citiesList.push(<li><Link to={TgmRouter.cityLink(city)}>{city.name}</Link></li>)
+        if (city.x && city.y) {
+          citiesMarkers.push(<Marker position={{ lat: city.x, lng: city.y }} />)
+        }
+      })
+    }
+
     let leftPane = (<div><Panel>default leftPane</Panel></div>)
     switch (this.state.showLeft) {
       case CONST.map:
         // HEREHERE
         leftPane = (
-          <Panel style={{ height: '100%' }} >
-            <MyMapComponent mapElement={<div style={{ height: '100%' }} />} 
-                            loadingElement={<div style={{ height: '100%' }} />} 
-                            containerElement={<div style={{ height: '100%' }} />} />
-            <MapWithAMarker
-                containerElement={<div style={{ height: `400px` }} />}
-                mapElement={<div style={{ height: `100%` }} />}
-            />
-            what's here?
-          </Panel>)
+          <MyMapComponent mapElement={<div style={{ height: '100%' }} />} 
+                          loadingElement={<div style={{ height: '100%' }} />} 
+                          containerElement={<div style={{ height: '100%' }} />} >
+            { citiesMarkers }
+          </MyMapComponent>)
+        break
+      case CONST.cityMap:
+        leftPane = (<CityMap city={this.props.city} />)
         break
       default:
         if (this.props.blocation && this.props.blocation) {
@@ -226,14 +231,12 @@ class Tgm3 extends React.Component {
 
     let rightPane = (<Panel>default rightPane</Panel>)
     switch (this.state.showRight) {
-      case CONST.quest:
-        // rightPane = (<Quest quest={this.props.quest} />)
-        break
-      case CONST.videos:
-        rightPane = (<Videos videos={this.props.videos} />)
-        break
-      case CONST.location:
-        // rightPane = (<Quest badge={this.props.blocation} />)
+      case CONST.cities:
+        // HEREHERE
+        rightPane = (<Panel>
+            <h5>Cities</h5>
+            <ul>{ citiesList }</ul>
+        </Panel>)
         break
       default:
         // nothing
@@ -290,7 +293,8 @@ class Tgm3 extends React.Component {
               <a className="btn-down" onClick={this.collapseDown} ><img src={ arrowDown } alt='' /></a>
             </div>            
             <div className="folder-footer-content">
-              <FbConnect />
+              { /* <FbConnect /> */ }
+              fb connect and stuff
             </div>
           </div>
         </div>
@@ -308,9 +312,10 @@ function mapStateToProps(state, ownProps) {
     badge: state.badge,
     blocation: state.blocation, // b to not conflict, but this is actually a location... badge is a location.
 
-    categories: state.categories,
     chapter: state.chapter,
     chapters: state.chapters,
+    cities: state.cities,
+    city: state.city,
 
     leftPane: state.leftPane,
 

@@ -44,8 +44,9 @@ import { citiesIndex, profileAction } from '../../actions'
 
 const routes = [
   { component: Tgm3, path: '/', },
-  // { component: Tgm2, path: TgmRouter.citiesPath },
   { component: Tgm2, path: TgmRouter.cityPath },
+
+  // { component: Tgm2, path: TgmRouter.citiesPath },
   /* { path: '/',
     component: Tgm2,
     indexRoute: { component: Home },

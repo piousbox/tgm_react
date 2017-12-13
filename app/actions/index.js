@@ -12,30 +12,13 @@ import {
 
   DO_LOGOUT,
 
-  ITEMS_GET_SUCCESS,
-  ITEMS_GET_ERROR,
-
   SET,
-
-  SET_CITIES_INDEX,
-  SET_CITIES_SHOW,
-  SET_CITY,
 
   SET_GALLERY,
   SET_GALLERIES,
 
-  SET_LOCATION,
-
-  SET_MY_GALLERIES,
-  SET_MY_REPORTS,
-
   SET_REPORT,
   SET_REPORTS,
-
-  SET_SITE,
-  SET_SITE_NEWSITEMS,
-
-  SET_TGM2_HOME,
 
   SET_VENUE,
 
@@ -64,13 +47,13 @@ const citiesAction = () => {
     
     if (state.cities.length > 0) {
       dispatch({
-        type: SET_CITIES_INDEX,
+        type: SET.cities,
         cities: state.cities
       })
     } else {
       fetch(url).then(r => r.json()).then(_data => {
         dispatch({
-          type: SET_CITIES_INDEX,
+          type: SET.cities,
           cities: _data,
         })
       })
@@ -78,13 +61,18 @@ const citiesAction = () => {
   }
 }
 
-const citiesShow = (args) => {
+const cityAction = (args) => {
   return (dispatch, getState) => {
     let state = getState()
-    let url = `${config.apiUrl}/api/cities/view/${args.cityname}.json`
+    let url
+    if (typeof args === 'string' ) {
+      url = `${config.apiUrl}/api/cities/view/${args}.json`
+    } else if (typeof args === 'object') {
+      url = `${config.apiUrl}/api/cities/view/${args.cityname}.json`
+    }
     fetch(url).then(r => r.json()).then(_data => {
       dispatch({
-        type: SET_CITY,
+        type: SET.city,
         cityname: args.cityname,
         city: _data.city,
         galleries: _data.galleries,
@@ -247,7 +235,7 @@ import { profileAction, loginAction, logoutAction } from './profileActions'
 
 export default {
   citiesAction,
-  citiesShow,
+  cityAction,
 
   galleriesIndex,
   galleriesShow,

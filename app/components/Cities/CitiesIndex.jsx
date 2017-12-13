@@ -11,7 +11,7 @@ import Center from '../Center'
 import Clearfix from '../Clearfix'
 
 import {
-  SET_CITIES_INDEX,
+  SET,
 } from '../../constants'
 
 import { citiesIndex } from '../../actions'
