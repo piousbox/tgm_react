@@ -37,8 +37,8 @@ class Newsitem extends React.Component {
     } else if (this.props.newsitem.item_type === 'photo') {
       photos.push(<img src={ this.props.newsitem.photos[0].large_url } style={{ width: '100%' }} alt='' />)
     } else if (this.props.newsitem.item_type === 'report') {
-      onePhoto = <img src={ this.props.newsitem.photo_url }
-                      style={{ width: '100px', float: 'left', padding: '5px' }} alt='' />
+      onePhoto = (<img src={ this.props.newsitem.photo_url }
+                       style={{ width: '100px', float: 'left', padding: '5px' }} alt='' />)
     }
     
     let descr

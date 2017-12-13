@@ -4,9 +4,10 @@ let Config = {
   apiUrl: "http://localhost:3000",
   fbAppId: "123014244977505",
   domain: "travel-guide.mobi",
-  siteTitle: "Local T.G.M",
+  siteTitle: "Piousbox",
+  siteSubtitle: "Dance, Sketch, Languages, and Photography",
 
-  citiesEnabled: true,
+  citiesEnabled: false,
   tagsEnabled: true,
   reportsEnabled: true,
   galleriesEnabled: true,
