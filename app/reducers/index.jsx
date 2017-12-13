@@ -22,6 +22,16 @@ import TgmApi from '../components/App/TgmApi'
 
 import config from 'config'
 
+const galleries = (state=[], action) => {
+  switch (action.type) {
+    case SET.galleries:
+      console.log('+++ galleries reducer:', action)
+      return action.galleries
+    default: 
+      return state
+  }
+}
+
 function locationReducer (state = {}, action) {
   switch (action.type) {
     case SET_LOCATION:
@@ -87,6 +97,7 @@ export default combineReducers({
   city: citiesShowReducer,
 
   gallery: galleriesShowReducer,
+  galleries,
 
   location: locationReducer,
 

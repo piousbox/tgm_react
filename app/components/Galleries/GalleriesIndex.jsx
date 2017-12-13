@@ -18,7 +18,7 @@ class GalleriesIndex extends React.Component {
     console.log('+++ +++ GalleriesIndex constructor:', props)
 
     this.state = {
-      galleries: props.galleries,
+      galleries: [],
     }
     props.dispatch(galleriesIndex({ cityname: props.params.cityname }))
   }
@@ -39,9 +39,14 @@ class GalleriesIndex extends React.Component {
     }
 
     return (
-      <div>
-        { galleries }
-      </div>
+      <Grid>
+        <Row>
+          <Col xs={12}>
+            <h5>Galleries</h5>
+            { galleries }
+          </Col>
+        </Row>
+      </Grid>
     )
   }
 }
@@ -52,7 +57,7 @@ GalleriesIndex.propTypes = {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    galleries: state.city.galleries,
+    galleries: state.city.galleries || state.galleries,
   }
 }
 

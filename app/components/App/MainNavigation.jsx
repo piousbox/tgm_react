@@ -67,10 +67,11 @@ class MainNavigation extends React.Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav bsStyle="pills" pullRight>
-              { config.citiesEnabled ? <li><Link to='/en/cities'>Cities</Link></li> : null }
-              { config.tagsEnabled ? <li><Link to={TgmRouter.tagsLink()}>Tags</Link></li> : null }
+              { config.citiesEnabled ?    <li><Link to='/en/cities'>Cities</Link></li>                 : null }
+              { config.tagsEnabled ?      <li><Link to={TgmRouter.tagsLink()}>Tags</Link></li>         : null }
               { config.galleriesEnabled ? <li><Link to={TgmRouter.galleriesLink}>Galleries</Link></li> : null }
-              { config.reportsEnabled ? <li><Link to={TgmRouter.reportsLink}>Reports</Link></li> : null }
+              { config.reportsEnabled ?   <li><Link to={TgmRouter.reportsLink}>Reports</Link></li>     : null }
+              { config.galleriesEnabled ? <li><Link to={TgmRouter.galleriesLink}>Galleries</Link></li> : null }
 
               { /* <li><Link to="/en/profile">Profile</Link></li>
               <li>{ profilePic }</li>

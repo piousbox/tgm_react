@@ -8,6 +8,9 @@ let Config = {
 
   citiesEnabled: true,
   tagsEnabled: true,
+  reportsEnabled: true,
+  galleriesEnabled: true,
+
 }
 
 export default Config

@@ -19,6 +19,7 @@ class GalleriesShow extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState(Object.assign({}, this.state, {photos: nextProps.gallery.photos }))
+    document.title = nextProps.gallery.name
   }
 
   render () {
@@ -51,6 +52,7 @@ class GalleriesShow extends React.Component {
         <Row>
           <Col xs={12}>
             <h2><Center>{ this.props.gallery.name }</Center></h2>
+            <div dangerouslySetInnerHTML={{__html: this.props.gallery.description}} />
             { thumb_photos }
             <hr />
             <Center>

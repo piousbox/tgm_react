@@ -42,6 +42,7 @@ export const CONST = {
 }
 
 export const SET = {
+  galleries: 'set-galleries-099',
   tags: 'set-tags-1q',
   tag: 'set-tag-5',
 }

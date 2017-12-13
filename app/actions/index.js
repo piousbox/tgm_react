@@ -106,10 +106,15 @@ const citiesShow = (args) => {
 
 const galleriesIndex = (args) => {
   return (dispatch, getState) => {
-    let url = `${config.apiUrl}/api/galleries.json?cityname=${args.cityname}`
+    let url
+    if (args.cityname) {
+      url = `${config.apiUrl}/api/galleries.json?domain=${config.domain}&cityname=${args.cityname}`
+    } else {
+      url = `${config.apiUrl}/api/galleries.json?domain=${config.domain}`
+    }
     fetch(url).then(r => r.json()).then(_data => {
       dispatch({
-        type: SET_GALLERIES,
+        type: SET.galleries,
         galleries: _data,
       })
     })

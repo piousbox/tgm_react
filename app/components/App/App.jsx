@@ -69,9 +69,8 @@ const routes = [
       ]},
       { path: TgmRouter.cityEventPath, component: EventsShow },
       
-      { path: TgmRouter.galleriesPath, component: GalleriesIndex, childRoutes: [
-        { path: TgmRouter.galleryPath, component: GalleriesShow },  
-      ]},
+      { path: TgmRouter.galleriesPath, component: GalleriesIndex, },
+      { path: TgmRouter.galleryPath, component: GalleriesShow },
       { path: TgmRouter.galleryPhotoPath, component: GalleriesPhotoShow },
 
       { path: '/en/profile', component: Profile },

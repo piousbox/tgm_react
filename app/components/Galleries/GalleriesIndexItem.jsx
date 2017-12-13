@@ -25,6 +25,8 @@ class GalleriesIndexItem extends React.Component {
   }
 
   render () {
+    console.log('+++ render GalleriesIndexItem:', this.props, this.state)
+
     let thumbs = []
     this.props.gallery.photos.forEach((photo, idx) => {
       if (idx < 9) {
