@@ -5,8 +5,7 @@
 
 import {
   SET_SITE,
-
-} from '../constants/AppConstants'
+} from '../constants'
 
 import AppDispatcher from '../dispatcher/AppDispatcher'
 import config from 'config'

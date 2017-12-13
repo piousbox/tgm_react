@@ -22,7 +22,7 @@ import pt from './images/flags/pt.png'
 
 import {
   DO_LOGOUT,
-} from '../../constants/AppConstants'
+} from '../../constants'
 
 import { connect } from 'react-redux'
 

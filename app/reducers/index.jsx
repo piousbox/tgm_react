@@ -9,7 +9,7 @@ import {
   SET_PROFILE,
   SET_SITE_NEWSITEMS,
 
-} from '../constants/AppConstants'
+} from '../constants'
 
 import { citiesIndexReducer, citiesShowReducer } from './citiesReducer'
 import { galleriesShowReducer } from './galleriesReducer'

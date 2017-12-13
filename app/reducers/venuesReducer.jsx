@@ -6,7 +6,7 @@
 import {
   CONST,
   SET_VENUE,
-} from '../constants/AppConstants'
+} from '../constants'
 
 import AppDispatcher from '../dispatcher/AppDispatcher'
 

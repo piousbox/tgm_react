@@ -12,7 +12,7 @@ import Clearfix from '../Clearfix'
 
 import {
   SET_CITIES_INDEX,
-} from '../../constants/AppConstants'
+} from '../../constants'
 
 import { citiesIndex } from '../../actions'
 

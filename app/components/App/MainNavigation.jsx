@@ -15,9 +15,6 @@ import config from 'config'
 import styles      from './_App.scss'
 import Footer3      from './Footer3'
 import Leaderboard from './Leaderboard'
-import {
-  SET_API_URL,
-} from '../../constants/AppConstants'
 import { profileAction } from '../../actions'
 import TgmRouter from './TgmRouter'
 

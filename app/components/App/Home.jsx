@@ -21,10 +21,6 @@ import Features      from './Features'
 import Footer        from './Footer'
 import { Newsitems  } from '../Newsitem'
 
-import {
-  SET_API_URL,
-} from '../../constants/AppConstants'
-
 import { LinkContainer } from 'react-router-bootstrap'
 
 import { siteShow } from '../../actions'

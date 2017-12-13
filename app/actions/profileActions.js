@@ -1,4 +1,10 @@
 
+import {
+  SET,
+} from '../constants'
+
+import TgmApi from '../components/App/TgmApi'
+
 const profileAction = () => {
   return (dispatch, getState) => {
     if (localStorage.getItem('fbAccount')) {
@@ -14,7 +20,7 @@ const profileAction = () => {
         dispatch({ type: SET_PROFILE, fbAccount: fbAccount })
       })
     }
-    dispatch({ type: SET_PROFILE, fbAccount: null })
+    dispatch({ type: SET.profile, fbAccount: null })
   }
 }
 

@@ -15,7 +15,7 @@ import store      from '../../stores'
 
 import Home from './Home'
 
-import MainNavigationPressroom from './MainNavigationPressroom'
+import MainNavigation from './MainNavigation'
 import Profile from './Profile'
 import TgmRouter from './TgmRouter'
 
@@ -42,21 +42,13 @@ import Tgm2Home from './Tgm2Home'
 import { citiesIndex, profileAction } from '../../actions'
 
 const routes = [
-  { path: '/tgm2',
+  { component: Tgm2, path: '/tgm2', },
+  { component: Tgm2, path: TgmRouter.citiesPath },
+  { component: Tgm2, path: TgmRouter.cityPath },
+  /* { path: '/',
     component: Tgm2,
-    indexRoute: { component: Tgm2Home },
-    childRoutes: [
-      { path: '/tgm2/locations/:locationname',        component: Location },
-      { path: '/tgm2/cities/:cityname',               component: Cities2Show },
-      { path: '/tgm2/cities/:cityname/tags/:tagname', component: TagsShow },
-    ],
-  },
-  { path: '/',
-    component: MainNavigationPressroom,
     indexRoute: { component: Home },
     childRoutes: [
-
-      { path: TgmRouter.sitePath, component: Home },
 
       { path: '/en/cities', component: CitiesIndex },
       { path: TgmRouter.cityWrapperPath, component: CitiesWrapper, childRoutes: [
@@ -69,22 +61,10 @@ const routes = [
       ]},
       { path: TgmRouter.cityEventPath, component: EventsShow },
       
-      { path: TgmRouter.galleriesPath, component: GalleriesIndex, },
-      { path: TgmRouter.galleryPath, component: GalleriesShow },
-      { path: TgmRouter.galleryPhotoPath, component: GalleriesPhotoShow },
-
       { path: '/en/profile', component: Profile },
-
-      { path: TgmRouter.reportsPath, component: ReportsIndex },
-      { path: TgmRouter.reportPath,  component: ReportsShow },
-
-      { path: TgmRouter.tagsPath, component: TagsIndex, childRoutes: [
-        { path: TgmRouter.tagPath, component: TagShow },
-      ]},
       
-      { path: TgmRouter.videoPath, component: VideosShow },
     ],
-  },
+  }, */
 ]
 
 class App extends React.Component {

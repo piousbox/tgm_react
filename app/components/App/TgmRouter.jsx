@@ -1,5 +1,9 @@
 
 let TgmRouter = {
+    
+  citiesPath: '/:lang(en|ru|pt|es)/cities',
+  citiesLink: () => { return '/en/cities' },
+
   cityPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname',
   cityLink: (g) => {
     if (typeof g === 'string') {
