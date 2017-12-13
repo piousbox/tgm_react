@@ -13,7 +13,7 @@ import { EmailSignUpForm, AuthGlobals } from 'redux-auth/default-theme'
 
 import config from 'config'
 import styles      from './_App.scss'
-import Footer2      from './Footer2'
+import Footer3      from './Footer3'
 import Leaderboard from './Leaderboard'
 import {
   SET_API_URL,
@@ -83,7 +83,7 @@ class MainNavigation extends React.Component {
         <Leaderboard />
         { this.props.children }
         { /* <Footer apiUrl={this.props.apiUrl} domain={this.props.domain} /> */ }
-        <Footer2 />
+        <Footer3 />
       </div>
     )
   }

@@ -15,7 +15,7 @@ import store      from '../../stores'
 
 import Home from './Home'
 
-import MainNavigation from './MainNavigation'
+import MainNavigationPressroom from './MainNavigationPressroom'
 import Profile from './Profile'
 import TgmRouter from './TgmRouter'
 
@@ -52,7 +52,7 @@ const routes = [
     ],
   },
   { path: '/',
-    component: MainNavigation,
+    component: MainNavigationPressroom,
     indexRoute: { component: Home },
     childRoutes: [
 

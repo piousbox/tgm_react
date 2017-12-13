@@ -161,13 +161,6 @@
     },
     "buildDirTests": "./build_tests",
     "devHost": "localhost",
-    "devPort": {
-      "tgm": 8004,
-      "development_tgm": 8004,
-      "development": 8005,
-      "development_bjjc": 8006,
-      "test": 8088
-    },
     "static_domain": {
       "_default": "static.piousbox.com",
       "development": "static.local",
@@ -183,6 +176,13 @@
       "piousbox": "UA-53077236-1",
       "development": "",
       "test": ""
+    },
+    "devPort": {
+      "tgm": 8004,
+      "development_tgm": 8004,
+      "development": 8005,
+      "development_bjjc": 8006,
+      "test": 8088
     }
   },
   "scripts": {

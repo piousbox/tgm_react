@@ -41,3 +41,4 @@
          major changes to fb auth
 0.1.5  - meaningful test of citiesShow
          tests pass for travis?
+0.2.0 - let's wire in pressroom
