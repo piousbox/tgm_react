@@ -6,7 +6,10 @@ let Config = {
   domain: "piousbox.com",
   siteTitle: "Piousbox",
   googleAnalytics: "UA-53077236-1", // not used
+
+  citiesEnabled: false,
   tagsEnabled: true,
+  galleriesEnabled: true,
 }
 
 export default Config
