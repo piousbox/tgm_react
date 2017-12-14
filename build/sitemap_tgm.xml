@@ -4,6 +4,12 @@
     <loc>http://travel-guide.mobi/en/cities/travel-to/Albuquerque</loc>
   </url>
   <url>
+    <loc>http://travel-guide.mobi/en/cities/travel-to/Albuquerque/venues/show/club_mighty</loc>
+  </url>
+  <url>
+    <loc>http://travel-guide.mobi/en/cities/travel-to/Albuquerque/venues/show/test-venuesdf</loc>
+  </url>
+  <url>
     <loc>http://travel-guide.mobi/en/cities/travel-to/Angra_dos_Reis</loc>
   </url>
   <url>
@@ -73,27 +79,6 @@
     <loc>http://travel-guide.mobi/en/cities/travel-to/Bogota/venues/show/Club-Paisas</loc>
   </url>
   <url>
-    <loc>http://travel-guide.mobi/en/cities/travel-to/Bogota/venues/show/Military-Museum</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/cities/travel-to/Bogota/venues/show/Universidad-Externado</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/cities/travel-to/Bogota/venues/show/Goce-Pagano</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/cities/travel-to/Bogota/venues/show/Panteon-De-La-Salsa</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/cities/travel-to/Bogota/venues/show/Galerias</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/cities/travel-to/Bogota/venues/show/Sandunguera-El-templo-de-la-salsa-clasica</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/cities/travel-to/Bogota/venues/show/Quiebracanto</loc>
-  </url>
-  <url>
     <loc>http://travel-guide.mobi/en/cities/travel-to/Boston</loc>
   </url>
   <url>
@@ -136,9 +121,6 @@
     <loc>http://travel-guide.mobi/en/cities/travel-to/Cali/venues/show/Mi-Tierra</loc>
   </url>
   <url>
-    <loc>http://travel-guide.mobi/en/cities/travel-to/Cali/venues/show/Zaperoco-Salsa-Bar</loc>
-  </url>
-  <url>
     <loc>http://travel-guide.mobi/en/cities/travel-to/Cancun</loc>
   </url>
   <url>
@@ -176,9 +158,6 @@
   </url>
   <url>
     <loc>http://travel-guide.mobi/en/cities/travel-to/Florianopolis</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/cities/travel-to/FortCollins</loc>
   </url>
   <url>
     <loc>http://travel-guide.mobi/en/cities/travel-to/Fortaleza</loc>
@@ -224,9 +203,6 @@
   </url>
   <url>
     <loc>http://travel-guide.mobi/en/cities/travel-to/Machu_Picchu</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/cities/travel-to/Medellin</loc>
   </url>
   <url>
     <loc>http://travel-guide.mobi/en/cities/travel-to/Miami</loc>
@@ -314,9 +290,6 @@
   </url>
   <url>
     <loc>http://travel-guide.mobi/en/cities/travel-to/San_Francisco</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/cities/travel-to/San_Francisco/venues/show/club_mighty</loc>
   </url>
   <url>
     <loc>http://travel-guide.mobi/en/cities/travel-to/San_Francisco/venues/show/cac</loc>
@@ -442,247 +415,10 @@
     <loc>http://travel-guide.mobi/en/cities/travel-to/Moore</loc>
   </url>
   <url>
-    <loc>http://travel-guide.mobi/en/reports/show/5991d62f3693c03ab33b473e</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/reports/show/5991d5043693c03aa43b473f</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/reports/show/5977b2623693c043816220d0</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/reports/show/5967f4303693c01a686220dd</loc>
-  </url>
-  <url>
     <loc>http://travel-guide.mobi/en/reports/show/593b18583693c04d3e7f2ea2</loc>
   </url>
   <url>
     <loc>http://travel-guide.mobi/en/reports/show/593b14ca3693c013b5e7dcca</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/59b5f4423693c077b4f8d4bb/0</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/59b5f4423693c077b4f8d4bb/1</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/59b5f4423693c077b4f8d4bb/2</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/59b5f4423693c077b4f8d4bb/3</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/59b5f4423693c077b4f8d4bb/4</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/59b5f4423693c077b4f8d4bb/5</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/59b5f4423693c077b4f8d4bb/6</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/59b5f4423693c077b4f8d4bb/7</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/59b5f4423693c077b4f8d4bb/8</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/jiu-jitsu-patch/0</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/jiu-jitsu-patch/1</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/jiu-jitsu-patch/2</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/jiu-jitsu-patch/3</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/jiu-jitsu-patch/4</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/jiu-jitsu-patch/5</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/jiu-jitsu-patch/6</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/jiu-jitsu-patch/7</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/596bbd143693c015896220d0/0</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/596bbd143693c015896220d0/1</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/596bbd143693c015896220d0/2</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/596bbd143693c015896220d0/3</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/0</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/1</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/2</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/3</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/4</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/5</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/6</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/7</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/8</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/9</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/10</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/11</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/12</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/13</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/14</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/15</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/16</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/17</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/18</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/19</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/20</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/21</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967c18a3693c01a7d6220d0/22</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967bf8f3693c01a656220cf/0</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967bf8f3693c01a656220cf/1</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967bf8f3693c01a656220cf/2</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967bf8f3693c01a656220cf/3</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967bf8f3693c01a656220cf/4</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967bf8f3693c01a656220cf/5</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967bf8f3693c01a656220cf/6</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5967bf8f3693c01a656220cf/7</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/0</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/1</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/2</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/3</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/4</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/5</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/6</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/7</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/8</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/9</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/10</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/11</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/12</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/13</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/595d52b93693c00530729220/14</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5956df6c3693c02fb9e1738b/0</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5956df6c3693c02fb9e1738b/1</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5956df6c3693c02fb9e1738b/2</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5956df6c3693c02fb9e1738b/3</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5956df6c3693c02fb9e1738b/4</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5956df6c3693c02fb9e1738b/5</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5956df6c3693c02fb9e1738b/6</loc>
-  </url>
-  <url>
-    <loc>http://travel-guide.mobi/en/galleries/show/5956df6c3693c02fb9e1738b/7</loc>
   </url>
   <url>
     <loc>http://travel-guide.mobi/en/galleries/show/594ecbf03693c003c0426dd2/0</loc>

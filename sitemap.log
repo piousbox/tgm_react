@@ -122,3 +122,22 @@ Venues: 51
 Reports: 6
 Galleries: 25
 Photos: 230
+bundler: failed to load command: rake (/home/ubuntu/projects/microsites3/vendor/bundle/ruby/2.3.0/bin/rake)
+Bundler::GitError: https://github.com/piousbox/ishapi.git (at master@d9c1806) is not yet checked out. Run `bundle install` first.
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/source/git.rb:202:in `rescue in load_spec_files'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/source/git.rb:199:in `load_spec_files'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/source/path.rb:100:in `local_specs'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/source/git.rb:166:in `specs'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/lazy_specification.rb:76:in `__materialize__'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/spec_set.rb:85:in `block in materialize'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/spec_set.rb:82:in `map!'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/spec_set.rb:82:in `materialize'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/definition.rb:170:in `specs'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/definition.rb:237:in `specs_for'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/definition.rb:226:in `requested_specs'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/runtime.rb:108:in `block in definition_method'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/runtime.rb:20:in `setup'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler.rb:107:in `setup'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/setup.rb:20:in `<top (required)>'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
