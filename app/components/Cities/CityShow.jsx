@@ -3,6 +3,10 @@ import { connect } from 'react-redux'
 
 import { cityAction } from '../../actions'
 
+import {
+  Panel,
+} from 'react-bootstrap'
+
 import { Newsitem } from '../Newsitems'
 
 class CityShow extends React.Component {
@@ -33,24 +37,29 @@ class CityShow extends React.Component {
     console.log('+++ +++ CityShow render:', this.props, this.state)
 
     let newsitems = []
-    this.props.city.newsitems.map((item, idx) => {
-      newsitems.push(
-        <Newsitem newsitem={item} />
-      )
-    })
+    /* if (this.props.city.newsitems) {
+      this.props.city.newsitems.map((item, idx) => {
+        newsitems.push(
+          <Newsitem key={idx} newsitem={item} />
+        )
+      })
+    } */
 
     let venues = []
-    this.props.city.venues.map((venue, idx) => {
-      venues.push(
-        <Panel>{venue.name}</Panel>
-      )
-    })
+    if (this.props.city.venues) {
+      this.props.city.venues.map((venue, idx) => {
+        venues.push(
+          <Panel key={idx} style={{ color: 'black' }} >
+            {venue.name}
+          </Panel>
+        )
+      })
+    }
 
     return (
       <div style={{ height: '100%', width: '100%' }}>
         <h3 className='center' >{ this.props.city.name }</h3>
         <h4 className='center' >News</h4>{ newsitems }
-        <h4 className='center' >Events</h4>{ events }
         <h4 className='center' >Venues</h4>{ venues }
       </div>
     )

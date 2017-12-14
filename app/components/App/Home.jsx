@@ -19,7 +19,7 @@ import Clearfix      from './Clearfix'
 import styles        from './_App.scss'
 import Features      from './Features'
 import Footer        from './Footer'
-import { Newsitems  } from '../Newsitem'
+import { Newsitems  } from '../Newsitems'
 
 import { LinkContainer } from 'react-router-bootstrap'
 
