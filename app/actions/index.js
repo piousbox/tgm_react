@@ -70,6 +70,8 @@ const cityAction = (args) => {
     } else if (typeof args === 'object') {
       url = `${config.apiUrl}/api/cities/view/${args.cityname}.json`
     }
+    console.log('+++ url:', url)
+
     fetch(url).then(r => r.json()).then(_data => {
       dispatch({
         type: SET.city,

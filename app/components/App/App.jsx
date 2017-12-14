@@ -37,14 +37,14 @@ import Location from '../Locations/LocationShow'
 
 import { TagsIndex, TagShow } from '../Tags'
 import {
-  Tgm2, Tgm3, Tgm2Home 
+  Tgm3, Tgm2Home,
 } from './'
 
 import { citiesIndex, profileAction } from '../../actions'
 
 const routes = [
   { component: Tgm3, path: '/', },
-  { component: Tgm2, path: TgmRouter.cityPath },
+  { component: Tgm3, path: TgmRouter.cityPath },
 
   // { component: Tgm2, path: TgmRouter.citiesPath },
   /* { path: '/',

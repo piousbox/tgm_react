@@ -13,6 +13,7 @@ export const SET_VENUE  = 'set venue'
 export const SET_VENUES = 'set venues'
 
 export const CONST = {
+  city: 'const-city-took2long',
   cities: 'const-cities',
   cityMap: 'const-cityMap',
 

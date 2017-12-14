@@ -102,7 +102,7 @@ class FbConnect extends React.Component {
   }
 
   render () {
-    console.log("+++ +++ rendering FbConnect:", this.props, this.state)
+    console.log("+++ +++ rendering FbConnect 2:", this.props, this.state)
 
     let loggedIn = !!(this.props.profile && this.props.profile.name)
 

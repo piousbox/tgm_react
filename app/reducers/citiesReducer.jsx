@@ -19,12 +19,12 @@ const citiesIndexReducer = (state=[], action) => {
   }
 }
 
-const citiesShowReducer = (state={}, action) => {
+const citiesShowReducer = (city={}, action) => {
   switch (action.type) {
     case SET.city:
       return action.city
     default:
-      return state
+      return city
   }
 }
 
