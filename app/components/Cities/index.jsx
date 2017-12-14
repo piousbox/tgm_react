@@ -1,15 +1,15 @@
 
-import CitiesShow from './CitiesShow'
-import Cities2Show from './Cities2Show'
+import CitiesList from './CitiesList'
 import CitiesIndex from './CitiesIndex'
 import CitiesWrapper from './CitiesWrapper'
 
 import CityMap from './CityMap'
+import CityShow from './CityShow'
 
 export default {
   CitiesIndex,
-  CitiesShow,
-  Cities2Show,
+  CitiesList,
+  CityShow,
   CitiesWrapper,
 
   CityMap,

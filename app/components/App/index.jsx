@@ -18,7 +18,6 @@ export default {
   Clearfix,
 
   docTitle,
-  documentTitle: docTitle,
 
   FbConnect,
 

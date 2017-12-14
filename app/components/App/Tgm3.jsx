@@ -32,7 +32,9 @@ import Headers     from './Headers'
 import TgmRouter   from './TgmRouter'
 import WorldMap    from './WorldMap'
 
-import { CityMap }      from '../Cities'
+import { 
+  CityMap, CitiesList, CityShow
+} from '../Cities'
 import Report2          from '../Reports/Reports2Show'
 import { Videos }       from '../Videos'
 
@@ -48,7 +50,8 @@ class Tgm3 extends React.Component {
                       leftFolds: [ { key: CONST.map, readable: 'Map' },
                                    { key: CONST.cityMap, readable: 'City Map' }, ],
                       rightFolds: [ { key: CONST.cities, readable: 'Cities' },
-                                    { key: CONST.news, readable: 'News' }, ],
+                                    { key: CONST.news, readable: 'News' },
+                                    { key: CONST.city, readable: 'City' }, ],
     };
 
     this.state = nextState
@@ -70,9 +73,8 @@ class Tgm3 extends React.Component {
   }
 
   rerender () {
-    console.log('force update')
     // if (this.props.params.locationname) { this.props.dispatch(setLocation(this.props.params.locationname)) }
-    this.forceUpdate()
+    // this.forceUpdate()
   }
 
   collapseLeft () {
@@ -116,11 +118,24 @@ class Tgm3 extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log('+++ +++ Tgm3 will receive props:', this.props, nextProps)    
-    if (this.props.routeParams.cityname && nextProps.routeParams.cityname !== this.props.paramscityname) { 
-      // this.props.dispatch(cityAction(this.props.router.params.cityname))
-    } else {
-      // this.props.dispatch(citiesAction())
+    console.log('+++ +++ Tgm3 willReceiveProps:', this.props, nextProps, this.state)    
+
+    if (nextProps.routeParams.cityname && nextProps.routeParams.cityname !== this.props.params.cityname) { 
+      let nextState = {leftFolds: this.state.leftFolds, rightFolds: this.state.rightFolds,
+                       showLeft: CONST.cityMap, showRight: CONST.city}
+      let arr = [ CONST.cityMap ]
+      arr.map(elem => {
+        if (this.state.leftFolds.map(t=>t.key).indexOf(elem) === -1) {
+         nextState.leftFolds.push({ key: elem, readable: 'City Map' })
+        }
+      })
+      arr = [ CONST.city ]
+      arr.map(e => {
+        if (this.state.rightFolds.map(t=>t.key).indexOf(e) === -1) {
+          nextState.rightFolds.push({ key: CONST.city, readable: 'City' })
+        }
+      })
+      this.setState(Object.assign({}, nextState))
     }
   }
 
@@ -134,7 +149,8 @@ class Tgm3 extends React.Component {
     // city
     } else if (nextProps.routeParams.cityname && nextProps.routeParams.cityname !== this.props.params.cityname) {
       // this.props.dispatch(cityAction(nextProps.routeParams.cityname))
-
+      
+      /* // this is in willReceiveProps now.
       [ CONST.cityMap ].map(elem => {
         if (this.state.leftFolds.map(t=>t.key).indexOf(elem) === -1) {
           nextState.leftFolds.push({ key: elem, readable: 'city Map' })
@@ -151,8 +167,7 @@ class Tgm3 extends React.Component {
 
       this.setState(Object.assign({}, nextState, {showLeft: CONST.cityMap, showRight: CONST.city }))
       this.props.dispatch(cityAction(nextProps.routeParams.cityname))
-    } else {
-      console.log('+++ qqq this should never happen')
+      */
     }
   }
   
@@ -185,7 +200,7 @@ class Tgm3 extends React.Component {
         leftPane = (<WorldMap />)
         break
       case CONST.cityMap:
-        leftPane = (<CityMap />)
+        leftPane = (<CityMap params={this.props.params} />)
         break
       default:
         null
@@ -194,12 +209,10 @@ class Tgm3 extends React.Component {
     let rightPane = (<Panel>default rightPane</Panel>)
     switch (this.state.showRight) {
       case CONST.cities:
-        // HEREHERE
-        rightPane = (<Panel>
-            <h5>Cities</h5>
-            <ul>{ citiesList }</ul>
-        </Panel>)
+        rightPane=(<CitiesList />)
         break
+      case CONST.city:
+        rightPane=(<CityShow params={this.props.params} />)
       default:
         // nothing
     }
