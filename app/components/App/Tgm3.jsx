@@ -46,9 +46,9 @@ class Tgm3 extends React.Component {
 
     let nextState = { collapseState: 'center',
                       collapseFooter: 'up',
-                      showLeft: CONST.map, // map
+                      showLeft: CONST.worldMap, // map
                       showRight: CONST.cities,
-                      leftFolds: [ { key: CONST.map, readable: 'Map' },
+                      leftFolds: [ { key: CONST.worldMap, readable: 'Map' },
                                    { key: CONST.cityMap, readable: 'City Map' },
                       ],
                       rightFolds: [ { key: CONST.cities, readable: 'Cities' },
@@ -122,38 +122,22 @@ class Tgm3 extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    // console.log('+++ +++ Tgm3 willReceiveProps:', this.props, nextProps, this.state)    
-
-    /* if (nextProps.routeParams.cityname && nextProps.routeParams.cityname !== this.props.params.cityname) { 
-      let nextState = {leftFolds: this.state.leftFolds, rightFolds: this.state.rightFolds,
-                       showLeft: CONST.cityMap, showRight: CONST.city}
-      let arr = [ CONST.cityMap ]
-      arr.map(elem => {
-        if (this.state.leftFolds.map(t=>t.key).indexOf(elem) === -1) {
-         nextState.leftFolds.push({ key: elem, readable: 'City Map' })
-        }
-      })
-      arr = [ CONST.city ]
-      arr.map(e => {
-        if (this.state.rightFolds.map(t=>t.key).indexOf(e) === -1) {
-          nextState.rightFolds.push({ key: CONST.city, readable: 'City' })
-        }
-      })
-      this.setState(Object.assign({}, nextState))
-    } */
+    console.log('+++ +++ Tgm3 willReceiveProps:', this.props, nextProps, this.state)    
+    if (nextProps.routeParams.venuename && nextProps.routeParams.venuename !== this.props.params.venuename) {
+      // set to render venue
+      this.setState({ showLeft: CONST.cityMap, showRight: CONST.venue })
+    } else if (nextProps.routeParams.cityname && nextProps.routeParams.cityname !== this.props.params.cityname) {
+      // set to render city
+      this.setState({ showLeft: CONST.cityMap, showRight: CONST.city })
+    } else {
+      // nothing!
+      // set to render cities
+      // this.setState({ showLeft: CONST.worldMap, showRight: CONST.cities })
+    }
   }
 
   componentWillUpdate (nextProps) {
     console.log('+++ +++ Tgm3 componentWillUpdate:', nextProps, this.props, this.state)
-    let nextState = { leftFolds: this.state.leftFolds, rightFolds: this.state.rightFolds }
-
-    if (nextProps.routeParams.venuename && nextProps.routeParams.venuename !== this.props.params.venuename) {
-      // venue render
-    } else if (nextProps.routeParams.cityname && nextProps.routeParams.cityname !== this.props.params.cityname) {
-      // city render
-    } else {
-      // cities render
-    }
   }
   
   componentDidMount () { window.addEventListener('resize', this.onWindowResize) }
@@ -161,14 +145,14 @@ class Tgm3 extends React.Component {
 
   showLeft (what) {
     this.setState({ showLeft: what })
-    switch (what) {
+    /* switch (what) {
       case 'chapters':
         browserHistory.push('/tgm3')
         // this.props.dispatch(setChapters())
         break
       default:
         // nothing
-    }
+    } */
   }
 
   showRight (what) {
@@ -180,7 +164,7 @@ class Tgm3 extends React.Component {
     
     let leftPane = (<div><Panel>default leftPane</Panel></div>)
     switch (this.state.showLeft) {
-      case CONST.map:
+      case CONST.worldMap:
         leftPane = (<WorldMap />)
         break
       case CONST.cityMap:
@@ -209,13 +193,13 @@ class Tgm3 extends React.Component {
     let leftFolds = []
     this.state.leftFolds.map((i, idx) => {
       leftFolds.push(<li style={{ cursor: 'pointer' }} key={idx} className={this.state.showLeft === i.key ? 'active' : ''}>
-              <a onClick={() => { this.showLeft(i.key) }}>{i.readable}</a></li>)
+              <a href="#" onClick={(e) => { e.preventDefault(); this.showLeft(i.key) }}>{i.readable}</a></li>)
     })
       
     let rightFolds = []
     this.state.rightFolds.map((i, idx) => {
       rightFolds.push(<li key={idx} className={this.state.showRight === i.key ? 'active' : ''}>
-                <a href="javascript:;" onClick={() => { this.showRight(i.key) }}>{i.readable}</a></li>)
+                <a href="#" onClick={(e) => { e.preventDefault(); this.showRight(i.key) }}>{i.readable}</a></li>)
     })
 
     return(

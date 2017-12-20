@@ -10,13 +10,13 @@ import {
 } from 'react-redux'
 
 import store      from '../../../stores'
-import CitiesShow from '../CitiesShow.jsx'
+import CityShow from '../CityShow.jsx'
 
-describe('CitiesShow', () => {
+describe('CityShow', () => {
   it('Should render the correct element', () => {
     let app1 = ReactTestUtils.renderIntoDocument(
       <Provider store={store}>
-        <CitiesShow params={{ cityname: 'xxTestCitynamexx' }} />
+        <CityShow params={{ cityname: 'xxTestCitynamexx' }} />
       </Provider>)
     let elem = ReactDOM.findDOMNode(app1)
     expect(elem.tagName.toLowerCase()).to.equal('div')

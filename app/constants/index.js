@@ -17,11 +17,12 @@ export const CONST = {
   cities: 'const-cities',
   cityMap: 'const-cityMap',
 
-  map: 'const-map-1',
   news: 'const-news-2',
 
   venue: 'const-venue-5',
   venues: 'const-venues-3',
+
+  worldMap: 'const-map-1',
 }
 
 export const SET = {
