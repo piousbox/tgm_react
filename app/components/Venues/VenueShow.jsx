@@ -6,20 +6,20 @@ import { Grid, Row, Col } from 'react-bootstrap'
 
 import config from 'config'
 import Center from '../Center'
-import { docTitle } from '../App'
 
-import { venuesAction } from '../../actions'
+import { venueAction } from '../../actions'
 
 class VenueShow extends React.Component {
-
   constructor(props) {
     super(props)
+    console.log('+++ +++ VenueShow constructor:', props)
+
     this.state = {
       venues: {},
       venue: {},
     }
 
-    if (!props.venue) {
+    if (!props.venue || !props.venue.name) {
       props.dispatch(venueAction(props.params.venuename))
     }
 
@@ -35,11 +35,13 @@ class VenueShow extends React.Component {
 
   componentDidMount() {
     if (this.state.venue) {
-      document.title = docTitle(`${this.props.venue.name} - in ${this.props.params.cityname}`)
+      document.title = `${this.props.venue.name} - in ${this.props.params.cityname}`
     }
   }
 
   render () {
+    console.log('+++ +++ VenueShow render:', this.props, this.state)
+
     return (
       <div>
         <Center>

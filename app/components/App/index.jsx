@@ -7,7 +7,7 @@ import Meta        from './Meta'
 import Tgm3        from './Tgm3'
 import TgmRouter   from './TgmRouter'
 
-const docTitle = (g) => {
+let docTitle = (g) => {
   return `${g} - The Moby Travel Guide`
 }
 

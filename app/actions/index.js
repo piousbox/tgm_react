@@ -209,7 +209,12 @@ const tagsAction = () => {
 // v
 const venueAction = (args) => {
   return (dispatch, getState) => {
-    let url = `${config.apiUrl}/api/venues/view/${args.venuename}.json`
+    let url
+    if (typeof args === 'object') {
+      url = `${config.apiUrl}/api/venues/view/${args.venuename}.json`
+    } else {
+      url = `${config.apiUrl}/api/venues/view/${args}.json`
+    }
     fetch(url).then(r => r.json()).then(_data => {
       dispatch({
         type: SET.venue,

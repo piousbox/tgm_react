@@ -14,8 +14,7 @@ import { citiesIndexReducer, citiesShowReducer } from './citiesReducer'
 import { galleriesShowReducer } from './galleriesReducer'
 import { reportsShowReducer, reportsReducer } from './reportsReducer'
 import { sitesReducer } from './sitesReducer'
-import { venueReducer, venuesReducer,
-} from './venuesReducer'
+import { venueReducer, venuesReducer, } from './venuesReducer'
 
 import TgmApi from '../components/App/TgmApi'
 

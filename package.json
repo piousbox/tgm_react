@@ -28,6 +28,7 @@
     "react-scroll": "^1.4.8",
     "react-stripe-elements": "^1.2.1",
     "react-tap-event-plugin": "^2.0.1",
+    "recompose": "^0.26.0",
     "redux": "^3.7.2",
     "redux-auth": "0.0.5-beta5",
     "redux-thunk": "^2.2.0",
