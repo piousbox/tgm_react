@@ -1,7 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router'
 
 import { cityAction } from '../../actions'
+import AppRouter from '../App/AppRouter'
 
 import {
   Panel,
@@ -14,7 +16,7 @@ class CityShow extends React.Component {
     super(props)
     console.log('+++ +++ CityShow constructor:', props)
 
-    if (!props.city) {
+    if (!props.city || !props.city.name) {
       props.dispatch(cityAction(props.params.cityname))
     }
 
@@ -50,7 +52,7 @@ class CityShow extends React.Component {
       this.props.city.venues.map((venue, idx) => {
         venues.push(
           <Panel key={idx} style={{ color: 'black' }} >
-            {venue.name}
+            <Link to={AppRouter.cityVenueLink(this.props.city, venue)}>{ venue.name }</Link>
           </Panel>
         )
       })

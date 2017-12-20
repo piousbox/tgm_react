@@ -124,10 +124,10 @@ class Tgm3 extends React.Component {
   componentWillReceiveProps (nextProps) {
     console.log('+++ +++ Tgm3 willReceiveProps:', this.props, nextProps, this.state)    
     if (nextProps.routeParams.venuename && nextProps.routeParams.venuename !== this.props.params.venuename) {
-      // set to render venue
+      console.log('+++ +++ set to render venue')
       this.setState({ showLeft: CONST.cityMap, showRight: CONST.venue })
     } else if (nextProps.routeParams.cityname && nextProps.routeParams.cityname !== this.props.params.cityname) {
-      // set to render city
+      console.log('+++ +++ set to render city')
       this.setState({ showLeft: CONST.cityMap, showRight: CONST.city })
     } else {
       // nothing!
