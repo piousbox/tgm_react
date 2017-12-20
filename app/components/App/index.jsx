@@ -12,7 +12,6 @@ const docTitle = (g) => {
 }
 
 export default {
-
   Breadcrumbs,
 
   Clearfix,

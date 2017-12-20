@@ -20,8 +20,6 @@ import {
   SET_REPORT,
   SET_REPORTS,
 
-  SET_VENUE,
-
 } from '../constants'
 
 import config from 'config'
@@ -159,31 +157,6 @@ const setPath = () => {
   }
 }
 
-const venuesShow = (args) => {
-  return (dispatch, getState) => {
-    let url = `${config.apiUrl}/api/venues/view/${args.venuename}.json`
-    fetch(url).then(r => r.json()).then(_data => {
-      dispatch({
-        type: SET_VENUE,
-        venue: _data.venue,
-      })
-    })
-  }
-}
-
-const venuesIndexAction = (arg) => {
-  // console.log('+++ venuesIndexAction:', arg)
-  return (dispatch, getState) => {
-    let url = `${config.apiUrl}/api/venues.json?cityname=${arg.cityname}`
-    fetch(url).then(r => r.json()).then(_data => {
-      dispatch({
-        type: CONST.setVenues,
-        venues: _data.venues,
-      })
-    })
-  }
-}
-
 const siteNewsitemsAction = (args = {}) => {
   return (dispatch, getState) => {
     let state = getState()
@@ -232,7 +205,33 @@ const tagsAction = () => {
     })
   }
 }
-        
+
+// v
+const venueAction = (args) => {
+  return (dispatch, getState) => {
+    let url = `${config.apiUrl}/api/venues/view/${args.venuename}.json`
+    fetch(url).then(r => r.json()).then(_data => {
+      dispatch({
+        type: SET.venue,
+        venue: _data.venue,
+      })
+    })
+  }
+}
+
+const venuesAction = (arg) => {
+  return (dispatch, getState) => {
+    let url = `${config.apiUrl}/api/venues.json?cityname=${arg.cityname}`
+    fetch(url).then(r => r.json()).then(_data => {
+      dispatch({
+        type: SET.venues,
+        venues: _data.venues,
+      })
+    })
+  }
+}
+
+
 import { profileAction, loginAction, logoutAction } from './profileActions'
 
 export default {
@@ -261,7 +260,7 @@ export default {
   tagAction,
   tagsAction,
 
-  venuesShow,
-  venuesIndexAction,
+  venueAction,
+  venuesAction,
 
 }

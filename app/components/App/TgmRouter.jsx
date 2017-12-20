@@ -39,10 +39,21 @@ let TgmRouter = {
   },
   cityVenuePath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/venues/show/:venuename',
   cityVenueLink: (g, gg) => {
+    let gStr, ggStr
     if (arguments.length === 1) {
       return `/en/cities/travel-to/${g.cityname}/venues/show/${g.venuename}`
     } else {
-      return `/en/cities/travel-to/${g}/venues/show/${gg}`
+      if (typeof g === 'string') { 
+        gStr = g
+      } else {
+        gStr = g.cityname
+      }
+      if (typeof gg === 'string') {
+        ggStr = gg
+      } else {
+        ggStr = gg.name_seo
+      }
+      return `/en/cities/travel-to/${gStr}/venues/show/${ggStr}`
     }
   },
 

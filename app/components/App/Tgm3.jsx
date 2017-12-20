@@ -37,6 +37,7 @@ import {
 } from '../Cities'
 import Report2          from '../Reports/Reports2Show'
 import { Videos }       from '../Videos'
+import { VenueShow }    from '../Venues'
 
 class Tgm3 extends React.Component {
   constructor(props) {
@@ -48,10 +49,13 @@ class Tgm3 extends React.Component {
                       showLeft: CONST.map, // map
                       showRight: CONST.cities,
                       leftFolds: [ { key: CONST.map, readable: 'Map' },
-                                   { key: CONST.cityMap, readable: 'City Map' }, ],
+                                   { key: CONST.cityMap, readable: 'City Map' },
+                      ],
                       rightFolds: [ { key: CONST.cities, readable: 'Cities' },
                                     { key: CONST.news, readable: 'News' },
-                                    { key: CONST.city, readable: 'City' }, ],
+                                    { key: CONST.city, readable: 'City' }, 
+                                    { key: CONST.venue, readable: 'Venue' },
+                      ],
     };
 
     this.state = nextState
@@ -118,9 +122,9 @@ class Tgm3 extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log('+++ +++ Tgm3 willReceiveProps:', this.props, nextProps, this.state)    
+    // console.log('+++ +++ Tgm3 willReceiveProps:', this.props, nextProps, this.state)    
 
-    if (nextProps.routeParams.cityname && nextProps.routeParams.cityname !== this.props.params.cityname) { 
+    /* if (nextProps.routeParams.cityname && nextProps.routeParams.cityname !== this.props.params.cityname) { 
       let nextState = {leftFolds: this.state.leftFolds, rightFolds: this.state.rightFolds,
                        showLeft: CONST.cityMap, showRight: CONST.city}
       let arr = [ CONST.cityMap ]
@@ -136,38 +140,19 @@ class Tgm3 extends React.Component {
         }
       })
       this.setState(Object.assign({}, nextState))
-    }
+    } */
   }
 
   componentWillUpdate (nextProps) {
-    console.log('+++ +++ Tgm3 componentWillUpdate:', this.props, nextProps, this.state)
+    console.log('+++ +++ Tgm3 componentWillUpdate:', nextProps, this.props, this.state)
     let nextState = { leftFolds: this.state.leftFolds, rightFolds: this.state.rightFolds }
 
-    // cities?
-    if (false) {
-
-    // city
+    if (nextProps.routeParams.venuename && nextProps.routeParams.venuename !== this.props.params.venuename) {
+      // venue render
     } else if (nextProps.routeParams.cityname && nextProps.routeParams.cityname !== this.props.params.cityname) {
-      // this.props.dispatch(cityAction(nextProps.routeParams.cityname))
-      
-      /* // this is in willReceiveProps now.
-      [ CONST.cityMap ].map(elem => {
-        if (this.state.leftFolds.map(t=>t.key).indexOf(elem) === -1) {
-          nextState.leftFolds.push({ key: elem, readable: 'city Map' })
-        }
-      })      
-
-      console.log('blah 1', CONST.city)
-      
-      if (this.state.rightFolds.map(t=>t.key).indexOf(CONST.city) === -1) {
-        nextState.rightFolds.push({ key: CONST.city, readable: 'City' })
-      }
-
-      console.log('blah 2')
-
-      this.setState(Object.assign({}, nextState, {showLeft: CONST.cityMap, showRight: CONST.city }))
-      this.props.dispatch(cityAction(nextProps.routeParams.cityname))
-      */
+      // city render
+    } else {
+      // cities render
     }
   }
   
@@ -196,10 +181,10 @@ class Tgm3 extends React.Component {
     let leftPane = (<div><Panel>default leftPane</Panel></div>)
     switch (this.state.showLeft) {
       case CONST.map:
-        // herehere
         leftPane = (<WorldMap />)
         break
       case CONST.cityMap:
+      case CONST.venue:
         leftPane = (<CityMap params={this.props.params} />)
         break
       default:
@@ -213,6 +198,10 @@ class Tgm3 extends React.Component {
         break
       case CONST.city:
         rightPane=(<CityShow params={this.props.params} />)
+        break
+      case CONST.venue:
+        rightPane=(<VenueShow params={this.props.params} />)
+        break
       default:
         // nothing
     }
@@ -272,7 +261,6 @@ class Tgm3 extends React.Component {
             </div>
           </div>
         </div>
-        { /* <div style={{ display: 'none' }}>{ this.props.children }</div> */ }
       </div>
     )
   }

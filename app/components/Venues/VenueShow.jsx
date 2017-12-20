@@ -8,9 +8,9 @@ import config from 'config'
 import Center from '../Center'
 import { docTitle } from '../App'
 
-import { venuesShow } from '../../actions'
+import { venuesAction } from '../../actions'
 
-class VenuesShow extends React.Component {
+class VenueShow extends React.Component {
 
   constructor(props) {
     super(props)
@@ -18,13 +18,17 @@ class VenuesShow extends React.Component {
       venues: {},
       venue: {},
     }
-    this.props.dispatch(venuesShow({ venuename: props.params.venuename }))
 
+    if (!props.venue) {
+      props.dispatch(venueAction(props.params.venuename))
+    }
+
+    this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this)
     this.componentDidMount = this.componentDidMount.bind(this)
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("+++ +++ venuesShow received props:", nextProps)
+    console.log("+++ +++ VenueShow received props:", nextProps)
 
     this.setState(Object.assign({}, this.state, {venue: nextProps.venue }))
   }
@@ -47,7 +51,7 @@ class VenuesShow extends React.Component {
   }
 }
 
-VenuesShow.propTypes = {
+VenueShow.propTypes = {
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -56,5 +60,5 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps)(VenuesShow)
+export default connect(mapStateToProps)(VenueShow)
 

@@ -19,6 +19,8 @@ export const CONST = {
 
   map: 'const-map-1',
   news: 'const-news-2',
+
+  venue: 'const-venue-5',
   venues: 'const-venues-3',
 }
 
@@ -30,5 +32,6 @@ export const SET = {
   profile: 'set-profile-90f',
   tags: 'set-tags-1q',
   tag: 'set-tag-5',
+  venue: 'set-venue-0',
   venues: 'set-venues-6',
 }

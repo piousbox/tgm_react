@@ -1,8 +1,8 @@
 
 import VenuesIndex from './VenuesIndex'
-import VenuesShow  from './VenuesShow'
+import VenueShow  from './VenueShow'
 
 export default {
   VenuesIndex,
-  VenuesShow,
+  VenueShow,
 }
