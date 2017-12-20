@@ -6,6 +6,7 @@ import { Grid, Row, Col } from 'react-bootstrap'
 
 import config from 'config'
 import Center from '../Center'
+import Debug from '../Debug'
 
 import { venueAction } from '../../actions'
 
@@ -15,11 +16,13 @@ class VenueShow extends React.Component {
     console.log('+++ +++ VenueShow constructor:', props)
 
     this.state = {
-      venues: {},
       venue: {},
     }
 
-    if (!props.venue || !props.venue.name) {
+    /* if (!props.venue || !props.venue.name) {
+      props.dispatch(venueAction(props.params.venuename))
+    } */
+    if (props.params.venuename) {
       props.dispatch(venueAction(props.params.venuename))
     }
 
@@ -28,9 +31,11 @@ class VenueShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("+++ +++ VenueShow received props:", nextProps)
-
-    this.setState(Object.assign({}, this.state, {venue: nextProps.venue }))
+    console.log("+++ +++ VenueShow willReceiveProps:", nextProps, this.props, this.state)
+    if (nextProps.params.venuename && nextProps.params.venuename !== this.props.params.venuename) {
+      this.props.dispatch(venueAction(nextProps.params.venuename))
+    }
+    // this.setState({venue: nextProps.venue }) // trash
   }
 
   componentDidMount() {
@@ -41,13 +46,14 @@ class VenueShow extends React.Component {
 
   render () {
     console.log('+++ +++ VenueShow render:', this.props, this.state)
+    if (!this.props.venue) { return(null) }
 
     return (
       <div>
         <Center>
-          <h1>{ this.state.venue.name }</h1>
+          <h1>{ this.props.venue.name }</h1>
         </Center>
-        <div dangerouslySetInnerHTML={{__html: this.state.venue.description}} />
+        <div dangerouslySetInnerHTML={{__html: this.props.venue.description}} />
       </div>
     )
   }

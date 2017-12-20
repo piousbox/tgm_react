@@ -12,6 +12,36 @@ import {
 } from 'react-google-maps'
 
 class _MyMap extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = { openVenueId: null }
+
+    this.handleClick  = this.handleClick.bind(this)
+    this.onToggleOpen = this.onToggleOpen.bind(this)
+    this.isVenueOpen  = this.isVenueOpen.bind(this)
+    this.openVenue    = this.openVenue.bind(this)
+  }
+
+  handleClick (which) {
+    console.log('+++ +++ handleClick:', which)
+  }
+
+  onToggleOpen (which) {
+    console.log('+++ +++ onToggleOpen:', which)
+  }
+
+  isVenueOpen (which) {
+    if (this.state.openVenueId === which.id) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  openVenue (which) {
+    this.setState({ openVenueId: which.id })
+  }
+
   render () {
     console.log("+++ +++ _MyMap render:", this.props, this.state)
 
@@ -19,13 +49,15 @@ class _MyMap extends React.Component {
     this.props.venues.map((venue, idx) => {
       if (venue.x && venue.y) {
         markers.push(
-          <Marker key={idx} position={{ lat: venue.x, lng: venue.y }} >
-            <InfoWindow>
+          <Marker key={idx}
+                  position={{ lat: venue.x, lng: venue.y }} 
+                  onClick={() => { this.openVenue(venue) }} >
+            { this.isVenueOpen(venue) && <InfoWindow onCloseClick={this.onToggleOpen} >
               <div>
                 <h5>{venue.name}</h5>
                 <Link to={AppRouter.cityVenueLink(this.props.city, venue)}>{venue.name}</Link>
               </div>
-            </InfoWindow>
+            </InfoWindow> }
           </Marker>
         )
       }
