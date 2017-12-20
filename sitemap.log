@@ -141,3 +141,9 @@ Bundler::GitError: https://github.com/piousbox/ishapi.git (at master@d9c1806) is
   /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/setup.rb:20:in `<top (required)>'
   /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
   /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+TGM sitemap (in production) 2017-12-20 16:43:30 +0000
+Cities: 96
+Venues: 51
+Reports: 6
+Galleries: 25
+Photos: 230
