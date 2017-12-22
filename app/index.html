@@ -38,6 +38,9 @@
     ga('send', 'pageview');    
   </script>
 
+  <script>
+   function initMap() { window.google = google; }
+  </script>
   <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyASTxVRpD3hpK5_EHWDROrzuvLNhOsvbuE&callback=initMap"></script>
 
 </head>
@@ -46,9 +49,6 @@
   <script             src="/js/app.<%= version %>.js"></script>
   <!-- <script async defer src="//maps.googleapis.com/maps/api/js?key=AIzaSyASTxVRpD3hpK5_EHWDROrzuvLNhOsvbuE&callback=initMap"></script> -->
   <script async       src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-   function initMap() { window.google = google; }
-  </script>
   <script src="//js.stripe.com/v3/"></script>
 
   <div class="background_overlay"></div>

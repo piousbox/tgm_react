@@ -151,9 +151,9 @@ const reportsIndex = (args) => {
   }
 }
 
-const setPath = () => {
+const pathAction = (params) => {
   return (dispatch, getState) => {
-    dispatch({ type: SET.path })
+    dispatch({ type: SET.path, params, })
   }
 }
 
@@ -253,11 +253,12 @@ export default {
   myReportsAction,
   myGalleriesAction,
 
+  pathAction,
+
   reportsShow,
   reportsIndex,
 
   setLocation,
-  setPath,
 
   siteShow,
   siteNewsitemsAction,

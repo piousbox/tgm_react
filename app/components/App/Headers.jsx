@@ -22,16 +22,15 @@ class Headers extends React.Component {
     return(
       <div>
         <div className="header header-slim" style={{ zIndex: 2 }} >
-          <Link to='/' >tgm?todo:changeme</Link>
+          <Link to='/' >T.G.M.</Link>
         </div>
         <ul className="header" style={{ zIndex: 2 }} >
-          <li><Link to="/tgm3">Quests</Link></li>
-          <li><Link to="/tgm3/categories">Technique</Link></li>
           <li><Link to="/shop">Shop</Link></li>
+          <li><Link to="/about">About</Link></li>
           <li><Link to="/profile">Profile</Link></li>
         </ul>
         <div className="header-2" style={{ zIndex: 2 }} >
-          <Breadcrumbs />
+          <Breadcrumbs path="/" />
         </div>
       </div>
     )
