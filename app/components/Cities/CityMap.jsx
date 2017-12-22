@@ -151,7 +151,7 @@ class CityMap extends React.Component {
           <MyMap city={this.props.city}
                  venues={this.props.city.venues}
                  loadingElement={<div style={{ height: `100%` }} />}
-                 containerElement={<div style={{ height: `400px` }} />}
+                 containerElement={<div style={{ height: `100%` }} />}
                  mapElement={<div style={{ height: `100%` }} />} />
         </div>
       </div>

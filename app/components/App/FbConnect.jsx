@@ -45,6 +45,10 @@ class FbConnect extends React.Component {
                                  callback={(response) => {this.props.dispatch(loginAction(response))}} 
                                  component={MyFacebookButton} />)
 
+    if (this.props.profile && this.props.profile.picture) {
+      avatar = this.props.profile.picture.data.url
+    }
+
     if (loggedIn) {
       return (
         <div style={{ display: 'inline-block' }}>
