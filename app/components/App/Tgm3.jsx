@@ -21,7 +21,7 @@ import {
   citiesAction,
   cityAction,
 
-  setPath,
+  pathAction,
 } from '../../actions'
 
 import { CONST } from '../../constants'
@@ -47,18 +47,21 @@ class Tgm3 extends React.Component {
     let nextState = { collapseState: 'center',
                       collapseFooter: 'up',
                       showLeft: CONST.worldMap, // map
-                      showRight: CONST.cities,
+                      showRight: CONST.news,
                       leftFolds: [ { key: CONST.worldMap, readable: 'Map' },
                                    { key: CONST.cityMap, readable: 'City Map' },
                       ],
-                      rightFolds: [ { key: CONST.cities, readable: 'Cities' },
-                                    { key: CONST.news, readable: 'News' },
-                                    { key: CONST.city, readable: 'City' }, 
-                                    { key: CONST.venue, readable: 'Venue' },
+                      rightFolds: [
+                        { key: CONST.news, readable: 'News' },
+                        { key: CONST.cities, readable: 'Cities' },
+                        { key: CONST.city, readable: 'City' }, 
+                        { key: CONST.venue, readable: 'Venue' },
                       ],
     };
 
     this.state = nextState
+
+    props.dispatch(pathAction(props.params))
 
     this.collapseLeft              = this.collapseLeft.bind(this)
     this.collapseRight             = this.collapseRight.bind(this)
@@ -204,7 +207,7 @@ class Tgm3 extends React.Component {
 
     return(
       <div className="container">
-        { /* <Headers /> */ }
+        <Headers />
 
         <div className={ `folder folder-both folder-collapse-${this.state.collapseState} footer-${this.state.collapseFooter}` } >
           <div className="folder folder-left folder-half">
@@ -241,7 +244,7 @@ class Tgm3 extends React.Component {
               <a className="btn-down" onClick={this.collapseDown} ><img src={ arrowDown } alt='' /></a>
             </div>            
             <div className="folder-footer-content">
-              { /* <FbConnect /> */ }
+              <FbConnect />
             </div>
           </div>
         </div>

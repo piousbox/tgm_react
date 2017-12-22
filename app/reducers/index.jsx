@@ -62,6 +62,17 @@ function newsitemsReducer(state = {}, action) {
   }
 }
 
+// p
+
+function path (state={}, action) {
+  switch (action.type) {
+      case SET.path:
+      return action.params
+    default:
+      return state
+  }
+}
+
 function profileReducer (state = {}, action) {
   switch (action.type) {
     case SET.profile:
@@ -104,6 +115,7 @@ export default combineReducers({
 
   newsitems: newsitemsReducer,
 
+  path,
   profile: profileReducer,
 
   report: reportsShowReducer,

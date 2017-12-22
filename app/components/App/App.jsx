@@ -1,8 +1,6 @@
 import React    from 'react'
 import ReactDOM from 'react-dom'
-import { Router, Route, browserHistory, Redirect,
-         IndexRoute
-} from 'react-router'
+import { Router, Route, browserHistory, Redirect, IndexRoute } from 'react-router'
 import { Provider, connect } from 'react-redux'
 import 'whatwg-fetch'
 
