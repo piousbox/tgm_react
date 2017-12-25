@@ -58,11 +58,30 @@ class CityShow extends React.Component {
       })
     }
 
+    let tags = []
+    if (this.props.city.tags) {
+      this.props.city.tags.map((tag, idx) => {
+        tags.push(<span>{tag.name}</span>)
+      })
+    }
+
+    let events = []
+    if (this.props.city.events) {
+      this.props.city.events.map((event, idx) => {
+        events.push(
+          <Panel key={idx}>
+            <Link to={AppRouter.cityEventLink(this.props.city.cityname, event.eventname)}>{ event.name }</Link>
+          </Panel>)
+      })
+    }
+
     return (
       <div style={{ height: '100%', width: '100%' }}>
         <h3 className='center' >{ this.props.city.name }</h3>
         <h4 className='center' >News</h4>{ newsitems }
         <h4 className='center' >Venues</h4>{ venues }
+        <h4 className='center' >Tags</h4>{ tags }
+        <h4 className='center' >Events</h4>{ events }
       </div>
     )
   }

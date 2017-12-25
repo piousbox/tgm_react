@@ -35,6 +35,9 @@ import WorldMap    from './WorldMap'
 import { 
   CityMap, CitiesList, CityShow
 } from '../Cities'
+import {
+  EventShow,
+} from '../Events'
 import Report2          from '../Reports/Reports2Show'
 import { Videos }       from '../Videos'
 import { VenueShow }    from '../Venues'
@@ -42,7 +45,7 @@ import { VenueShow }    from '../Venues'
 class Tgm3 extends React.Component {
   constructor(props) {
     super(props)
-    console.log('+++ +++ tgm3 constructor:', props)
+    // console.log('+++ +++ tgm3 constructor:', props)
 
     let nextState = { collapseState: 'center',
                       collapseFooter: 'up',
@@ -50,12 +53,14 @@ class Tgm3 extends React.Component {
                       showRight: CONST.news,
                       leftFolds: [ { key: CONST.worldMap, readable: 'Map' },
                                    { key: CONST.cityMap, readable: 'City Map' },
+                                   { key: CONST.eventMap, readable: 'Event' },
                       ],
                       rightFolds: [
                         { key: CONST.news, readable: 'News' },
                         { key: CONST.cities, readable: 'Cities' },
                         { key: CONST.city, readable: 'City' }, 
                         { key: CONST.venue, readable: 'Venue' },
+                        { key: CONST.eventShow, readable: 'Event' },
                       ],
     };
 
@@ -125,7 +130,7 @@ class Tgm3 extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log('+++ +++ Tgm3 willReceiveProps:', this.props, nextProps, this.state)    
+    // console.log('+++ +++ Tgm3 willReceiveProps:', this.props, nextProps, this.state)    
     if (nextProps.routeParams.venuename && nextProps.routeParams.venuename !== this.props.params.venuename) {
       console.log('+++ +++ set to render venue')
       this.setState({ showLeft: CONST.cityMap, showRight: CONST.venue })
@@ -140,7 +145,7 @@ class Tgm3 extends React.Component {
   }
 
   componentWillUpdate (nextProps) {
-    console.log('+++ +++ Tgm3 componentWillUpdate:', nextProps, this.props, this.state)
+    // console.log('+++ +++ Tgm3 componentWillUpdate:', nextProps, this.props, this.state)
   }
   
   componentDidMount () { window.addEventListener('resize', this.onWindowResize) }
@@ -163,7 +168,7 @@ class Tgm3 extends React.Component {
   }
 
   render () {
-    console.log('+++ +++ Tgm3 render:', this.props, this.state)
+    // console.log('+++ +++ Tgm3 render:', this.props, this.state)
     
     let leftPane = (<div><Panel>default leftPane</Panel></div>)
     switch (this.state.showLeft) {
@@ -172,6 +177,9 @@ class Tgm3 extends React.Component {
         break
       case CONST.cityMap:
       case CONST.venue:
+        leftPane = (<CityMap params={this.props.params} />)
+        break
+      case CONST.eventMap:
         leftPane = (<CityMap params={this.props.params} />)
         break
       default:
@@ -189,8 +197,11 @@ class Tgm3 extends React.Component {
       case CONST.venue:
         rightPane=(<VenueShow params={this.props.params} />)
         break
+      case CONST.eventShow:
+        rightPane=(<EventShow params={this.props.params} />)
+        break
       default:
-        // nothing
+        null
     }
 
     let leftFolds = []

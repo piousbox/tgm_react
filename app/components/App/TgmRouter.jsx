@@ -17,7 +17,13 @@ let TgmRouter = {
   },
 
   cityEventPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/events/show/:eventname',
-  cityEventLink: (g) => { return `/en/cities/travel-to/${g.cityname}/events/show/${g.eventname}` },
+  cityEventLink: (g, gg) => { 
+    if (arguments.length === 1) {
+      return `/en/cities/travel-to/${g.cityname}/events/show/${g.eventname}` 
+    } else {
+      return `/en/cities/travel-to/${g}/events/show/${gg}`
+    }
+  },
 
   cityGalleriesPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/galleries',
   cityGalleriesLink: (g) => { 

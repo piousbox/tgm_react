@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-class EventsShow extends React.Component {
+class EventShow extends React.Component {
   render () {
     return (
-      <div>events show</div>
+      <div>event show</div>
     )
   }
 }
 
-export default EventsShow
+export default EventShow
 
