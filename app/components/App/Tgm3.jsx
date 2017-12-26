@@ -53,7 +53,8 @@ class Tgm3 extends React.Component {
                       showRight: CONST.news,
                       leftFolds: [ { key: CONST.worldMap, readable: 'Map' },
                                    { key: CONST.cityMap, readable: 'City Map' },
-                                   { key: CONST.eventMap, readable: 'Event' },
+                                   { key: CONST.venueMap, readable: 'Venue Map' },
+                                   { key: CONST.eventMap, readable: 'Event Map' },
                       ],
                       rightFolds: [
                         { key: CONST.news, readable: 'News' },
@@ -67,6 +68,11 @@ class Tgm3 extends React.Component {
     this.state = nextState
 
     props.dispatch(pathAction(props.params))
+
+    if (props.params.eventname) {
+      nextState.showLeft = CONST.eventMap
+      nextState.showRight = CONST.eventShow
+    }
 
     this.collapseLeft              = this.collapseLeft.bind(this)
     this.collapseRight             = this.collapseRight.bind(this)
@@ -130,10 +136,15 @@ class Tgm3 extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    // console.log('+++ +++ Tgm3 willReceiveProps:', this.props, nextProps, this.state)    
+    // console.log('+++ +++ Tgm3 willReceiveProps:', this.props, nextProps, this.state)
+
     if (nextProps.routeParams.venuename && nextProps.routeParams.venuename !== this.props.params.venuename) {
       console.log('+++ +++ set to render venue')
       this.setState({ showLeft: CONST.cityMap, showRight: CONST.venue })
+
+    } else if (nextProps.routeParams.eventname && nextProps.routeParams.eventname !== this.props.params.eventname) {
+        this.setState({ showLeft: CONST.eventMap, showRight: CONST.eventShow })
+      
     } else if (nextProps.routeParams.cityname && nextProps.routeParams.cityname !== this.props.params.cityname) {
       console.log('+++ +++ set to render city')
       this.setState({ showLeft: CONST.cityMap, showRight: CONST.city })

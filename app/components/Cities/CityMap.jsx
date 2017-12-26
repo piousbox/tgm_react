@@ -1,15 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-
 import { Link } from 'react-router'
-
-import { cityAction } from '../../actions'
-
-import AppRouter from '../App/TgmRouter'
-
 import { 
   withGoogleMap, GoogleMap, Marker, InfoWindow, 
 } from 'react-google-maps'
+
+import { cityAction } from '../../actions'
+import AppRouter from '../App/TgmRouter'
+
 
 class _MyMap extends React.Component {
   constructor(props) {
@@ -58,8 +56,7 @@ class _MyMap extends React.Component {
                 <Link to={AppRouter.cityVenueLink(this.props.city, venue)}>{venue.name}</Link>
               </div>
             </InfoWindow> }
-          </Marker>
-        )
+          </Marker>)
       }
     })
     
@@ -92,7 +89,7 @@ class CityMap extends React.Component {
     super(props)
     console.log('+++ +++ cityMap constructor:', props)
 
-    if (!props.city.cityname) {
+    if (!props.city.cityname || props.city.cityname !== props.params.cityname) {
       props.dispatch(cityAction(props.params.cityname))
     }
 

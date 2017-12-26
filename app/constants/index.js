@@ -22,7 +22,9 @@ export const CONST = {
 
   news: 'const-news-2',
 
-  venue: 'const-venue-5',
+  venue: 'const-venue-5', // same as venueShow, this one is @deprecated
+  venueShow: 'const-venue-5',
+  venueMap: 'const-venueMap',
   venues: 'const-venues-3',
 
   worldMap: 'const-map-1',
