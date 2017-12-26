@@ -7,7 +7,6 @@ import { Link } from 'react-router'
 
 import { citiesAction } from '../../actions'
 import { TgmRouter } from '../App'
-const AppRouter = TgmRouter
 
 class _Map extends React.Component {
   constructor(props) {
@@ -36,7 +35,7 @@ class _Map extends React.Component {
             { this.isOpen(city) && <InfoWindow>
               <div>
                 <h5>{ city.name }</h5>
-                <Link to={AppRouter.cityLink(city)}>{city.name}</Link>
+                <Link to={TgmRouter.cityLink(city)}>{city.name}</Link>
               </div>
             </InfoWindow> }
           </Marker>)
