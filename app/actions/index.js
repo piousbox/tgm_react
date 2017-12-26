@@ -81,6 +81,20 @@ const cityAction = (args) => {
   }
 }
 
+// e
+const eventAction = (args) => {
+  return (dispatch, getState) => {
+    let url = `${config.apiUrl}/api/events/view/${args}.json`
+    fetch(url).then(r => r.json()).then(_data => {
+      dispatch({
+        type: SET.event,
+        event: _data.event,
+      })
+    })
+  }
+}
+
+// g
 const galleriesIndex = (args) => {
   return (dispatch, getState) => {
     let url
@@ -242,6 +256,8 @@ import { profileAction, loginAction, logoutAction } from './profileActions'
 export default {
   citiesAction,
   cityAction,
+
+  eventAction,
 
   galleriesIndex,
   galleriesShow,

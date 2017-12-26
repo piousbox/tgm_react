@@ -20,6 +20,17 @@ import TgmApi from '../components/App/TgmApi'
 
 import config from 'config'
 
+// e
+const event = (state={}, action) => {
+  switch (action.type) {
+      case SET.event:
+      return action.event
+    default:
+      return state
+  }
+}
+
+// g
 const galleries = (state=[], action) => {
   switch (action.type) {
     case SET.galleries:
@@ -104,6 +115,8 @@ const tags = (state=[], action) => {
 export default combineReducers({
   cities: citiesIndexReducer,
   city: citiesShowReducer,
+
+  event,
 
   gallery: galleriesShowReducer,
   galleries,

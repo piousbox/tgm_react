@@ -31,6 +31,7 @@ export const CONST = {
 export const SET = {
   cities: 'set-cities',
   city: 'set-city',
+  event: 'set-event',
   galleries: 'set-galleries-099',
   path: 'set-path-a@',
   profile: 'set-profile-90f',
