@@ -14,6 +14,7 @@ import avatar     from './images/avatars/2.jpg'
 import star       from './images/32x32/star.png'
 
 import FacebookAuth from 'react-facebook-auth'
+import { Link } from 'react-router'
 
 import { profileAction, loginAction, logoutAction } from '../../actions'
 
@@ -21,6 +22,7 @@ import config from 'config'
 
 import Center from '../Center'
 
+import AppRouter from './AppRouter'
 import TgmApi from './TgmApi'
 
 const MyFacebookButton = ({ onClick }) => (
@@ -49,12 +51,21 @@ class FbConnect extends React.Component {
       avatar = this.props.profile.picture.data.url
     }
 
+    let myCurrentCity = null
+    if (this.props.profile && this.props.profile.current_city) {
+      myCurrentCity = (
+        <p>You are in&nbsp;
+          <Link to={AppRouter.cityLink(this.props.profile.current_city.cityname)}>{this.props.profile.current_city.name}</Link>.
+        </p>)
+    }
+
     if (loggedIn) {
       return (
         <div style={{ display: 'inline-block' }}>
 
           <img className="avatar" src={ avatar } alt='' />
           <h5>What's up { this.props.profile.name }</h5>
+          { myCurrentCity }
           <button onClick={ () => {this.props.dispatch(logoutAction())} }>Logout</button>
         </div>
       )

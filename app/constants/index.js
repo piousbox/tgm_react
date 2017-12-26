@@ -17,6 +17,9 @@ export const CONST = {
   cities: 'const-cities',
   cityMap: 'const-cityMap',
 
+  eventMap: 'const-eventMap',
+  eventShow: 'const-eventShow',
+
   news: 'const-news-2',
 
   venue: 'const-venue-5',

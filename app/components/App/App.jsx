@@ -15,7 +15,7 @@ import Home from './Home'
 
 import MainNavigation from './MainNavigation'
 import Profile from './Profile'
-import TgmRouter from './TgmRouter'
+import AppRouter from './AppRouter'
 
 import { 
   CitiesIndex, CitiesShow, Cities2Show, CitiesWrapper,
@@ -42,25 +42,26 @@ import { citiesIndex, profileAction } from '../../actions'
 
 const routes = [
   { component: Tgm3, path: '/', },
-  { component: Tgm3, path: TgmRouter.cityPath },
-  { component: Tgm3, path: TgmRouter.cityVenuePath },
+  { component: Tgm3, path: AppRouter.cityPath },
+  { component: Tgm3, path: AppRouter.cityVenuePath },
+  { component: Tgm3, path: AppRouter.cityEventPath },
 
-  // { component: Tgm2, path: TgmRouter.citiesPath },
+  // { component: Tgm2, path: AppRouter.citiesPath },
   /* { path: '/',
     component: Tgm2,
     indexRoute: { component: Home },
     childRoutes: [
 
       { path: '/en/cities', component: CitiesIndex },
-      { path: TgmRouter.cityWrapperPath, component: CitiesWrapper, childRoutes: [
-        { path: TgmRouter.cityPath, component: CitiesShow },
-        { path: TgmRouter.cityGalleriesPath, component: GalleriesIndex },
-        { path: TgmRouter.cityReportsPath, component: ReportsIndex },
-        { path: TgmRouter.cityUsersPath, component: UsersShow },
-        { path: TgmRouter.cityVenuePath, component: VenuesShow },
-        { path: TgmRouter.cityVenuesPath, component: VenuesIndex },
+      { path: AppRouter.cityWrapperPath, component: CitiesWrapper, childRoutes: [
+        { path: AppRouter.cityPath, component: CitiesShow },
+        { path: AppRouter.cityGalleriesPath, component: GalleriesIndex },
+        { path: AppRouter.cityReportsPath, component: ReportsIndex },
+        { path: AppRouter.cityUsersPath, component: UsersShow },
+        { path: AppRouter.cityVenuePath, component: VenuesShow },
+        { path: AppRouter.cityVenuesPath, component: VenuesIndex },
       ]},
-      { path: TgmRouter.cityEventPath, component: EventsShow },
+      { path: AppRouter.cityEventPath, component: EventsShow },
       
       { path: '/en/profile', component: Profile },
       

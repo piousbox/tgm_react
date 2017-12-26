@@ -1,6 +1,6 @@
 
-import EventsShow from './EventsShow'
+import EventShow from './EventShow'
 
 export default {
-  EventsShow
+  EventShow
 }
