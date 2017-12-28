@@ -141,6 +141,17 @@ const myReportsAction = (args) => {
   }
 }
 
+// n
+const newsAction = (args={page:1}) => {
+  return (dispatch, getState) => {
+    let url = `${config.apiUrl}/api/sites/view/${config.domain}/newsitems/${args.page}`
+    fetch(url).then(r => r.json()).then(_data => {
+      // console.log('+++ newsAction got data:', _data)
+      dispatch(Object.assign({ type: SET.news }, _data))
+    })
+  }
+}
+
 const reportsShow = (args) => {
   return (dispatch, getState) => {
     let url = `${config.apiUrl}/api/reports/view/${args.reportname}.json`
@@ -171,7 +182,8 @@ const pathAction = (params) => {
   }
 }
 
-const siteNewsitemsAction = (args = {}) => {
+// @deprecated, use newsAction
+/* const siteNewsitemsAction = (args = {}) => {
   return (dispatch, getState) => {
     let state = getState()
     let url = `${config.apiUrl}/api/sites/view/${config.domain}/newsitems/${args.page}.json`
@@ -182,7 +194,7 @@ const siteNewsitemsAction = (args = {}) => {
       })
     })
   }
-}
+} */
 
 const siteShow = () => {
   return (dispatch, getState) => {
@@ -269,6 +281,8 @@ export default {
   myReportsAction,
   myGalleriesAction,
 
+  newsAction,
+
   pathAction,
 
   reportsShow,
@@ -277,7 +291,7 @@ export default {
   setLocation,
 
   siteShow,
-  siteNewsitemsAction,
+  // siteNewsitemsAction,
 
   tagAction,
   tagsAction,

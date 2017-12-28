@@ -6,5 +6,5 @@ import GalleriesShow      from './GalleriesShow'
 export default {
   GalleriesIndex,
   GalleriesPhotoShow,
-  GalleriesShow,
+  GalleryShow: GalleriesShow,
 }

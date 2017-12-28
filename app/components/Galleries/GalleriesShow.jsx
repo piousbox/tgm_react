@@ -29,7 +29,7 @@ class GalleriesShow extends React.Component {
     if (this.state.photos) {
       this.state.photos.forEach((photo, idx) => {
         thumb_photos.push(
-          <span>
+          <span key={idx} >
             <img src={photo.thumb_url} alt='' />
           </span>)
       })
@@ -39,7 +39,7 @@ class GalleriesShow extends React.Component {
     if (this.state.photos) {
       this.state.photos.forEach((photo, idx) => {
         large_photos.push(
-          <Panel>
+          <Panel key={idx} >
             <div className={ styles.largePhotos }>
               <img src={photo.large_url} alt='' />
             </div>
@@ -48,7 +48,7 @@ class GalleriesShow extends React.Component {
     }
     
     return (
-      <Grid>
+      <Grid fluid>
         <Row>
           <Col xs={12}>
             <h2><Center>{ this.props.gallery.name }</Center></h2>

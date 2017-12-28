@@ -20,6 +20,8 @@ export const CONST = {
   eventMap: 'const-eventMap',
   eventShow: 'const-eventShow',
 
+  galleryShow: 'const-galleryShow',
+
   news: 'const-news-2',
 
   venue: 'const-venue-5', // same as venueShow, this one is @deprecated
@@ -35,6 +37,7 @@ export const SET = {
   city: 'set-city',
   event: 'set-event',
   galleries: 'set-galleries-099',
+  news: 'set-news',
   path: 'set-path-a@',
   profile: 'set-profile-90f',
   tags: 'set-tags-1q',

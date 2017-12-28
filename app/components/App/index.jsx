@@ -5,6 +5,7 @@ import FbConnect   from './FbConnect'
 import Headers     from './Headers'
 import Meta        from './Meta'
 import Tgm3        from './Tgm3'
+import TgmLink     from './TgmLink'
 import TgmRouter   from './TgmRouter'
 
 let docTitle = (g) => {
@@ -25,6 +26,7 @@ export default {
   Meta,
 
   Tgm3,
+  TgmLink,
   TgmRouter,
   
 }

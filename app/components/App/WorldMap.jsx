@@ -64,9 +64,11 @@ class WorldMap extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
+    console.log('+++ +++ WorldMap will receive props:', nextProps, this.props, this.state)
   }
 
   componentWillUpdate () {
+    console.log('+++ +++ Worldmap will update')
   }
 
   render () {

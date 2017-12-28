@@ -6,15 +6,19 @@ import { Grid, Row, Col,
 } from 'react-bootstrap'
 
 import Center from './../Center'
-import styles from './_Newsitems.scss'
 
 import { VideoEmbed, VideoPreview } from '../Videos'
 
-import { Meta, TgmLink } from '../App'
+import Meta from '../App/Meta'
+import TgmLink from '../App/TgmLink'
 
 class Newsitem extends React.Component {
+  constructor (props) {
+    super(props)
+  }
+
   render() {
-    // console.log('+++ +++ Newsitem props:', this.props, this.state)
+    // console.log('+++ +++ Newsitem render:', this.props, this.state)
 
     let newsitem = {}
 
