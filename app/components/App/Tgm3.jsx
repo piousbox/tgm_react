@@ -96,8 +96,8 @@ class Tgm3 extends React.Component {
   }
 
   rerender () {
-    // if (this.props.params.locationname) { this.props.dispatch(setLocation(this.props.params.locationname)) }
-    // this.forceUpdate()
+    console.log('+++ Tgm3 rerender')
+    this.forceUpdate()
   }
 
   collapseLeft () {
@@ -190,19 +190,19 @@ class Tgm3 extends React.Component {
   }
 
   render () {
-    // console.log('+++ +++ Tgm3 render:', this.props, this.state)
+    console.log('+++ +++ Tgm3 render:', this.props, this.state)
     
     let leftPane = (<div><Panel>default leftPane</Panel></div>)
     switch (this.state.showLeft) {
       case CONST.worldMap:
-        leftPane = (<WorldMap />)
+        leftPane = (<WorldMap random={Math.random()} />)
         break
       case CONST.cityMap:
       case CONST.venue:
-        leftPane = (<CityMap params={this.props.params} />)
+        leftPane = (<CityMap params={this.props.params} random={Math.random()} />)
         break
       case CONST.eventMap:
-        leftPane = (<CityMap params={this.props.params} />)
+        leftPane = (<CityMap params={this.props.params} random={Math.random()} />)
         break
       default:
         null

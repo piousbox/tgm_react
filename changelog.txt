@@ -45,3 +45,6 @@
 0.3.0 - lets have tgm specifically map-based
 0.3.1 - maps and venues pls
 0.3.2 - and events pls
+        newsitems on homepage
+        galleries
+        fixed map resizing
