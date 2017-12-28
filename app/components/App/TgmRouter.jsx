@@ -1,6 +1,7 @@
 
 let TgmRouter = {
-    
+  rootPath: '/',
+
   citiesPath: '/:lang(en|ru|pt|es)/cities',
   citiesLink: () => { return '/en/cities' },
 
@@ -25,6 +26,10 @@ let TgmRouter = {
     }
   },
 
+  cityGalleryPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/galleries/view/:galleryname',
+  cityGalleryLink: (g={}, gg=null) => {
+    return `/en/cities/travel-to/${g.cityname}/galleries/view/${g.galleryname}`    
+  },
   cityGalleriesPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/galleries',
   cityGalleriesLink: (g) => { 
     if ('string' === typeof g) {

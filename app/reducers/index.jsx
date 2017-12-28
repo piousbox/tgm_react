@@ -41,6 +41,7 @@ const galleries = (state=[], action) => {
   }
 }
 
+// l
 function locationReducer (state = {}, action) {
   switch (action.type) {
     case SET_LOCATION:
@@ -54,19 +55,28 @@ function locationReducer (state = {}, action) {
   }
 }
 
+// m
 function myReportsReducer (state = {}, action) {
-  // @TODO
   return state
 }
 
 function myGalleriesReducer (state = {}, action) {
-  // @TODO
   return state
 }
 
-function newsitemsReducer(state = {}, action) {
+// n
+function n_newsitems (state = 0, action) {
   switch (action.type) {
-    case SET_SITE_NEWSITEMS:
+    case SET.news:
+      return action.n_newsitems
+    default:
+      return state
+  }
+}
+
+function newsitems(state = [], action) {
+  switch (action.type) {
+    case SET.news:
       return action.newsitems
     default:
       return state
@@ -74,7 +84,6 @@ function newsitemsReducer(state = {}, action) {
 }
 
 // p
-
 function path (state={}, action) {
   switch (action.type) {
       case SET.path:
@@ -126,7 +135,8 @@ export default combineReducers({
   myReports: myReportsReducer,
   myGalleries: myGalleriesReducer,
 
-  newsitems: newsitemsReducer,
+  n_newsitems,
+  newsitems,
 
   path,
   profile: profileReducer,

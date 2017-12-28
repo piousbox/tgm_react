@@ -26,6 +26,7 @@ import {
 
 import { CONST } from '../../constants'
 
+
 import Breadcrumbs from './Breadcrumbs'
 import FbConnect   from './FbConnect'
 import Headers     from './Headers'
@@ -38,7 +39,10 @@ import {
 import {
   EventShow,
 } from '../Events'
-import Report2          from '../Reports/Reports2Show'
+import { GalleryShow } from '../Galleries'
+// import { Newsitems }    from '../Newsitems'
+import News from './News'
+// import Report2          from '../Reports/Reports2Show'
 import { Videos }       from '../Videos'
 import { VenueShow }    from '../Venues'
 
@@ -62,6 +66,7 @@ class Tgm3 extends React.Component {
                         { key: CONST.city, readable: 'City' }, 
                         { key: CONST.venue, readable: 'Venue' },
                         { key: CONST.eventShow, readable: 'Event' },
+                        { key: CONST.galleryShow, readable: 'Gallery' },
                       ],
     };
 
@@ -137,22 +142,28 @@ class Tgm3 extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     // console.log('+++ +++ Tgm3 willReceiveProps:', this.props, nextProps, this.state)
+    let newState = {}
 
     if (nextProps.routeParams.venuename && nextProps.routeParams.venuename !== this.props.params.venuename) {
-      console.log('+++ +++ set to render venue')
-      this.setState({ showLeft: CONST.cityMap, showRight: CONST.venue })
-
-    } else if (nextProps.routeParams.eventname && nextProps.routeParams.eventname !== this.props.params.eventname) {
-        this.setState({ showLeft: CONST.eventMap, showRight: CONST.eventShow })
-      
-    } else if (nextProps.routeParams.cityname && nextProps.routeParams.cityname !== this.props.params.cityname) {
-      console.log('+++ +++ set to render city')
-      this.setState({ showLeft: CONST.cityMap, showRight: CONST.city })
-    } else {
-      // nothing!
-      // set to render cities
-      // this.setState({ showLeft: CONST.worldMap, showRight: CONST.cities })
+      // console.log('+++ +++ set to render venue')
+      newState.showLeft  = CONST.cityMap
+      newState.showRight = CONST.venue
     }
+
+    if (nextProps.routeParams.eventname && nextProps.routeParams.eventname !== this.props.params.eventname) {
+      this.setState({ showLeft: CONST.eventMap, showRight: CONST.eventShow })
+    }
+    
+    if (nextProps.routeParams.cityname && nextProps.routeParams.cityname !== this.props.params.cityname) {
+      // console.log('+++ +++ set to render city')
+      this.setState({ showLeft: CONST.cityMap, showRight: CONST.city })
+    }
+
+    if (nextProps.routeParams.galleryname && nextProps.routeParams.galleryname !== this.props.params.galleryname) {
+      newState.showRight = CONST.galleryShow
+    }
+
+    if (Object.keys(newState).length > 0) { this.setState(newState) }
   }
 
   componentWillUpdate (nextProps) {
@@ -197,7 +208,7 @@ class Tgm3 extends React.Component {
         null
     }
 
-    let rightPane = (<Panel>default rightPane</Panel>)
+    let rightPane = (<News />)
     switch (this.state.showRight) {
       case CONST.cities:
         rightPane=(<CitiesList />)
@@ -210,6 +221,9 @@ class Tgm3 extends React.Component {
         break
       case CONST.eventShow:
         rightPane=(<EventShow params={this.props.params} />)
+        break
+      case CONST.galleryShow:
+        rightPane=(<GalleryShow params={this.props.params} />)
         break
       default:
         null

@@ -1,23 +1,19 @@
 import React    from 'react'
 import ReactDOM from 'react-dom'
 import { Router, Route, browserHistory, Redirect, IndexRoute } from 'react-router'
-import { Provider, connect } from 'react-redux'
-import 'whatwg-fetch'
+import { connect } from 'react-redux'
+// import 'whatwg-fetch'
 
 import config     from 'config'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 
-import styles     from './_App.scss'
-import bg         from './images/noisy_grid.png'
 import store      from '../../stores'
 
-import Home from './Home'
-
-import MainNavigation from './MainNavigation'
-import Profile from './Profile'
+// import MainNavigation from './MainNavigation'
+// import Profile from './Profile'
 import AppRouter from './AppRouter'
 
-import { 
+/* import { 
   CitiesIndex, CitiesShow, Cities2Show, CitiesWrapper,
 } from '../Cities'
 import { EventsShow } from '../Events'
@@ -26,25 +22,22 @@ import {
 } from '../Galleries'
 import { ReportsIndex, ReportsShow 
 } from '../Reports'
-import { TagsShow } from '../Tags/TagsShow'
 import { UsersShow } from '../Users'
 import { VenuesIndex, VenuesShow,
 } from '../Venues'
 import VideosShow from '../Videos/VideosShow'
-import Location from '../Locations/LocationShow'
+import { TagsIndex, TagShow } from '../Tags' */
 
-import { TagsIndex, TagShow } from '../Tags'
-import {
-  Tgm3, Tgm2Home,
-} from './'
+import { Tgm3 } from './'
 
-import { citiesIndex, profileAction } from '../../actions'
+// import { citiesIndex, profileAction } from '../../actions'
 
 const routes = [
   { component: Tgm3, path: '/', },
   { component: Tgm3, path: AppRouter.cityPath },
-  { component: Tgm3, path: AppRouter.cityVenuePath },
   { component: Tgm3, path: AppRouter.cityEventPath },
+  { component: Tgm3, path: AppRouter.cityGalleryPath },
+  { component: Tgm3, path: AppRouter.cityVenuePath },
 
   // { component: Tgm2, path: AppRouter.citiesPath },
   /* { path: '/',
@@ -70,41 +63,25 @@ const routes = [
 ]
 
 class App extends React.Component {
-
   constructor(props) {
     super(props)
-    // this.props.dispatch(citiesIndex())
-    // this.props.dispatch(profileAction())
-  }
-
-  componentDidMount() {
-  }
-
-  componentWillUnmount() {
   }
 
   onChange = () => {
   }
 
   render() {
-    // console.log('+++ +++ App props:', this.props, this.state)
-
+    // console.log('+++ +++ App render:', this.props, this.state)
     return (
-      <Provider store={store} >
-        <Router history={browserHistory} routes={routes} />
-      </Provider>
+      <Router history={browserHistory} routes={routes} />
     );
   }
 }
 
-App.propTypes = {
-}
+// App.propTypes = {}
 
 function mapStateToProps(state, ownProps) {
-  return {
-    cities: state.cities,
-    profile: state.profile,
-  }
+  return {}
 }
 
 export default connect(mapStateToProps)(App)
