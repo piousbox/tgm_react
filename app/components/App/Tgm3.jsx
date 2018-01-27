@@ -74,6 +74,10 @@ class Tgm3 extends React.Component {
 
     props.dispatch(pathAction(props.params))
 
+    if (props.params.cityname) {
+      nextState.showLeft = CONST.cityMap
+      nextState.showRight = CONST.city
+    }
     if (props.params.eventname) {
       nextState.showLeft = CONST.eventMap
       nextState.showRight = CONST.eventShow
