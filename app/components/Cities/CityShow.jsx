@@ -72,6 +72,7 @@ class CityShow extends React.Component {
       this.props.city.events.map((event, idx) => {
         events.push(
           <Panel key={idx}>
+            <img src={event.photo} style={{ width: 100, height: 100, background: '#cecece' }} />
             <Link to={AppRouter.cityEventLink(this.props.city.cityname, event.eventname)}>{ event.name }</Link>
           </Panel>)
       })
