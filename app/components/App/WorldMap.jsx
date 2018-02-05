@@ -53,7 +53,7 @@ class _Map extends React.Component {
 class WorldMap extends React.Component {
   constructor (props) {
     super(props)
-    console.log('+++ worldMap constructor:', props)
+    // console.log('+++ worldMap constructor:', props)
 
     this.state = {}
 
@@ -64,15 +64,15 @@ class WorldMap extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log('+++ +++ WorldMap will receive props:', nextProps, this.props, this.state)
+    // console.log('+++ +++ WorldMap will receive props:', nextProps, this.props, this.state)
   }
 
   componentWillUpdate () {
-    console.log('+++ +++ Worldmap will update')
+    // console.log('+++ +++ Worldmap will update')
   }
 
   render () {
-    console.log('+++ +++ WorldMap render:', this.props, this.state)
+    // console.log('+++ +++ WorldMap render:', this.props, this.state)
     if (this.props.cities.length === 0) { return (null) }
 
     let Map = withGoogleMap(_Map)

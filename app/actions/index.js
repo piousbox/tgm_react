@@ -94,6 +94,19 @@ const eventAction = (args) => {
   }
 }
 
+// f
+const featureCitiesAction = (args) => {
+  return (dispatch, getState) => {
+    let url = `${config.apiUrl}/api/cities/features.json`
+    fetch(url).then(r => r.json()).then(_data => {
+      dispatch({
+        type: SET.featureCities,
+        cities: _data,
+      })
+    })
+  }
+}
+
 // g
 const galleriesIndex = (args) => {
   return (dispatch, getState) => {
@@ -270,6 +283,8 @@ export default {
   cityAction,
 
   eventAction,
+
+  featureCitiesAction,
 
   galleriesIndex,
   galleriesShow,

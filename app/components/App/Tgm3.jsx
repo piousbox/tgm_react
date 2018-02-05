@@ -40,7 +40,6 @@ import {
   EventShow,
 } from '../Events'
 import { GalleryShow } from '../Galleries'
-// import { Newsitems }    from '../Newsitems'
 import News from './News'
 // import Report2          from '../Reports/Reports2Show'
 import { Videos }       from '../Videos'
@@ -194,7 +193,7 @@ class Tgm3 extends React.Component {
   }
 
   render () {
-    console.log('+++ +++ Tgm3 render:', this.props, this.state)
+    // console.log('+++ +++ Tgm3 render:', this.props, this.state)
     
     let leftPane = (<div><Panel>default leftPane</Panel></div>)
     switch (this.state.showLeft) {

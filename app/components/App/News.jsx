@@ -1,13 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import {
+  Grid, Row, Col, Panel,
+} from 'react-bootstrap'
 
-import { newsAction } from '../../actions'
+import { featureCitiesAction, newsAction } from '../../actions'
 import { Newsitem } from '../Newsitems'
 
 class News extends React.Component {
   constructor(props) {
     super(props)
     props.dispatch(newsAction())
+    props.dispatch(featureCitiesAction())
     this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this)
   }
 
@@ -17,7 +21,7 @@ class News extends React.Component {
   }
 
   render () {
-    // console.log('+++ +++ News render:', this.props, this.state)
+    console.log('+++ +++ News render:', this.props, this.state)
     if (this.props.newsitems.length === 0) { return (null) }
 
     let news = []
@@ -26,9 +30,19 @@ class News extends React.Component {
       news.push(<Newsitem key={idx} newsitem={item} />)
     })
 
+    let featureCities = []
+    this.props.featureCities.map((city, idx) => {
+      featureCities.push(
+        <Col sm={3} key={idx}>
+          <Panel>
+            <h3><Link to={AppRouter.cityLink(city)}>{city.name}</Link></h3>
+          </Panel>
+        </Col>)
+    })
+
     return (
-      <div>
-        <h4>news</h4>
+      <div className="Homepage" style={{ paddingRight: 10 }} >
+        <Row>{ featureCities }</Row>
         { news }
       </div>
     )
@@ -38,6 +52,7 @@ class News extends React.Component {
 const mapState = (state, ownProps) => {
   return {
     newsitems: state.newsitems,
+    featureCities: state.featureCities,
   }
 }
 
