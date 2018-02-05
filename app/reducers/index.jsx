@@ -30,6 +30,16 @@ const event = (state={}, action) => {
   }
 }
 
+// f
+const featureCities = (state=[], action) => {
+  switch (action.type) {
+    case SET.featureCities:
+      return action.cities
+    default:
+      return state
+  }
+}
+
 // g
 const galleries = (state=[], action) => {
   switch (action.type) {
@@ -126,6 +136,8 @@ export default combineReducers({
   city: citiesShowReducer,
 
   event,
+
+  featureCities,
 
   gallery: galleriesShowReducer,
   galleries,

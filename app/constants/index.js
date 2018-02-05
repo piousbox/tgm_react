@@ -35,13 +35,21 @@ export const CONST = {
 export const SET = {
   cities: 'set-cities',
   city: 'set-city',
+
   event: 'set-event',
+
+  featureCities: 'set-feature-cities',
+
   galleries: 'set-galleries-099',
+
   news: 'set-news',
+
   path: 'set-path-a@',
   profile: 'set-profile-90f',
+
   tags: 'set-tags-1q',
   tag: 'set-tag-5',
+
   venue: 'set-venue-0',
   venues: 'set-venues-6',
 }

@@ -17,7 +17,7 @@ class Headers extends React.Component {
   }
 
   render () {
-    console.log('+++ +++ Headers render:', this.props, this.state)
+    // console.log('+++ +++ Headers render:', this.props, this.state)
 
     return(
       <div>

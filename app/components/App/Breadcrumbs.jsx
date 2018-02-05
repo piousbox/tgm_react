@@ -12,12 +12,12 @@ class Breadcrumbs extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('+++ +++ Breadcrumbs will receive props:', this.props, nextProps)
+    // console.log('+++ +++ Breadcrumbs will receive props:', this.props, nextProps)
   }
 
   render () {
-    console.log('+++ +++ Breadcrumbs render:', this.props, this.state)
     // if (!this.props.path) { return(<span />) }
+    // console.log('+++ +++ Breadcrumbs render:', this.props, this.state)
 
     let links = []
     let key = 0
