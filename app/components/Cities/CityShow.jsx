@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
+import { Nav, NavItem, 
+} from 'react-bootstrap'
 
 import { cityAction } from '../../actions'
 import AppRouter from '../App/AppRouter'
@@ -61,7 +63,7 @@ class CityShow extends React.Component {
     let tags = []
     if (this.props.city.tags) {
       this.props.city.tags.map((tag, idx) => {
-        tags.push(<span>{tag.name}</span>)
+        tags.push(<span key={idx} className="tag" >{tag.name}</span>)
       })
     }
 
@@ -76,11 +78,10 @@ class CityShow extends React.Component {
     }
 
     return (
-      <div style={{ height: '100%', width: '100%' }}>
+      <div className="CityShow" style={{ width: '100%', paddingRight: 10 }}>
         <h3 className='center' >{ this.props.city.name }</h3>
-        <h4 className='center' >News</h4>{ newsitems }
+        <div className="tags"><h4>Tags</h4>{ tags }</div>
         <h4 className='center' >Venues</h4>{ venues }
-        <h4 className='center' >Tags</h4>{ tags }
         <h4 className='center' >Events</h4>{ events }
       </div>
     )
