@@ -3,8 +3,10 @@ import { connect } from 'react-redux'
 import {
   Grid, Row, Col, Panel,
 } from 'react-bootstrap'
+import { Link } from 'react-router'
 
 import { featureCitiesAction, newsAction } from '../../actions'
+import AppRouter from './AppRouter'
 import { Newsitem } from '../Newsitems'
 
 class News extends React.Component {
