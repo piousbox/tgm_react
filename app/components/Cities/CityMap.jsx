@@ -17,7 +17,9 @@ class _MyMap extends React.Component {
     this.handleClick  = this.handleClick.bind(this)
     this.onToggleOpen = this.onToggleOpen.bind(this)
     this.isVenueOpen  = this.isVenueOpen.bind(this)
+    this.isEventOpen  = this.isEventOpen.bind(this)
     this.openVenue    = this.openVenue.bind(this)
+    this.openEvent    = this.openEvent.bind(this)
   }
 
   handleClick (which) {
@@ -26,34 +28,57 @@ class _MyMap extends React.Component {
 
   onToggleOpen (which) {
     console.log('+++ +++ onToggleOpen:', which)
+    this.setState({ openEventId: null, openVenueId: null })
+  }
+
+  isEventOpen (which) {
+    return this.state.openEventId === which.id ? true : false
   }
 
   isVenueOpen (which) {
-    if (this.state.openVenueId === which.id) {
-      return true
-    } else {
-      return false
-    }
+    return this.state.openVenueId === which.id ? true : false
   }
 
   openVenue (which) {
     this.setState({ openVenueId: which.id })
   }
 
+  openEvent (which) {
+    this.setState({ openEventId: which.id })
+  }
+
   render () {
     console.log("+++ +++ _MyMap render:", this.props, this.state)
+    const image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
 
     let markers = []
-    this.props.venues.map((venue, idx) => {
+    let markersIdx = 0
+    this.props.city.venues.map((venue, idx) => {
       if (venue.x && venue.y) {
         markers.push(
-          <Marker key={idx}
+          <Marker key={markersIdx++}
                   position={{ lat: venue.x, lng: venue.y }} 
                   onClick={() => { this.openVenue(venue) }} >
             { this.isVenueOpen(venue) && <InfoWindow onCloseClick={this.onToggleOpen} >
               <div>
                 <h5>{venue.name}</h5>
                 <Link to={AppRouter.cityVenueLink(this.props.city, venue)}>{venue.name}</Link>
+              </div>
+            </InfoWindow> }
+          </Marker>)
+      }
+    })
+    this.props.city.events.map((event, idx) => {
+      if (event.x && event.y) {
+        markers.push(
+          <Marker key={markersIdx++}
+                  position={{ lat: event.x, lng: event.y }} 
+                  onClick={() => { this.openEvent(event) }} 
+                  icon={image} >
+            { this.isEventOpen(event) && <InfoWindow onCloseClick={this.onToggleOpen} >
+              <div>
+                <h5>{event.name}</h5>
+                <Link to={AppRouter.cityEventLink(this.props.city, event)}>{event.name}</Link>
               </div>
             </InfoWindow> }
           </Marker>)
@@ -146,7 +171,6 @@ class CityMap extends React.Component {
       <div style={{ height: '100%', width: '100%' }}>
         <div id="cityMap" style={{ width: '100%', height: '100%' }}>
           <MyMap city={this.props.city}
-                 venues={this.props.city.venues}
                  loadingElement={<div style={{ height: `100%` }} />}
                  containerElement={<div style={{ height: `100%` }} />}
                  mapElement={<div style={{ height: `100%` }} />} />
