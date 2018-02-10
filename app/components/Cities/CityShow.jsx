@@ -53,7 +53,7 @@ class CityShow extends React.Component {
     let venues = []
     if (this.props.city.venues) {
       this.props.city.venues.map((venue, idx) => {
-        venues.push(<VenueWidget venue={ venue } city={this.props.city} />)
+        venues.push(<VenueWidget key={idx} venue={ venue } city={this.props.city} />)
       })
     }
 
