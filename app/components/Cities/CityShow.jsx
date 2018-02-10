@@ -12,6 +12,7 @@ import {
 } from 'react-bootstrap'
 
 import { Newsitem } from '../Newsitems'
+import { VenueWidget } from '../Venues'
 
 class CityShow extends React.Component {
   constructor(props) {
@@ -52,11 +53,7 @@ class CityShow extends React.Component {
     let venues = []
     if (this.props.city.venues) {
       this.props.city.venues.map((venue, idx) => {
-        venues.push(
-          <Panel key={idx} style={{ color: 'black' }} >
-            <Link to={AppRouter.cityVenueLink(this.props.city, venue)}>{ venue.name }</Link>
-          </Panel>
-        )
+        venues.push(<VenueWidget venue={ venue } city={this.props.city} />)
       })
     }
 
