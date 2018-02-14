@@ -6,7 +6,7 @@ import {
 } from 'react-google-maps'
 
 import { cityAction } from '../../actions'
-import AppRouter from '../App/TgmRouter'
+import AppRouter from '../App/AppRouter'
 
 
 class _MyMap extends React.Component {

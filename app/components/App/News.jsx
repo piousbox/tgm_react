@@ -23,7 +23,7 @@ class News extends React.Component {
   }
 
   render () {
-    console.log('+++ +++ News render:', this.props, this.state)
+    // console.log('+++ +++ News render:', this.props, this.state)
     if (this.props.newsitems.length === 0) { return (null) }
 
     let news = []
