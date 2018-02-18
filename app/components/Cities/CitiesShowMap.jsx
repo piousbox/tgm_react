@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from 'underscore'
 
-import Map, { Marker, InfoWindow } from 'google-maps-react-pi'
+import Map, { Marker, InfoWindow } from 'google-maps-react'
 import styles from './_Maps.scss'
 
 class CitiesShowMap extends React.Component {
