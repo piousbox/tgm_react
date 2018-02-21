@@ -4,29 +4,33 @@ import {
 } from 'react-bootstrap'
 import { Link } from 'react-router'
 
-import { Clearfix } from '../App'
+import Clearfix  from '../App/Clearfix'
 import AppRouter from '../App/AppRouter'
-
-class Stars extends React.Component {
-  render () {
-    return (
-      <div className="Stars">
-        <div className="container"></div>
-      </div>)
-  }
-}
+import Stars     from '../App/Stars'
 
 class VenueWidget extends React.Component {
   render () {
     // console.log('+++ VenueWidget', this.props, this.state)
 
+    let tags = []
+    this.props.venue.tags.map((tag, idx) => {
+      tags.push(<span key={idx} ><Link to={AppRouter.tagLink(tag)}>{ tag.name }</Link></span>)
+    })
+
     return (
       <Panel className="VenueWidget" >
-        { this.props.venue.photo && <img src={this.props.venue.photo} className="thumb" alt='' /> }
-        <h3><Link to={AppRouter.cityVenueLink(this.props.city, this.props.venue)}>{ this.props.venue.name }</Link></h3>
-        <Stars percentage={80} />
-        <div className="subhead">{ this.props.venue.subhead }</div>
-        <Clearfix />
+        <div style={{ border: '1px solid gray', width: 100, height: 100, float: 'left' }}>
+          { this.props.venue.photo && <img src={this.props.venue.photo} alt='' /> }
+        </div>
+        <div style={{ marginLeft: '110px' }} >
+          <h3 style={{ margin: 0 }} >
+            <Link to={AppRouter.cityVenueLink(this.props.city, this.props.venue)}>{ this.props.venue.name }</Link>
+          </h3> 
+          <Stars percentage={80} />
+          { tags.length > 0 && <div className="Tags">Tags: { tags }</div> }
+          <div className="subhead">{ this.props.venue.subhead }</div>
+          <Clearfix />
+        </div>
       </Panel>
     )
   }

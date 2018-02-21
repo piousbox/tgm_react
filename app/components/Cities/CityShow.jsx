@@ -39,7 +39,7 @@ class CityShow extends React.Component {
   }
 
   render () {
-    console.log('+++ +++ CityShow render:', this.props, this.state)
+    // console.log('+++ +++ CityShow render:', this.props, this.state)
 
     let newsitems = []
     /* if (this.props.city.newsitems) {
