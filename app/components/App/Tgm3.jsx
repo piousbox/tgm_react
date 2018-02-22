@@ -20,13 +20,12 @@ import {
 import {
   citiesAction,
   cityAction,
-
   pathAction,
 } from '../../actions'
 
 import { CONST } from '../../constants'
 
-
+import AppRouter   from './AppRouter'
 import Breadcrumbs from './Breadcrumbs'
 import FbConnect   from './FbConnect'
 import Headers     from './Headers'
