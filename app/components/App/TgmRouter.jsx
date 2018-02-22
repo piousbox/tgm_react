@@ -1,6 +1,6 @@
 
 let TgmRouter = {
-  rootPath: '/',
+  rootPath: '/en/sites/show/travel-guide.mobi',
 
   citiesPath: '/:lang(en|ru|pt|es)/cities',
   citiesLink: () => { return '/en/cities' },

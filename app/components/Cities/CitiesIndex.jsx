@@ -14,17 +14,17 @@ import {
   SET,
 } from '../../constants'
 
-import { citiesIndex } from '../../actions'
+import { citiesAction } from '../../actions'
 
 import Leaderboard from '../App/Leaderboard'
 
 class CitiesIndex extends React.Component {
-
   constructor(props) {
     super(props)
+
     this.state = { cities: [], filteredCities: [] }
     this.handleCitiesFilterChange = this.handleCitiesFilterChange.bind(this)
-    this.props.dispatch(citiesIndex())
+    this.props.dispatch(citiesAction())
   }
   
   componentWillMount() {

@@ -13,7 +13,8 @@ import { galleriesShow } from '../../actions'
 
 import Center      from '../Center'
 
-import { LargeSquare, Leaderboard, TgmRouter } from '../App'
+import AppRouter from '../App/AppRouter'
+import { LargeSquare, Leaderboard } from '../App'
 
 class GalleriesIndexItem extends React.Component {
 
@@ -36,7 +37,7 @@ class GalleriesIndexItem extends React.Component {
 
     return (
       <Panel>
-        <h2><Link to={TgmRouter.galleryPhotoLink(this.props.gallery)} >{ this.props.gallery.name }</Link></h2>
+        <h2><Link to={AppRouter.galleryPhotoLink(this.props.gallery)} >{ this.props.gallery.name }</Link></h2>
         { this.props.gallery.subhead }
         { thumbs }
         { this.props.gallery.body }
