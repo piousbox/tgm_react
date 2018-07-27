@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 
 import { citiesAction } from '../../actions'
 
-import TgmRouter from '../App/TgmRouter'
+import { AppRouter } from '../App'
 
 class CitiesList extends React.Component {
   constructor(props) {

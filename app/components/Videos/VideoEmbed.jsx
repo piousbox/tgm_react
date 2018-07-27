@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import { Panel } from 'react-bootstrap'
-import Center from '../Center'
+import { Center } from '../App'
 import Meta from '../Meta'
 
 class VideoEmbed extends React.Component {

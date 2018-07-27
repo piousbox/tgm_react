@@ -4,7 +4,6 @@ import {
 } from 'react-bootstrap'
 import { Link } from 'react-router'
 
-import Clearfix  from '../App/Clearfix'
 import AppRouter from '../App/AppRouter'
 import Stars     from '../App/Stars'
 
@@ -19,7 +18,7 @@ class VenueWidget extends React.Component {
 
     return (
       <Panel className="VenueWidget" >
-        <div style={{ border: '1px solid gray', width: 100, height: 100, float: 'left' }}>
+        <div style={{ border: '1px solid gray', width: 100, height: 100, float: 'left', clear: 'both' }}>
           { this.props.venue.photo && <img src={this.props.venue.photo} alt='' /> }
         </div>
         <div style={{ marginLeft: '110px' }} >
@@ -29,7 +28,6 @@ class VenueWidget extends React.Component {
           <Stars percentage={80} />
           { tags.length > 0 && <div className="Tags">Tags: { tags }</div> }
           <div className="subhead">{ this.props.venue.subhead }</div>
-          <Clearfix />
         </div>
       </Panel>
     )

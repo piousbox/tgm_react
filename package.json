@@ -15,6 +15,7 @@
     "minimatch": "^3.0.2",
     "moment": "^2.18",
     "normalize.css": "^3.0",
+    "piousbox-render": "^0.0.24",
     "prop-types": "^15.5",
     "react": "^15.6.0",
     "react-bootstrap": "^0.32",
@@ -160,7 +161,7 @@
       "test": "./build_test"
     },
     "buildDirTests": "./build_tests",
-    "devHost": "localhost",
+    "devHost": "127.0.0.1",
     "static_domain": {
       "_default": "static.piousbox.com",
       "development": "static.local",

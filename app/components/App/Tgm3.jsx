@@ -29,7 +29,6 @@ import AppRouter   from './AppRouter'
 import Breadcrumbs from './Breadcrumbs'
 import FbConnect   from './FbConnect'
 import Headers     from './Headers'
-import TgmRouter   from './TgmRouter'
 import WorldMap    from './WorldMap'
 
 import { 

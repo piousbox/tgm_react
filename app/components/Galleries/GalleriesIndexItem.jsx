@@ -11,7 +11,7 @@ import config from 'config'
 
 import { galleriesShow } from '../../actions'
 
-import Center      from '../Center'
+import { Center } from '../App'
 
 import AppRouter from '../App/AppRouter'
 import { LargeSquare, Leaderboard } from '../App'

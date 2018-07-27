@@ -7,7 +7,7 @@ import { Grid, Row, Col,
  } from 'react-bootstrap'
 
 import config from 'config'
-import Center from '../Center'
+import { Center } from '../App'
 import { galleriesIndex } from '../../actions'
 import GalleriesIndexItem from './GalleriesIndexItem'
 

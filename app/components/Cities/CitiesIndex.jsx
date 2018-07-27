@@ -7,8 +7,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import config from 'config'
-import Center from '../Center'
-import Clearfix from '../Clearfix'
+import { Center } from '../App'
 
 import {
   SET,
@@ -73,7 +72,7 @@ class CitiesIndex extends React.Component {
           </Center></Panel>
         </Col>)
       if (ans) {
-        cities.push(<Clearfix key={keyIdx++} />)
+        cities.push(<div style={{ clear: 'both' }} key={keyIdx++} />)
       }
     })
 

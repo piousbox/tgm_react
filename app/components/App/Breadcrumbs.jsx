@@ -2,7 +2,7 @@ import React from 'react'
 import { Link }    from 'react-router'
 import { connect } from 'react-redux'
 
-import TgmRouter from './TgmRouter'
+import AppRouter from './AppRouter'
 
 class Breadcrumbs extends React.Component {
 
@@ -21,22 +21,22 @@ class Breadcrumbs extends React.Component {
 
     let links = []
     let key = 0
-    links.push(<Link key={key++} to={ TgmRouter.rootPath }><i className="fa fa-2x fa-home" /></Link>)
+    links.push(<Link key={key++} to={ AppRouter.rootPath }><i className="fa fa-2x fa-home" /></Link>)
     links.push(<span key={key++} >&nbsp;&gt;&nbsp;</span>)
 
     if (this.props.path.locationname) {
       links.push(<span key={key++} >Locations</span>)
       links.push(<span key={key++} >&nbsp;&gt;&nbsp;</span>)
       
-      links.push(<Link key={key++} to={ TgmRouter.locationLink(this.props.path.locationname) }>{ this.props.path.locationname }</Link>)
+      links.push(<Link key={key++} to={ AppRouter.locationLink(this.props.path.locationname) }>{ this.props.path.locationname }</Link>)
       if (this.props.path.badgename) {
         links.push(<span key={key++} >&nbsp;&gt;&nbsp;</span>)
-        links.push(<Link key={key++} to={ TgmRouter.locationBadgeLink(this.props.path.locationname, this.props.path.badgename) }>{ this.props.path.badgename }</Link>)
+        links.push(<Link key={key++} to={ AppRouter.locationBadgeLink(this.props.path.locationname, this.props.path.badgename) }>{ this.props.path.badgename }</Link>)
       }
     }
 
     if (this.props.path === '/categories') {
-      links.push(<Link key={key++} to={ TgmRouter.categoryLink({path: ''})}>Categories</Link>)
+      links.push(<Link key={key++} to={ AppRouter.categoryLink({path: ''})}>Categories</Link>)
     }
 
     return (<div>{ links }</div>)

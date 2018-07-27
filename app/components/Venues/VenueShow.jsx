@@ -5,8 +5,7 @@ import { connect } from 'react-redux'
 import { Grid, Row, Col } from 'react-bootstrap'
 
 import config from 'config'
-import Center from '../Center'
-import Debug from '../Debug'
+import { Center } from '../App'
 
 import { venueAction } from '../../actions'
 

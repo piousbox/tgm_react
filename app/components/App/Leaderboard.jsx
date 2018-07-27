@@ -2,8 +2,6 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 
-import Center from '../Center'
-
 import { siteShow } from '../../actions'
 
 class Leaderboard extends React.Component {
@@ -22,7 +20,7 @@ class Leaderboard extends React.Component {
   render () {
     if (this.props.site.is_ads_enabled) {
       return (
-        <Center>
+        <div style={{ textAlign: 'center' }} >
           <div className='ad' >
             <ins className='adsbygoogle'
                  style={{ display: 'block' }}
@@ -30,7 +28,7 @@ class Leaderboard extends React.Component {
                  data-ad-slot='5371488374'
                  data-ad-format='auto' />
           </div>
-        </Center>
+        </div>
       )
     } else {
       return null

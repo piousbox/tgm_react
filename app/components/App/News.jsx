@@ -7,7 +7,8 @@ import { Link } from 'react-router'
 
 import { featureCitiesAction, newsAction } from '../../actions'
 import AppRouter from './AppRouter'
-import { Newsitem } from '../Newsitems'
+
+import { Newsitem } from 'piousbox-render'
 
 class News extends React.Component {
   constructor(props) {

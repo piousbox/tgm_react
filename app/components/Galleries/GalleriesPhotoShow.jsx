@@ -9,8 +9,7 @@ import { connect } from 'react-redux'
 
 import { galleriesShow } from '../../actions'
 
-import Center from '../Center'
-import TgmRouter from '../App/TgmRouter'
+import { AppRouter } from '../App'
 import { Link } from 'react-router'
 
 import styles from './_Galleries.scss'
@@ -63,17 +62,17 @@ class GalleriesPhotoShow extends React.Component {
     
     return (
       <Grid>
-        <h2><Center>{ this.props.gallery.name }</Center></h2> 
+        <h2 style={{ textAlign: 'center' }} >{ this.props.gallery.name }</h2> 
         <div dangerouslySetInnerHTML={{__html: this.props.gallery.description}} />
         <Row>
           <Col md={9} xs={12} >
-            <Center>
+            <div style={{ textAlign: 'center' }}>
               { prev } | { next }
               <br /><br />
               { largePhoto }
               <br /><br />
               { prev } | { next }
-            </Center>
+            </div>
           </Col>
           <Col md={3} xs={12} >
             { thumb_photos }
