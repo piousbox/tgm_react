@@ -49,4 +49,5 @@
         galleries
         fixed map resizing
         20180213 sync mac and ubuntu repos
-        
+0.4.0 - the build doesn't work, so lets update all dependencies and the build pipe
+
