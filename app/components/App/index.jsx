@@ -32,7 +32,6 @@ export default {
   Stars,
 
   Tgm3,
-  TgmLink,
   AppRouter,
   
 }

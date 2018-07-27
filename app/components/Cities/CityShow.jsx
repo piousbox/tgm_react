@@ -11,7 +11,7 @@ import {
   Panel,
 } from 'react-bootstrap'
 
-import { Newsitem } from '../Newsitems'
+import { Newsitem } from 'piousbox-render'
 import { VenueWidget } from '../Venues'
 
 class CityShow extends React.Component {
