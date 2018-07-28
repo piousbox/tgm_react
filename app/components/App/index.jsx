@@ -1,12 +1,13 @@
 import React from 'react'
 
+import AppRouter   from './AppRouter'
 import Breadcrumbs from './Breadcrumbs'
 import FbConnect   from './FbConnect'
 import Headers     from './Headers'
 import Meta        from './Meta'
 import Stars       from './Stars'
 import Tgm3        from './Tgm3'
-import AppRouter   from './AppRouter'
+import Tgm4        from './Tgm4'
 
 let docTitle = (g) => {
   return `${g} - The Moby Travel Guide`
@@ -19,6 +20,8 @@ class Center extends React.Component {
 }
 
 export {
+  AppRouter,
+
   Breadcrumbs,
 
   docTitle,
@@ -32,6 +35,5 @@ export {
   Stars,
 
   Tgm3,
-  AppRouter,
-  
+  Tgm4,
 }

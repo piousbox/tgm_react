@@ -1,16 +1,15 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import { citiesAction } from '../../actions'
 
-import { AppRouter } from '../App'
+import AppRouter from '../App/AppRouter'
 
 class CitiesList extends React.Component {
   constructor(props) {
     super(props)
-
-    console.log('+++ CitiesList constructor:', props)
+    // console.log('+++ CitiesList constructor:', props)
 
     if (props.cities.length === 0) {
       props.dispatch(citiesAction())
@@ -32,7 +31,7 @@ class CitiesList extends React.Component {
 
   render () {
     console.log('+++ +++ CitiesList render:', this.props, this.state)
-
+    
     let cities = []
     if (this.props.cities.length > 0) {
       this.props.cities.forEach((city, idx) => {

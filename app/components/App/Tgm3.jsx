@@ -39,7 +39,6 @@ import {
 } from '../Events'
 import { GalleryShow } from '../Galleries'
 import News from './News'
-// import Report2          from '../Reports/Reports2Show'
 import { Videos }       from '../Videos'
 import { VenueShow }    from '../Venues'
 
@@ -65,7 +64,7 @@ class Tgm3 extends React.Component {
                         { key: CONST.eventShow, readable: 'Event' },
                         { key: CONST.galleryShow, readable: 'Gallery' },
                       ],
-    };
+    }
 
     this.state = nextState
 
