@@ -37,7 +37,7 @@ class App extends React.Component {
       <Router>
         <div>
           <Route path={AppRouter.cityPath} component={Tgm3} />
-          { /* <Route path="/" component={Tgm3} /> */ }
+          <Route path="/" component={Tgm3} exact />
         </div>
       </Router>
     );

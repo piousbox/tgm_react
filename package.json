@@ -25,18 +25,14 @@
     "react-facebook-auth": "^1.0",
     "react-google-maps": "^9.4.5",
     "react-redux": "^5.0",
-    "react-router": "^3.0",
-    "react-router-bootstrap": "^0.24",
-    "react-router-dom": "^4.1",
-    "react-router-redux": "^4.0",
-    "react-scroll": "^1.4",
+    "react-router": "4.0.0",
+    "react-router-dom": "4.0.0",
     "react-stripe-elements": "^1.2",
     "react-tap-event-plugin": "^2.0",
     "recompose": "^0.26",
     "redux": "^3.7.2",
     "redux-auth": "^0.0",
     "redux-thunk": "^2.2.0",
-    "scroll-to-element": "^2.0",
     "socks": "^2.1.6",
     "underscore": "^1.8",
     "whatwg-fetch": "^2.0"
@@ -79,7 +75,6 @@
     "mocha-loader": "^0.7.1",
     "node-libs-browser": "^0.5.2",
     "node-sass": "^3.2.0",
-    "opn": "^3.0.2",
     "phantomjs": "^1.9.17",
     "postcss-loader": "^0.5.1",
     "react-addons": "^0.9.1-deprecated",
@@ -155,13 +150,6 @@
     }
   },
   "config": {
-    "buildDir": {
-      "_default": "./build",
-      "production": "./build",
-      "development": "./build",
-      "test": "./build_test"
-    },
-    "buildDirTests": "./build_tests",
     "devHost": "127.0.0.1",
     "static_domain": {
       "_default": "static.piousbox.com",
@@ -179,20 +167,19 @@
       "test": ""
     },
     "devPort": {
-      "development": 8005,
-      "test": 8088
+      "development": 8005
     }
   },
   "scripts": {
     "build": "NODE_ENV=production npm run webpack && cp -v htaccess build/.htaccess && ./bin/generate_sitemap && cp sitemap_*xml build/ -v && echo ok",
-    "clean": "NODE_ENV=production rimraf $npm_package_config_buildDir_production && mkdir $npm_package_config_buildDir_production",
+    "clean": "rm -rf build && mkdir build",
     "env": "env",
     "lint": "eslint --ext .js --ext .jsx ./app ./webpack && echo No linting errors.",
     "lint_custom": "eslint --ext .js --ext .jsx ./app/components/Footer ./webpack && echo No linting errors.",
     "prebuild": "npm run clean",
     "prestart-trash": "npm install",
     "prestart-description": "I have npm-link, so i cannot install on start",
-    "pretest": "npm install && npm run lint",
+    "pretest-trash": "npm install && npm run lint",
     "start": "NODE_ENV=development node dev-server ./webpack/config --hot",
     "test": "NODE_ENV=test karma start",
     "test-travis": "NODE_ENV=test karma start --single-run",
