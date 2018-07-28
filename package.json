@@ -33,6 +33,7 @@
     "redux": "^3.7.2",
     "redux-auth": "^0.0",
     "redux-thunk": "^2.2.0",
+    "scroll-to-element": "^2.0.0",
     "socks": "^2.1.6",
     "underscore": "^1.8",
     "whatwg-fetch": "^2.0"
@@ -151,6 +152,10 @@
   },
   "config": {
     "devHost": "127.0.0.1",
+    "buildDir": {
+      "development": "build",
+      "production": "dist"
+    },
     "static_domain": {
       "_default": "static.piousbox.com",
       "development": "static.local",
