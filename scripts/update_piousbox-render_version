@@ -1,0 +1,15 @@
+#!/usr/bin/ruby
+# ruby verion 2.0 here
+# sedux/scripts/update_piousbox-render_version
+
+require 'json'
+
+piousbox_render_package = '/Users/piousbox/projects/react/piousbox-render/package.json'
+piousbox_render_version = JSON.parse( File.read piousbox_render_package )['version']
+
+this_package = JSON.parse( File.read 'package.json' )
+this_package['dependencies']['piousbox-render'] = "^#{piousbox_render_version}"
+File.write( 'package.json', JSON.pretty_generate( this_package )+"\n" )
+
+`echo ok`
+

@@ -8,6 +8,7 @@ tagNumber=`git branch | grep -e "^*" | cut -d' ' -f 2`
 
 git checkout master &&
 git merge "$tagNumber" &&
+./scripts/update_piousbox-render_version &&
 npm run clean &&
 npm run build &&
 git add . &&

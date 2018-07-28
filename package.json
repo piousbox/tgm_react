@@ -16,7 +16,7 @@
     "minimatch": "^3.0.2",
     "moment": "^2.18",
     "normalize.css": "^3.0",
-    "piousbox-render": "^0.0.24",
+    "piousbox-render": "^0.0.34",
     "prop-types": "^15.5",
     "react": "^15.6.0",
     "react-bootstrap": "^0.32",
