@@ -184,7 +184,7 @@
     }
   },
   "scripts": {
-    "build": "NODE_ENV=production npm run webpack && cp -v htaccess build/.htaccess && ./bin/generate_sitemap && cp sitemap_*xml build/ -v && echo ok",
+    "build": "NODE_ENV=production npm run webpack && cp -v htaccess build/.htaccess && ./scripts/generate_sitemap && cp -v sitemap_*xml build/ && echo ok",
     "clean": "NODE_ENV=production rimraf $npm_package_config_buildDir_production && mkdir $npm_package_config_buildDir_production",
     "env": "env",
     "lint": "eslint --ext .js --ext .jsx ./app ./webpack && echo No linting errors.",

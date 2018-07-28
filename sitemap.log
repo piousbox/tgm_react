@@ -1,239 +1,25 @@
-W, [2017-12-10T22:26:29.392673 #2741]  WARN -- : Creating scope :public. Overwriting existing method Report.public.
-W, [2017-12-10T22:26:29.413571 #2741]  WARN -- : Creating scope :public. Overwriting existing method Venue.public.
-TGM sitemap (in production) 2017-12-10 22:26:30 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-W, [2017-12-10T22:26:55.005486 #2865]  WARN -- : Creating scope :public. Overwriting existing method Report.public.
-W, [2017-12-10T22:26:55.031619 #2865]  WARN -- : Creating scope :public. Overwriting existing method Venue.public.
-TGM sitemap (in production) 2017-12-10 22:26:56 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-W, [2017-12-10T22:29:23.668572 #3167]  WARN -- : Creating scope :public. Overwriting existing method Report.public.
-W, [2017-12-10T22:29:23.688883 #3167]  WARN -- : Creating scope :public. Overwriting existing method Venue.public.
-TGM sitemap (in production) 2017-12-10 22:29:25 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-/home/ubuntu/projects/microsites3/releases/20171210222835/config/initializers/00_s3.rb:2: warning: already initialized constant S3_CREDENTIALS
-/home/ubuntu/projects/microsites3/releases/20171210222835/config/initializers/00_s3.rb:2: warning: previous definition of S3_CREDENTIALS was here
-TGM sitemap (in production) 2017-12-10 22:30:14 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-/home/ubuntu/projects/microsites3/releases/20171210222835/config/initializers/00_s3.rb:2: warning: already initialized constant S3_CREDENTIALS
-/home/ubuntu/projects/microsites3/releases/20171210222835/config/initializers/00_s3.rb:2: warning: previous definition of S3_CREDENTIALS was here
-W, [2017-12-10T22:31:15.303585 #3433]  WARN -- : Creating scope :public. Overwriting existing method Report.public.
-W, [2017-12-10T22:31:15.324267 #3433]  WARN -- : Creating scope :public. Overwriting existing method Venue.public.
-TGM sitemap (in production) 2017-12-10 22:31:17 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-10 22:31:41 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-10 22:36:16 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-10 22:37:11 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-11 09:22:36 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-11 09:25:58 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-11 22:39:04 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-11 23:21:03 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-12 07:37:09 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-12 07:48:56 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-13 00:36:04 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-13 00:44:53 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-13 11:02:35 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-14 22:30:05 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-14 22:32:34 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-bundler: failed to load command: rake (/home/ubuntu/projects/microsites3/vendor/bundle/ruby/2.3.0/bin/rake)
-Bundler::GitError: https://github.com/piousbox/ishapi.git (at master@d9c1806) is not yet checked out. Run `bundle install` first.
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/source/git.rb:202:in `rescue in load_spec_files'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/source/git.rb:199:in `load_spec_files'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/source/path.rb:100:in `local_specs'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/source/git.rb:166:in `specs'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/lazy_specification.rb:76:in `__materialize__'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/spec_set.rb:85:in `block in materialize'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/spec_set.rb:82:in `map!'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/spec_set.rb:82:in `materialize'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/definition.rb:170:in `specs'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/definition.rb:237:in `specs_for'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/definition.rb:226:in `requested_specs'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/runtime.rb:108:in `block in definition_method'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/runtime.rb:20:in `setup'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler.rb:107:in `setup'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/gems/2.3.0/gems/bundler-1.16.0/lib/bundler/setup.rb:20:in `<top (required)>'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
-  /home/ubuntu/.rbenv/versions/2.3.1/lib/ruby/2.3.0/rubygems/core_ext/kernel_require.rb:55:in `require'
-TGM sitemap (in production) 2017-12-20 16:43:30 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-20 16:46:40 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-22 00:55:17 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2017-12-26 08:19:43 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 24
-Photos: 222
-TGM sitemap (in production) 2017-12-26 08:56:00 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 24
-Photos: 222
-TGM sitemap (in production) 2017-12-26 21:11:35 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 24
-Photos: 222
-TGM sitemap (in production) 2017-12-26 21:56:24 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 24
-Photos: 222
-TGM sitemap (in production) 2017-12-26 21:58:40 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 24
-Photos: 222
-TGM sitemap (in production) 2017-12-26 22:02:03 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 24
-Photos: 222
-TGM sitemap (in production) 2017-12-28 19:04:15 +0000
-Cities: 96
-Venues: 51
-Reports: 6
-Galleries: 24
-Photos: 222
-TGM sitemap (in production) 2018-01-27 02:28:37 +0000
+
+TGM sitemap (in production) 2018-07-28 02:25:58 +0000
 Cities: 95
 Venues: 51
-Reports: 907
+Reports: 0
 Galleries: 25
 Photos: 230
-TGM sitemap (in production) 2018-02-05 07:43:12 +0000
+TGM sitemap (in production) 2018-07-28 02:26:36 +0000
 Cities: 95
 Venues: 51
-Reports: 907
+Reports: 0
 Galleries: 25
 Photos: 230
-TGM sitemap (in production) 2018-02-05 08:37:44 +0000
+TGM sitemap (in production) 2018-07-28 02:27:12 +0000
 Cities: 95
 Venues: 51
-Reports: 907
+Reports: 0
 Galleries: 25
 Photos: 230
-TGM sitemap (in production) 2018-02-05 09:03:14 +0000
+TGM sitemap (in production) 2018-07-28 02:29:29 +0000
 Cities: 95
 Venues: 51
-Reports: 907
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2018-02-10 22:13:08 +0000
-Cities: 95
-Venues: 51
-Reports: 907
-Galleries: 25
-Photos: 230
-TGM sitemap (in production) 2018-02-10 22:15:09 +0000
-Cities: 95
-Venues: 51
-Reports: 907
+Reports: 0
 Galleries: 25
 Photos: 230
