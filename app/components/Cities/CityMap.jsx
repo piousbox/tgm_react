@@ -49,7 +49,7 @@ class _MyMap extends React.Component {
   }
 
   render () {
-    // console.log("+++ +++ _MyMap render:", this.props, this.state)
+    console.log("+++ _MyMap render:", this.props, this.state)
 
     let markers = []
     let markersIdx = 0
@@ -134,7 +134,8 @@ class CityMap extends React.Component {
   }
 
   render () {
-    // console.log('+++ +++ cityMap render:', this.props, this.state)
+    console.log('+++ +++ CityMap render:', this.props, this.state)
+    
     if (!this.props.city.x || !this.props.city.y) { return(null) }
     
     let MyMap = withGoogleMap(_MyMap)

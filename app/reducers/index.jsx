@@ -97,7 +97,7 @@ function newsitems(state = [], action) {
 function path (state={}, action) {
   switch (action.type) {
       case SET.path:
-      return action.params
+      return action.params || state
     default:
       return state
   }

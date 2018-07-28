@@ -46,7 +46,7 @@ import { VenueShow }    from '../Venues'
 class Tgm3 extends React.Component {
   constructor(props) {
     super(props)
-    // console.log('+++ +++ tgm3 constructor:', props)
+    console.log('+++ +++ tgm3 constructor:', props)
 
     let nextState = { collapseState: 'center',
                       collapseFooter: 'up',
@@ -71,11 +71,11 @@ class Tgm3 extends React.Component {
 
     props.dispatch(pathAction(props.params))
 
-    if (props.params.cityname) {
+    if (props.match.params.cityname) {
       nextState.showLeft = CONST.cityMap
       nextState.showRight = CONST.city
     }
-    if (props.params.eventname) {
+    if (props.match.params.eventname) {
       nextState.showLeft = CONST.eventMap
       nextState.showRight = CONST.eventShow
     }
@@ -191,7 +191,7 @@ class Tgm3 extends React.Component {
   }
 
   render () {
-    // console.log('+++ +++ Tgm3 render:', this.props, this.state)
+    console.log('+++ +++ Tgm3 render:', this.props, this.state)
     
     let leftPane = (<div><Panel>default leftPane</Panel></div>)
     switch (this.state.showLeft) {

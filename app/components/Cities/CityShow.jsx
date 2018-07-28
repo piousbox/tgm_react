@@ -17,7 +17,7 @@ import { VenueWidget } from '../Venues'
 class CityShow extends React.Component {
   constructor(props) {
     super(props)
-    // console.log('+++ +++ CityShow constructor:', props)
+    console.log('+++ +++ CityShow constructor:', props)
 
     if (!props.city || !props.city.name) {
       props.dispatch(cityAction(props.params.cityname))
