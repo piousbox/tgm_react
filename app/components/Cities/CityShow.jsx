@@ -19,8 +19,8 @@ class CityShow extends React.Component {
     super(props)
     console.log('+++ +++ CityShow constructor:', props)
 
-    if (!props.city || !props.city.name) {
-      props.dispatch(cityAction(props.params.cityname))
+    if (!props.city.name) {
+      props.dispatch(cityAction(props.match.params.cityname))
     }
 
     this.componentWillReceiveProps = this.componentWillReceiveProps.bind(this)
@@ -28,10 +28,10 @@ class CityShow extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    // console.log('+++ +++ CityShow willReceiveProps:', nextProps, this.props, this.state)
+    console.log('+++ +++ CityShow willReceiveProps:', nextProps)
 
-    if (nextProps.routeParams && nextProps.routeParams.cityname && nextProps.routeParams.cityname !== this.props.params.cityname) { 
-      this.props.dispatch(cityAction(nextProps.routeParams.cityname))
+    if (nextProps.match.params.cityname && nextProps.match.params.cityname !== this.props.city.cityname) { 
+      this.props.dispatch(cityAction(nextProps.match.params.cityname))
     }
   }
 
@@ -58,7 +58,14 @@ class CityShow extends React.Component {
       })
     }
 
-    let venues = []
+    return (
+      <div className="CityShow" style={{ width: '100%', paddingRight: 10 }}>
+        <h3 className='center' >{ this.props.city.name }</h3>
+        <h4 className='center' >Galleries</h4>{ galleries }
+      </div>
+    )
+
+    /* let venues = []
     if (this.props.city.venues) {
       this.props.city.venues.map((venue, idx) => {
         venues.push(<VenueWidget key={idx} venue={ venue } city={this.props.city} />)
@@ -91,7 +98,8 @@ class CityShow extends React.Component {
         <h4 className='center' >Venues</h4>{ venues }
         <h4 className='center' >Events</h4>{ events }
       </div>
-    )
+    ) */
+
   }
 }
 

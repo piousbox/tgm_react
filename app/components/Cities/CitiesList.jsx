@@ -26,12 +26,11 @@ class CitiesList extends React.Component {
     }
   }
 
-  componentWillUpdate () {
-  }
+  componentWillUpdate () {}
 
   render () {
     console.log('+++ +++ CitiesList render:', this.props, this.state)
-    
+
     let cities = []
     if (this.props.cities.length > 0) {
       this.props.cities.forEach((city, idx) => {

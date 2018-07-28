@@ -42,10 +42,9 @@ const delta = {
   ],
   components: {}
 }
-delta.components[CONST.city] = {
-  key: CONST.city, readable: 'City', component: <CityShow />,
-  path: AppRouter.cityPath, link: AppRouter.cityLink,
-}
+delta.components[AppRouter.cityPath] = { key: CONST.city, readable: 'City', component: CityShow, path: AppRouter.cityPath }
+delta.components[AppRouter.rootPath] = { key: CONST.worldMap, readable: 'The World', component: WorldMap, path: AppRouter.rootPath }
+delta.components[AppRouter.citiesPath] = { key: CONST.cities, readable: 'Cities', component: CitiesList, path: AppRouter.citiesPath }
 
 
 const wrapped = wrapper(Tgm4, delta)
