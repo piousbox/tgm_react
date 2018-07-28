@@ -34,14 +34,18 @@ class CitiesList extends React.Component {
     let cities = []
     if (this.props.cities.length > 0) {
       this.props.cities.forEach((city, idx) => {
-        cities.push(<li key={idx} ><Link to={AppRouter.cityLink(city)}>{city.name}</Link></li>)
+        cities.push(<div className="item" key={idx} ><Link to={AppRouter.cityLink(city)}>{city.name}</Link></div>)
+        if ((idx+1)%8 === 0) {
+          cities.push(<div className="clearfix" />)
+        }
       })
     }
 
     return (
-      <div style={{ height: '100%', width: '100%' }}>
+      <div className="CitiesList" >
         <h5>Cities</h5>
-        <ul>{ cities }</ul>
+        <div className="items">{ cities }</div>
+        <div style={{ clear: 'both' }} />
       </div>
     )
   }
