@@ -17,7 +17,7 @@ import CitiesShowMap  from './CitiesShowMap'
 import { citiesShow } from '../../actions'
 
 import { Newsitems }  from 'piousbox-render'
-import { TgmRouter }  from '../App'
+import { AppRouter }  from '../App'
 
 import VideoPreview   from '../Videos/VideoPreview'
 
@@ -80,7 +80,7 @@ class CitiesWrapper extends React.Component {
     console.log('+++ +++ citiesWrapper:', this.props, this.state)
     let activeTab = null
 
-    if (this.props.router.location.pathname === TgmRouter.cityLink(this.props.params.cityname)) {
+    if (this.props.router.location.pathname === AppRouter.cityLink(this.props.params.cityname)) {
       activeTab = 'news'
     }
 
@@ -116,7 +116,7 @@ class CitiesWrapper extends React.Component {
     let galleries = []
     if (this.state.city.galleries) {
       this.state.city.galleries.forEach((n, idx) => {
-        galleries.push(<li key={idx}><Link to={TgmRouter.galleryLink(n.galleryname)}>{n.name}</Link></li>)
+        galleries.push(<li key={idx}><Link to={AppRouter.galleryLink(n.galleryname)}>{n.name}</Link></li>)
       })
     }
 
@@ -151,7 +151,7 @@ class CitiesWrapper extends React.Component {
         )
       })
     }
-    if (this.props.router.location.pathname === TgmRouter.cityVenuesLink(this.props.city)) {
+    if (this.props.router.location.pathname === AppRouter.cityVenuesLink(this.props.city)) {
       activeTab = 'venues'
     }
 
@@ -166,10 +166,10 @@ class CitiesWrapper extends React.Component {
 
     this.props.routes.forEach((r, idx) => {
       switch (r.path) {
-        case TgmRouter.cityReportsPath:
+        case AppRouter.cityReportsPath:
           activeTab = 'reports'
           break
-        case TgmRouter.cityGalleriesPath:
+        case AppRouter.cityGalleriesPath:
           activeTab = 'galleries'
           break
       }
@@ -177,20 +177,12 @@ class CitiesWrapper extends React.Component {
 
     let secondaryNav = (<Nav bsStyle="tabs" onSelect={this.handleSelect}>
             <li className={activeTab === 'news' ? 'active' : null} >
-              <Link to={TgmRouter.cityLink(this.state.city.cityname)}>News ({nNews})</Link>
+              <Link to={AppRouter.cityLink(this.state.city.cityname)}>News ({nNews})</Link>
             </li>
-            { /* <li className={activeTab === 'reports' ? 'active' : null} >
-                 <Link to={`/en/cities/travel-to/${this.state.city.cityname}/reports`}>Reports ({nReports})</Link>
-                 </li> 
-                 <li className={activeTab === 'galleries' ? 'active' : null } >
-                 <Link to={TgmRouter.cityGalleriesLink(this.state.city)}>Galleries ({nGalleries})</Link>
-                 </li>
-                 <li><a href="#">Videos ({nVideos})</a></li> */ }
             <li className={activeTab === 'venues' ? 'active' : null} >
-              <Link to={TgmRouter.cityVenuesLink(this.state.city)}>Venues ({nVenues})</Link>
+              <Link to={AppRouter.cityVenuesLink(this.state.city)}>Venues ({nVenues})</Link>
             </li>
             <li><a href="#">Events ({nEvents})</a></li>
-            { /* <li><Link to={TgmRouter.cityUsersLink(this.state.city)}>People</Link></li> */ }
     </Nav>)
     
     let mapRow = (<Row>

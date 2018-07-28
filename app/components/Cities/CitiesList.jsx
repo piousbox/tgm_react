@@ -36,7 +36,7 @@ class CitiesList extends React.Component {
       this.props.cities.forEach((city, idx) => {
         cities.push(<div className="item" key={idx} ><Link to={AppRouter.cityLink(city)}>{city.name}</Link></div>)
         if ((idx+1)%8 === 0) {
-          cities.push(<div className="clearfix" />)
+          cities.push(<div key={`${idx}c`} className="clearfix" />)
         }
       })
     }

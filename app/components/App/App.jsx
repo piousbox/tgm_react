@@ -15,7 +15,7 @@ import { CONST } from '../../constants'
 
 import AppRouter from './AppRouter'
 import Home    from './Home'
-import { CityMap, CitiesList, CityShow, CityWrapper } from '../Cities'
+import { CitiesList, CityShow } from '../Cities'
 
 
 /* const routes = [
@@ -41,7 +41,7 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path={AppRouter.cityPath} component={CityWrapper} />
+          <Route path={AppRouter.cityPath} component={CityShow} />
           <Route path="/" component={Home} exact />
         </Switch>
       </BrowserRouter>
