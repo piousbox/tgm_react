@@ -20,17 +20,15 @@ import {
 import {
   citiesAction,
   cityAction,
-
   pathAction,
 } from '../../actions'
 
 import { CONST } from '../../constants'
 
-
+import AppRouter   from './AppRouter'
 import Breadcrumbs from './Breadcrumbs'
 import FbConnect   from './FbConnect'
 import Headers     from './Headers'
-import TgmRouter   from './TgmRouter'
 import WorldMap    from './WorldMap'
 
 import { 
@@ -54,8 +52,8 @@ class Tgm3 extends React.Component {
                       collapseFooter: 'up',
                       showLeft: CONST.worldMap, // map
                       showRight: CONST.news,
-                      leftFolds: [ { key: CONST.worldMap, readable: 'Map' },
-                                   { key: CONST.cityMap, readable: 'City Map' },
+                      leftFolds: [ { key: CONST.worldMap, readable: 'Map', path: AppRouter.rootPath },
+                                   { key: CONST.cityMap,  readable: 'City Map' },
                                    { key: CONST.venueMap, readable: 'Venue Map' },
                                    { key: CONST.eventMap, readable: 'Event Map' },
                       ],
@@ -234,8 +232,11 @@ class Tgm3 extends React.Component {
 
     let leftFolds = []
     this.state.leftFolds.map((i, idx) => {
-      leftFolds.push(<li style={{ cursor: 'pointer' }} key={idx} className={this.state.showLeft === i.key ? 'active' : ''}>
-              <a href="#" onClick={(e) => { e.preventDefault(); this.showLeft(i.key) }}>{i.readable}</a></li>)
+      leftFolds.push(
+        <li style={{ cursor: 'pointer' }} key={idx} className={this.state.showLeft === i.key ? 'active' : ''}>
+          <Link to={i.path}>{i.readable}</Link>
+          { /* <a href="#" onClick={(e) => { e.preventDefault(); this.showLeft(i.key) }}>{i.readable}</a> */ }
+        </li>)
     })
       
     let rightFolds = []

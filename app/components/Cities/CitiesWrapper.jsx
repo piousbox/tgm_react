@@ -16,7 +16,7 @@ import CitiesShowMap  from './CitiesShowMap'
 
 import { citiesShow } from '../../actions'
 
-import { Newsitems }  from '../Newsitems'
+import { Newsitems }  from 'piousbox-render'
 import { TgmRouter }  from '../App'
 
 import VideoPreview   from '../Videos/VideoPreview'

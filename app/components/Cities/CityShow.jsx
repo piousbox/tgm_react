@@ -11,7 +11,7 @@ import {
   Panel,
 } from 'react-bootstrap'
 
-import { Newsitem } from '../Newsitems'
+import { Newsitem, NewsitemGallery } from 'piousbox-render'
 import { VenueWidget } from '../Venues'
 
 class CityShow extends React.Component {
@@ -28,7 +28,7 @@ class CityShow extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    console.log('+++ +++ CityShow willReceiveProps:', nextProps, this.props, this.state)
+    // console.log('+++ +++ CityShow willReceiveProps:', nextProps, this.props, this.state)
 
     if (nextProps.routeParams && nextProps.routeParams.cityname && nextProps.routeParams.cityname !== this.props.params.cityname) { 
       this.props.dispatch(cityAction(nextProps.routeParams.cityname))
@@ -50,6 +50,14 @@ class CityShow extends React.Component {
       })
     } */
 
+    let galleries = []
+    if (this.props.city.galleries) {
+      this.props.city.galleries.map((gallery, idx) => {
+        galleries.push(<NewsitemGallery key={idx} item={gallery} 
+          link={AppRouter.cityGalleryLink( this.props.city, gallery )} />)
+      })
+    }
+
     let venues = []
     if (this.props.city.venues) {
       this.props.city.venues.map((venue, idx) => {
@@ -67,7 +75,7 @@ class CityShow extends React.Component {
     let events = []
     if (this.props.city.events) {
       this.props.city.events.map((event, idx) => {
-        events.push(
+        events.push( // HEREHERE, make this the eventWidget
           <Panel key={idx}>
             <img src={event.photo} style={{ width: 100, height: 100, background: '#cecece' }} />
             <Link to={AppRouter.cityEventLink(this.props.city.cityname, event.eventname)}>{ event.name }</Link>
@@ -78,6 +86,7 @@ class CityShow extends React.Component {
     return (
       <div className="CityShow" style={{ width: '100%', paddingRight: 10 }}>
         <h3 className='center' >{ this.props.city.name }</h3>
+        <h4 className='center' >Galleries</h4>{ galleries }
         <div className="tags"><h4>Tags</h4>{ tags }</div>
         <h4 className='center' >Venues</h4>{ venues }
         <h4 className='center' >Events</h4>{ events }

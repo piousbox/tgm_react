@@ -20,7 +20,7 @@ import { profileAction, loginAction, logoutAction } from '../../actions'
 
 import config from 'config'
 
-import Center from '../Center'
+import { Center } from '../App'
 
 import AppRouter from './AppRouter'
 import TgmApi from './TgmApi'

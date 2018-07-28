@@ -40,3 +40,4 @@ You have to have local API running at localhost:3000, so do:
 
 Port 8005
 
+google-maps-react (^1.0) is... out for now.

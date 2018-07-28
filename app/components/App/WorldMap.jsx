@@ -6,7 +6,7 @@ import {
 import { Link } from 'react-router'
 
 import { citiesAction } from '../../actions'
-import TgmRouter from './TgmRouter'
+import AppRouter from './AppRouter'
 
 class _Map extends React.Component {
   constructor(props) {

@@ -7,7 +7,8 @@ import { Link } from 'react-router'
 
 import { featureCitiesAction, newsAction } from '../../actions'
 import AppRouter from './AppRouter'
-import { Newsitem } from '../Newsitems'
+
+import { Newsitem } from 'piousbox-render'
 
 class News extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class News extends React.Component {
   }
 
   render () {
-    console.log('+++ +++ News render:', this.props, this.state)
+    // console.log('+++ +++ News render:', this.props, this.state)
     if (this.props.newsitems.length === 0) { return (null) }
 
     let news = []

@@ -34,32 +34,11 @@ import { Tgm3 } from './'
 
 const routes = [
   { component: Tgm3, path: '/', },
+  { component: Tgm3, path: AppRouter.rootPath },
   { component: Tgm3, path: AppRouter.cityPath },
   { component: Tgm3, path: AppRouter.cityEventPath },
   { component: Tgm3, path: AppRouter.cityGalleryPath },
   { component: Tgm3, path: AppRouter.cityVenuePath },
-
-  // { component: Tgm2, path: AppRouter.citiesPath },
-  /* { path: '/',
-    component: Tgm2,
-    indexRoute: { component: Home },
-    childRoutes: [
-
-      { path: '/en/cities', component: CitiesIndex },
-      { path: AppRouter.cityWrapperPath, component: CitiesWrapper, childRoutes: [
-        { path: AppRouter.cityPath, component: CitiesShow },
-        { path: AppRouter.cityGalleriesPath, component: GalleriesIndex },
-        { path: AppRouter.cityReportsPath, component: ReportsIndex },
-        { path: AppRouter.cityUsersPath, component: UsersShow },
-        { path: AppRouter.cityVenuePath, component: VenuesShow },
-        { path: AppRouter.cityVenuesPath, component: VenuesIndex },
-      ]},
-      { path: AppRouter.cityEventPath, component: EventsShow },
-      
-      { path: '/en/profile', component: Profile },
-      
-    ],
-  }, */
 ]
 
 class App extends React.Component {

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
-import TgmRouter   from './TgmRouter'
+import AppRouter   from './AppRouter'
 import Breadcrumbs from './Breadcrumbs'
 
 class Headers extends React.Component {

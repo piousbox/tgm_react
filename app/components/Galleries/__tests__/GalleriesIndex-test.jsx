@@ -15,7 +15,7 @@ import store from '../../../stores'
 
 describe('GalleriesIndex', () => {
 
-  it('Should render GI Home', () => {
+  it('Should render GalleriesIndex', () => {
     let store1 = mockStore({
       city: {
         galleries: [
@@ -24,11 +24,14 @@ describe('GalleriesIndex', () => {
       }
     })
     let home = ReactTestUtils.renderIntoDocument(
-      <Provider store={store1} ><GalleriesIndex store={store1} params={{cityname: 'cityname'}} galleries={{ gallery: [1, 2, 3] }} g3={"g5"}
+      <Provider store={store1} ><GalleriesIndex store={store1} params={{cityname: 'cityname'}}
+                                                galleries={{ gallery: [1, 2, 3] }} g3={"g5"}
                       props={{ g1: 'g1', galleries: 'az' }} /></Provider>
     )
     let elem = ReactDOM.findDOMNode(home)
-    // console.log('+++ elem:', elem)
+    
+    console.log('+++ elem:', elem, elem.querySelector('h2 a'))
+    
     expect(elem.tagName.toLowerCase()).to.equal('div')
     expect(elem.querySelector('h2 a').innerHTML).to.eql('Name')
   })

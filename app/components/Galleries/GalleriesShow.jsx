@@ -6,7 +6,7 @@ import { Grid, Row, Col,
 import { connect } from 'react-redux'
 
 import { galleriesShow } from '../../actions'
-import Center from '../Center'
+import { Center } from '../App'
 import styles from './_Galleries.scss'
 
 class GalleriesShow extends React.Component {

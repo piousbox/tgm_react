@@ -7,24 +7,23 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import config from 'config'
-import Center from '../Center'
-import Clearfix from '../Clearfix'
+import { Center } from '../App'
 
 import {
   SET,
 } from '../../constants'
 
-import { citiesIndex } from '../../actions'
+import { citiesAction } from '../../actions'
 
 import Leaderboard from '../App/Leaderboard'
 
 class CitiesIndex extends React.Component {
-
   constructor(props) {
     super(props)
+
     this.state = { cities: [], filteredCities: [] }
     this.handleCitiesFilterChange = this.handleCitiesFilterChange.bind(this)
-    this.props.dispatch(citiesIndex())
+    this.props.dispatch(citiesAction())
   }
   
   componentWillMount() {
@@ -73,7 +72,7 @@ class CitiesIndex extends React.Component {
           </Center></Panel>
         </Col>)
       if (ans) {
-        cities.push(<Clearfix key={keyIdx++} />)
+        cities.push(<div style={{ clear: 'both' }} key={keyIdx++} />)
       }
     })
 

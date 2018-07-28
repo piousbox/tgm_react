@@ -7,7 +7,7 @@ import { Grid, Row, Col,
  } from 'react-bootstrap'
 
 import config from 'config'
-import Center from '../Center'
+import { Center } from '../App'
 import { galleriesIndex } from '../../actions'
 import GalleriesIndexItem from './GalleriesIndexItem'
 
@@ -32,12 +32,10 @@ class GalleriesIndex extends React.Component {
     console.log('+++ +++ GalleriesIndex render:', this.props, this.state)
 
     let galleries = []
-    if (this.state.galleries) {
-      this.state.galleries.forEach((n, idx) => {
-        galleries.push(<GalleriesIndexItem key={idx} gallery={n} />)
-      })
-    }
-
+    this.props.galleries && this.props.galleries.forEach((n, idx) => {
+      galleries.push(<GalleriesIndexItem key={idx} gallery={n} />)
+    })
+    
     return (
       <Grid>
         <Row>
