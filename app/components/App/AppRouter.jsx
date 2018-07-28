@@ -1,5 +1,5 @@
 
-let TgmRouter = {
+let AppRouter = {
   rootPath: '/en/sites/show/travel-guide.mobi',
 
   citiesPath: '/:lang(en|ru|pt|es)/cities',
@@ -26,7 +26,7 @@ let TgmRouter = {
     }
   },
 
-  cityGalleryPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/galleries/view/:galleryname',
+  cityGalleryPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/galleries/show/:galleryname',
   cityGalleryLink: (g={}, gg=null) => {
     return `/en/cities/travel-to/${g.cityname}/galleries/view/${g.galleryname}`    
   },
@@ -38,6 +38,8 @@ let TgmRouter = {
       return `/en/cities/travel-to/${g.cityname}/galleries`
     }
   },
+  cityGalleryLink: (c, g) => { return `/en/cities/travel-to/${c.cityname}/galleries/show/${g.galleryname}` },
+  cityGalleryPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/galleriew/show/:galleryname',
 
   cityUsersPath: '/:lang(en|ru|pt|es)/cities/travel-to/:cityname/people',
   cityUsersLink: (g) => {
@@ -140,4 +142,4 @@ let TgmRouter = {
 
 }
 
-export default TgmRouter
+export default AppRouter

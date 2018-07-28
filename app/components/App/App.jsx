@@ -34,6 +34,7 @@ import { Tgm3 } from './'
 
 const routes = [
   { component: Tgm3, path: '/', },
+  { component: Tgm3, path: AppRouter.rootPath },
   { component: Tgm3, path: AppRouter.cityPath },
   { component: Tgm3, path: AppRouter.cityEventPath },
   { component: Tgm3, path: AppRouter.cityGalleryPath },

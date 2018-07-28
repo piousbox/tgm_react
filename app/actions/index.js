@@ -1,6 +1,6 @@
 
 /*
- * tgm_react (of bjjc) appActions.js
+ * tgm_react actions / index.js
  */
 
 // import ReduxThunk from 'redux-thunk'
@@ -42,6 +42,8 @@ const citiesAction = () => {
   return (dispatch, getState) => { 
     let state = getState()
     let url = `${config.apiUrl}/api/cities.json`
+    
+    console.log('+++ citiesAction')
     
     if (state.cities.length > 0) {
       dispatch({

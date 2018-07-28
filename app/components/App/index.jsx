@@ -18,7 +18,7 @@ class Center extends React.Component {
   }
 }
 
-export default {
+export {
   Breadcrumbs,
 
   docTitle,
