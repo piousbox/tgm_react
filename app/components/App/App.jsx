@@ -14,40 +14,19 @@ import store     from '../../stores'
 import { CONST } from '../../constants'
 
 import AppRouter from './AppRouter'
-import { Tgm4 } from './'
-import { wrapper } from './Tgm4Wrapper'
-
-import WorldMap    from './WorldMap'
-import { 
-  CityMap, CitiesList, CityShow
-} from '../Cities'
-
-const routes = [
-  { component: Tgm4, path: '/', },
-  { component: Tgm4, path: AppRouter.rootPath },
-  { component: Tgm4, path: AppRouter.cityPath },
-  { component: Tgm4, path: AppRouter.cityEventPath },
-  { component: Tgm4, path: AppRouter.cityGalleryPath },
-  { component: Tgm4, path: AppRouter.cityVenuePath },
-]
-
-const delta = {
-  leftPane: WorldMap,
-  rightPane: CitiesList,
-  leftTabs: [
-    { key: CONST.worldMap, readable: 'The World', path: AppRouter.rootPath },
-  ],
-  rightTabs: [
-    { key: CONST.cities, readable: 'Cities', path: AppRouter.citiesPath },
-  ],
-  components: {}
-}
-delta.components[AppRouter.cityPath] = { key: CONST.city, readable: 'City', component: CityShow, path: AppRouter.cityPath }
-delta.components[AppRouter.rootPath] = { key: CONST.worldMap, readable: 'The World', component: WorldMap, path: AppRouter.rootPath }
-delta.components[AppRouter.citiesPath] = { key: CONST.cities, readable: 'Cities', component: CitiesList, path: AppRouter.citiesPath }
+import Home    from './Home'
+import { CityMap, CitiesList, CityShow, CityWrapper } from '../Cities'
 
 
-const wrapped = wrapper(Tgm4, delta)
+/* const routes = [
+  { component: Home, path: '/', },
+  { component: Home, path: AppRouter.rootPath },
+  { component: CityShow, path: AppRouter.cityPath },
+
+  { component: EventShow, path: AppRouter.cityEventPath },
+  { component: GalleryShow, path: AppRouter.cityGalleryPath },
+  { component: VenueShow, path: AppRouter.cityVenuePath },
+] */
 
 class App extends React.Component {
   constructor(props) {
@@ -62,8 +41,8 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route path={AppRouter.cityPath} component={wrapped} />
-          <Route path="/" component={wrapped} exact />
+          <Route path={AppRouter.cityPath} component={CityWrapper} />
+          <Route path="/" component={Home} exact />
         </Switch>
       </BrowserRouter>
     );

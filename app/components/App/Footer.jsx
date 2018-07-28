@@ -13,7 +13,7 @@ import config from 'config'
 import { siteShow } from '../../actions'
 
 import { Link } from 'react-router'
-import TgmRouter from './TgmRouter'
+import AppRouter from './AppRouter'
 
 import es from './images/flags/es.png'
 import ru from './images/flags/ru.png'
@@ -58,7 +58,7 @@ class Footer2 extends React.Component {
           default:
             flag = en
         }            
-        langs.push(<li key={lang} ><Link to={TgmRouter.siteLink(lang)}><img src={flag} alt={lang} /></Link></li>)
+        langs.push(<li key={lang} ><Link to={AppRouter.siteLink(lang)}><img src={flag} alt={lang} /></Link></li>)
       })
     }
 

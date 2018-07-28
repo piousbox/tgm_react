@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import AppRouter   from './AppRouter'
-import Breadcrumbs from './Breadcrumbs'
 
 class Headers extends React.Component {
   constructor(props) {
@@ -29,9 +28,6 @@ class Headers extends React.Component {
           <li><Link to="/about">About</Link></li>
           <li><Link to="/profile">Profile</Link></li>
         </ul>
-        <div className="header-2" style={{ zIndex: 2 }} >
-          <Breadcrumbs path="/" />
-        </div>
       </div>
     )
   }

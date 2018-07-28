@@ -7,7 +7,7 @@ import { Grid, Row, Col,
 import { connect } from 'react-redux'
 import { Link }    from 'react-router'
 
-import TgmRouter from './TgmRouter'
+import AppRouter from './AppRouter'
 
 class Features extends React.Component {
 
@@ -37,7 +37,7 @@ class Features extends React.Component {
         } else if (f.reportname) {
           panel = (
             <Panel style={panelStyle}>
-              <h3><Link to={TgmRouter.reportLink(f.reportname)}  >{ f.name }</Link></h3>
+              <h3><Link to={AppRouter.reportLink(f.reportname)}  >{ f.name }</Link></h3>
               <img src={f.photo_url} alt={f.name} />
               <br />
               { f.subhead }
@@ -45,7 +45,7 @@ class Features extends React.Component {
         } else if (f.galleryname) {
           panel = (
             <Panel style={panelStyle}>
-              <h3><Link to={TgmRouter.galleryPhotoLink(f.galleryname)}  >{ f.name }</Link></h3>
+              <h3><Link to={AppRouter.galleryPhotoLink(f.galleryname)}  >{ f.name }</Link></h3>
               <img src={f.photo_url} alt={f.name} />
               <br />
               { f.subhead }

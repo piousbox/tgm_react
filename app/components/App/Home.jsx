@@ -10,20 +10,16 @@ import { Grid, Row, Col,
          Nav, NavItem, Navbar,
 } from 'react-bootstrap'
 
-import { Link } from 'react-router'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import config from 'config'
+import { siteShow } from '../../actions'
 
-import Clearfix      from './Clearfix'
 import styles        from './_App.scss'
 import Features      from './Features'
 import Footer        from './Footer'
-import { Newsitems  } from '../Newsitems'
 
-import { LinkContainer } from 'react-router-bootstrap'
-
-import { siteShow } from '../../actions'
 
 const loginFbUser = (r) => {
   console.log('+++ +++ todo!')
@@ -43,19 +39,15 @@ class Home extends React.Component {
 
   constructor(props) {
     super(props) 
-    props.dispatch(siteShow());
-
     // console.log('+++ +++ Home constructor:', props)
-    if (props.site) {
-      localStorage.setItem("lang", props.site.lang)
-    }
+
+    // props.dispatch(siteShow())
   }
 
-  componentWillMount() {
-  }
+  componentWillMount() {}
 
   render () {
-    // console.log('+++ +++ rendering Home:', this.props)
+    console.log('+++ +++ rendering Home:', this.props)
 
     return (
       <div className="page">
