@@ -34,12 +34,12 @@ class App extends React.Component {
   render() {
     // console.log('+++ +++ App render:', this.props, this.state)
     return (
-      <Router>
-        <div>
+      <BrowserRouter>
+        <Switch>
           <Route path={AppRouter.cityPath} component={Tgm3} />
           <Route path="/" component={Tgm3} exact />
-        </div>
-      </Router>
+        </Switch>
+      </BrowserRouter>
     );
   }
 }

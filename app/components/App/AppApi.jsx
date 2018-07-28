@@ -1,7 +1,7 @@
 
 import config from 'config'
 
-let TgmApi = {
+let AppApi = {
   fbLogin:       `${config.apiUrl}/api/users/fb_sign_in`,
   profile:       `${config.apiUrl}/api/users/profile?domain=${config.domain}`,
   updateProfile: `${config.apiUrl}/api/users/profile/update`,
@@ -9,4 +9,4 @@ let TgmApi = {
   buyStars:      `${config.apiUrl}/api/buyStars`,
 }
 
-export default TgmApi
+export default AppApi

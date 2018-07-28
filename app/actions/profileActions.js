@@ -3,13 +3,13 @@ import {
   SET,
 } from '../constants'
 
-import TgmApi from '../components/App/TgmApi'
+import AppApi from '../components/App/AppApi'
 
 const profileAction = () => {
   return (dispatch, getState) => {
     if (localStorage.getItem('fbAccount')) {
       let fbAccount = JSON.parse(localStorage.getItem('fbAccount'))
-      fetch(TgmApi.profile, {
+      fetch(AppApi.profile, {
         method: 'POST',
         headers: new Headers({
           'Content-Type': 'application/json',

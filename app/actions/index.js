@@ -24,8 +24,6 @@ import {
 
 import config from 'config'
 
-import TgmApi from '../components/App/TgmApi'
-
 const setLocation = (locationName) => {
   return (dispatch, getState) => {
     let url = `${config.apiUrl}/api/locations/${locationName}.json`

@@ -16,8 +16,6 @@ import { reportsShowReducer, reportsReducer } from './reportsReducer'
 import { sitesReducer } from './sitesReducer'
 import { venueReducer, venuesReducer, } from './venuesReducer'
 
-import TgmApi from '../components/App/TgmApi'
-
 import config from 'config'
 
 // e
@@ -55,10 +53,6 @@ const galleries = (state=[], action) => {
 function locationReducer (state = {}, action) {
   switch (action.type) {
     case SET_LOCATION:
-      /* fetch(TgmApi.location( action.locationname )).then(r => r.json()).then(_data => {
-        console.log("+++ +++ locationReducer data is:", _data)
-        return _data.location
-      }) */
       return action.location
     default:
       return state

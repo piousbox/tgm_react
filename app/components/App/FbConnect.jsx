@@ -23,7 +23,6 @@ import config from 'config'
 import { Center } from '../App'
 
 import AppRouter from './AppRouter'
-import TgmApi from './TgmApi'
 
 const MyFacebookButton = ({ onClick }) => (
   <button onClick={onClick}>F</button>
